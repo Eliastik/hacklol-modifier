@@ -55,7 +55,7 @@ html, body {
     -o-transform: translateZ(0);
 }
 .scrollBarAuto {
-    overflow: auto !important;
+    overflow-y: auto !important;
 }
 /* styles de texte */
 .red {
