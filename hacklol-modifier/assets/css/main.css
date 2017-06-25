@@ -527,11 +527,16 @@ checkbox[disabled=disabled]:checked:active, input[type=checkbox]:checked:active,
     margin: auto;
     width:50%;
     overflow:auto;
-    border:1px solid black;
+    border-radius: 30px;
     background-color:white;
     z-index:1215;
-    box-shadow: 8px 8px 12px #aaa;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.30);
+    -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.30);
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.30);
     padding:15px;
+    /* https://www.alsacreations.com/tuto/lire/1032-comment-centrer-verticalement-sur-tous-les-navigateurs.html */
+    margin-top: 50vh;
+    transform: translateY(-50%);
 }
 #chargement {
     position: relative;
@@ -541,11 +546,17 @@ checkbox[disabled=disabled]:checked:active, input[type=checkbox]:checked:active,
     margin: auto;
     width:50%;
     overflow:auto;
-    border:1px solid black;
+    border-radius: 30px;
     background-color:white;
     z-index:1212;
-    box-shadow: 8px 8px 12px #aaa;
     padding:15px;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.30);
+    -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.30);
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.30);
+    padding: 15px;
+    /* https://www.alsacreations.com/tuto/lire/1032-comment-centrer-verticalement-sur-tous-les-navigateurs.html */
+    margin-top: 50vh;
+    transform: translateY(-50%);
 }
 #noscript > h1, #chargement > h1 {
     border-bottom: 1px solid grey;

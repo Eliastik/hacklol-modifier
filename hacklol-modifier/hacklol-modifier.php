@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width">
     <!-- styles css -->
     <!-- css page -->
-    <link rel="stylesheet" href="assets/css/main.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
     <!-- css popup -->
     <link rel="stylesheet" href="libs/css/magnific-popup.css">
     <!-- csshake -->
