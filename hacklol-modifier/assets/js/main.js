@@ -213,7 +213,12 @@ var hacklol = {
                         loadedAudioCount++;
                         clearTimeout(timeOutLoading);
                         var timeOutLoading = setTimeout(function() {
-                            hacklol.completeLoading()
+                            if(loadInBackground !== true) {
+                                hacklol.completeLoading();
+                                $("#background-loading-indicator").fadeIn();
+                                loadInBackground = true;
+                            }
+                            clearTimeout(timeOutLoading);
                         }, 5000);
                         var errorLoadingAudio = true;
                         var pourcentageLoadingAudio = Math.round((100*loadedAudioCount)/audioFiles.length);
@@ -230,7 +235,9 @@ var hacklol = {
                             $("#backgroundPourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
                         }
                         if (loadedAudioCount >= audioFiles.length) {
+                            clearTimeout(timeOutLoading);
                             hacklol.completeLoading();
+                            $("#wrapper-background-loading-indicator").fadeOut();
                         }
                         audioFilesLoaded.push(this.src);
                     }
@@ -241,6 +248,7 @@ var hacklol = {
                         $("#background-loading-indicator").fadeIn();
                         loadInBackground = true;
                     }
+                    clearTimeout(timeOutLoading);
                 }, 5000);
                 for (var i in audioFiles) {
                     (function() {
@@ -252,7 +260,12 @@ var hacklol = {
                                 loadedAudioCount++;
                                 clearTimeout(timeOutLoading);
                                 var timeOutLoading = setTimeout(function() {
-                                    hacklol.completeLoading()
+                                    if(loadInBackground !== true) {
+                                        hacklol.completeLoading();
+                                        $("#background-loading-indicator").fadeIn();
+                                        loadInBackground = true;
+                                    }
+                                    clearTimeout(timeOutLoading);
                                 }, 5000);
                                 var pourcentageLoadingAudio = Math.round((100*loadedAudioCount)/audioFiles.length);
                                 $("#progressLoading").css("width", pourcentageLoadingAudio + "%");
@@ -268,7 +281,9 @@ var hacklol = {
                                     $("#backgroundPourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
                                 }
                                 if (loadedAudioCount >= audioFiles.length) {
+                                    clearTimeout(timeOutLoading);
                                     hacklol.completeLoading();
+                                    $("#wrapper-background-loading-indicator").fadeOut();
                                 }
                                 audioFilesLoaded.push(this.src);
                             }
@@ -286,7 +301,6 @@ var hacklol = {
         }
     },
     completeLoading: function() {
-        $("#background-loading-indicator").fadeOut();
         if(loadInBackground !== true) {
             // EXECUTION PARAMETRES
             hacklol.settings.exe();
@@ -296,6 +310,7 @@ var hacklol = {
             // BSOD BlinkFont
             hacklol.blinkFontBSOD();
         }
+        $("#background-loading-indicator").fadeOut();
     }
 };
 hacklol.console();
