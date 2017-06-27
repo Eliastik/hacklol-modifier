@@ -585,7 +585,6 @@ checkbox[disabled=disabled]:checked:active, input[type=checkbox]:checked:active,
     font-family: "Open Sans", Arial, sans-serif;
     font-size:12pt;
     margin: auto;
-    padding: 20px;
     width: auto;
     max-width: 500px;
     overflow:auto;
@@ -597,7 +596,6 @@ checkbox[disabled=disabled]:checked:active, input[type=checkbox]:checked:active,
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
-    padding:15px;
     /* https://www.alsacreations.com/tuto/lire/1032-comment-centrer-verticalement-sur-tous-les-navigateurs.html */
     margin-top: 50vh;
     transform: translateY(-50%);
@@ -608,7 +606,6 @@ checkbox[disabled=disabled]:checked:active, input[type=checkbox]:checked:active,
     font-family: "Open Sans", Arial, sans-serif;
     font-size:12pt;
     margin: auto;
-    padding: 20px;
     width: auto;
     max-width: 500px;
     overflow:auto;
@@ -621,7 +618,6 @@ checkbox[disabled=disabled]:checked:active, input[type=checkbox]:checked:active,
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
-    padding: 15px;
     /* https://www.alsacreations.com/tuto/lire/1032-comment-centrer-verticalement-sur-tous-les-navigateurs.html */
     margin-top: 50vh;
     transform: translateY(-50%);
@@ -779,18 +775,23 @@ img.img-resize {
     margin-right: auto;
     text-align: center;
 }
-#page-loading-indicator {
+#background-loading-indicator {
     font-family: "Open Sans", Arial, sans-serif;
-    font-size: 16pt;
+    font-size: 12pt;
     padding: 10px;
     position: absolute;
     bottom: 15px;
     left: 15px;
     width: auto;
     height; auto;
-    border: 2px solid black;
     background-color: white;
     z-index: 1206;
+    -webkit-box-shadow: 0px 1px 20px #666666;
+    -moz-box-shadow: 0px 1px 20px #666666;
+    box-shadow: 0px 1px 20px #666666;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
 }
 /* menus */
 .menu, #menuMobile, #lienMenuMobile {

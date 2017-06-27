@@ -147,10 +147,14 @@ var hacklol = {
                 $("#progressLoading").css("width", pourcentageLoading + "%");
                 if(hacklol.lang == "en") {
                     $("#loadingInfos").text("Loading graphic data…");
+                    $("#backgroundLoadingInfos").text("Loading graphic data…");
                     $("#pourcentageLoadingInfos").text(pourcentageLoading + "%");
+                    $("#backgroundPourcentageLoadingInfos").text(pourcentageLoading + "%");
                 } else {
                     $("#loadingInfos").text("Chargement des données graphiques…");
+                    $("#backgroundLoadingInfos").text("Chargement des données graphiques…");
                     $("#pourcentageLoadingInfos").text(pourcentageLoading + "%");
+                    $("#backgroundPourcentageLoadingInfos").text(pourcentageLoading + "%");
                 }
                 if (loadedImagesCount >= imageNames.length) {
                     hacklol.loadAudio();
@@ -164,10 +168,14 @@ var hacklol = {
                 $("#progressLoading").css("width", pourcentageLoading + "%");
                 if(hacklol.lang == "en") {
                     $("#loadingInfos").text("Loading graphic data…");
+                    $("#backgroundLoadingInfos").text("Loading graphic data…");
                     $("#pourcentageLoadingInfos").text(pourcentageLoading + "%");
+                    $("#backgroundPourcentageLoadingInfos").text(pourcentageLoading + "%");
                 } else {
                     $("#loadingInfos").text("Chargement des données graphiques…");
+                    $("#backgroundLoadingInfos").text("Chargement des données graphiques…");
                     $("#pourcentageLoadingInfos").text(pourcentageLoading + "%");
+                    $("#backgroundPourcentageLoadingInfos").text(pourcentageLoading + "%");
                 }
                 if (loadedImagesCount >= imageNames.length) {
                     hacklol.loadAudio();
@@ -179,16 +187,21 @@ var hacklol = {
     },
     loadAudio: function() {
         $("#loadingInfos").css("color", "");
+        $("#backgroundLoadingInfos").css("color", "");
         $("#progressLoading").css("width", "0%");
         if (window.HTMLAudioElement) {
             var audioTestMp3 = document.createElement('audio');
             if (audioTestMp3.canPlayType && audioTestMp3.canPlayType("audio/mpeg")) {
                 if(hacklol.lang == "en") {
                     $("#loadingInfos").text("Loading audio data…");
+                    $("#backgroundLoadingInfos").text("Loading audio data…");
                     $("#pourcentageLoadingInfos").text("0%");
+                    $("#backgroundPourcentageLoadingInfos").text("0%");
                 } else {
                     $("#loadingInfos").text("Chargement des données audio…");
+                    $("#backgroundLoadingInfos").text("Chargement des données audio…");
                     $("#pourcentageLoadingInfos").text("0%");
+                    $("#backgroundPourcentageLoadingInfos").text("0%");
                 }
                 var loadedAudioCount = 0;
                 var errorLoadingAudio = false;
@@ -207,10 +220,14 @@ var hacklol = {
                         $("#progressLoading").css("width", pourcentageLoadingAudio + "%");
                         if(hacklol.lang == "en") {
                             $("#loadingInfos").text("Loading audio data…");
+                            $("#backgroundLoadingInfos").text("Loading audio data…");
                             $("#pourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
+                            $("#backgroundPourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
                         } else {
                             $("#loadingInfos").text("Chargement des données audio…");
+                            $("#backgroundLoadingInfos").text("Chargement des données audio…");
                             $("#pourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
+                            $("#backgroundPourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
                         }
                         if (loadedAudioCount >= audioFiles.length) {
                             hacklol.completeLoading();
@@ -219,7 +236,9 @@ var hacklol = {
                     }
                 };
                 var timeOutLoading = setTimeout(function() {
-                    hacklol.completeLoading()
+                    hacklol.completeLoading();
+                    $("#background-loading-indicator").fadeIn();
+                    loadInBackground = true;
                 }, 5000);
                 for (var i in audioFiles) {
                     (function() {
@@ -237,10 +256,14 @@ var hacklol = {
                                 $("#progressLoading").css("width", pourcentageLoadingAudio + "%");
                                 if(hacklol.lang == "en") {
                                     $("#loadingInfos").text("Loading audio data…");
+                                    $("#backgroundLoadingInfos").text("Loading audio data…");
                                     $("#pourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
+                                    $("#backgroundPourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
                                 } else {
                                     $("#loadingInfos").text("Chargement des données audio…");
+                                    $("#backgroundLoadingInfos").text("Chargement des données audio…");
                                     $("#pourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
+                                    $("#backgroundPourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
                                 }
                                 if (loadedAudioCount >= audioFiles.length) {
                                     hacklol.completeLoading();
@@ -261,6 +284,7 @@ var hacklol = {
         }
     },
     completeLoading: function() {
+        $("#background-loading-indicator").fadeOut();
         if(loadInBackground !== true) {
             // EXECUTION PARAMETRES
             hacklol.settings.exe();
@@ -1316,7 +1340,11 @@ $(document).ready(function() {
     // Charger en arrière-plan
     $("#loadInBackground").click(function() {
         hacklol.completeLoading();
+        $("#background-loading-indicator").fadeIn();
         loadInBackground = true;
+    });
+    $("#background-loading-indicator").click(function() {
+        $("#background-loading-indicator").fadeOut();
     });
     // Chargement images
     hacklol.loadImages();
