@@ -1368,6 +1368,8 @@ $(document).ready(function() {
     $("#background-loading-indicator").click(function() {
         $("#background-loading-indicator").fadeOut();
     });
+    // Open toolbar button draggable
+    $("#mask_opbh").draggable();
     // Chargement images
     hacklol.loadImages();
     // AFFICHER VERSION ET DATE DE VERSION HACKLOL Modifier
