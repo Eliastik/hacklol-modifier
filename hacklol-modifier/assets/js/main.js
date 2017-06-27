@@ -1373,7 +1373,14 @@ $(document).ready(function() {
         $("#background-loading-indicator").fadeOut();
     });
     // Open toolbar button draggable
-    $("#mask_opbh").draggable();
+    $("#btn-show-toolbar").draggable();
+    $("#btn-show-toolbar-paint").draggable();
+    $(window).on('resize', function() {
+        $("#btn-show-toolbar").css("top", "");
+        $("#btn-show-toolbar").css("left", "");
+        $("#btn-show-toolbar-paint").css("top", "");
+        $("#btn-show-toolbar-paint").css("left", "");
+    });
     // Chargement images
     hacklol.loadImages();
     // AFFICHER VERSION ET DATE DE VERSION HACKLOL Modifier
@@ -1607,7 +1614,7 @@ $(document).ready(function() {
     $("#btn-show-toolbar-paint").click(function() {
         hacklol.ui.paint.showToolbar();
     });
-    // REDIMENSIONNE AUTOMATIQUEMENT LE CANVAS DU PAINT. PROBLEME : SUPPRIME LE DESSIN A CHAQUE REDIMENSIONNEMENT (corrigé)
+    // REDIMENSIONNE AUTOMATIQUEMENT LE CANVAS DU PAINT.
     (function() {
         if(window.HTMLCanvasElement) {
             var canvas,
