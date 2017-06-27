@@ -17,6 +17,8 @@
     <!-- scripts js -->
     <!-- jquery -->
     <script type="text/javascript" src="libs/js/jquery.min.js"></script>
+    <!-- jquery ui -->
+    <script type="text/javascript" src="libs/js/jquery-ui.min.js"></script>
     <!-- popup script -->
     <script type="text/javascript" src="libs/js/magnific-popup.min.js"></script>
     <!-- jstorage script -->
@@ -33,9 +35,9 @@
     <div id="mask_chargement"></div>
     <div id="chargement">
         <h1>Chargement d'Hacklol Modifier en cours…</h1>
-        <div style="text-align: center;"><img src="http://hacklol.eliastiksofts.com/images/chargement.gif" alt="Chargement" /></div>
-        <p style="text-align: center;" id="loadingInfos"></p>
-        <div style="text-align: center; font-size: 10pt;"><a href="#" id="loadInBackground">Fermer et charger en arrière-plan…</a></div>
+        <div class="horizontal-center"><img src="http://hacklol.eliastiksofts.com/images/chargement.gif" alt="Chargement" id="loadingIndicator" /> <span id="loadingInfos"></span></div>
+        <div class="horizontal-center"><div class="progress mr vertical-center"><div class="progress-value" id="progressLoading" style="width: 0%;"></div></div> <span id="pourcentageLoadingInfos">0%</span></div>
+        <div class="horizontal-center" style="margin-top: 8px; font-size: 10pt;"><a href="#" id="loadInBackground">Commencer à utiliser Hacklol Modifier et charger en arrière-plan…</a></div>
     </div>
     <div id="page-loading-indicator" style="display: none;">
         <div style="text-align: center;"><img src="http://hacklol.eliastiksofts.com/images/chargement.gif" alt="Chargement" style="vertical-align: middle;" /> Chargement…</div>

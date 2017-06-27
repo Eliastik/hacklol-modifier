@@ -38,7 +38,7 @@
                 <p>Entrez l'adresse du site web que vous souhaitez modifier. <strong>L'adresse doit commencer par http://</strong></p>
                 <div class="checkbox">
                     <label for="inputEmail" class="sr-only">Adresse du site web</label>
-                    <input type="url" id="siteurl" name="siteurl" class="form-control" placeholder="Adresse du site web" required autofocus>
+                    <input type="url" id="siteurl" name="siteurl" class="form-control" placeholder="Adresse du site web" value="<?php echo $hacklolConfig['defaultWebsite']; ?>" required autofocus>
                 </div>
                 <?php
                     if($hacklolConfig['enableRecaptcha'] == true) { ?>

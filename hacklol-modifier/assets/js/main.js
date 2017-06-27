@@ -144,10 +144,13 @@ var hacklol = {
             image.onload = function() {
                 loadedImagesCount++;
                 var pourcentageLoading = Math.round((100*loadedImagesCount)/imageNames.length);
+                $("#progressLoading").css("width", pourcentageLoading + "%");
                 if(hacklol.lang == "en") {
-                    $("#loadingInfos").text("Loading data (1/2): "+ pourcentageLoading +"%");
+                    $("#loadingInfos").text("Loading graphic data…");
+                    $("#pourcentageLoadingInfos").text(pourcentageLoading + "%");
                 } else {
-                    $("#loadingInfos").text("Chargement des données (1/2) : "+ pourcentageLoading +"%");
+                    $("#loadingInfos").text("Chargement des données graphiques…");
+                    $("#pourcentageLoadingInfos").text(pourcentageLoading + "%");
                 }
                 if (loadedImagesCount >= imageNames.length) {
                     hacklol.loadAudio();
@@ -158,10 +161,13 @@ var hacklol = {
                 loadedImagesCount++;
                 $("#loadingInfos").css("color", "red");
                 var pourcentageLoading = Math.round((100*loadedImagesCount)/imageNames.length);
+                $("#progressLoading").css("width", pourcentageLoading + "%");
                 if(hacklol.lang == "en") {
-                    $("#loadingInfos").text("Loading data (1/2): "+ pourcentageLoading +"%");
+                    $("#loadingInfos").text("Loading graphic data…");
+                    $("#pourcentageLoadingInfos").text(pourcentageLoading + "%");
                 } else {
-                    $("#loadingInfos").text("Chargement des données (1/2) : "+ pourcentageLoading +"%");
+                    $("#loadingInfos").text("Chargement des données graphiques…");
+                    $("#pourcentageLoadingInfos").text(pourcentageLoading + "%");
                 }
                 if (loadedImagesCount >= imageNames.length) {
                     hacklol.loadAudio();
@@ -173,28 +179,38 @@ var hacklol = {
     },
     loadAudio: function() {
         $("#loadingInfos").css("color", "");
+        $("#progressLoading").css("width", "0%");
         if (window.HTMLAudioElement) {
             var audioTestMp3 = document.createElement('audio');
             if (audioTestMp3.canPlayType && audioTestMp3.canPlayType("audio/mpeg")) {
                 if(hacklol.lang == "en") {
-                    $("#loadingInfos").text("Loading data (2/2): 0%");
+                    $("#loadingInfos").text("Loading audio data…");
+                    $("#pourcentageLoadingInfos").text("0%");
                 } else {
-                    $("#loadingInfos").text("Chargement des données (2/2) : 0%");
+                    $("#loadingInfos").text("Chargement des données audio…");
+                    $("#pourcentageLoadingInfos").text("0%");
                 }
                 var loadedAudioCount = 0;
                 var errorLoadingAudio = false;
                 var pourcentageLoadingAudio = 0;
-                var audioFiles = ["effet_explosion.mp3","effet_explosion_bis.mp3","effet_explosion_2.mp3","gel.mp3","mlp.mp3","aybabtu.mp3","wt_egg.mp3","trololo.mp3","ms.mp3"];
+                var audioFiles = ["effet_explosion.mp3","effet_explosion_bis.mp3","effet_explosion_2.mp3","gel.mp3","mlp.mp3","aybabtu.mp3","wt_egg.mp3","trololo.mp3","ms.mp3","ah.mp3"];
                 var audioFilesLoaded = [];
                 var errorLoadingAudioFunction = function() {
-                    if(audioFilesLoaded.indexOf(this.src) == -1) {
+                    if($.inArray(this.src, audioFilesLoaded) == -1) {
                         loadedAudioCount++;
+                        clearTimeout(timeOutLoading);
+                        var timeOutLoading = setTimeout(function() {
+                            hacklol.completeLoading()
+                        }, 5000);
                         var errorLoadingAudio = true;
                         var pourcentageLoadingAudio = Math.round((100*loadedAudioCount)/audioFiles.length);
+                        $("#progressLoading").css("width", pourcentageLoadingAudio + "%");
                         if(hacklol.lang == "en") {
-                            $("#loadingInfos").text("Loading data (2/2): "+ pourcentageLoadingAudio +"%");
+                            $("#loadingInfos").text("Loading audio data…");
+                            $("#pourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
                         } else {
-                            $("#loadingInfos").text("Chargement des données (2/2) : "+ pourcentageLoadingAudio +"%");
+                            $("#loadingInfos").text("Chargement des données audio…");
+                            $("#pourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
                         }
                         if (loadedAudioCount >= audioFiles.length) {
                             hacklol.completeLoading();
@@ -203,23 +219,28 @@ var hacklol = {
                     }
                 };
                 var timeOutLoading = setTimeout(function() {
-                    if(loadedAudioCount == 0) {
-                        hacklol.completeLoading();
-                    }
+                    hacklol.completeLoading()
                 }, 5000);
                 for (var i in audioFiles) {
-                    $(function() {
+                    (function() {
                         var audioPreload = new Audio();
                         audioPreload.src = "assets/sounds/"+ audioFiles[i];
                         audioPreload.preload = "auto";
                         audioPreload.oncanplaythrough = function() {
-                            if(audioFilesLoaded.indexOf(this.src) == -1) {
+                            if($.inArray(this.src, audioFilesLoaded) == -1) {
                                 loadedAudioCount++;
+                                clearTimeout(timeOutLoading);
+                                var timeOutLoading = setTimeout(function() {
+                                    hacklol.completeLoading()
+                                }, 5000);
                                 var pourcentageLoadingAudio = Math.round((100*loadedAudioCount)/audioFiles.length);
+                                $("#progressLoading").css("width", pourcentageLoadingAudio + "%");
                                 if(hacklol.lang == "en") {
-                                    $("#loadingInfos").text("Loading data (2/2): "+ pourcentageLoadingAudio +"%");
+                                    $("#loadingInfos").text("Loading audio data…");
+                                    $("#pourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
                                 } else {
-                                    $("#loadingInfos").text("Chargement des données (2/2) : "+ pourcentageLoadingAudio +"%");
+                                    $("#loadingInfos").text("Chargement des données audio…");
+                                    $("#pourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
                                 }
                                 if (loadedAudioCount >= audioFiles.length) {
                                     hacklol.completeLoading();
@@ -230,7 +251,7 @@ var hacklol = {
                         audioPreload.onerror = errorLoadingAudioFunction;
                         audioPreload.onsuspend = errorLoadingAudioFunction;
                         audioPreload.onabort = errorLoadingAudioFunction;
-                    });
+                    }());
                 }
             } else {
                 hacklol.completeLoading();
@@ -691,7 +712,7 @@ hacklol.tools.matrix = {
         }
     }
 };
-$(function() {
+(function() {
     if(window.HTMLCanvasElement) {
         var s = window.screen;
         var width = q.width = s.width;
@@ -728,7 +749,7 @@ $(function() {
             }
         });
     }
-});
+}());
 // FIN OUTILS
 // PARAMETRES
 hacklol.settings = {
@@ -1531,7 +1552,7 @@ $(document).ready(function() {
         hacklol.ui.paint.showToolbar();
     });
     // REDIMENSIONNE AUTOMATIQUEMENT LE CANVAS DU PAINT. PROBLEME : SUPPRIME LE DESSIN A CHAQUE REDIMENSIONNEMENT (corrigé)
-    $(function() {
+    (function() {
         if(window.HTMLCanvasElement) {
             var canvas,
                 wrapper,
@@ -1578,9 +1599,9 @@ $(document).ready(function() {
             var canvaspaint = document.getElementById("canvas");
             fullWindow(canvaspaint);
         }
-    });
+    }());
     // effet vague encre materiel design - http://codepen.io/440design/pen/iEztk
-    $(function() {
+    (function() {
         var ink, d, x, y;
         $(".ripplelink").click(function(e){
             if($(this).find(".ink").length === 0){
@@ -1600,7 +1621,7 @@ $(document).ready(function() {
 
             ink.css({top: y+'px', left: x+'px'}).addClass("animate");
         });
-    });
+    }());
     // Color picker
     $('#colorpicker1').colpick({
         layout: 'hex',
