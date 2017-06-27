@@ -327,6 +327,7 @@ hacklol.tools = {
                     $("#arret_modif_page").show();
                     $("#modif_page").hide();
                     hacklol.ui.closeToolbar();
+                    hacklol.tools.paint("stop");
                 } catch(e) { alert("An error has occurred during the activation of the tool. Please try again."); }
             } else if(parametre_hacklol_pl == "Non" && hacklol.lang == "fr" && confirm("Cet outil fonctionne mieux lorsque Hacklol Page Loader est activé dans les paramètres. Vous avez désactivé Hacklol Page Loader, cet outil risque de ne pas fonctionner. Continuer ?")) {
                 try {
@@ -334,6 +335,7 @@ hacklol.tools = {
                     $("#arret_modif_page").show();
                     $("#modif_page").hide();
                     hacklol.ui.closeToolbar();
+                    hacklol.tools.paint("stop");
                 } catch(e) { alert("Une erreur est survenue lors de l'activation de l'outil. Veuillez réessayer."); }
             } else if(parametre_hacklol_pl != "Non" && hacklol.lang == "en") {
                 try {
@@ -344,6 +346,7 @@ hacklol.tools = {
                     $("#arret_modif_page").show();
                     $("#modif_page").hide();
                     hacklol.ui.closeToolbar();
+                    hacklol.tools.paint("stop");
                 } catch(e) { alert("An error has occurred during the activation of the tool. Please try again."); }
             } else if(parametre_hacklol_pl != "Non") {
                 try {
@@ -354,6 +357,7 @@ hacklol.tools = {
                     $("#arret_modif_page").show();
                     $("#modif_page").hide();
                     hacklol.ui.closeToolbar();
+                    hacklol.tools.paint("stop");
                 } catch(e) { alert("Une erreur est survenue lors de l'activation de l'outil. Veuillez réessayer."); }
             }
         } else if (type == "stop") {
