@@ -78,6 +78,16 @@ html, body {
 .mr {
     margin-right: 8px;
 }
+.mb {
+    margin-bottom: 8px;
+}
+.mt {
+    margin-top: 8px;
+}
+.mtb {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
 /* formulaires
 boites de texte */
 input[type=text], textarea, input[type=textarea] {

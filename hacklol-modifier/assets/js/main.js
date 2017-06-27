@@ -236,9 +236,11 @@ var hacklol = {
                     }
                 };
                 var timeOutLoading = setTimeout(function() {
-                    hacklol.completeLoading();
-                    $("#background-loading-indicator").fadeIn();
-                    loadInBackground = true;
+                    if(loadInBackground !== true) {
+                        hacklol.completeLoading();
+                        $("#background-loading-indicator").fadeIn();
+                        loadInBackground = true;
+                    }
                 }, 5000);
                 for (var i in audioFiles) {
                     (function() {

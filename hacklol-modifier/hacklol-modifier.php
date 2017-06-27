@@ -35,9 +35,9 @@
     <div id="mask_chargement"></div>
     <div id="chargement">
         <h1>Chargement d'Hacklol Modifier en cours…</h1>
-        <div class="horizontal-center"><img src="http://hacklol.eliastiksofts.com/images/chargement.gif" alt="Chargement" id="loadingIndicator" /> <span id="loadingInfos"></span></div>
-        <div class="horizontal-center"><div class="progress mr vertical-center"><div class="progress-value" id="progressLoading" style="width: 0%;"></div></div> <span id="pourcentageLoadingInfos">0%</span></div>
-        <div class="horizontal-center" style="margin-top: 8px; font-size: 10pt;"><a href="#" id="loadInBackground">Commencer à utiliser Hacklol Modifier et charger en arrière-plan…</a></div>
+        <div class="horizontal-center mb"><img src="http://hacklol.eliastiksofts.com/images/chargement.gif" alt="Chargement" id="loadingIndicator" /> <span id="loadingInfos"></span></div>
+        <div class="horizontal-center mb"><div class="progress mr vertical-center"><div class="progress-value" id="progressLoading" style="width: 0%;"></div></div> <span id="pourcentageLoadingInfos">0%</span></div>
+        <div class="horizontal-center mt" style="font-size: 10pt;"><a href="#" id="loadInBackground">Commencer à utiliser Hacklol Modifier et charger en arrière-plan…</a></div>
     </div>
     <div id="background-loading-indicator" style="display: none;">
         <div style="text-align: center;"><img src="http://hacklol.eliastiksofts.com/images/chargement.gif" alt="Chargement" class="vertical-center" /> <span id="backgroundLoadingInfos"></span> <span id="backgroundPourcentageLoadingInfos">0%</span></div>
