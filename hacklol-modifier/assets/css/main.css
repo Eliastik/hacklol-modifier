@@ -327,7 +327,7 @@ select, input[type=select] {
     -webkit-appearance: none;  /*Removes default chrome and safari style*/
     -moz-appearance: none; /* Removes Default Firefox style*/
     appearance: none;
-    background: #e9ecee url(http://hacklol.eliastiksofts.com/images/select-arrow.png) no-repeat 98% center;
+    background: #e9ecee url(assets/img/select-arrow.png) no-repeat 98% center;
     text-indent: 0.01px; /* Removes default arrow from firefox*/
     text-overflow: "";  /*Removes default arrow from firefox*/
     color: #34495e;
@@ -365,7 +365,7 @@ checkbox:active, checkbox:checked:active, input[type=checkbox]:active, input[typ
 checkbox:checked, input[type=checkbox]:checked {
     background-color: #e9ecee;
     border: 1px solid #adb8c0;
-    background-image: url(http://hacklol.eliastiksofts.com/images/check.png);
+    background-image: url(assets/img/check.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 14px;
@@ -687,7 +687,7 @@ checkbox[disabled=disabled]:checked:active, input[type=checkbox]:checked:active,
      max-width: 100%;
 }
 .explosion_img_display {
-    background-image: url(http://hacklol.eliastiksofts.com/images/explosion.gif);
+    background-image: url(assets/img/explosion.gif);
 }
 .explosion_img_hide {
     background-image: none;
@@ -700,7 +700,7 @@ checkbox[disabled=disabled]:checked:active, input[type=checkbox]:checked:active,
     width:100%;
     height:100%;
     background-color: #9ac1e6;
-    background-image: url(http://hacklol.eliastiksofts.com/images/gel.png);
+    background-image: url(assets/img/gel.png);
     background-repeat: repeat;
     opacity:0.7;
     z-index:1029;
@@ -1064,7 +1064,7 @@ Pour ajouter une icone, voir ici : https://icomoon.io/app/ */
     z-index:1040;
     opacity:0.6;
     /* fix for Jquery UI draggable */
-    width: 150px !important;
+    width: 140px !important;
     height: 16px !important;
 }
 #btn-show-toolbar:hover {
@@ -1081,7 +1081,7 @@ Pour ajouter une icone, voir ici : https://icomoon.io/app/ */
     z-index:1040;
     opacity:0.6;
     /* fix for Jquery UI draggable */
-    width: 150px !important;
+    width: 140px !important;
     height: 16px !important;
 }
 #btn-show-toolbar-paint:hover {
@@ -1116,7 +1116,7 @@ Pour ajouter une icone, voir ici : https://icomoon.io/app/ */
     left: 0px;
 }
 #choixCouleur {
-    background-image: url(http://hacklol.eliastiksofts.com/images/points.png);
+    background-image: url(assets/img/points.png);
 }
 #couleurs {
     list-style:none;
@@ -1202,13 +1202,6 @@ input#largeur_pinceau {
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
 }
-#reset {
-    background-repeat: no-repeat;
-    background-size: 16px 16px;
-    background-image: url(http://hacklol.eliastiksofts.com/images/icon_pack/reinit.png);
-    background-position: 6px 6px;
-    text-indent: 22px;
-}
 /* color picker */
 #colorpicker1, #colorpicker3 {
     margin:0;
@@ -1293,7 +1286,7 @@ p#BSOD.center {
     display: block;
     height:219px;
     padding: 30px 100px 0 0;
-    background-image: url('http://hacklol.eliastiksofts.com/images/sadface.png');
+    background-image: url('assets/img/sadface.png');
     background-repeat: no-repeat;
 }
 p#win8topblockBSOD {
