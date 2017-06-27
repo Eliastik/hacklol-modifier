@@ -37,7 +37,7 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
 @font-face {
     font-family: 'IcoMoon-Free';
-    src: url('assets/fonts/IcoMoon-Free.ttf') format('truetype');
+    src: url('../../libs/fonts/IcoMoon-Free.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
