@@ -5,27 +5,18 @@
     <title>Hacklol Modifier</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width">
-    <!-- styles css -->
-    <!-- css page -->
+    <meta name="theme-color" content="#bdc3c7">
+    
     <link rel="stylesheet" href="assets/css/main.css">
-    <!-- css popup -->
     <link rel="stylesheet" href="libs/css/magnific-popup.css">
-    <!-- csshake -->
     <link rel="stylesheet" href="libs/css/csshake.min.css">
-    <!-- css colorpicker -->
     <link rel="stylesheet" href="libs/css/colpick.css" type="text/css" />
-    <!-- scripts js -->
-    <!-- jquery -->
+    
     <script type="text/javascript" src="libs/js/jquery.min.js"></script>
-    <!-- jquery ui -->
     <script type="text/javascript" src="libs/js/jquery-ui.min.js"></script>
-    <!-- popup script -->
     <script type="text/javascript" src="libs/js/magnific-popup.min.js"></script>
-    <!-- jstorage script -->
     <script type="text/javascript" src="libs/js/jstorage.min.js"></script>
-    <!-- color picker -->
     <script src="libs/js/colpick.js" type="text/javascript"></script>
-    <!-- code-mirror -->
     <script src="libs/js/code-mirror/codemirror.js"></script>
     <link rel="stylesheet" href="libs/css/codemirror.css">
     <script src="libs/js/code-mirror/mode/javascript/javascript.js"></script>

@@ -1123,6 +1123,9 @@ hacklol.settings = {
         var contrastColor = hacklol.getContrastYIQ(hacklol.rgb2hex($("#toolbar-hacklol").css("background-color")));
         $("#toolbar-hacklol").css("color", contrastColor);
         $("#paint-tools").css("color", contrastColor);
+        // change theme-color (for Chrome for Android)
+        var metaThemeColor = document.querySelector("meta[name=theme-color]");
+        metaThemeColor.setAttribute("content", hacklol.rgb2hex($("#toolbar-hacklol").css("background-color")));
         hacklol.settings.check(); // modification des paramètres dans la fenêtre paramètres
         return true;
     },
