@@ -1222,6 +1222,7 @@ hacklol.ui = {
         $("#genericBSOD").addClass("blur-desactived");
         $("#win8BSOD").addClass("blur-desactived");
         $("#img_start_hacklol").addClass("blur-desactived");
+        $("#background-loading-indicator").addClass("blur-desactived");
     },
     // Desactivation de l'effet de flou
     desactivFlou: function() {
@@ -1241,6 +1242,7 @@ hacklol.ui = {
         $("#genericBSOD").removeClass("blur-desactived");
         $("#win8BSOD").removeClass("blur-desactived");
         $("#img_start_hacklol").removeClass("blur-desactived");
+        $("#background-loading-indicator").removeClass("blur-desactived");
     },
     audio: function() {
         // AUDIO - SI L'UTILISATEUR A ACTIVE LES EFFETS SONORES ET QUE SON NAVIGATEUR EST COMPATIBLE, ON LES CHARGE
