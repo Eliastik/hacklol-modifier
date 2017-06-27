@@ -1,8 +1,16 @@
+<?php
+    include("../../config.php");
+    if(isset($hacklolConfig)) {
+        $appName = $hacklolConfig['pageLoaderName'];
+    } else {
+        $appName = "Hacklol Page Loader";
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>
 
-<title>Hacklol Page Loader</title>
+<title><?php echo $appName; ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="version" content="<?=$version;?>">
 
@@ -50,7 +58,7 @@ html body {
 <div id="container">
 
     <div style="text-align:center;">
-        <h1 style="color:blue;">Hacklol Page Loader</h1>
+        <h1 style="color:blue;"><?php echo $appName; ?></h1>
     </div>
 
     <?php if(isset($error_msg)){ ?>

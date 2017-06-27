@@ -12,12 +12,21 @@ class ProtectPlugin extends AbstractPlugin {
     public function onBeforeRequest(ProxyEvent $event){
         // start the session
         session_start();
+        // appName
+        include("../../config.php");
+        if(isset($hacklolConfig)) {
+            $appName = $hacklolConfig['pageLoaderName'];
+            $hacklolModifierName = $hacklolConfig['appName'];
+        } else {
+            $appName = "Hacklol Page Loader";
+            $hacklolModifierName = "Hacklol Modifier";
+        }
         if(isset($_SESSION['urlPageHacklol'])) {
             // on verifie si l'utilisateur n'est pas banni au niveau de l'ip
             require('ban_ip.php');
             foreach($ip_ban_page_loader as $ip_interdite) {
                 if($ip_interdite == get_ip()) {
-                    die("Votre adresse IP est bannie. Vous ne pouvez pas utiliser Hacklol Page Loader.");
+                    die("Votre adresse IP est bannie. Vous ne pouvez pas utiliser ". $appName);
                 }
             }
             
@@ -38,7 +47,7 @@ class ProtectPlugin extends AbstractPlugin {
             }
         } else {
             echo render_template("./templates/main.php", array('version' => 0,
-            'error_protect_plugin' => 'Votre session a expir&eacute;. Vous ne pouvez plus utiliser Hacklol Page Loader. Si ce message s\'est affich&eacute; imm&eacute;diatement apr&egrave;s l\'acc&egrave;s &agrave; Hacklol Modifier, v&eacute;rifiez que votre navigateur accepte bien les cookies (<a href="http://www.commentcamarche.net/faq/7543-activer-les-cookies" target="_blank">comment les activer</a>) et r&eacute;essayez. Sinon, si vous voulez continuer &agrave; utiliser Hacklol Modifier, d&eacute;cochez "Activer Hacklol Page Loader" dans les param&egrave;tres d\'Hacklol Modifier, ou quittez Hacklol Modifier et choisissez un autre site &agrave; modifier.<br /><br />Your session has expired. You can\'t use Hacklol Page Loader anymore. If this message have been displayed immediately after you have accessed to Hacklol Modifier, make sure your browser accepts cookies (<a href="http://ccm.net/faq/40614-how-to-enable-cookies" target="_blank">how to enable</a>) and try again. Otherwise, if you want to continue to use Hacklol Modifier, uncheck "Enable Hacklol Page Loader" in the settings of Hacklol Modifier, or exit Hacklol Modifier and choose another site to edit.'
+            'error_protect_plugin' => 'Votre session a expir&eacute;. Vous ne pouvez plus utiliser '. $appName .'. Si ce message s\'est affich&eacute; imm&eacute;diatement apr&egrave;s l\'acc&egrave;s &agrave; '. $hacklolModifierName .', v&eacute;rifiez que votre navigateur accepte bien les cookies (<a href="http://www.commentcamarche.net/faq/7543-activer-les-cookies" target="_blank">comment les activer</a>) et r&eacute;essayez. Sinon, si vous voulez continuer &agrave; utiliser '. $hacklolModifierName .', d&eacute;cochez &laquo; Activer '. $appName .' &raquo; dans les param&egrave;tres de '. $hacklolModifierName .', ou quittez '. $hacklolModifierName .' et choisissez un autre site &agrave; modifier.<br /><br />Your session has expired. You can\'t use '. $appName .' anymore. If this message have been displayed immediately after you have accessed to '. $hacklolModifierName .', make sure your browser accepts cookies (<a href="http://ccm.net/faq/40614-how-to-enable-cookies" target="_blank">how to enable</a>) and try again. Otherwise, if you want to continue to use '. $hacklolModifierName .', uncheck "Enable '. $appName .'" in the settings of '. $hacklolModifierName .', or exit '. $hacklolModifierName .' and choose another site to edit.'
             ));
             die();
         }
