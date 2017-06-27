@@ -1,4 +1,4 @@
-/* Scripts Hacklol v. 1.3.1 REVISION 2 du 2/12/2016 (révision du 3/12/2016) - by Eliastik */
+/* Main.js Hacklol Modifier v. 1.4 - by Eliastik */
 page_gelee = 0; // variable permettant de savoir si la page est gelée
 menuLienLib = 1; // variable utilisée pour le libelé du menu
 pageChargeeHPL = 0; // variable pour Hacklol Page Loader
@@ -23,8 +23,8 @@ if (!String.prototype.trim) {
 var hacklol = {
     appName: "Hacklol Modifier",
     description: "Hacklol est une application utilisable directement sur votre navigateur web qui vous permet de modifier des sites web.",
-    version: "1.3.1", // la version d'Hacklol
-    dateVersion: "2/12/2016", // date
+    version: "1.4_alpha_dev", // la version d'Hacklol
+    dateVersion: "27/06/2017", // date
     lang: "fr", // indiquer ici la langue des messages envoyés par le script (fr = Français ; en = Anglais)
     asciiArt: " _____         _   _     _ \n|  |  |___ ___| |_| |___| |\n|     | .'|  _| '_| | . | |\n|__|__|__,|___|_,_|_|___|_|",
     tools: 10, // nb d'outils, utilisé pour les fonctions
