@@ -9,6 +9,7 @@ easter_egg_mlp_found = false;
 easter_egg_aybabtu_found = false;
 easter_egg_troll_found = false;
 easter_egg_ms_found = false;
+countEasterEgg = 0;
 errorLoadingImages = false;
 errorLoadingAudio = false;
 loadInBackground = false;
@@ -74,6 +75,17 @@ var hacklol = {
     random: function(min, max) {
         return min+Math.floor(Math.random()*(max-min+1)); // http://sciences-du-numerique.fr/programmation-en-javascript/tirer-un-nombre-au-hasard/5
     },
+    // cleanArray removes all duplicated elements - https://www.unicoda.com/?p=579
+    cleanArray: function(array) {
+      var i, j, len = array.length, out = [], obj = {};
+      for (i = 0; i < len; i++) {
+        obj[array[i]] = 0;
+      }
+      for (j in obj) {
+        out.push(j);
+      }
+      return out;
+    },
     loadPage: function(url, withHacklolPL) {
         if(withHacklolPL == false) {
             $("#hacklol-iframeWrapper").html("");
@@ -136,7 +148,7 @@ var hacklol = {
     },
     loadImages: function() {
         var loadedImagesCount = 0;
-        var imageNames = ['assets/img/select-arrow.png','assets/img/explosion.gif','assets/img/explosion2.gif','assets/img/gel.png','assets/img/points.png','assets/img/sadface.png', 'assets/img/mlp_egg.png', 'assets/img/aybabtu.png', 'assets/img/trollface.png', 'assets/img/ms.png', 'assets/img/check.png'];
+        var imageNames = ['assets/img/select-arrow.png','assets/img/explosion.gif','assets/img/explosion2.gif','assets/img/gel.png','assets/img/points.png','assets/img/sadface.png', 'assets/img/mlp_egg.png', 'assets/img/aybabtu.png', 'assets/img/trollface.png', 'assets/img/check.png', 'assets/img/ouais.png'];
         var imagesArray = [];
         for (var i = 0; i < imageNames.length; i++) {
             var image = new Image();
@@ -206,7 +218,7 @@ var hacklol = {
                 var loadedAudioCount = 0;
                 var errorLoadingAudio = false;
                 var pourcentageLoadingAudio = 0;
-                var audioFiles = ["effet_explosion.mp3","effet_explosion_bis.mp3","effet_explosion_2.mp3","gel.mp3","mlp.mp3","aybabtu.mp3","wt_egg.mp3","trololo.mp3","ms.mp3","ah.mp3"];
+                var audioFiles = ["effet_explosion.mp3","effet_explosion_bis.mp3","effet_explosion_2.mp3","gel.mp3","mlp.mp3","aybabtu.mp3","wt_egg.mp3","trololo.mp3","ah.mp3","ouais.mp3"];
                 var audioFilesLoaded = [];
                 var errorLoadingAudioFunction = function() {
                     if($.inArray(this.src, audioFilesLoaded) == -1) {
@@ -545,52 +557,21 @@ hacklol.tools = {
     // Defacer le site
     deface: function(type) {
         if(type == "deface") {
-            var easter_egg_mlp = 0;
-            var easter_egg_aybabtu = 0;
-            var easter_egg_troll = 0;
-            var easter_egg_ms = 0;
-            var countEasterEgg = 0;
-            var numberEasterEgg = 4;
+            var easterEggKeywords = ["MLP", "MY LITTLE PONY", "ALL YOUR BASE ARE BELONG TO US", "AYBABTU", "TROLL", "TROLO", "TROL", "OUAIS", "OUI"];
+            var easterEggImg = ["mlp_egg.png", "mlp_egg.png", "aybabtu.png", "aybabtu.png", "trollface.png", "trollface.png", "trollface.png", "ouais.png", "ouais.png"];
+            var easterEggWidth = ["300", "300", "336", "336", "336", "336", "336", "150", "150"];
+            var easterEggHeight = ["300", "300", "224", "224", "224", "224", "224", "214", "214"];
+            var easterEggName = ["mlp", "mlp", "aybabtu", "aybabtu", "troll", "troll", "troll", "ouais", "ouais"];
+            var easterEggText = [null, null, null, null, null, null, null, null, null];
+            var easterEggFound = new Array();
             var couleur_deface_arriere = $("#colorpicker3").val();
             var contrastColorTextDeface = hacklol.getContrastYIQ(couleur_deface_arriere);
+            var numberEasterEgg = hacklol.cleanArray(easterEggName).length;
             $("#deface_div").css("background-color", "#" + couleur_deface_arriere);
             $("#deface_div").css("color", contrastColorTextDeface);
             $("#deface_div").show();
             $("#p_egg").html("");
             $("#defacer_site_reafficher").show();
-
-            if ($("#titre_deface_input").val().toUpperCase().indexOf("MY LITTLE PONY") != -1 || $("#editeur_deface").val().toUpperCase().indexOf("MY LITTLE PONY") != -1 || $("#titre_deface_input").val().toUpperCase().indexOf("MLP") != -1 || $("#editeur_deface").val().toUpperCase().indexOf("MLP") != -1) {
-                var easter_egg_mlp = 1;
-                easter_egg_mlp_found = true;
-            }
-
-            if($("#titre_deface_input").val().toUpperCase().indexOf("ALL YOUR BASE ARE BELONG TO US") != -1 || $("#editeur_deface").val().toUpperCase().indexOf("ALL YOUR BASE ARE BELONG TO US") != -1 || $("#titre_deface_input").val().toUpperCase().indexOf("AYBABTU") != -1 || $("#editeur_deface").val().toUpperCase().indexOf("AYBABTU") != -1) {
-                var easter_egg_aybabtu = 1;
-                easter_egg_aybabtu_found = true;
-            }
-
-            if($("#titre_deface_input").val().toUpperCase().indexOf("TROLL") != -1 || $("#editeur_deface").val().toUpperCase().indexOf("TROLL") != -1 || $("#titre_deface_input").val().toUpperCase().indexOf("TROLO") != -1 || $("#editeur_deface").val().toUpperCase().indexOf("TROLO") != -1) {
-                var easter_egg_troll = 1;
-                easter_egg_troll_found = true;
-            }
-
-            if($("#titre_deface_input").val().toUpperCase().indexOf("MAMADOU") != -1 || $("#editeur_deface").val().toUpperCase().indexOf("MAMADOU") != -1 || $("#titre_deface_input").val().toUpperCase().indexOf("SEGPA") != -1 || $("#editeur_deface").val().toUpperCase().indexOf("SEGPA") != -1) {
-                var easter_egg_ms = 1;
-                easter_egg_ms_found = true;
-            }
-
-            if(typeof(easter_egg_mlp_found) != 'undefined' && easter_egg_mlp_found == true) {
-                countEasterEgg++;
-            }
-            if(typeof(easter_egg_aybabtu_found) != 'undefined' && easter_egg_aybabtu_found == true) {
-                countEasterEgg++;
-            }
-            if(typeof(easter_egg_troll_found) != 'undefined' && easter_egg_troll_found == true) {
-                countEasterEgg++;
-            }
-            if(typeof(easter_egg_ms_found) != 'undefined' && easter_egg_ms_found == true) {
-                countEasterEgg++;
-            }
 
             if ($("#titre_deface_input").val().trim() == "") {
                 $("#titre_deface").text("–");
@@ -604,57 +585,51 @@ hacklol.tools = {
                 $("#texte_deface").text($("#editeur_deface").val());
             }
 
-            if (easter_egg_mlp == 1 && $.jStorage.get('effets_sonores') != "Non" && typeof(audiomlp) != 'undefined' && hacklol.lang == "en") {
-                audiomlp.play();
-                $("#p_egg").html("<img src='assets/img/mlp_egg.png' width='300' height='300' alt='My Little Pony' class=\'img-resize\' /><br />Congratulation, you found an Easter Egg !!");
-            } else if (easter_egg_mlp == 1 && $.jStorage.get('effets_sonores') != "Non" && typeof(audiomlp) != 'undefined') {
-                audiomlp.play();
-                $("#p_egg").html("<img src='assets/img/mlp_egg.png' width='300' height='300' alt='My Little Pony' class=\'img-resize\' /><br />Bravo, vous avez trouvé un Easter Egg !!");
-            } else if (easter_egg_mlp == 1 && hacklol.lang == "en") {
-                $("#p_egg").html("<img src='assets/img/mlp_egg.png' width='300' height='300' alt='My Little Pony' class=\'img-resize\' /><br />Congratulation, you found an Easter Egg !!<br />Enable sound effects if your browser is compatible and you will have a surprise…");
-            } else if (easter_egg_mlp == 1) {
-                $("#p_egg").html("<img src='assets/img/mlp_egg.png' width='300' height='300' alt='My Little Pony' class=\'img-resize\' /><br />Bravo, vous avez trouvé un Easter Egg !!<br />Activez les effets sonores si votre navigateur est compatible et vous aurez une surprise…");
+            for (var i in easterEggKeywords) {
+                if ($("#titre_deface_input").val().toUpperCase().indexOf(easterEggKeywords[i]) != -1 || $("#editeur_deface").val().toUpperCase().indexOf(easterEggKeywords[i]) != -1) {
+                    var eggFound = false;
+                    var arrayPos = i;
+                    if(easterEggFound.indexOf(easterEggName[arrayPos]) != -1) {
+                        var eggFound = true;
+                    }
+                    easterEggFound.push(easterEggName[arrayPos]);
+                    if(eggFound != true) {
+                        if (easterEggText[i] == null && $.jStorage.get('effets_sonores') != "Non") {
+                            $("#p_egg").html($("#p_egg").html() + "<br /><img src='assets/img/" + easterEggImg[i] + "' alt='"+ easterEggKeywords[i].toLowerCase() +"' width='"+ easterEggWidth[i] +" height='"+ easterEggHeight[i] +"' class=\'img-resize\' /><br />Bravo, vous avez trouvé un Easter Egg !!");
+                        } else if(easterEggText[i] == null) {
+                            $("#p_egg").html($("#p_egg").html() + "<br /><img src='assets/img/" + easterEggImg[i] + "' alt='"+ easterEggKeywords[i].toLowerCase() +"' width='"+ easterEggWidth[i] +" height='"+ easterEggHeight[i] +"' class=\'img-resize\' /><br />Bravo, vous avez trouvé un Easter Egg !!<br />Activez les effets sonores si votre navigateur est compatible et vous aurez une surprise…");
+                        } else if(easterEggText[i] != null && $.jStorage.get('effets_sonores') != "Non") {
+                            $("#p_egg").html($("#p_egg").html() + "<br /><img src='assets/img/" + easterEggImg[i] + "' alt='"+ easterEggKeywords[i].toLowerCase() +"' width='"+ easterEggWidth[i] +" height='"+ easterEggHeight[i] +"' class=\'img-resize\' /><br />" + easterEggText[i]);
+                        } else {
+                            $("#p_egg").html($("#p_egg").html() + "<br /><img src='assets/img/" + easterEggImg[i] + "' alt='"+ easterEggKeywords[i].toLowerCase() +"' width='"+ easterEggWidth[i] +" height='"+ easterEggHeight[i] +"' class=\'img-resize\' /><br />" + easterEggText[i] +"<br />Activez les effets sonores si votre navigateur est compatible et vous aurez une surprise…");
+                        }
+                    }
+                }
+            }
+            
+            var easterEggFound = hacklol.cleanArray(easterEggFound);
+            var countEasterEgg = easterEggFound.length;
+            
+            for (var i in easterEggFound) {
+                if ($.jStorage.get('effets_sonores') != "Non") {
+                    switch(easterEggFound[i]) {
+                        case "mlp":
+                            audiomlp.play();
+                            break;
+                        case "aybabtu":
+                            audio_aybabtu.play()
+                            break;
+                        case "troll":
+                            audio_troll.play();
+                            break;
+                        case "ouais":
+                            audio_ouais.play();
+                            break;
+                    }
+                }
             }
 
-            var contenu_div_egg = $("#p_egg").html();
-            if (easter_egg_aybabtu == 1 && $.jStorage.get('effets_sonores') != "Non" && typeof(audio_aybabtu) != 'undefined' && hacklol.lang == "en") {
-                audio_aybabtu.play();
-                $("#p_egg").html(contenu_div_egg + '<br /><img src=\'assets/img/aybabtu.png\' width=\'336\' height=\'224\' alt=\'All your base are belong to us\' class=\'img-resize\' /><br />Congratulation, you found an Easter Egg !!');
-            } else if (easter_egg_aybabtu == 1 && $.jStorage.get('effets_sonores') != "Non" && typeof(audio_aybabtu) != 'undefined') {
-                audio_aybabtu.play();
-                $("#p_egg").html(contenu_div_egg + '<br /><img src=\'assets/img/aybabtu.png\' width=\'336\' height=\'224\' alt=\'All your base are belong to us\' class=\'img-resize\' /><br />Bravo, vous avez trouvé un Easter Egg !!');
-            } else if (easter_egg_aybabtu == 1 && hacklol.lang == "en") {
-                $("#p_egg").html(contenu_div_egg + '<br /><img src=\'assets/img/aybabtu.png\' width=\'336\' height=\'224\' alt=\'All your base are belong to us\' class=\'img-resize\' /><br />Congratulation, you found an Easter Egg !!<br />Enable sound effects if your browser is compatible and you will have a surprise…');
-            } else if (easter_egg_aybabtu == 1) {
-                $("#p_egg").html(contenu_div_egg + '<br /><img src=\'assets/img/aybabtu.png\' width=\'336\' height=\'224\' alt=\'All your base are belong to us\' class=\'img-resize\' /><br />Bravo, vous avez trouvé un Easter Egg !!<br />Activez les effets sonores si votre navigateur est compatible et vous aurez une surprise…');
-            }
-
-            var contenu_div_egg = $("#p_egg").html();
-            if (easter_egg_troll == 1 && $.jStorage.get('effets_sonores') != "Non" && typeof(audio_troll) != 'undefined' && hacklol.lang == "en") {
-                audio_troll.play();
-                $("#p_egg").html(contenu_div_egg + '<br /><img src=\'assets/img/trollface.png\' width=\'336\' height=\'224\' alt=\'Trollface\' class=\'img-resize\' /><br />Congratulation, you found an Easter Egg !!');
-            } else if (easter_egg_troll == 1 && $.jStorage.get('effets_sonores') != "Non" && typeof(audio_troll) != 'undefined') {
-                audio_troll.play();
-                $("#p_egg").html(contenu_div_egg + '<br /><img src=\'assets/img/trollface.png\' width=\'336\' height=\'224\' alt=\'Trollface\' class=\'img-resize\' /><br />Bravo, vous avez trouvé un Easter Egg !!');
-            } else if (easter_egg_troll == 1 && hacklol.lang == "en") {
-                $("#p_egg").html(contenu_div_egg + '<br /><img src=\'assets/img/trollface.png\' width=\'336\' height=\'224\' alt=\'Trollface\' class=\'img-resize\' /><br />Congratulation, you found an Easter Egg !!<br />Enable sound effects if your browser is compatible and you will have a surprise…');
-            } else if (easter_egg_troll == 1) {
-                $("#p_egg").html(contenu_div_egg + '<br /><img src=\'assets/img/trollface.png\' width=\'336\' height=\'224\' alt=\'Trollface\' class=\'img-resize\' /><br />Bravo, vous avez trouvé un Easter Egg !!<br />Activez les effets sonores si votre navigateur est compatible et vous aurez une surprise…');
-            }
-
-            var contenu_div_egg = $("#p_egg").html();
-            if (easter_egg_ms == 1 && $.jStorage.get('effets_sonores') != "Non" && typeof(audio_ms) != 'undefined' && hacklol.lang == "en") {
-                audio_ms.play();
-                $("#p_egg").html(contenu_div_egg + '<br /><img src=\'assets/img/ms.png\' width=\'293\' height=\'417\' alt=\'Mamadou Segpa\' class=\'img-resize\' /><br />Congratulation, you found an Easter Egg !!');
-            } else if (easter_egg_ms == 1 && $.jStorage.get('effets_sonores') != "Non" && typeof(audio_ms) != 'undefined') {
-                audio_ms.play();
-                $("#p_egg").html(contenu_div_egg + '<br /><img src=\'assets/img/ms.png\' width=\'293\' height=\'417\' alt=\'Mamadou Segpa\' class=\'img-resize\' /><br />Wesh ! T\'as trouvé l\'easter egg Mamadou Segpa !!');
-            } else if (easter_egg_ms == 1 && hacklol.lang == "en") {
-                $("#p_egg").html(contenu_div_egg + '<br /><img src=\'assets/img/ms.png\' width=\'293\' height=\'417\' alt=\'Mamadou Segpa\' class=\'img-resize\' /><br />Congratulation, you found an Easter Egg !!<br />Enable sound effects if your browser is compatible and you will have a surprise…');
-            } else if (easter_egg_ms == 1) {
-                $("#p_egg").html(contenu_div_egg + '<br /><img src=\'assets/img/ms.png\' width=\'293\' height=\'417\' alt=\'Mamadou Segpa\' class=\'img-resize\' /><br />Wesh ! T\'as trouvé l\'easter egg Mamadou Segpa !!<br />Actives les effets sonores si ton navigateur est compatible et t\'auras une surprise…');
-            }
-
+            // to-do : save found easter eggs
             if(countEasterEgg < numberEasterEgg && countEasterEgg > 0) {
                 var nombre_a_trouve = numberEasterEgg - countEasterEgg;
                 if(hacklol.lang == "en" && countEasterEgg > 1) {
@@ -1286,10 +1261,10 @@ hacklol.ui = {
             audio_troll = document.createElement("audio");
             audio_troll.src = "assets/sounds/trololo.mp3";
             audio_troll.muted = false;
-            // ms
-            audio_ms = document.createElement("audio");
-            audio_ms.src = "assets/sounds/ms.mp3";
-            audio_ms.muted = false;
+            // ouais
+            audio_ouais = document.createElement("audio");
+            audio_ouais.src = "assets/sounds/ouais.mp3";
+            audio_ouais.muted = false;
         } else if(window.HTMLAudioElement) {
             if(typeof(audio) != 'undefined') {
                 audio.muted = true;
@@ -1315,8 +1290,8 @@ hacklol.ui = {
             if(typeof(audio_troll) != 'undefined') {
                 audio_troll.muted = true;
             }
-            if(typeof(audio_ms) != 'undefined') {
-                audio_ms.muted = true;
+            if(typeof(audio_ouais) != 'undefined') {
+                audio_ouais.muted = true;
             }
         }
     }

@@ -37,7 +37,7 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
 @font-face {
     font-family: 'IcoMoon-Free';
-    src: url('../../libs/fonts/IcoMoon-Free.ttf') format('truetype');
+    src: url('../../libs/fonts/icomoon/IcoMoon-Free.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -930,85 +930,85 @@ Pour ajouter une icone, voir ici : https://icomoon.io/app/ */
     display: inline-block;
 }
 .icon_parametres:before {
-  content: "\e994";
+    content: "\e994";
 }
 .icon_outils:before {
-  content: "\e9ae";
+    content: "\e9ae";
 }
 .icon_infos:before {
-  content: "\ea0c";
+    content: "\ea0c";
 }
 .icon_fermer:before {
-  content: "\ea0f";
+    content: "\ea0f";
 }
 .icon_quitter:before {
-  content: "\ea14";
+    content: "\ea14";
 }
 .icon_menu:before {
-  content: "\e9bd";
+    content: "\e9bd";
 }
 .icon_vrai:before {
-  content: "\ea10";
+    content: "\ea10";
 }
 .icon_recherche:before {
-  content: "\e986";
+    content: "\e986";
 }
 .icon_reinit:before {
-  content: "\e984";
+    content: "\e984";
 }
 .icon_save:before {
-  content: "\e962";
+    content: "\e962";
 }
 .icon_color:before {
-  content: "\e90b";
+    content: "\e90b";
 }
 .icon_brush:before {
-  content: "\e90c";
+    content: "\e90c";
 }
 .icon_reset:before {
-  content: "\ea2e";
+    content: "\ea2e";
 }
 .icon_crayon:before {
-  content: "\e905";
+    content: "\e905";
 }
 .icon_explode:before {
-  content: "\e9a9";
+    content: "\e9a9";
 }
 .icon_magic:before {
-  content: "\e997";
+    content: "\e997";
 }
 .icon_stop:before {
-  content: "\ea1e";
+    content: "\ea1e";
 }
 .icon_page:before {
-  content: "\e924";
+    content: "\e924";
 }
 .icon_doc:before {
-  content: "\e926";
+    content: "\e926";
 }
 .icon_eclair:before {
-  content: "\e9b5";
+    content: "\e9b5";
 }
 .icon_contrast:before {
-  content: "\e9d5";
+    content: "\e9d5";
 }
 .icon_matrix:before {
-  content: "\ea81";
+    content: "\ea81";
 }
 .icon_windows:before {
-  content: "\eac2";
+    content: "\eac2";
 }
 .icon_retour:before {
-  content: "\e967";
+    content: "\e967";
 }
 .icon_suivant:before {
-  content: "\e968";
+    content: "\e968";
 }
 .icon_poubelle:before {
-  content: "\e9AC"
+    content: "\e9AC"
 }
 .icon_secouer:before {
-  content: "\e91d"
+    content: "\e91d"
 }
 /* popups */
 .white-popup {
