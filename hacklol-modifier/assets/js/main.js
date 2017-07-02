@@ -270,7 +270,7 @@ var hacklol = {
                     }
                     clearTimeout(timeOutLoading);
                 }, 5000);
-                for (var i in audioFiles) {
+                for (var i=0; i < audioFiles.length; i++) {
                     (function() {
                         var audioPreload = new Audio();
                         audioPreload.src = "assets/sounds/"+ audioFiles[i];
@@ -596,7 +596,7 @@ hacklol.tools = {
                 $("#texte_deface").text($("#editeur_deface").val());
             }
 
-            for (var i in easterEggKeywords) {
+            for (var i=0; i < easterEggKeywords.length; i++) {
                 if ($("#titre_deface_input").val().toUpperCase().indexOf(easterEggKeywords[i]) != -1 || $("#editeur_deface").val().toUpperCase().indexOf(easterEggKeywords[i]) != -1) {
                     var eggFound = false;
                     var arrayPos = i;
@@ -623,7 +623,7 @@ hacklol.tools = {
             easterEggFound_global = hacklol.cleanArray(easterEggFound_global);
             var countEasterEgg = easterEggFound_global.length;
 
-            for (var i in easterEggFound) {
+            for (var i=0; i < easterEggFound.length; i++) {
                 if ($.jStorage.get('effets_sonores') != "Non") {
                     switch(easterEggFound[i]) {
                         case "mlp":
@@ -1279,6 +1279,7 @@ hacklol.ui = {
     },
     // Desactivation de l'effet de flou
     desactivFlou: function() {
+        var audioName = ["audio", "audio_explosion_bis", "audio_explosion_2", "audio_gel", "audiomlp", "audio_aybabtu", "audio_wt", "audio_troll", "audio_ouais", "audio_ah", "audio_non", "audio_isname", "audio_issou"];
         $("#toolbar-hacklol").removeClass("blur-desactived");
         $("#hacklol-iframe").removeClass("blur-desactived");
         $("#btn-show-toolbar-paint").removeClass("blur-desactived");
@@ -1302,13 +1303,13 @@ hacklol.ui = {
         var audioName = ["audio", "audio_explosion_bis", "audio_explosion_2", "audio_gel", "audiomlp", "audio_aybabtu", "audio_wt", "audio_troll", "audio_ouais", "audio_ah", "audio_non", "audio_isname", "audio_issou"];
         var audioSrc = ["effet_explosion.mp3", "effet_explosion_bis.mp3", "effet_explosion_2.mp3", "gel.mp3", "mlp.mp3", "aybabtu.mp3", "wt_egg.mp3", "trololo.mp3", "ouais.mp3", "ah.mp3", "non.mp3", "isname.mp3", "issou.mp3"];
         if (window.HTMLAudioElement && $.jStorage.get('effets_sonores') != "Non" || $.jStorage.get('effets_sonores') == null) {
-            for(var i in audioName) {
+            for(var i=0; i < audioName.length; i++) {
                 window[audioName[i]] = document.createElement("audio");
                 window[audioName[i]].src = "assets/sounds/" + audioSrc[i];
                 window[audioName[i]].muted = false;
             }
         } else if(window.HTMLAudioElement) {
-            for(var i in audioName) {
+            for(var i=0; i < audioName.length; i++) {
                 if(typeof(window[audioName[i]]) != 'undefined') {
                     window[audioName[i]].muted = true;
                 }
