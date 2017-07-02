@@ -1,3 +1,8 @@
+<?php
+    if(empty($hacklol_modifier_require_pass) || $hacklol_modifier_require_pass !== "hacklol") {
+        die("ERR: You have to submit the form to access to Hacklol Modifier.");
+    }
+?>
 <!doctype html>
 <html lang="fr">
 <head>

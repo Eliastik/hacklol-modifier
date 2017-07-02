@@ -150,6 +150,7 @@ if($nbErreursForm > 0) {
 // Si tout va bien
 else {
     $_SESSION['urlPageHacklol'] = $url;
+    $hacklol_modifier_require_pass = "hacklol";
     
     require('hacklol-modifier.php');
 }
