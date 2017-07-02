@@ -8,8 +8,8 @@ paintEnabled = false; // variable utilisée pour savoir si l'outil "Dessiner sur
 countEasterEgg = 0;
 var easterEggFound_global = new Array();
 var cheatEasterEgg = false;
-errorLoadingImages = false;
-errorLoadingAudio = false;
+var errorLoadingImages = false;
+var errorLoadingAudio = false;
 loadInBackground = false;
 loadedAudioAlreadyCounted = false;
 // Corrige le bug du .trim sur les anciens navigateurs - https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/trim
@@ -457,16 +457,16 @@ hacklol.tools = {
             $("#explosion_img_effet").attr("src", "");
             $("#explosion_img_effet").removeAttr("src", "");
             $("#explosion_img_effet").removeClass("vertical-align-bottom");
-            if (page_gelee == 0 && explodeEffect == 1) {
+            $("#explosion_img").fadeIn();
+            $("#mask_explosion").fadeIn();
+            
+            if(explodeEffect == 1) {
                 if ($.jStorage.get('effets_sonores') != "Non" && typeof(audio) != 'undefined' && explodeSoundEffect == 1) {
-                    audio.play();
+                        audio.play();
                 } else if ($.jStorage.get('effets_sonores') != "Non" && typeof(audio_explosion_bis) != 'undefined' && explodeSoundEffect == 2) {
-                    audio_explosion_bis.play();
+                        audio_explosion_bis.play();
                 }
-                $("#explosion_img").fadeIn();
-                $("#mask_explosion").fadeIn();
                 hacklol.shake(3000);
-                $("#hacklol-iframeWrapper").fadeOut(2000);
                 $("#explosion_img").fadeOut(3000, function() {
                     $("#explosion_img_effet").removeAttr("src", "");
                 });
@@ -474,68 +474,30 @@ hacklol.tools = {
                     this.offsetHeight;
                 }).prop("src", "assets/img/explosion.gif");
                 $("#mask_explosion").fadeOut(3000);
-                $("#click-explosion-stop").show();
-                $("#click-explosion").hide();
-                $("#disparition_page").hide();
-                $("#re_apparition_page").show();
-            } else if (page_gelee == 1 && explodeEffect == 1) {
-                page_gelee = 0;
-                if ($.jStorage.get('effets_sonores') != "Non" && typeof(audio_gel) != 'undefined') {
-                    audio_gel.play();
+                setTimeout("hacklol.ui.showToolbar(); hacklol.ui.paint.showToolbar();", 3100);
+                
+                if(page_gelee == 0) {
+                    $("#hacklol-iframeWrapper").fadeOut(2000);
+                    $("#click-explosion-stop").show();
+                    $("#click-explosion").hide();
+                    $("#disparition_page").hide();
+                    $("#re_apparition_page").show();
+                } else if(page_gelee == 1) {
+                    page_gelee = 0;
+                    if ($.jStorage.get('effets_sonores') != "Non" && typeof(audio_gel) != 'undefined') {
+                        audio_gel.play();
+                    }
+                    $("#gel_img").fadeOut(2000);
+                    $("#click-gel").show();
+                    $("#click-gel-infos-d").hide();
                 }
-
-                if ($.jStorage.get('effets_sonores') != "Non" && typeof(audio) != 'undefined' && explodeSoundEffect == 1) {
-                    audio.play();
-                } else if ($.jStorage.get('effets_sonores') != "Non" && typeof(audio_explosion_bis) != 'undefined' && explodeSoundEffect == 2) {
-                    audio_explosion_bis.play();
-                }
-                $("#explosion_img").fadeIn();
-                $("#mask_explosion").fadeIn();
-                hacklol.shake(3000);
-                $("#gel_img").fadeOut(2000);
-                $("#explosion_img").fadeOut(3000, function() {
-                    $("#explosion_img_effet").removeAttr('src', '');
-                });
-                $("#explosion_img_effet").show().each(function() {
-                    this.offsetHeight;
-                }).prop("src", "assets/img/explosion.gif");
-                $("#mask_explosion").fadeOut(3000);
-                $("#click-gel").show();
-                $("#click-gel-infos-d").hide();
-            } else if (page_gelee == 0 && explodeEffect == 2) {
+            } else if(explodeEffect == 2) {
                 if ($.jStorage.get('effets_sonores') != "Non" && typeof(audio_explosion_2) != 'undefined') {
                     audio_explosion_2.play();
                 }
+            
                 $("#explosion_img_effet").addClass("vertical-align-bottom");
-                $("#explosion_img").fadeIn();
-                $("#mask_explosion").fadeIn();
                 hacklol.shake(1510);
-                $("#hacklol-iframeWrapper").fadeOut(1000);
-                $("#explosion_img").fadeOut(1510, function() {
-                    $("#explosion_img_effet").removeAttr("src", "");
-                });
-                $("#explosion_img_effet").show().each(function() {
-                    this.offsetHeight;
-                }).prop("src", "assets/img/explosion2.gif");
-                $("#mask_explosion").fadeOut(1510);
-                $("#click-explosion-stop").show();
-                $("#click-explosion").hide();
-                $("#disparition_page").hide();
-                $("#re_apparition_page").show();
-            } else if (page_gelee == 1 && explodeEffect == 2) {
-                page_gelee = 0;
-                if ($.jStorage.get('effets_sonores') != "Non" && typeof(audio_gel) != 'undefined') {
-                    audio_gel.play();
-                }
-
-                if ($.jStorage.get('effets_sonores') != "Non" && typeof(audio_explosion_2) != 'undefined') {
-                    audio_explosion_2.play();
-                }
-                $("#explosion_img_effet").addClass("vertical-align-bottom");
-                $("#explosion_img").fadeIn();
-                $("#mask_explosion").fadeIn();
-                hacklol.shake(1510);
-                $("#gel_img").fadeOut(1300);
                 $("#explosion_img").fadeOut(1510, function() {
                     $("#explosion_img_effet").removeAttr('src', '');
                 });
@@ -543,8 +505,24 @@ hacklol.tools = {
                     this.offsetHeight;
                 }).prop("src", "assets/img/explosion2.gif");
                 $("#mask_explosion").fadeOut(1510);
-                $("#click-gel").show();
-                $("#click-gel-infos-d").hide();
+                setTimeout("hacklol.ui.showToolbar(); hacklol.ui.paint.showToolbar();", 1610);
+                
+                if(page_gelee == 0) {
+                    $("#hacklol-iframeWrapper").fadeOut(1000);
+                    $("#click-explosion-stop").show();
+                    $("#click-explosion").hide();
+                    $("#disparition_page").hide();
+                    $("#re_apparition_page").show();
+                } else if(page_gelee == 1) {
+                    page_gelee = 0;
+                    if ($.jStorage.get('effets_sonores') != "Non" && typeof(audio_gel) != 'undefined') {
+                        audio_gel.play();
+                    }
+                    
+                    $("#gel_img").fadeOut(1300);
+                    $("#click-gel").show();
+                    $("#click-gel-infos-d").hide();
+                }
             }
         } else if (type == "stop") {
             $("#hacklol-iframeWrapper").fadeIn();
@@ -564,14 +542,14 @@ hacklol.tools = {
     // Q2VjaSBlc3QgdW4gZWFzdGVyIGVnZy4gU2kgdm91cyBsJ2F2ZXogdHJvdXbDqSwgdm91cyDDqnRlcyB1biBnw6luaWUgIQ==
     // Defacer le site
     deface: function(type) {
-        var easterEggKeywords = ["MLP", "MY LITTLE PONY", "ALL YOUR BASE ARE BELONG TO US", "AYBABTU", "TROLL", "TROLO", "TROL", "OUAIS", "OUI", "AH", "NON", "NAN", "NO", "NAME", "JOHN", "CENA", "ISSOU", "RISITAS"];
-        var easterEggImg = ["mlp_egg.png", "mlp_egg.png", "aybabtu.png", "aybabtu.png", "trollface.png", "trollface.png", "trollface.png", "ouais.png", "ouais.png", "ah.gif", "non.gif", "non.gif", "non.gif", "isname.jpg", "isname.jpg", "isname.jpg", "issou.jpg", "issou.jpg"];
-        var easterEggWidth = ["300", "300", "336", "336", "336", "336", "336", "150", "150", "", "", "", "", "", "", "", "", ""];
-        var easterEggHeight = ["300", "300", "224", "224", "224", "224", "224", "214", "214", "", "", "", "", "", "", "", "", ""];
-        var easterEggName = ["mlp", "mlp", "aybabtu", "aybabtu", "troll", "troll", "troll", "ouais", "ouais", "ah", "non", "non", "non", "isname", "isname", "isname", "issou", "issou"];
-        var easterEggSound = ["mlp.mp3", "mlp.mp3", "aybabtu.mp3", "aybabtu.mp3", "trololo.mp3", "trololo.mp3", "trololo.mp3", "ouais.mp3", "ouais.mp3", "ah.mp3", "non.mp3", "non.mp3", "non.mp3", "isname.mp3", "isname.mp3", "isname.mp3", "issou.mp3", "issou.mp3"];
-        var easterEggText = [null, null, null, null, null, null, null, null, null, "Ah ! Vous avez trouvé un Easter Egg !! Cliquez pour entendre à nouveau le Ah !", null, null, null, null, null, null, null, null];
-        var indices = ["Un dessin animé très connu avec des petits poneys.", "Une phrase venant de la mauvaise traduction anglaise du jeu Zero Wing de 1989.", "Une tête de troll.", "Le célèbre ... de Denis Brogniart (en deux lettres).", "L'inverse de Non.", "And his name is ... ...", "L'inverse de Oui.", "Le célèbre ... de Risitas (en 5 lettres)."];
+        var easterEggKeywords = ["MLP", "MY LITTLE PONY", "ALL YOUR BASE ARE BELONG TO US", "AYBABTU", "TROLL", "TROLO", "TROL", "OUAIS", "OUI", "AH", "NON", "NAN", "NO", "JOHN", "CENA", "ISSOU"];
+        var easterEggImg = ["mlp_egg.png", "mlp_egg.png", "aybabtu.png", "aybabtu.png", "trollface.png", "trollface.png", "trollface.png", "ouais.png", "ouais.png", "ah.gif", "non.gif", "non.gif", "non.gif", "isname.jpg", "isname.jpg", "issou.jpg"];
+        var easterEggWidth = ["300", "300", "336", "336", "336", "336", "336", "150", "150", "", "", "", "", "", "", ""];
+        var easterEggHeight = ["300", "300", "224", "224", "224", "224", "224", "214", "214", "", "", "", "", "", "", ""];
+        var easterEggName = ["mlp", "mlp", "aybabtu", "aybabtu", "troll", "troll", "troll", "ouais", "ouais", "ah", "non", "non", "non", "isname", "isname", "issou"];
+        var easterEggSound = ["mlp.mp3", "mlp.mp3", "aybabtu.mp3", "aybabtu.mp3", "trololo.mp3", "trololo.mp3", "trololo.mp3", "ouais.mp3", "ouais.mp3", "ah.mp3", "non.mp3", "non.mp3", "non.mp3", "isname.mp3", "isname.mp3", "issou.mp3"];
+        var easterEggText = [null, null, null, null, null, null, null, null, null, "Ah ! Vous avez trouvé un Easter Egg !! Cliquez pour entendre à nouveau le Ah !", null, null, null, null, null, null];
+        var indices = ["Un dessin animé très connu avec des petits poneys.", "Une phrase venant de la mauvaise traduction anglaise du jeu Zero Wing de 1989.", "Une tête de troll.", "Le célèbre .. de Denis Brogniart (en deux lettres).", "L'inverse de Non.", "And his name is .... ....", "L'inverse de Oui.", "Le célèbre ..... de Risitas (en 5 lettres)."];
         var easterEggFound = new Array();
         var numberEasterEgg = hacklol.cleanArray(easterEggName).length;
 
@@ -625,32 +603,7 @@ hacklol.tools = {
 
             for (var i=0; i < easterEggFound.length; i++) {
                 if ($.jStorage.get('effets_sonores') != "Non") {
-                    switch(easterEggFound[i]) {
-                        case "mlp":
-                            audiomlp.play();
-                            break;
-                        case "aybabtu":
-                            audio_aybabtu.play()
-                            break;
-                        case "troll":
-                            audio_troll.play();
-                            break;
-                        case "ouais":
-                            audio_ouais.play();
-                            break;
-                        case "ah":
-                            audio_ah.play();
-                            break;
-                        case "non":
-                            audio_non.play();
-                            break;
-                        case "isname":
-                            audio_isname.play();
-                            break;
-                        case "issou":
-                            audio_issou.play();
-                            break;
-                    }
+                    window["audio_" + easterEggFound[i]].play();
                 }
             }
             
@@ -1300,7 +1253,7 @@ hacklol.ui = {
     },
     audio: function() {
         // AUDIO - SI L'UTILISATEUR A ACTIVE LES EFFETS SONORES ET QUE SON NAVIGATEUR EST COMPATIBLE, ON LES CHARGE
-        var audioName = ["audio", "audio_explosion_bis", "audio_explosion_2", "audio_gel", "audiomlp", "audio_aybabtu", "audio_wt", "audio_troll", "audio_ouais", "audio_ah", "audio_non", "audio_isname", "audio_issou"];
+        var audioName = ["audio", "audio_explosion_bis", "audio_explosion_2", "audio_gel", "audio_mlp", "audio_aybabtu", "audio_wt", "audio_troll", "audio_ouais", "audio_ah", "audio_non", "audio_isname", "audio_issou"];
         var audioSrc = ["effet_explosion.mp3", "effet_explosion_bis.mp3", "effet_explosion_2.mp3", "gel.mp3", "mlp.mp3", "aybabtu.mp3", "wt_egg.mp3", "trololo.mp3", "ouais.mp3", "ah.mp3", "non.mp3", "isname.mp3", "issou.mp3"];
         if (window.HTMLAudioElement && $.jStorage.get('effets_sonores') != "Non" || $.jStorage.get('effets_sonores') == null) {
             for(var i=0; i < audioName.length; i++) {
