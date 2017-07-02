@@ -1013,6 +1013,12 @@ Pour ajouter une icone, voir ici : https://icomoon.io/app/ */
 .icon_error:before {
     content: "\ea0d"
 }
+.icon_notification:before {
+    content: "\ea08"
+}
+.icon_warning:before {
+    content: "\ea07"
+}
 /* popups */
 .white-popup {
     position: relative;

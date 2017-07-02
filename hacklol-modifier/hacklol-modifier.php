@@ -31,13 +31,18 @@
     <div id="mask_chargement"></div>
     <div id="chargement">
         <h1>Chargement d'Hacklol Modifier en cours…</h1>
-        <div class="horizontal-center mb"><img src="http://hacklol.eliastiksofts.com/images/chargement.gif" alt="Chargement" id="loadingIndicator" /> <span id="loadingInfos"></span></div>
+        <div class="horizontal-center mb"><img src="assets/img/chargement.gif" alt="Chargement" id="loadingIndicator" /> <span id="loadingInfos"></span></div>
         <div class="horizontal-center mb"><div class="progress mr vertical-center"><div class="progress-value" id="progressLoading" style="width: 0%;"></div></div> <span id="pourcentageLoadingInfos">0%</span></div>
         <div class="horizontal-center mt" style="font-size: 10pt;"><a href="#" id="loadInBackground">Commencer à utiliser Hacklol Modifier et charger en arrière-plan…</a></div>
+        <div class="horizontal-center mt" style="font-size: 12pt; color: red;" id="noscript-text"><span class="icon icon_warning"></span> Javascript est désactivé dans votre navigateur. Javascript est nécessaire au fonctionnement de l'application. <a href="http://www.enable-javascript.com/fr/" target="_blank">Comment activer Javascript ?</a> - <a href="/">Retour à l'accueil du site</a>.</div>
     </div>
+    <!-- disparait si javascript est actif -->
+    <script type="text/javascript">
+        $("#noscript-text").hide();
+    </script>
     <div id="wrapper-background-loading-indicator" style="display: block">
         <div id="background-loading-indicator" style="display: none;">
-            <div style="text-align: center;"><img src="http://hacklol.eliastiksofts.com/images/chargement.gif" alt="Chargement" class="vertical-center" /> <span id="backgroundLoadingInfos"></span> <span id="backgroundPourcentageLoadingInfos">0%</span></div>
+            <div style="text-align: center;"><img src="assets/img/chargement.gif" alt="Chargement" class="vertical-center" /> <span id="backgroundLoadingInfos"></span> <span id="backgroundPourcentageLoadingInfos">0%</span></div>
         </div>
     </div>
     <!-- toolbar -->
@@ -61,7 +66,7 @@
 --><li class="open-popup-link lienMenu ripplelink" href="#changer-site-popup"><span class="icon icon_quitter"></span> Quitter</li><!-- @whitespace
 --><li class="btn_close_bar lienMenu ripplelink"><span class="icon icon_fermer"></span> Fermer la barre</li>
     </ul>
-    <img src="http://hacklol.eliastiksofts.com/images/hacklol_start_fleche.png" alt="Cliquez ici pour commencer à utiliser Hacklol Modifier…" id="img_start_hacklol" class="bounce" />
+    <img src="assets/img/hacklol_start_fleche.png" alt="Cliquez ici pour commencer à utiliser Hacklol Modifier…" id="img_start_hacklol" class="bounce" />
     <!-- popups -->
     <div id="toolbox-popup" class="white-popup mfp-hide">
         <h1>Boite à outils</h1>
@@ -123,7 +128,7 @@
         <p style="font-size: 10pt;">Ici, vous pouvez éditer un User Script (script utilisateur) pour Hacklol Modifier grâce au langage de programmation JavaScript. Il sera executé à chaque démarrage d'Hacklol Modifier et lors de la sauvegarde de celui-ci. Une documentation est disponible en ligne pour vous permettre d'utiliser les fonctionnalités d'Hacklol Modifier dans vos scripts. Veuillez noter que certaines fonctions sont désactivées pour des raisons de sécurité.<br /><strong>Attention, supprimer vos données de navigation telle que le LocalStorage ou vos cookies aura pour effet de supprimer definitivement votre User Script. Je vous conseille de faire une sauvegarde de celui-ci pour éviter cela.</strong></p>
         <textarea id="editeur_user_script" style="width:100%; height:300px;"></textarea>
         <div id="error-user-script" style="height: 150px; overflow: auto; border: 1px solid #000; padding: 10px; margin: 15px 5px 5px;"><h2>Journal du script :</h2></div>
-        <a class="btn-green" href="#" id="save-user-script"><span class="icon icon_save"></span> Enregistrer</a> <a class="btn-red" id="delete-user-script"><span class="icon icon_reset"></span> Réinitialiser l'User Script</a> <a class="btn" href="http://hacklol.eliastiksofts.com/documentation_user-script.html" target="_blank"><span class="icon icon_doc"></span> Documentation</a> <a class="btn-red popup-modal-dismiss" href="#"><span class="icon icon_fermer"></span> Fermer</a>
+        <a class="btn-green" href="#" id="save-user-script"><span class="icon icon_save"></span> Enregistrer</a> <a class="btn-red" id="delete-user-script"><span class="icon icon_reset"></span> Réinitialiser l'User Script</a> <a class="btn" href="/documentation_user-script.html" target="_blank"><span class="icon icon_doc"></span> Documentation</a> <a class="btn-red popup-modal-dismiss" href="#"><span class="icon icon_fermer"></span> Fermer</a>
     </div>
     <div id="defacer-popup" class="white-popup mfp-hide">
         <h1>Défacer le site</h1>
@@ -320,17 +325,10 @@
         </table>
         <a class="btn-red popup-modal-dismiss" href="#"><span class="icon icon_fermer"></span> Fermer</a>
     </div>
-    <div id="erreur-connexion-popup" class="white-popup mfp-hide">
-        <h1>Erreur de connexion au site</h1>
-        <p>Une erreur est survenue lors de la connexion au site. Il interdit son affichage dans Hacklol Modifier.</p>
-        <a href="http://hacklol.eliastiksofts.com/forum/index.php">Le site s'affiche quand même ? Rapportez-le sur le forum</a>.
-        <a class="btn-red popup-modal-dismiss" href="#"><span class="icon icon_fermer"></span> Fermer</a>
-    </div>
     <div id="erreur-script" class="white-popup mfp-hide">
-        <h1>Une erreur fatale est survenue</h1>
-        <p>Une erreur fatale est survenue dans Hacklol Modifier. Vous pouvez toujours utiliser l'application, mais il se peut qu'elle ne fonctionne pas correctement.
-            <br />
-            <br /> Afin d'aider l'administrateur du site à corriger le problème, veuillez poster un <a href="http://hacklol.eliastiksofts.com/forum/viewforum.php?f=11" target="_blank">rapport de bug sur le forum</a> en indiquant ces informations :</p>
+        <h1>Une erreur est survenue</h1>
+        <p>Une erreur est survenue dans Hacklol Modifier. Vous pouvez toujours utiliser l'application, mais il se peut qu'elle ne fonctionne pas correctement.</p>
+        <p>Vous pouvez aider à résoudre le problème en <a href="https://github.com/Eliastik/hacklol-modifier/issues" target="_blank">postant une issue sur le dépôt Github</a> d'Hacklol Modifier en indiquant ces informations :</p>
         <textarea style="width: 100%;" id="erreurScriptTextarea" rows="10">Rapport d'erreur Javascript automatiquement généré par Hacklol Modifier :</textarea>
         <br /><label class="control control--checkbox">Ne plus afficher à nouveau ce genre d'erreurs durant cette session
             <input type="checkbox" name="checkboxDisableErrors" id="checkboxDisableErrors">
@@ -376,18 +374,6 @@
     <div id="mask_opbb" style="display: none;">
         <div class="btn" id="btn-show-toolbar-paint" style="display:none;"><span class="icon icon_menu"></span> Ouvrir la barre</div>
     </div>
-    <!-- affichage lorsque javascript est inactif -->
-    <div id="mask_noscript"></div>
-    <div id="noscript">
-        <h1>Javascript est désactivé</h1> Votre navigateur n'accepte pas le Javascript ou n'est pas compatible avec celui-ci. Javascript est un langage informatique qu'utilise cette application, il est important pour son fonctionnement, sans quoi elle ne fonctionne pas. Vous devez donc l'activer si vous souhaitez y avoir accès.
-        <br />
-        <a href="http://www.enable-javascript.com/fr/" target="_blank" class="btn">Comment activer javascript ?</a> <a href="../index.php" class="btn">Retour à l'accueil du site</a>
-    </div>
-    <!-- disparait si javascript est actif -->
-    <script type="text/javascript">
-        $("#noscript").hide();
-        $("#mask_noscript").hide();
-    </script>
     <!-- site iframe -->
     <div id="hacklol-iframeWrapper"><iframe src="" id="hacklol-iframe"></iframe></div>
     <!-- explosion -->

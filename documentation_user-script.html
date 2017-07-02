@@ -1,0 +1,1067 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title>Documentation de la fonction « User Script » d'Hacklol Modifier</title>
+	<style type="text/css">
+		@page { margin: 2cm }
+		p { margin-bottom: 0.25cm; line-height: 120% }
+		td p { margin-bottom: 0cm; line-height: 120% }
+		h1 { margin-bottom: 0.21cm }
+		h1.western { font-family: "Liberation Sans", sans-serif; font-size: 18pt }
+		h1.cjk { font-family: "Microsoft YaHei"; font-size: 18pt }
+		h1.ctl { font-family: "Arial"; font-size: 18pt }
+		a:link { so-language: zxx }
+	</style>
+</head>
+<body lang="fr-FR" dir="ltr">
+<p align="center" style="margin-top: 0.42cm; margin-bottom: 0.21cm; line-height: 100%; page-break-after: avoid">
+<font face="Open Sans Extrabold, Arial Black, sans-serif"><font size="6" style="font-size: 28pt"><b>Documentation
+de la fonction «&nbsp;User Script&nbsp;» d'Hacklol Modifier</b></font></font></p>
+<p><font face="Open Sans, Arial, sans-serif">Voici la documentation
+de la fonctionnalité «&nbsp;User script&nbsp;» d'Hacklol. Cette
+fonctionnalité vous permet de créer votre propre script
+utilisateur, en utilisant le langage de programmation Javascript et
+les ressources disponibles par défaut dans Hacklol Modifier. Vous
+pouvez créer de nouveaux outils, améliorer les fonctionnalités par
+défaut, etc.</font></p>
+<p><font face="Open Sans, Arial, sans-serif">Cette fonction dispose
+d'un éditeur de colorisation syntaxique, CodeMirror, pour faciliter
+l'édition de scripts.</font></p>
+<p><font face="Open Sans, Arial, sans-serif">Une grande partie
+d'Hacklol Modifier est programmée en JavaScript. Toutes les
+fonctions essentielles sont intégrés dans un objet <font face="Courrier New, Monospace">hacklol</font>,
+afin de faciliter le développement de nouvelles fonctionnalités.</font></p>
+<p><font face="Open Sans, Arial, sans-serif"><font size="3" style="font-size: 12pt">Hacklol
+Modifier dispose également de la bibliothèque jQuery (documentation
+ici : https://api.jquery.com/), vous pouvez donc utiliser toutes les
+fonctions disponibles avec cette bibliothèque. Hacklol Modifier
+dispose aussi de Magnific-Popup (documentation ici&nbsp;:
+<a href="http://dimsemenov.com/plugins/magnific-popup/documentation.html">http://dimsemenov.com/plugins/magnific-popup/documentation.html</a>)
+pour l'affichage de popup et de jStorage (documentation ici&nbsp;:
+<a href="http://www.jstorage.info/">http://www.jstorage.info/</a>)
+pour le stockage de données local (localStorage), ainsi que d'autres
+scripts (voir la fenêtre «&nbsp;A propos&nbsp;»).</font></font></p>
+<p><font face="Open Sans, Arial, sans-serif"><font size="3" style="font-size: 12pt">Les
+scripts utilisateurs sont exécutés depuis une fonction anonyme.
+Cela signifie que toutes les variables créées sont supprimées une
+fois le script exécuté. Vous pouvez cependant modifier les
+fonctions et variables de l'objet <font face="Courrier New, Monospace">hacklol</font>,
+voire créer de nouvelles propriétés pour cet objet, puisque cela
+ne sera pas supprimé à la fin de l'exécution.</font></font></p>
+<p><font face="Open Sans, Arial, sans-serif">Ci-dessous, la liste des
+fonctions utilisables, commentées.</font></p>
+<table width="100%" cellpadding="4" cellspacing="0">
+	<col width="91*">
+	<col width="83*">
+	<col width="82*">
+	<tr valign="top">
+		<td width="36%" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans Semibold, Arial, sans-serif"><font size="2" style="font-size: 10pt">Fonctions,
+			codes</font></font></p>
+		</td>
+		<td width="32%" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans Semibold, Arial, sans-serif"><font size="2" style="font-size: 10pt">Description,
+			utilité</font></font></p>
+		</td>
+		<td width="32%" style="border: 1px solid #000000; padding: 0.1cm">
+			<p align="center"><font face="Open Sans Semibold, Arial, sans-serif"><font size="2" style="font-size: 10pt">Paramètres,
+			valeurs de retour</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Objet
+			contenant toutes les fonctions d'Hacklol Modifier.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.description</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Variable
+			contenant une description d'Hacklol Modifier. Non utilisé par
+			défaut.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Retourne
+			une chaîne de caractère correspondant à une description
+			d'Hacklol.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.version</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Variable
+			contenant la version d'Hacklol Modifier.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Retourne
+			une chaîne de caractère correspondant à la version d'Hacklol
+			Modifier exécutée.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.dateVersion</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Variable
+			contenant la date de sortie de la version actuelle d'Hacklol
+			Modifier.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Retourne
+			une chaîne de caractère correspondant à la date de sortie de la
+			version actuelle d'Hacklol Modifier, sous la forme J/M/A.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.lang</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Variable
+			correspondant à la langue d'Hacklol Modifier. Utilisé uniquement
+			pour les messages renvoyés par les scripts JavaScript.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Retourne
+			une chaîne de caractère contenant le sigle de la langue. Valeurs
+			possibles&nbsp;: <font face="Courrier New, Monospace">fr</font>,
+			<font face="Courrier New, Monospace">en</font>.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.asciiArt</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Variable
+			contenant le titre «&nbsp;Hacklol&nbsp;» en version «&nbsp;Ascii
+			Art&nbsp;». Utilisé de manière discrète dans un endroit bien
+			caché.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Retourne
+			une chaîne de caractère contenant l'Ascii Art formaté pour
+			s'afficher correctement (avec des entrées <font face="Courrier New, Monospace">\n</font>).</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.tools</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Variable
+			contenant le nombre d'outils d'Hacklol Modifier. Non utilisé par
+			défaut.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Retourne
+			un nombre.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.urlPage</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Variable
+			contenant l'adresse URL du site choisi avant l'accès à Hacklol
+			Modifier.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Retourne
+			une chaîne de caractère.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.console()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Affiche
+			un message dans la console JavaScript.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Aucun
+			paramètre nécessaire. Ne retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.rgb2hex(rgb)</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Convertit
+			une couleur RGB en codage hexadécimal.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center" style="margin-bottom: 0.5cm"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">@<font face="Courrier New, Monospace">rgb&nbsp;</font>:
+			chaîne de caractère contenant une couleur au format RGB.</font></font></p>
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Retourne
+			une chaîne de caractère contenant la couleur au format
+			hexadécimal (sans le caractère # au début).</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.getContrastYIQ(hexcolor)</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Permet
+			de savoir quelle couleur de texte (entre blanc ou noir) placer sur
+			un fond de la couleur définit par le paramètre.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center" style="margin-bottom: 0.5cm"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">@<font face="Courrier New, Monospace">hexcolor&nbsp;</font>:
+			chaîne de caractère contenant une couleur au format hexadécimal.</font></font></p>
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Retourne
+			une chaîne de caractère&nbsp;: black ou white.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.checkVersion()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Envoi
+			une requête Ajax au serveur d'Hacklol pour vérifier si la
+			version d'Hacklol Modifier actuelle correspond bien à la dernière
+			version. Dans le cas contraire, une texte est affiché dans la
+			fenêtre «&nbsp;A propos&nbsp;» indiquant à l'utilisateur la
+			marche à suivre pour obtenir la dernière version d'Hacklol
+			Modifier.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Aucun
+			paramètre nécessaire. Ne retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.probabilite(min,
+			max)</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Tire
+			au sort un nombre entier entre min et max.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center" style="margin-bottom: 0.5cm"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">@<font face="Courrier New, Monospace">min&nbsp;</font>:
+			nombre entier correspondant au nombre minimal à tirer<br/>
+@<font face="Courrier New, Monospace">max&nbsp;</font>:
+			nombre entier correspondat au nombre maximal à tirer.</font></font></p>
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Retourne
+			un nombre entier aléatoire entre min et max (inclus).</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.loadPage(url,
+			withHacklolPL)</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Charge
+			une url dans l'iframe principale d'Hacklol Modifier.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center" style="margin-bottom: 0.5cm"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">@<font face="Courrier New, Monospace">url&nbsp;</font>:
+			chaîne de caractère correspondant à l'adresse URL du site à
+			charger</font></font></p>
+			<p align="center" style="margin-bottom: 0.5cm"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">@<font face="Courrier New, Monospace">withHacklolPL&nbsp;</font>:
+			booléan indiquant si oui ou non il faut charger cette URL avec
+			Hacklol Page Loader (côté serveur).</font></font></p>
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.reloadPage()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Recharge
+			le site en arrière-plan. Cette fonction stoppe également l'outil
+			«&nbsp;Modifier la page&nbsp;» pour éviter des bugs.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Retourne
+			true.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.creerOutil(titre,
+			fonction, fermerFenetre, idButton, style_css)</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center" style="margin-bottom: 0.5cm"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ajoute
+			un bouton dans la fenêtre «&nbsp;Boite à outils&nbsp;» et
+			définit ses propriétés.</font></font></p>
+			<p align="center" style="margin-bottom: 0.5cm"><br/>
+<br/>
+
+			</p>
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt"><font face="Open Sans Semibold, Arial Black, sans-serif">Attention</font>&nbsp;:
+			assurez-vous que cette fonction ne soit exécutée qu'une seule
+			fois pour chaque outil que vous voulez créer, car elle ajoute un
+			bouton à chaque appel sans faire attention à ce que l'outil
+			existe déjà ou pas.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center" style="margin-bottom: 0.5cm"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">@<font face="Courrier New, Monospace">titre&nbsp;</font>:
+			chaîne de caractère – titre de l'outil</font></font></p>
+			<p align="center" style="margin-bottom: 0.5cm"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">@<font face="Courrier New, Monospace">fonction&nbsp;</font>:
+			chaîne de caractères correspondant à une ou plusieurs
+			instructions qui seront exécutées au clic sur le bouton
+			(onclick)</font></font></p>
+			<p align="center" style="margin-bottom: 0.5cm"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">@<font face="Courrier New, Monospace">fermerFenetre&nbsp;</font>:
+			booléen – <font face="Courrier New, Monospace">true</font> si
+			la fenêtre doit se fermer au clic sur le bouton, sinon <font face="Courrier New, Monospace">false</font></font></font></p>
+			<p align="center" style="margin-bottom: 0.5cm"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">@idButton&nbsp;:
+			chaîne de caractère – <font face="Courrier New, Monospace">id</font>
+			HTML du bouton</font></font></p>
+			<p align="center" style="margin-bottom: 0.5cm"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">@<font face="Courrier New, Monospace">style_css</font>&nbsp;:
+			chaîne de caractère définissant le style CSS supplémentaire du
+			bouton – à noter que le bouton créé est l’élément &lt;<font face="Courrier New, Monospace">a</font><font face="Courrier New, Monospace">&gt;</font>
+			en HTML (type <font face="Courrier New, Monospace">inline</font>)</font></font></p>
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Tous
+			les paramètres à part <font face="Courrier New, Monospace">titre</font>
+			sont optionnels. Retourne toujours <font face="Courrier New, Monospace">true</font>.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.blinkFontBSOD()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Fait
+			clignoter un faux curseur dans l'outil «&nbsp;BSOD&nbsp;».
+			Appelle l'autre fonction <font face="Courrier New, Monospace">hacklol.setblinkFontBSOD()</font>
+			via un setTimeout()&nbsp;;</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.setblinkFontBSOD()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Fait
+			clignoter un faux curseur dans l'outil «&nbsp;BSOD&nbsp;».
+			Appelle l'autre fonction <font face="Courrier New, Monospace">hacklol.blinkFontBSOD()</font>
+			via un setTimeout()&nbsp;;</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.shake(time)</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Fait
+			trembler toute l'interface d'Hacklol Modifier. Utilisé dans
+			l'outil «&nbsp;Faire exploser la page&nbsp;» pour une durée de
+			3 secondes (3000 millisecondes).</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center" style="margin-bottom: 0.5cm"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt"><font face="Courrier New, Monospace">@time</font>&nbsp;:
+			nombre de millisecondes durant lesquelles l'effet doit se
+			produire. Si le paramètre est omis, l’interface tremblera
+			indéfiniment.</font></font></p>
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Retourne
+			true.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.loadImages()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Charge
+			les images d’Hacklol Modifier. Utilisé lors du lancement de
+			l’application.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Retourne
+			true.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.completeLoading()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Fonction
+			exécutée lors de la fin du chargement des images d’Hacklol
+			Modifier.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.tools</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Objet
+			contenant toutes les fonctions des outils d'Hacklol (ceux dans la
+			fenêtre «&nbsp;Boîte à outils&nbsp;»).</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.tools.edit(type)</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Active
+			ou désactive l'outil «&nbsp;Modifier la page&nbsp;».</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">@<font face="Courrier New, Monospace">type&nbsp;</font>:
+			chaîne de caractère. Valeurs possibles&nbsp;: edit (pour activer
+			l'outil), stop (pour arrêter l'outil).<br/>
+Ne retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.tools.hidePage(type)</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Active
+			ou désactive l'outil «&nbsp;Faire disparaître la page&nbsp;»</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center" style="margin-bottom: 0.5cm"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">@<font face="Courrier New, Monospace">type&nbsp;</font>:
+			chaîne de caractère. Valeurs possibles&nbsp;: hide (pour activer
+			l'outil), show (pour arrêter l'outil).</font></font></p>
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.tools.paint(type)</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Active
+			ou désactive l'outil «&nbsp;Dessiner sur la page&nbsp;»</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center" style="margin-bottom: 0.5cm"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">@<font face="Courrier New, Monospace">type&nbsp;</font>:
+			chaîne de caractère. Valeurs possibles&nbsp;: paint (pour
+			activer l'outil), stop (pour arrêter l'outil).</font></font></p>
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.tools.explode(type)</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Active
+			ou désactive l'outil «&nbsp;Faire exploser la page&nbsp;»</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center" style="margin-bottom: 0.5cm"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">@<font face="Courrier New, Monospace">type&nbsp;</font>:
+			chaîne de caractère. Valeurs possibles&nbsp;: explode (pour
+			activer l'outil), stop (pour arrêter l'outil).</font></font></p>
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.tools.freeze()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Active
+			l'outil «&nbsp;Geler la page&nbsp;»</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.tools.deface(type)</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Active
+			ou désactive l'outil «&nbsp;Défacer la page&nbsp;».
+			<font face="Open Sans Semibold, Arial Black, sans-serif">Attention&nbsp;</font>:
+			cela n'ouvre pas la fenêtre « Défacer la page&nbsp;».</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center" style="margin-bottom: 0.5cm"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">@<font face="Courrier New, Monospace">type&nbsp;</font>:
+			chaîne de caractère. Valeurs possibles&nbsp;: deface (pour
+			activer l'outil), stop (pour arrêter l'outil).</font></font></p>
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.tools.matrix</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Objet
+			contenant les fonctions utiles pour l'outil «&nbsp;Matrix&nbsp;»</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.tools.matrix.start()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Active
+			l'outil «&nbsp;Matrix&nbsp;»</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.tools.matrix.stop()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Stoppe
+			l'outil «&nbsp;Matrix&nbsp;»</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.tools.bsod(type)</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Active
+			ou désactive l'outil «&nbsp;BSOD&nbsp;», en fonction du choix
+			du formulaire de la fenêtre de l'outil. <b>Attention&nbsp;:</b>
+			cela n'ouvre pas la fenêtre «&nbsp;BSOD&nbsp;».</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center" style="margin-bottom: 0.5cm"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt"><font face="Courrier New, Monospace">@type</font>&nbsp;:
+			chaîne de caractère. Valeurs possibles&nbsp;: bsod (pour activer
+			l'outil), stop (pour arrêter l'outil).</font></font></p>
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.tools.shake(type)</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Active
+			ou désactive l’outil «&nbsp;Secouer la page&nbsp;».</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center" style="margin-bottom: 0.5cm"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt"><font face="Courrier New, Monospace">@type</font>&nbsp;:
+			chaîne de caractère. Valeurs possibles&nbsp;: shake (pour
+			activer l'outil), stop (pour arrêter l'outil).</font></font></p>
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.tools.flou(type)</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Active
+			ou désactive l’outil « Flouter la page&nbsp;».</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center" style="margin-bottom: 0.5cm"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt"><font face="Courrier New, Monospace">@type</font>&nbsp;:
+			chaîne de caractère. Valeurs possibles&nbsp;: flou (pour activer
+			l'outil), stop (pour arrêter l'outil).</font></font></p>
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.settings</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Objet
+			contenant les fonctions utiles pour les paramètres.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.settings.check()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Modifie
+			le formulaire de la fenêtre «&nbsp;Paramètres&nbsp;» avec les
+			paramètres sauvegardés.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Retourne
+			true.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.settings.save()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Sauvegarde
+			les paramètres en fonction du formulaire de la fenêtre
+			«&nbsp;Paramètres&nbsp;»</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Retourne
+			true si la sauvegarde s'est bien passée, sinon false.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.settings.exe()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Exécute
+			les effets des paramètres. Utilisé au chargement d'Hacklol
+			Modifier, et lors de la sauvegarde des paramètres.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Retourne
+			true.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.settings.resetData()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Réinitialise
+			les données sauvegardées d’Hacklol Modifier, dont les
+			paramètres ainsi que d’autres données.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.ui</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Objet
+			contenant les fonctions de l'interface utilisateur.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.ui.closeToolbar()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ferme
+			la barre d'outils du haut.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.ui.showToolbar()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ouvre
+			la barre d'outils du haut.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.ui.closeWindow()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ferme
+			la fenêtre en cours d'affichage.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.ui.hideButtonToolbar()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Affiche/cache
+			le bouton «&nbsp;Ouvrir la barre&nbsp;»</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.ui.quitHacklol()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ouvre
+			la fenêtre «&nbsp;Quitter Hacklol Modifier&nbsp;»</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.ui.flou()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Floute
+			toute l'interface d'Hacklol Modifier (dont le site modifié).</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.ui.desactivFlou()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Dé-floute
+			toute l'interface d'Hacklol Modifier (dont le site modifié).</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.ui.audio()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Charge
+			les fichiers audio d'Hacklol Modifier.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">audio.play()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Joue
+			l'effet sonore «&nbsp;Explosion&nbsp;».</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">audio_explosion_bis.play()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Joue
+			l’effet sonore «&nbsp;Explosion n°2&nbsp;».</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">audio_explosion_2.play()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Joue
+			l’effet sonore «&nbsp;Explosion n°3&nbsp;».</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">audio_gel.play()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Joue
+			l'effet sonore «&nbsp;Explosion de glace&nbsp;».</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">audiomlp.play()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Joue
+			l'effet sonore «&nbsp;My Little Pony&nbsp;» (oui, cet effet est
+			disponible dans Hacklol Modifier).</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">audio_aybabtu.play()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Joue
+			l'effet sonore «&nbsp;All your bases are belong to us&nbsp;».</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">audio_wt.play()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Joue
+			l'effet sonore «&nbsp;Explosion WT*&nbsp;».</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">audio_troll.play()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Joue
+			l’effet sonore «&nbsp;Trololol&nbsp;».</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">audio_ms.play()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Joue
+			l’effet sonore «&nbsp;Segpa&nbsp;».</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.ui.paint</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Objet
+			contenant les fonctions de l'interface utilisateur de la fonction
+			«&nbsp;Dessiner sur la page&nbsp;»</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.ui.paint.closeToolbar()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ferme
+			la barre d'outil de cette fonction.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.ui.paint.showToolbar()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ouvre
+			la barre d'outil de cette fonction.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.ui.paint.menuMobile</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Objet
+			contenant les fonctions de l'interface utilisateur du menu en
+			version mobile.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">hacklol.ui.paint.menuMobile.click()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ouvre
+			ou ferme le menu mobile. Se gère automatiquement à l'aide d'une
+			variable gloabale.</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">optionsCheck()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Même
+			effet que hacklol.settings.check()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">modifier_page_tool()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Même
+			effet que hacklol.tools.edit(&quot;edit&quot;)</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="36%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Courrier New, Monospace"><font size="2" style="font-size: 10pt">modifier_page_tool_arret()</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Même
+			effet que hacklol.tools.edit(&quot;stop&quot;)</font></font></p>
+		</td>
+		<td width="32%" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+			<p align="center"><font face="Open Sans, Arial, sans-serif"><font size="2" style="font-size: 10pt">Ne
+			retourne rien.</font></font></p>
+		</td>
+	</tr>
+</table>
+<h1 class="western" style="font-weight: normal"><font face="Open Sans Extrabold, Arial Black, sans-serif"><u>Fonctions
+bloquées</u></font></h1>
+<p><font face="Open Sans, Arial, sans-serif"><font size="3" style="font-size: 12pt">L'exécution
+des fonctions suivantes est bloqué&nbsp;:</font></font></p>
+<ul>
+	<li/>
+<p><font face="Open Sans, Arial, sans-serif"><font size="3" style="font-size: 12pt"><font face="Courrier New, Monospace">eval()</font>
+	et <font face="Courrier New, Monospace">new function</font>&nbsp;;</font></font></p>
+	<li/>
+<p><font face="Open Sans, Arial, sans-serif"><font size="3" style="font-size: 12pt">les
+	fonctions de requêtes Ajax&nbsp;: tout ce qui contient <font face="Courrier New, Monospace">xhr</font>,
+	<font face="Courrier New, Monospace">ajax</font>, $<font face="Courrier New, Monospace">.post</font>,
+	$<font face="Courrier New, Monospace">.get</font>, <font face="Courrier New, Monospace">XMLHttpRequest</font>
+	et <font face="Courrier New, Monospace">XMLHTTP</font> est bloqué&nbsp;;</font></font></p>
+	<li/>
+<p><font face="Open Sans, Arial, sans-serif"><font size="3" style="font-size: 12pt">L'objet
+	<font face="Courrier New, Monospace">document.cookie</font> est
+	bloqué (vous pouvez toujours utiliser le <font face="Courrier New, Monospace">localStorage</font>)&nbsp;;</font></font></p>
+	<li/>
+<p><font face="Open Sans, Arial, sans-serif"><font size="3" style="font-size: 12pt">Les
+	fonctions et variables suivantes sont bloquées&nbsp;:
+	<font face="Courrier New, Monospace">userScriptFunction</font>,
+	<font face="Courrier New, Monospace">codeMirrorUserScript</font> et
+	<font face="Courrier New, Monospace">execUserScript</font>.</font></font></p>
+</ul>
+<p><font face="Open Sans, Arial, sans-serif"><font size="3" style="font-size: 12pt">Si
+ces fonctions sont détectées, l'exécution de votre script sera
+annulée (mais le script sera quand même enregistré).</font></font></p>
+</body>
+</html>
