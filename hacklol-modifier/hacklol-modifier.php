@@ -34,7 +34,7 @@
         <div class="horizontal-center mb"><img src="assets/img/chargement.gif" alt="Chargement" id="loadingIndicator" /> <span id="loadingInfos"></span></div>
         <div class="horizontal-center mb"><div class="progress mr vertical-center"><div class="progress-value" id="progressLoading" style="width: 0%;"></div></div> <span id="pourcentageLoadingInfos">0%</span></div>
         <div class="horizontal-center mt" style="font-size: 10pt;"><a href="#" id="loadInBackground">Commencer à utiliser Hacklol Modifier et charger en arrière-plan…</a></div>
-        <div class="horizontal-center mt" style="font-size: 12pt; color: red;" id="noscript-text"><span class="icon icon_warning"></span> Javascript est désactivé dans votre navigateur. Javascript est nécessaire au fonctionnement de l'application. <a href="http://www.enable-javascript.com/fr/" target="_blank">Comment activer Javascript ?</a> - <a href="/">Retour à l'accueil du site</a>.</div>
+        <div class="horizontal-center mt" style="font-size: 12pt; color: red;" id="noscript-text"><span class="icon icon_warning"></span> Javascript est désactivé dans votre navigateur. Javascript est nécessaire au fonctionnement de l'application. <a href="http://www.enable-javascript.com/fr/" target="_blank">Comment activer Javascript ?</a> – <a href="/">Retour à l'accueil du site</a>.</div>
     </div>
     <!-- disparait si javascript est actif -->
     <script type="text/javascript">
@@ -168,8 +168,10 @@
         <a id="defacer_site_ok" class="btn-green popup-modal-dismiss"><span class="icon icon_vrai"></span> Défacer le site</a>
         <a id="defacer_site_reafficher" class="btn popup-modal-dismiss" style="display: none;"><span class="icon icon_page"></span> Faire ré-apparaître le site</a>
         <a class="btn-red popup-modal-dismiss" href="#"><span class="icon icon_fermer"></span> Fermer cette fenêtre</a>
-        <p style="color: blue; font-size: 10pt; margin: 0; margin-top: 18px; margin-bottom: 18px;">N.B. : 4 easter eggs (œufs de Pâques) sont cachés dans cet outil. Pour les trouver, vous devez entrer un mot ou une phrase particulière dans l'un des deux champs de formulaire (&laquo; Titre &raquo; ou &laquo; Texte &raquo;). Un petit indice : il s'agit tous de mèmes (phénomènes) Internet. Bonne chance !</p>
-        <p id="easter_egg_count" style="color: green; font-size: 11pt; margin: 0; font-weight: bold;"></p>
+        <h2>Jeu de la chasse aux Easter Eggs</h2>
+        <p id="easter_egg_count" style="color: green; font-size: 11pt; font-weight: bold;"></p>
+        <p style="color: blue; font-size: 10pt; margin: 0;"><span id="numberEasterEgg">???</span> Easter Eggs (œufs de Pâques) sont cachés dans cet outil. Pour les trouver, vous devez entrer un mot ou une phrase particulière dans l'un des deux champs de formulaire (&laquo; Titre &raquo; ou &laquo; Texte &raquo;). Un petit indice : il s'agit tous de mèmes (phénomènes) Internet. Bonne chance !</p>
+        <p style="margin-bottom: 0;"><a href="#null" id="indiceEgg">Un autre indice</a> – <a href="#null" id="cheatEgg">Tous les révéler</a></p>
     </div>
     <div id="bsod-popup" class="white-popup mfp-hide">
         <h1>BSOD</h1>

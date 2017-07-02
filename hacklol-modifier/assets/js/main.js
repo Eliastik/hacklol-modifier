@@ -6,6 +6,8 @@ pageChargeeFirst = 1; // variable utilisée pour savoir si c'est la première fo
 errorDisabled = false; // variable utilisée pour savoir si l'utilisateur a désactivé l'affichage des erreurs
 paintEnabled = false; // variable utilisée pour savoir si l'outil "Dessiner sur la page" est activé
 countEasterEgg = 0;
+var easterEggFound_global = new Array();
+var cheatEasterEgg = false;
 errorLoadingImages = false;
 errorLoadingAudio = false;
 loadInBackground = false;
@@ -73,14 +75,20 @@ var hacklol = {
     },
     // cleanArray removes all duplicated elements - https://www.unicoda.com/?p=579
     cleanArray: function(array) {
-      var i, j, len = array.length, out = [], obj = {};
-      for (i = 0; i < len; i++) {
-        obj[array[i]] = 0;
-      }
-      for (j in obj) {
-        out.push(j);
-      }
-      return out;
+        var i, j, len = array.length, out = [], obj = {};
+        for (i = 0; i < len; i++) {
+            obj[array[i]] = 0;
+        }
+        for (j in obj) {
+            out.push(j);
+        }
+        return out;
+    },
+    sleep: function(ms) {
+        var currentTime = new Date().getTime();
+
+        while (currentTime + ms >= new Date().getTime()) {
+        }
     },
     // https://stackoverflow.com/a/8317014
     validateUrl: function(url) {
@@ -148,7 +156,7 @@ var hacklol = {
     },
     loadImages: function() {
         var loadedImagesCount = 0;
-        var imageNames = ['assets/img/select-arrow.png','assets/img/explosion.gif','assets/img/explosion2.gif','assets/img/gel.png','assets/img/points.png','assets/img/sadface.png', 'assets/img/mlp_egg.png', 'assets/img/aybabtu.png', 'assets/img/trollface.png', 'assets/img/check.png', 'assets/img/ouais.png', 'assets/img/ah.gif'];
+        var imageNames = ['assets/img/select-arrow.png','assets/img/explosion.gif','assets/img/explosion2.gif','assets/img/gel.png','assets/img/points.png','assets/img/sadface.png', 'assets/img/mlp_egg.png', 'assets/img/aybabtu.png', 'assets/img/trollface.png', 'assets/img/check.png', 'assets/img/ouais.png', 'assets/img/ah.gif', 'assets/img/non.gif'];
         var imagesArray = [];
         for (var i = 0; i < imageNames.length; i++) {
             var image = new Image();
@@ -218,7 +226,7 @@ var hacklol = {
                 var loadedAudioCount = 0;
                 var errorLoadingAudio = false;
                 var pourcentageLoadingAudio = 0;
-                var audioFiles = ["effet_explosion.mp3","effet_explosion_bis.mp3","effet_explosion_2.mp3","gel.mp3","mlp.mp3","aybabtu.mp3","wt_egg.mp3","trololo.mp3","ah.mp3","ouais.mp3"];
+                var audioFiles = ["effet_explosion.mp3","effet_explosion_bis.mp3","effet_explosion_2.mp3","gel.mp3","mlp.mp3","aybabtu.mp3","wt_egg.mp3","trololo.mp3","ah.mp3","ouais.mp3","non.mp3"];
                 var audioFilesLoaded = [];
                 var errorLoadingAudioFunction = function() {
                     if($.inArray(this.src, audioFilesLoaded) == -1) {
@@ -556,22 +564,23 @@ hacklol.tools = {
     // Q2VjaSBlc3QgdW4gZWFzdGVyIGVnZy4gU2kgdm91cyBsJ2F2ZXogdHJvdXbDqSwgdm91cyDDqnRlcyB1biBnw6luaWUgIQ==
     // Defacer le site
     deface: function(type) {
+        var easterEggKeywords = ["MLP", "MY LITTLE PONY", "ALL YOUR BASE ARE BELONG TO US", "AYBABTU", "TROLL", "TROLO", "TROL", "OUAIS", "OUI", "AH", "NON", "NAN", "NO"];
+        var easterEggImg = ["mlp_egg.png", "mlp_egg.png", "aybabtu.png", "aybabtu.png", "trollface.png", "trollface.png", "trollface.png", "ouais.png", "ouais.png", "ah.gif", "non.gif", "non.gif", "non.gif"];
+        var easterEggWidth = ["300", "300", "336", "336", "336", "336", "336", "150", "150", "", "", "", ""];
+        var easterEggHeight = ["300", "300", "224", "224", "224", "224", "224", "214", "214", "", "", "", ""];
+        var easterEggName = ["mlp", "mlp", "aybabtu", "aybabtu", "troll", "troll", "troll", "ouais", "ouais", "ah", "non", "non", "non"];
+        var easterEggSound = ["mlp.mp3", "mlp.mp3", "aybabtu.mp3", "aybabtu.mp3", "trololo.mp3", "trololo.mp3", "trololo.mp3", "ouais.mp3", "ouais.mp3", "ah.mp3", "non.mp3", "non.mp3", "non.mp3"];
+        var easterEggText = [null, null, null, null, null, null, null, null, null, "Ah ! Vous avez trouvé un Easter Egg !! Cliquez pour entendre à nouveau le Ah !", null, null, null];
+        var easterEggFound = new Array();
+        var numberEasterEgg = hacklol.cleanArray(easterEggName).length;
+
         if(type == "deface") {
-            var easterEggKeywords = ["MLP", "MY LITTLE PONY", "ALL YOUR BASE ARE BELONG TO US", "AYBABTU", "TROLL", "TROLO", "TROL", "OUAIS", "OUI", "AH"];
-            var easterEggImg = ["mlp_egg.png", "mlp_egg.png", "aybabtu.png", "aybabtu.png", "trollface.png", "trollface.png", "trollface.png", "ouais.png", "ouais.png", "ah.gif"];
-            var easterEggWidth = ["300", "300", "336", "336", "336", "336", "336", "150", "150", ""];
-            var easterEggHeight = ["300", "300", "224", "224", "224", "224", "224", "214", "214", ""];
-            var easterEggName = ["mlp", "mlp", "aybabtu", "aybabtu", "troll", "troll", "troll", "ouais", "ouais", "ah"];
-            var easterEggSound = ["mlp.mp3", "mlp.mp3", "aybabtu.mp3", "aybabtu.mp3", "trololo.mp3", "trololo.mp3", "trololo.mp3", "ouais.mp3", "ouais.mp3", "ah.mp3"];
-            var easterEggText = [null, null, null, null, null, null, null, null, null, "Ah ! Vous avez trouvé un Easter Egg !! Cliquez pour entendre à nouveau le Ah !"];
-            var easterEggFound = new Array();
             var couleur_deface_arriere = $("#colorpicker3").val();
             var contrastColorTextDeface = hacklol.getContrastYIQ(couleur_deface_arriere);
-            var numberEasterEgg = hacklol.cleanArray(easterEggName).length;
             $("#deface_div").css("background-color", "#" + couleur_deface_arriere);
             $("#deface_div").css("color", contrastColorTextDeface);
             $("#deface_div").show();
-            $("#p_egg").html("");
+            $("#p_egg").text("");
             $("#defacer_site_reafficher").show();
 
             if ($("#titre_deface_input").val().trim() == "") {
@@ -594,6 +603,7 @@ hacklol.tools = {
                         var eggFound = true;
                     }
                     easterEggFound.push(easterEggName[arrayPos]);
+                    easterEggFound_global.push(easterEggName[arrayPos]);
                     if(eggFound != true) {
                         if (easterEggText[i] == null && $.jStorage.get('effets_sonores') != "Non") {
                             $("#p_egg").html($("#p_egg").html() + "<br /><img src='assets/img/" + easterEggImg[i] + "' alt='"+ easterEggKeywords[i].toLowerCase() +"' id='"+ easterEggKeywords[i].toLowerCase() +"' width='"+ easterEggWidth[i] +" height='"+ easterEggHeight[i] +"' class=\'img-resize\' onclick='hacklol.ui.replayEgg(this.src, this.id, \""+ easterEggSound[i] +"\");' style='cursor: pointer;' /><br />Bravo, vous avez trouvé un Easter Egg !!");
@@ -607,10 +617,11 @@ hacklol.tools = {
                     }
                 }
             }
-            
+
             var easterEggFound = hacklol.cleanArray(easterEggFound);
-            var countEasterEgg = easterEggFound.length;
-            
+            easterEggFound_global = hacklol.cleanArray(easterEggFound_global);
+            var countEasterEgg = easterEggFound_global.length;
+
             for (var i in easterEggFound) {
                 if ($.jStorage.get('effets_sonores') != "Non") {
                     switch(easterEggFound[i]) {
@@ -629,29 +640,68 @@ hacklol.tools = {
                         case "ah":
                             audio_ah.play();
                             break;
+                        case "non":
+                            audio_non.play();
+                            break;
                     }
                 }
             }
+            
+            $("#easter_egg_count").css("color", "green");
 
-            // to-do : save found easter eggs
             if(countEasterEgg < numberEasterEgg && countEasterEgg > 0) {
                 var nombre_a_trouve = numberEasterEgg - countEasterEgg;
-                if(hacklol.lang == "en" && countEasterEgg > 1) {
-                    $("#easter_egg_count").text("Congratulations! You have found "+ countEasterEgg +" easter eggs. You must still find "+ nombre_a_trouve +" easter egg(s).");
-                } else if(hacklol.lang == "en") {
-                    $("#easter_egg_count").text("Congratulations! You have found "+ countEasterEgg +" easter egg. You must still find "+ nombre_a_trouve +" easter eggs.");
-                } else if(countEasterEgg > 1) {
-                    $("#easter_egg_count").text("Bravo ! Vous avez trouvé "+ countEasterEgg +" easter eggs. Il vous en reste "+ nombre_a_trouve +" à trouver.");
+                if(countEasterEgg > 1) {
+                    $("#easter_egg_count").text("Bravo ! Vous avez trouvé "+ countEasterEgg +" Easter Eggs. Il vous en reste "+ nombre_a_trouve +" à trouver.");
                 } else {
-                    $("#easter_egg_count").text("Bravo ! Vous avez trouvé "+ countEasterEgg +" easter egg. Il vous en reste "+ nombre_a_trouve +" à trouver.");
+                    $("#easter_egg_count").text("Bravo ! Vous avez trouvé "+ countEasterEgg +" Easter Egg. Il vous en reste "+ nombre_a_trouve +" à trouver.");
                 }
             } else if(countEasterEgg == numberEasterEgg) {
-                if(hacklol.lang == "en") {
-                    $("#easter_egg_count").text("Congratulations! You found all the easter eggs.");
-                } else {
-                    $("#easter_egg_count").text("Bravo ! Vous avez trouvé tous les easter eggs.");
+                $("#easter_egg_count").text("Bravo ! Vous avez trouvé tous les Easter Eggs.");
+            }
+            
+            if(cheatEasterEgg == true) {
+                $("#easter_egg_count").text("Vous avez trouvé tous les Easter Eggs en trichant. C'est mal, m'voyez !");
+                $("#easter_egg_count").css("color", "red");
+            }
+
+            $.jStorage.set('easter_egg_deface_found', easterEggFound_global);
+        } else if(type == "check") {
+            $("#numberEasterEgg").text(numberEasterEgg);
+            
+            if($.jStorage.get('easter_egg_deface_cheated') !== null && $.jStorage.get('easter_egg_deface_cheated') == "Oui") {
+                cheatEasterEgg = true;
+                $("#easter_egg_count").text("Vous avez trouvé tous les Easter Eggs en trichant. C'est mal, m'voyez !");
+                $("#easter_egg_count").css("color", "red");
+                return;
+            }
+            if($.jStorage.get('easter_egg_deface_found') !== null) {
+                easterEggFound_global = $.jStorage.get('easter_egg_deface_found');
+                var countEasterEgg = easterEggFound_global.length;
+
+                if(countEasterEgg < numberEasterEgg && countEasterEgg > 0) {
+                    var nombre_a_trouve = numberEasterEgg - countEasterEgg;
+                    if(countEasterEgg > 1) {
+                        $("#easter_egg_count").text("Bravo ! Vous avez trouvé "+ countEasterEgg +" Easter Eggs. Il vous en reste "+ nombre_a_trouve +" à trouver.");
+                    } else {
+                        $("#easter_egg_count").text("Bravo ! Vous avez trouvé "+ countEasterEgg +" Easter Egg. Il vous en reste "+ nombre_a_trouve +" à trouver.");
+                    }
+                } else if(countEasterEgg == numberEasterEgg) {
+                    $("#easter_egg_count").text("Bravo ! Vous avez trouvé tous les Easter Eggs.");
                 }
-                $.jStorage.set('easter_egg_deface_found', 'Oui');
+            }
+        } else if(type == "indice") {
+            alert("A venir");
+        } else if(type == "cheat") {
+            if(cheatEasterEgg == true) {
+                alert("Vous avez déjà révélé tous les Easter Eggs.");
+                return;
+            }
+            if(confirm("Êtes-vous sûr de vouloir révéler tous les Easter Eggs ?") && confirm("Êtes-vous vraiment sûr de vouloir tricher ?")) {
+                alert("OK, comme vous voulez… Cliquez sur « Défacer le site » pour confirmer.");
+                $("#editeur_deface").val(easterEggKeywords);
+                cheatEasterEgg = true;
+                $.jStorage.set('easter_egg_deface_cheated', "Oui");
             }
         } else if(type == "stop") {
             $("#deface_div").hide();
@@ -1041,18 +1091,7 @@ hacklol.settings = {
             pageChargeeFirst = 0;
         }
         // easter egg deface site
-        var easter_egg_deface_trouve = $.jStorage.get('easter_egg_deface_found');
-        if (easter_egg_deface_trouve == "Oui") {
-            if(hacklol.lang == "en") {
-                $("#easter_egg_count").text("Congratulations! You found all the easter eggs.");
-            } else {
-                $("#easter_egg_count").text("Bravo ! Vous avez trouvé tous les easter eggs.");
-            }
-            easter_egg_mlp_found = true;
-            easter_egg_aybabtu_found = true;
-            easter_egg_troll_found = true;
-            easter_egg_ms_found = true;
-        }
+        hacklol.tools.deface("check");
         // couleur barre
         var parametre_couleur_barre = $.jStorage.get('couleur_barre');
         if (parametre_couleur_barre == "Defaut") {
@@ -1121,6 +1160,9 @@ hacklol.settings = {
         $('input[name=checkboxDisableErrors]').removeAttr('checked');
         $("#colorpicker1").val("");
         $("#colorpicker1").css("border-color", "#000000");
+        easterEggFound_global = new Array();
+        cheatEasterEgg = false;
+        $("#easter_egg_count").css("color", "green");
         $("#easter_egg_count").text("");
         if(hacklol.lang == "en") {
             alert("Data deleted.");
@@ -1269,6 +1311,10 @@ hacklol.ui = {
             audio_ah = document.createElement("audio");
             audio_ah.src = "assets/sounds/ah.mp3";
             audio_ah.muted = false;
+            // non
+            audio_non = document.createElement("audio");
+            audio_non.src = "assets/sounds/non.mp3";
+            audio_non.muted = false;
         } else if(window.HTMLAudioElement) {
             if(typeof(audio) != 'undefined') {
                 audio.muted = true;
@@ -1302,6 +1348,9 @@ hacklol.ui = {
             }
             if(typeof(audio_tmp) != 'undefined') {
                 audio_tmp.muted = true;
+            }
+            if(typeof(audio_non) != 'undefined') {
+                audio_non.muted = true;
             }
         }
     },
@@ -1569,6 +1618,12 @@ $(document).ready(function() {
     });
     $("#click-secouer-stop").click(function() {
         hacklol.tools.shake("stop");
+    });
+    $("#indiceEgg").click(function() {
+        hacklol.tools.deface("indice");
+    });
+    $("#cheatEgg").click(function() {
+        hacklol.tools.deface("cheat");
     });
     // Changer de site
     $("#change_site_ok").click(function() {
