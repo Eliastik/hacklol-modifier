@@ -19,6 +19,7 @@
     
     <script type="text/javascript" src="libs/js/jquery.min.js"></script>
     <script type="text/javascript" src="libs/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="libs/js/jquery.ui.touch-punch.min.js"></script>
     <script type="text/javascript" src="libs/js/magnific-popup.min.js"></script>
     <script type="text/javascript" src="libs/js/jstorage.min.js"></script>
     <script src="libs/js/colpick.js" type="text/javascript"></script>

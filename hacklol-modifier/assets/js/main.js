@@ -716,7 +716,10 @@ hacklol.tools = {
                 }
             }
         } else if(type == "indice") {
-            alert("A venir");
+            var indices = ["Un dessin animé très connu avec des petits poneys.", "Une phrase venant de la mauvaise traduction anglaise du jeu Zero Wing de 1989.", "Une tête de troll.", "Le célèbre ... de Denis Brogniart (en deux lettres).", "L'inverse de Non.", "And his name is ... ...", "L'inverse de Oui.", "Le célèbre ... de Risitas (en 5 lettres)."];
+            var numIndice = hacklol.random(0, 7);
+            alert(indices[numIndice]);
+            return true;
         } else if(type == "cheat") {
             if(cheatEasterEgg == true) {
                 alert("Vous avez déjà révélé tous les Easter Eggs.");
