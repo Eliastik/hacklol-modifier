@@ -6,7 +6,7 @@
 <!doctype html>
 <html lang="fr">
 <head>
-    <!-- Hacklol Modifier v.1.3.1 (version finale) -->
+    <!-- Hacklol Modifier v.1.4 -->
     <title>Hacklol Modifier</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width">
@@ -50,10 +50,10 @@
     <div id="toolbar-hacklol">
         <ul class="menu" id="menuToolbarTop">
             <li class="open-popup-link lienMenu ripplelink" href="#toolbox-popup"><span class="icon icon_outils"></span> Boîte à outils</li><!-- @whitespace
---><li class="open-popup-link lienMenu ripplelink" href="#a-propos-popup"><span class="icon icon_infos"></span> À propos…</li><!-- @whitespace
---><li class="popup-parametres lienMenu ripplelink" href="#parametres-popup"><span class="icon icon_parametres"></span> Paramètres</li><!-- @whitespace
---><li class="open-popup-link lienMenu ripplelink" href="#changer-site-popup"><span class="icon icon_quitter"></span> Quitter</li><!-- @whitespace
---><li class="btn_close_bar lienMenu ripplelink"><span class="icon icon_fermer"></span> Fermer la barre</li>
+---><li class="open-popup-link lienMenu ripplelink" href="#a-propos-popup"><span class="icon icon_infos"></span> À propos…</li><!-- @whitespace
+---><li class="popup-parametres lienMenu ripplelink" href="#parametres-popup"><span class="icon icon_parametres"></span> Paramètres</li><!-- @whitespace
+---><li class="open-popup-link lienMenu ripplelink" href="#changer-site-popup"><span class="icon icon_quitter"></span> Quitter</li><!-- @whitespace
+---><li class="btn_close_bar lienMenu ripplelink"><span class="icon icon_fermer"></span> Fermer la barre</li>
         </ul>
         <div id="lienMenuMobile" class="ripplelink"><span class="icon icon_menu"></span> Menu</div>
     </div>
@@ -62,17 +62,17 @@
     </div>
     <ul id="menuMobile">
         <li class="open-popup-link lienMenu ripplelink" href="#toolbox-popup"><span class="icon icon_outils"></span> Boîte à outils</li><!-- @whitespace
---><li class="open-popup-link lienMenu ripplelink" href="#a-propos-popup"><span class="icon icon_infos"></span> À propos…</li><!-- @whitespace
---><li class="popup-parametres lienMenu ripplelink" href="#parametres-popup"><span class="icon icon_parametres"></span> Paramètres</li><!-- @whitespace
---><li class="open-popup-link lienMenu ripplelink" href="#changer-site-popup"><span class="icon icon_quitter"></span> Quitter</li><!-- @whitespace
---><li class="btn_close_bar lienMenu ripplelink"><span class="icon icon_fermer"></span> Fermer la barre</li>
+---><li class="open-popup-link lienMenu ripplelink" href="#a-propos-popup"><span class="icon icon_infos"></span> À propos…</li><!-- @whitespace
+---><li class="popup-parametres lienMenu ripplelink" href="#parametres-popup"><span class="icon icon_parametres"></span> Paramètres</li><!-- @whitespace
+---><li class="open-popup-link lienMenu ripplelink" href="#changer-site-popup"><span class="icon icon_quitter"></span> Quitter</li><!-- @whitespace
+---><li class="btn_close_bar lienMenu ripplelink"><span class="icon icon_fermer"></span> Fermer la barre</li>
     </ul>
     <img src="assets/img/hacklol_start_fleche.png" alt="Cliquez ici pour commencer à utiliser Hacklol Modifier…" id="img_start_hacklol" class="bounce" />
     <!-- popups -->
     <div id="toolbox-popup" class="white-popup mfp-hide">
         <h1>Boite à outils</h1>
         <div style="border-bottom: 1px solid grey; padding-bottom: 10px; text-align: center;"><a class="btn-green open-popup-link btn-same-size" href="#user-script-popup"><span class="icon icon_crayon"></span> Éditer votre User Script</a></div>
-        <p style="color: blue; margin-bottom: 0;"><span class="icon icon_infos"></span> Appuyez sur les boutons ci-dessous pour utiliser les outils.</p>
+        <p style="color: blue; margin-bottom: 0; text-align: center;"><span class="icon icon_infos"></span> Appuyez sur les boutons ci-dessous pour utiliser les outils.</p>
         <div id="toolbox_buttons">
         <table id="align-toolbox-buttons">
             <tr>
@@ -82,11 +82,6 @@
             <tr>
                 <td><a class="btn popup-modal-dismiss btn-same-size" id="disparition_page" href="#"><span class="icon icon_magic"></span> Faire disparaître la page</a>
                     <a class="btn popup-modal-dismiss btn-same-size" id="re_apparition_page" href="#" style="display:none;"><span class="icon icon_page"></span> Faire ré-apparaître la page (disparition)</a></td>
-            </tr>
-            <tr>
-                <td>
-                    <!-- <a class="btn popup-modal-dismiss btn-same-size" id="explosion_page" href="#"><span class="icon icon_explode"></span> Faire exploser la page</a>
-        <a class="btn popup-modal-dismiss btn-same-size" id="explosion_page_reapparition" href="#" style="display:none;"><span class="icon icon_page"></span> Faire ré-apparaître la page (explosion)</a> --></td>
             </tr>
             <tr>
                 <td><a class="btn popup-modal-dismiss btn-same-size" href="#" id="click-paint"><span class="icon icon_brush"></span> Dessiner sur la page</a>
@@ -134,41 +129,15 @@
     <div id="defacer-popup" class="white-popup mfp-hide">
         <h1>Défacer le site</h1>
         <p>Pour défacer ce site, veuillez remplir le formulaire suivant :</p>
-        <table style="width:100%;">
-            <tr>
-                <td>
-                    <label for="titre_deface_input">Titre :</label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="text" id="titre_deface_input" placeholder="Entrez le titre…" style="width:100%;" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="editeur_deface">Texte :</label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <textarea id="editeur_deface" style="width:100%; height:200px;" placeholder="Entrez le texte qui sera affiché…"></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="colorpicker3">Couleur d'arrière plan :</label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="text" id="colorpicker3" maxlength="6" placeholder="Cliquez ici" value="FE4A4A" style="border-color: #FE4A4A" />
-                </td>
-            </tr>
-        </table>
-        <a id="defacer_site_ok" class="btn-green popup-modal-dismiss"><span class="icon icon_vrai"></span> Défacer le site</a>
+        <div><label for="titre_deface_input">Titre :</label></div>
+        <div><input type="text" id="titre_deface_input" placeholder="Entrez le titre…" style="width:100%;" /></div>
+        <div><label for="editeur_deface">Texte :</label></div>
+        <div><textarea id="editeur_deface" style="width:100%; height:200px;" placeholder="Entrez le texte qui sera affiché…"></textarea></div>
+        <div><label for="colorpicker3">Couleur d'arrière plan :</label></div>
+        <div><input type="text" id="colorpicker3" maxlength="6" placeholder="Cliquez ici" value="FE4A4A" style="border-color: #FE4A4A" /></div>
+        <div><a id="defacer_site_ok" class="btn-green popup-modal-dismiss"><span class="icon icon_vrai"></span> Défacer le site</a>
         <a id="defacer_site_reafficher" class="btn popup-modal-dismiss" style="display: none;"><span class="icon icon_page"></span> Faire ré-apparaître le site</a>
-        <a class="btn-red popup-modal-dismiss" href="#"><span class="icon icon_fermer"></span> Fermer cette fenêtre</a>
+        <a class="btn-red popup-modal-dismiss" href="#"><span class="icon icon_fermer"></span> Fermer cette fenêtre</a></div>
         <h2>Jeu de la chasse aux Easter Eggs</h2>
         <p id="easter_egg_count" style="color: green; font-size: 11pt; font-weight: bold;"></p>
         <p style="color: blue; font-size: 10pt; margin: 0;"><span id="numberEasterEgg">???</span> Easter Eggs (œufs de Pâques) sont cachés dans cet outil. Pour les trouver, vous devez entrer un mot ou une phrase particulière dans l'un des deux champs de formulaire (&laquo; Titre &raquo; ou &laquo; Texte &raquo;). Un petit indice : il s'agit tous de mèmes (phénomènes) Internet. Bonne chance !</p>
@@ -368,10 +337,10 @@
     <div id="paint-tools" style="display: none;">
         <ul class="menu" id="menuPaint">
             <li class="lienMenu ripplelink" id="colorPaint"><span class="icon icon_color"></span> Couleurs</li><!-- @whitespace
---><li class="lienMenu ripplelink" id="brushPaint"><span class="icon icon_brush"></span> Taille du pinceau</li><!-- @whitespace
---><li class="lienMenu ripplelink" id="resetPaint"><span class="icon icon_reset"></span> Réinitialiser</li><!-- @whitespace
---><li class="lienMenu ripplelink" id="savePaint"><span class="icon icon_save"></span> Sauvegarder le dessin</li><!-- @whitespace
---><li class="lienMenu ripplelink" id="close-dessin-tools"><span class="icon icon_fermer"></span> Fermer la barre</li>
+---><li class="lienMenu ripplelink" id="brushPaint"><span class="icon icon_brush"></span> Taille du pinceau</li><!-- @whitespace
+---><li class="lienMenu ripplelink" id="resetPaint"><span class="icon icon_reset"></span> Réinitialiser</li><!-- @whitespace
+---><li class="lienMenu ripplelink" id="savePaint"><span class="icon icon_save"></span> Sauvegarder le dessin</li><!-- @whitespace
+---><li class="lienMenu ripplelink" id="close-dessin-tools"><span class="icon icon_fermer"></span> Fermer la barre</li>
         </ul>
     </div>
     <div id="mask_opbb" style="display: none;">
