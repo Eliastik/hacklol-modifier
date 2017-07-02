@@ -84,7 +84,7 @@ html body {
                 <input name="url" type="text" style="width:400px;" autocomplete="off" placeholder="http://" value="'. $_GET['urlPage'] .'" />
                 <input type="submit" value="Go" />
             </form>
-            <div style="text-align: center;"><img src="http://hacklol.eliastiksofts.com/images/chargement.gif" alt="Chargement/Loading" style="vertical-align: middle;" /></div>
+            <div style="text-align: center;"><img src="/hacklol-modifier/assets/img/chargement.gif" alt="Chargement/Loading" style="vertical-align: middle;" /></div>
     <script>window.onload = document.formHPL.submit();</script>';
     }
     ?>

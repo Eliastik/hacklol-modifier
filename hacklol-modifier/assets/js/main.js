@@ -571,6 +571,7 @@ hacklol.tools = {
         var easterEggName = ["mlp", "mlp", "aybabtu", "aybabtu", "troll", "troll", "troll", "ouais", "ouais", "ah", "non", "non", "non", "isname", "isname", "isname", "issou", "issou"];
         var easterEggSound = ["mlp.mp3", "mlp.mp3", "aybabtu.mp3", "aybabtu.mp3", "trololo.mp3", "trololo.mp3", "trololo.mp3", "ouais.mp3", "ouais.mp3", "ah.mp3", "non.mp3", "non.mp3", "non.mp3", "isname.mp3", "isname.mp3", "isname.mp3", "issou.mp3", "issou.mp3"];
         var easterEggText = [null, null, null, null, null, null, null, null, null, "Ah ! Vous avez trouvé un Easter Egg !! Cliquez pour entendre à nouveau le Ah !", null, null, null, null, null, null, null, null];
+        var indices = ["Un dessin animé très connu avec des petits poneys.", "Une phrase venant de la mauvaise traduction anglaise du jeu Zero Wing de 1989.", "Une tête de troll.", "Le célèbre ... de Denis Brogniart (en deux lettres).", "L'inverse de Non.", "And his name is ... ...", "L'inverse de Oui.", "Le célèbre ... de Risitas (en 5 lettres)."];
         var easterEggFound = new Array();
         var numberEasterEgg = hacklol.cleanArray(easterEggName).length;
 
@@ -669,6 +670,7 @@ hacklol.tools = {
                     } else {
                         $("#easter_egg_count").text("Vous avez trouvé "+ countEasterEgg +" Easter Egg en trichant. C'est mal, m'voyez ! Il vous en reste "+ nombre_a_trouve +" à trouver.");
                     }
+                    $("#easter_egg_count").css("color", "red");
                 }
             } else if(countEasterEgg == numberEasterEgg) {
                 $("#easter_egg_count").text("Bravo ! Vous avez trouvé tous les Easter Eggs.");
@@ -716,7 +718,6 @@ hacklol.tools = {
                 }
             }
         } else if(type == "indice") {
-            var indices = ["Un dessin animé très connu avec des petits poneys.", "Une phrase venant de la mauvaise traduction anglaise du jeu Zero Wing de 1989.", "Une tête de troll.", "Le célèbre ... de Denis Brogniart (en deux lettres).", "L'inverse de Non.", "And his name is ... ...", "L'inverse de Oui.", "Le célèbre ... de Risitas (en 5 lettres)."];
             var numIndice = hacklol.random(0, 7);
             alert(indices[numIndice]);
             return true;
