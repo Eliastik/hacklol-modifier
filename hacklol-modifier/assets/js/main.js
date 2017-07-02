@@ -863,7 +863,7 @@ hacklol.settings = {
         if (parametre_affichage_barre == "Oui") {
             $('#affichagebarre').prop('checked', true);
         } else if (parametre_affichage_barre == "Non") {
-            $('#affichagebarre').removeAttr('checked');
+            $('#affichagebarre').prop('checked', true);
         } else {
             $('#affichagebarre').prop('checked', true);
         }
@@ -872,7 +872,7 @@ hacklol.settings = {
         if (parametre_transparence_barre == "Oui") {
             $('#transparencebarre').prop('checked', true);
         } else if (parametre_transparence_barre == "Non") {
-            $('#transparencebarre').removeAttr('checked');
+            $('#transparencebarre').prop('checked', false);
         } else {
             $('#transparencebarre').prop('checked', true);
         }
@@ -881,7 +881,7 @@ hacklol.settings = {
         if (parametre_effets_sonores == "Oui") {
             $('#effets_sonores').prop('checked', true);
         } else if (parametre_effets_sonores == "Non") {
-            $('#effets_sonores').removeAttr('checked');
+            $('#effets_sonores').prop('checked', false);
         } else {
             $('#effets_sonores').prop('checked', true);
         }
@@ -890,7 +890,7 @@ hacklol.settings = {
         if (parametre_raccourcis_clavier == "Oui") {
             $('#raccourcis_clavier').prop('checked', true);
         } else if (parametre_raccourcis_clavier == "Non") {
-            $('#raccourcis_clavier').removeAttr('checked');
+            $('#raccourcis_clavier').prop('checked', false);
         } else {
             $('#raccourcis_clavier').prop('checked', true);
         }
@@ -899,16 +899,16 @@ hacklol.settings = {
         if (parametre_flou_effet == "Oui") {
             $('#flou_effet').prop('checked', true);
         } else if (parametre_flou_effet == "Non") {
-            $('#flou_effet').removeAttr('checked');
+            $('#flou_effet').prop('checked', false);
         } else {
-            $('#flou_effet').removeAttr('checked');
+            $('#flou_effet').prop('checked', false);
         }
         // hacklol page loader
         var parametre_hacklol_pl = $.jStorage.get('hacklol_page_loader');
         if (parametre_hacklol_pl == "Oui") {
             $('#hacklol_page_loader_check').prop('checked', true);
         } else if (parametre_hacklol_pl == "Non") {
-            $('#hacklol_page_loader_check').removeAttr('checked');
+            $('#hacklol_page_loader_check').prop('checked', false);
         } else {
             $('#hacklol_page_loader_check').prop('checked', true);
         }
@@ -1077,7 +1077,7 @@ hacklol.settings = {
                 hacklol.ui.audio();
             } else {
                 $('#effets_sonores').prop('checked', false);
-                $('#effets_sonores').removeAttr('checked');
+                $('#effets_sonores').prop('checked', false);
                 $("#effets_sonores").attr("disabled", "disabled");
                 if (hacklol.lang == "en") {
                     $("#indication_error").text("Your browser is incompatible with .mp3 audio files.");
@@ -1088,7 +1088,7 @@ hacklol.settings = {
             }
         } else {
             $('#effets_sonores').prop('checked', false);
-            $('#effets_sonores').removeAttr('checked');
+            $('#effets_sonores').prop('checked', false);
             $("#effets_sonores").attr("disabled", "disabled");
             if (hacklol.lang == "en") {
                 $("#indication_error").text("Your browser is incompatible with playing audio files.");
@@ -1186,7 +1186,7 @@ hacklol.settings = {
         codeMirrorUserScript.getDoc().setValue('// exemple de script utilisateur\nalert("Hello world !");');
         errorDisabled = false;
         pageChargeeFirst = 1;
-        $('input[name=checkboxDisableErrors]').removeAttr('checked');
+        $('input[name=checkboxDisableErrors]').prop('checked', false);
         $("#colorpicker1").val("");
         $("#colorpicker1").css("border-color", "#000000");
         easterEggFound_global = new Array();
