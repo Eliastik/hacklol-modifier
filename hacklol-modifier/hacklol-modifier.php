@@ -166,14 +166,13 @@
         <p style="color: blue; font-size: 10pt; margin: 0; margin-top: 18px; margin-bottom: 18px;">N.B. : 4 easter eggs (œufs de Pâques) sont cachés dans cet outil. Pour les trouver, vous devez entrer un mot ou une phrase particulière dans l'un des deux champs de formulaire (&laquo; Titre &raquo; ou &laquo; Texte &raquo;). Un petit indice : il s'agit tous de mèmes (phénomènes) Internet. Bonne chance !</p>
         <p id="easter_egg_count" style="color: green; font-size: 11pt; margin: 0; font-weight: bold;"></p>
     </div>
-     <div id="bsod-popup" class="white-popup mfp-hide">
+    <div id="bsod-popup" class="white-popup mfp-hide">
         <h1>BSOD</h1>
-        <p><label for="bsodType">Sélectionnez le type de BSOD que vous voulez afficher :</label><br /><br />
+        <p><label for="bsodType">Sélectionnez le type de BSOD que vous voulez afficher :</label></p>
         <select name="bsodType" id="bsodType" style="width: 100%;">
             <option value="WINXP">Windows XP/Vista/7</option>
             <option value="WIN8">Windows 8/10</option>
         </select>
-        </p>
         <p style="font-size: 10pt;">Astuce pour afficher le BSOD en plein écran : Fermez la barre du haut, puis faites le raccourci clavier G + M pour masquer le bouton d'ouverture de la barre, puis mettez votre navigateur web en plein écran (touche F11).</p>
         <a id="bsod_site_ok" class="btn-green popup-modal-dismiss" href="#"><span class="icon icon_vrai"></span> Valider</a>
         <a class="btn-red popup-modal-dismiss" href="#"><span class="icon icon_fermer"></span> Fermer cette fenêtre</a>
@@ -213,10 +212,18 @@
             <tr>
                 <td><label>Contrôles</label></td>
                 <td>
-                    <div class="btn popup-modal-dismiss btn-same-size" href="#" id="retour-page-button"><span class="icon icon_retour"></span> Page précédente</div> <div class="btn popup-modal-dismiss btn-same-size" href="#" id="suivant-page-button"><span class="icon icon_suivant"></span> Page suivante</div> <div class="btn popup-modal-dismiss btn-same-size" href="#" id="reload-page-button"><span class="icon icon_reset"></span> Recharger le site</div> <div class="btn open-popup-link btn-same-size" href="#changer-site-popup"><span class="icon icon_reinit"></span> Changer de site</div>
+                    <div class="btn popup-modal-dismiss btn-same-size" href="#" id="retour-page-button"><span class="icon icon_retour"></span> Page précédente</div> <div class="btn popup-modal-dismiss btn-same-size" href="#" id="suivant-page-button"><span class="icon icon_suivant"></span> Page suivante</div> <div class="btn popup-modal-dismiss btn-same-size" href="#" id="reload-page-button"><span class="icon icon_reset"></span> Recharger le site</div> <div class="btn open-popup-link btn-same-size" href="#change-site-popup"><span class="icon icon_reinit"></span> Changer de site</div>
                 </td>
             </tr>
         </table>
+    </div>
+    <div id="change-site-popup" class="white-popup mfp-hide">
+        <h1>Changer de site</h1>
+        <p><label for="urlChangeSite">Entrez l'adresse du site que vous voulez modifier :</label></p>
+        <input type="text" id="urlChangeSite" placeholder="Entrez l'adresse du site…" style="width:100%;" />
+        <span id="errorUrlChange" style="display: none; color: red;"></span><br />
+        <a id="change_site_ok" class="btn-green" href="#"><span class="icon icon_vrai"></span> Valider</a>
+        <a class="btn-red popup-modal-dismiss" href="#"><span class="icon icon_fermer"></span> Annuler</a>
     </div>
     <div id="parametres-popup" class="white-popup mfp-hide">
         <h1>Param&egrave;tres</h1>

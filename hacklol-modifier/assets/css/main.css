@@ -1010,6 +1010,9 @@ Pour ajouter une icone, voir ici : https://icomoon.io/app/ */
 .icon_secouer:before {
     content: "\e91d"
 }
+.icon_error:before {
+    content: "\ea0d"
+}
 /* popups */
 .white-popup {
     position: relative;

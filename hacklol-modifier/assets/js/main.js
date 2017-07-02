@@ -82,6 +82,10 @@ var hacklol = {
       }
       return out;
     },
+    // https://stackoverflow.com/a/8317014
+    validateUrl: function(url) {
+        return /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})).?)(?::\d{2,5})?(?:[/?#]\S*)?$/i.test(url);
+    },
     loadPage: function(url, withHacklolPL) {
         if(withHacklolPL == false) {
             $("#hacklol-iframeWrapper").html("");
@@ -100,13 +104,13 @@ var hacklol = {
     },
     reloadPage: function() {
         var parametre_hacklol_pl = $.jStorage.get('hacklol_page_loader');
+        hacklol.tools.edit("stop");
         if (parametre_hacklol_pl == "Non") {
             hacklol.loadPage(hacklol.urlPage, false);
         }
         else {
             hacklol.loadPage(hacklol.urlPage, true);
         }
-        hacklol.tools.edit("stop");
         return true;
     },
     creerOutil: function(titre, fonction, fermerFenetre, idButton, style_css) {
@@ -1566,6 +1570,31 @@ $(document).ready(function() {
     $("#click-secouer-stop").click(function() {
         hacklol.tools.shake("stop");
     });
+    // Changer de site
+    $("#change_site_ok").click(function() {
+        var parametre_hacklol_pl = $.jStorage.get('hacklol_page_loader');
+        var url = $("#urlChangeSite").val();
+        $("#errorUrlChange").text("");
+        $("#errorUrlChange").hide();
+        hacklol.tools.edit("stop");
+        if(url.trim() == "") {
+            $("#errorUrlChange").html("<span class='icon icon_error'></span> Vous n'avez rien entré.");
+            $("#errorUrlChange").show();
+            return;
+        } else if(hacklol.validateUrl(url) == false) {
+            $("#errorUrlChange").html("<span class='icon icon_error'></span> Adresse invalide.");
+            $("#errorUrlChange").show();
+            return;
+        }
+        if (parametre_hacklol_pl == "Non") {
+            hacklol.loadPage(url, false);
+        }
+        else {
+            hacklol.loadPage(url, true);
+        }
+        hacklol.ui.closeWindow();
+    });
+    $("#urlChangeSite").val(hacklol.urlPage);
     // Defacer site
     // Color picker
     $('#colorpicker3').colpick({
