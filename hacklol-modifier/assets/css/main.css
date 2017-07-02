@@ -1028,6 +1028,7 @@ Pour ajouter une icone, voir ici : https://icomoon.io/app/ */
     max-width: 500px;
     margin: 20px auto;
     font-family: "Open Sans", Arial, sans-serif;
+    overflow: auto;
     -webkit-box-shadow: 0px 1px 20px #666666;
     -moz-box-shadow: 0px 1px 20px #666666;
     box-shadow: 0px 1px 20px #666666;
