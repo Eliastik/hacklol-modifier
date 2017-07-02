@@ -1299,101 +1299,23 @@ hacklol.ui = {
     },
     audio: function() {
         // AUDIO - SI L'UTILISATEUR A ACTIVE LES EFFETS SONORES ET QUE SON NAVIGATEUR EST COMPATIBLE, ON LES CHARGE
+        var audioName = ["audio", "audio_explosion_bis", "audio_explosion_2", "audio_gel", "audiomlp", "audio_aybabtu", "audio_wt", "audio_troll", "audio_ouais", "audio_ah", "audio_non", "audio_isname", "audio_issou"];
+        var audioSrc = ["effet_explosion.mp3", "effet_explosion_bis.mp3", "effet_explosion_2.mp3", "gel.mp3", "mlp.mp3", "aybabtu.mp3", "wt_egg.mp3", "trololo.mp3", "ouais.mp3", "ah.mp3", "non.mp3", "isname.mp3", "issou.mp3"];
         if (window.HTMLAudioElement && $.jStorage.get('effets_sonores') != "Non" || $.jStorage.get('effets_sonores') == null) {
-            // explosion
-            audio = document.createElement("audio");
-            audio.src = "assets/sounds/effet_explosion.mp3";
-            audio.muted = false;
-            // explosion bis
-            audio_explosion_bis = document.createElement("audio");
-            audio_explosion_bis.src = "assets/sounds/effet_explosion_bis.mp3";
-            audio_explosion_bis.muted = false;
-            // explosion 2
-            audio_explosion_2 = document.createElement("audio");
-            audio_explosion_2.src = "assets/sounds/effet_explosion_2.mp3";
-            audio_explosion_2.muted = false;
-            // explosion gel
-            audio_gel = document.createElement("audio");
-            audio_gel.src = "assets/sounds/gel.mp3";
-            audio_gel.muted = false;
-            // eg
-            audiomlp = document.createElement("audio");
-            audiomlp.src = "assets/sounds/mlp.mp3";
-            audiomlp.muted = false;
-            // aybabtu
-            audio_aybabtu = document.createElement("audio");
-            audio_aybabtu.src = "assets/sounds/aybabtu.mp3";
-            audio_aybabtu.muted = false;
-            // what
-            audio_wt = document.createElement("audio");
-            audio_wt.src = "assets/sounds/wt_egg.mp3";
-            audio_wt.muted = false;
-            // trololo
-            audio_troll = document.createElement("audio");
-            audio_troll.src = "assets/sounds/trololo.mp3";
-            audio_troll.muted = false;
-            // ouais
-            audio_ouais = document.createElement("audio");
-            audio_ouais.src = "assets/sounds/ouais.mp3";
-            audio_ouais.muted = false;
-            // ah
-            audio_ah = document.createElement("audio");
-            audio_ah.src = "assets/sounds/ah.mp3";
-            audio_ah.muted = false;
-            // non
-            audio_non = document.createElement("audio");
-            audio_non.src = "assets/sounds/non.mp3";
-            audio_non.muted = false;
-            // isname
-            audio_isname = document.createElement("audio");
-            audio_isname.src = "assets/sounds/isname.mp3";
-            audio_isname.muted = false;
-            // issou
-            audio_issou = document.createElement("audio");
-            audio_issou.src = "assets/sounds/issou.mp3";
-            audio_issou.muted = false;
+            for(var i in audioName) {
+                window[audioName[i]] = document.createElement("audio");
+                window[audioName[i]].src = "assets/sounds/" + audioSrc[i];
+                window[audioName[i]].muted = false;
+            }
         } else if(window.HTMLAudioElement) {
-            if(typeof(audio) != 'undefined') {
-                audio.muted = true;
+            for(var i in audioName) {
+                if(typeof(window[audioName[i]]) != 'undefined') {
+                    window[audioName[i]].muted = true;
+                }
             }
-            if(typeof(audio_explosion_bis) != 'undefined') {
-                audio_explosion_bis.muted = true;
-            }
-            if(typeof(audio_explosion_2) != 'undefined') {
-                audio_explosion_2.muted = true;
-            }
-            if(typeof(audio_gel) != 'undefined') {
-                audio_gel.muted = true;
-            }
-            if(typeof(audiomlp) != 'undefined') {
-                audiomlp.muted = true;
-            }
-            if(typeof(audio_aybabtu) != 'undefined') {
-                audio_aybabtu.muted = true;
-            }
-            if(typeof(audio_wt) != 'undefined') {
-                audio_wt.muted = true;
-            }
-            if(typeof(audio_troll) != 'undefined') {
-                audio_troll.muted = true;
-            }
-            if(typeof(audio_ouais) != 'undefined') {
-                audio_ouais.muted = true;
-            }
-            if(typeof(audio_ah) != 'undefined') {
-                audio_ah.muted = true;
-            }
+            // audio played easter egg deface tool (see below)
             if(typeof(audio_tmp) != 'undefined') {
                 audio_tmp.muted = true;
-            }
-            if(typeof(audio_non) != 'undefined') {
-                audio_non.muted = true;
-            }
-            if(typeof(audio_isname) != 'undefined') {
-                audio_isname.muted = true;
-            }
-            if(typeof(audio_issou) != 'undefined') {
-                audio_issou.muted = true;
             }
         }
     },
