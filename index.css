@@ -48,3 +48,8 @@ footer {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.img-auto-resize {
+  max-width: 100%;
+  height: auto;
+}

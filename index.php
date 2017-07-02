@@ -34,7 +34,13 @@
     <body>
         <div class="container">
             <form class="form-signin" method="post" action="/hacklol-modifier/index.php">
-                <h2 class="form-signin-heading"><?php echo $hacklolConfig['appName']; ?></h2>
+                <h2 class="form-signin-heading"><?php 
+                if(strtoupper($hacklolConfig['appName']) == "HACKLOL MODIFIER") {
+                    echo '<img src="img/logo_hacklol_modifier.png" width="306" alt="Hacklol Modifier" class="img-auto-resize" />';
+                } else {
+                    echo $hacklolConfig['appName']; 
+                }
+                ?></h2>
                 <p>Entrez l'adresse du site web que vous souhaitez modifier. <strong>L'adresse doit commencer par http://</strong></p>
                 <div class="checkbox">
                     <label for="inputEmail" class="sr-only">Adresse du site web</label>
