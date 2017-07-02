@@ -88,6 +88,17 @@ html, body {
     margin-top: 8px;
     margin-bottom: 8px;
 }
+a {
+    color: #2196F3;
+    text-decoration: underline;
+}
+a:hover {
+    text-decoration: none;
+}
+a:visited {
+    color: #2196F3;
+    text-decoration: underline;
+}
 /* formulaires
 boites de texte */
 input[type=text], textarea, input[type=textarea] {
@@ -405,7 +416,7 @@ checkbox[disabled=disabled]:checked:active, input[type=checkbox]:checked:active,
     font-size: 12pt;
     line-height: 100%;
     text-shadow: 0 1px rgba(0, 0, 0, 0.4);
-    color: #fff;
+    color: #fff !important;
     display:inline-block;
     vertical-align: middle;
     text-align: center;
@@ -424,6 +435,7 @@ checkbox[disabled=disabled]:checked:active, input[type=checkbox]:checked:active,
     font-family: "Open Sans", Arial, sans-serif;
     background-color: #3fb8e8;
     box-shadow: 0px 3px 0px 0px #3293ba;
+    text-decoration: none;
 }
 .btn:active {
     padding-top: 15px;
@@ -449,7 +461,7 @@ checkbox[disabled=disabled]:checked:active, input[type=checkbox]:checked:active,
     font-size: 12pt;
     line-height: 100%;
     text-shadow: 0 1px rgba(0, 0, 0, 0.4);
-    color: #fff;
+    color: #fff !important;
     display:inline-block;
     vertical-align: middle;
     text-align: center;
@@ -468,6 +480,7 @@ checkbox[disabled=disabled]:checked:active, input[type=checkbox]:checked:active,
     font-family: "Open Sans", Arial, sans-serif;
     background-color: #ef5350;
     box-shadow: 0px 3px 0px 0px #c62828;
+    text-decoration: none;
 }
 .btn-red:active {
     padding-top: 15px;
@@ -493,7 +506,7 @@ checkbox[disabled=disabled]:checked:active, input[type=checkbox]:checked:active,
     font-size: 12pt;
     line-height: 100%;
     text-shadow: 0 1px rgba(0, 0, 0, 0.4);
-    color: #fff;
+    color: #fff !important;
     display:inline-block;
     vertical-align: middle;
     text-align: center;
@@ -512,6 +525,7 @@ checkbox[disabled=disabled]:checked:active, input[type=checkbox]:checked:active,
     font-family: "Open Sans", Arial, sans-serif;
     background-color: #66bb6a;
     box-shadow: 0px 3px 0px 0px #2e7d32;
+    text-decoration: none;
 }
 .btn-green:active {
     padding-top: 15px;
@@ -554,7 +568,8 @@ checkbox[disabled=disabled]:checked:active, input[type=checkbox]:checked:active,
     border-radius: 3px;
     font-family: "Open Sans", Arial, sans-serif;
     background-color: #e0e0e0;
-    color: #858585;
+    color: #858585 !important;
+    text-decoration: none;
 }
 .btn_desactived, .btn_desactived:hover, .btn_desactived:active {
     outline: 0 none;
