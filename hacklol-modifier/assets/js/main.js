@@ -1205,9 +1205,9 @@ hacklol.settings = {
 hacklol.ui = {
     // Fermer la barre d'outils
     closeToolbar: function() {
-        $("#mask_opbh").show();
         $("#toolbar-hacklol").slideUp("slow");
-        $("#btn-show-toolbar").fadeIn("slow");
+        $("#mask_opbh").stop(true, true).show();
+        $("#btn-show-toolbar").stop(true, true).fadeIn("slow");
         $("#menuMobile").hide();
         $("#lienMenuMobile").html("<span class=\"icon icon_menu\"></span> Menu");
         menuLienLib = 1;
@@ -1215,8 +1215,8 @@ hacklol.ui = {
     // Afficher la barre d'outils
     showToolbar: function() {
         $("#toolbar-hacklol").slideDown("slow");
-        $("#btn-show-toolbar").fadeOut("slow");
-        $("#mask_opbh").fadeOut("slow");
+        $("#btn-show-toolbar").stop(true, true).fadeOut("slow");
+        $("#mask_opbh").stop(true, true).fadeOut("slow");
     },
     // Fermer la fenêtre
     closeWindow: function() {
@@ -1420,9 +1420,9 @@ hacklol.ui.paint = {
     // Fermer la barre d'outils
     closeToolbar: function() {
         if(paintEnabled == true) {
-            $("#mask_opbb").show();
             $("#paint-tools").slideUp("slow");
-            $("#btn-show-toolbar-paint").fadeIn("slow");
+            $("#btn-show-toolbar-paint").stop(true, true).fadeIn("slow");
+            $("#mask_opbb").stop(true, true).show();
             $("#bulleCouleur").hide();
             $("#bulleBrush").hide();
         }
@@ -1431,8 +1431,8 @@ hacklol.ui.paint = {
     showToolbar: function() {
         if(paintEnabled == true) {
             $("#paint-tools").slideDown("slow");
-            $("#btn-show-toolbar-paint").fadeOut("slow");
-            $("#mask_opbb").fadeOut("slow");
+            $("#btn-show-toolbar-paint").stop(true, true).fadeOut("slow");
+            $("#mask_opbb").stop(true, true).fadeOut("slow");
         }
     }
 };
