@@ -863,7 +863,7 @@ hacklol.settings = {
         if (parametre_affichage_barre == "Oui") {
             $('#affichagebarre').prop('checked', true);
         } else if (parametre_affichage_barre == "Non") {
-            $('#affichagebarre').prop('checked', true);
+            $('#affichagebarre').prop('checked', false);
         } else {
             $('#affichagebarre').prop('checked', true);
         }
