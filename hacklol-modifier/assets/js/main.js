@@ -21,6 +21,7 @@ if (!String.prototype.trim) {
 // on crée un nouvel objet hacklol, qui va contenir tous les outils/fonctions essentielles
 var hacklol = {
     appName: "Hacklol Modifier",
+    hacklolPageLoaderName: "Hacklol Page Loader",
     description: "Hacklol est une application utilisable directement sur votre navigateur web qui vous permet de modifier des sites web.",
     version: "1.4_alpha_dev", // la version d'Hacklol
     dateVersion: "27/06/2017", // date
@@ -335,21 +336,16 @@ var hacklol = {
 };
 hacklol.console();
 hacklol.checkVersion();
+$(".appName").text(hacklol.appName);
+$(".appNameLoader").text(hacklol.hacklolPageLoaderName);
+document.title = hacklol.appName;
 // OUTILS
 hacklol.tools = {
     // Modifier le site
     edit: function(type) {
         var parametre_hacklol_pl = $.jStorage.get('hacklol_page_loader');
         if (type == "edit") {
-            if(parametre_hacklol_pl == "Non" && hacklol.lang == "en" && confirm("This tool works best when Hacklol Page Loader is enabled in the settings. You have disabled Hacklol Page Loader, this tool might not work. Continue ?")) {
-                try {
-                    document.body.contentEditable = true;
-                    $("#arret_modif_page").show();
-                    $("#modif_page").hide();
-                    hacklol.ui.closeToolbar();
-                    hacklol.tools.paint("stop");
-                } catch(e) { alert("An error has occurred during the activation of the tool. Please try again."); }
-            } else if(parametre_hacklol_pl == "Non" && hacklol.lang == "fr" && confirm("Cet outil fonctionne mieux lorsque Hacklol Page Loader est activé dans les paramètres. Vous avez désactivé Hacklol Page Loader, cet outil risque de ne pas fonctionner. Continuer ?")) {
+            if(parametre_hacklol_pl == "Non" && confirm("Cet outil fonctionne mieux lorsque Hacklol Page Loader est activé dans les paramètres. Vous avez désactivé Hacklol Page Loader, cet outil risque de ne pas fonctionner. Continuer ?")) {
                 try {
                     document.body.contentEditable = true;
                     $("#arret_modif_page").show();
@@ -357,17 +353,6 @@ hacklol.tools = {
                     hacklol.ui.closeToolbar();
                     hacklol.tools.paint("stop");
                 } catch(e) { alert("Une erreur est survenue lors de l'activation de l'outil. Veuillez réessayer."); }
-            } else if(parametre_hacklol_pl != "Non" && hacklol.lang == "en") {
-                try {
-                    document.getElementById("hacklol-iframe").contentEditable = true;
-                    document.getElementById('hacklol-iframe').contentWindow.document.body.contentEditable = true;
-                    document.getElementById('hacklol-iframe').contentWindow.document.getElementById('hacklol-iframe-protected').contentEditable = true;
-                    document.getElementById('hacklol-iframe').contentWindow.document.getElementById('hacklol-iframe-protected').contentWindow.document.body.contentEditable = true;
-                    $("#arret_modif_page").show();
-                    $("#modif_page").hide();
-                    hacklol.ui.closeToolbar();
-                    hacklol.tools.paint("stop");
-                } catch(e) { alert("An error has occurred during the activation of the tool. Please try again."); }
             } else if(parametre_hacklol_pl != "Non") {
                 try {
                     document.getElementById("hacklol-iframe").contentEditable = true;
@@ -797,12 +782,7 @@ hacklol.tools.matrix = {
         $("#matrix-not-compatible").show();
         $("#matrix").hide();
         $("#matrix-not-compatible").click(function() {
-            if(hacklol.lang == "en") {
-                alert("Sorry, this tool isn't compatible with your web browser.\nUpdate your browser, and try again.");
-            }
-            else {
-                alert("Désolé, cet outil n'est pas compatible avec votre navigateur.\nMettez à jour votre navigateur, puis réessayez.");
-            }
+            alert("Désolé, cet outil n'est pas compatible avec votre navigateur.\nMettez à jour votre navigateur, puis réessayez.");
         });
     }
 }());

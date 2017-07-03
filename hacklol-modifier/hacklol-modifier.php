@@ -31,10 +31,10 @@
 <body>
     <div id="mask_chargement"></div>
     <div id="chargement">
-        <h1>Chargement d'Hacklol Modifier en cours…</h1>
+        <h1>Chargement de <span class="appName">l'application</span> en cours…</h1>
         <div class="horizontal-center mb"><img src="assets/img/chargement.gif" alt="Chargement" id="loadingIndicator" /> <span id="loadingInfos"></span></div>
         <div class="horizontal-center mb"><div class="progress mr vertical-center"><div class="progress-value" id="progressLoading" style="width: 0%;"></div></div> <span id="pourcentageLoadingInfos">0%</span></div>
-        <div class="horizontal-center mt" style="font-size: 10pt;"><a href="#" id="loadInBackground">Commencer à utiliser Hacklol Modifier et charger en arrière-plan…</a></div>
+        <div class="horizontal-center mt" style="font-size: 10pt;"><a href="#" id="loadInBackground">Commencer à utiliser <span class="appName">l'application</span> et charger en arrière-plan…</a></div>
         <div class="horizontal-center mt" style="font-size: 12pt; color: red;" id="noscript-text"><span class="icon icon_warning"></span> Javascript est désactivé dans votre navigateur. Javascript est nécessaire au fonctionnement de l'application. <a href="http://www.enable-javascript.com/fr/" target="_blank">Comment activer Javascript ?</a> – <a href="/">Retour à l'accueil du site</a>.</div>
     </div>
     <!-- disparait si javascript est actif -->
@@ -67,7 +67,7 @@
 ---><li class="open-popup-link lienMenu ripplelink" href="#changer-site-popup"><span class="icon icon_quitter"></span> Quitter</li><!-- @whitespace
 ---><li class="btn_close_bar lienMenu ripplelink"><span class="icon icon_fermer"></span> Fermer la barre</li>
     </ul>
-    <img src="assets/img/hacklol_start_fleche.png" alt="Cliquez ici pour commencer à utiliser Hacklol Modifier…" id="img_start_hacklol" class="bounce" />
+    <img src="assets/img/hacklol_start_fleche.png" alt="Cliquez ici pour commencer à utiliser l'application…" id="img_start_hacklol" class="bounce" />
     <!-- popups -->
     <div id="toolbox-popup" class="white-popup mfp-hide">
         <h1>Boite à outils</h1>
@@ -121,7 +121,7 @@
     </div>
     <div id="user-script-popup" class="white-popup mfp-hide">
         <h1>User Script</h1>
-        <p style="font-size: 10pt;">Ici, vous pouvez éditer un User Script (script utilisateur) pour Hacklol Modifier grâce au langage de programmation JavaScript. Il sera executé à chaque démarrage d'Hacklol Modifier et lors de la sauvegarde de celui-ci. Une documentation est disponible en ligne pour vous permettre d'utiliser les fonctionnalités d'Hacklol Modifier dans vos scripts. Veuillez noter que certaines fonctions sont désactivées pour des raisons de sécurité.<br /><strong>Attention, supprimer vos données de navigation telle que le LocalStorage ou vos cookies aura pour effet de supprimer definitivement votre User Script. Je vous conseille de faire une sauvegarde de celui-ci pour éviter cela.</strong></p>
+        <p style="font-size: 10pt;">Ici, vous pouvez éditer un User Script (script utilisateur) pour <span class="appName"></span> grâce au langage de programmation JavaScript. Il sera executé à chaque démarrage de <span class="appName"></span> et lors de la sauvegarde de celui-ci. Une documentation est disponible en ligne pour vous permettre d'utiliser les fonctionnalités de <span class="appName"></span> dans vos scripts. Veuillez noter que certaines fonctions sont désactivées pour des raisons de sécurité.<br /><strong>Attention, supprimer vos données de navigation telle que le LocalStorage ou vos cookies aura pour effet de supprimer definitivement votre User Script. Je vous conseille de faire une sauvegarde de celui-ci pour éviter cela.</strong></p>
         <textarea id="editeur_user_script" style="width:100%; height:300px;"></textarea>
         <div id="error-user-script" style="height: 150px; overflow: auto; border: 1px solid #000; padding: 10px; margin: 15px 5px 5px;"><h2>Journal du script :</h2></div>
         <a class="btn-green" href="#" id="save-user-script"><span class="icon icon_save"></span> Enregistrer</a> <a class="btn-red" id="delete-user-script"><span class="icon icon_reset"></span> Réinitialiser l'User Script</a> <a class="btn" href="/documentation_user-script.html" target="_blank"><span class="icon icon_doc"></span> Documentation</a> <a class="btn-red popup-modal-dismiss" href="#"><span class="icon icon_fermer"></span> Fermer</a>
@@ -155,44 +155,30 @@
         <a class="btn-red popup-modal-dismiss" href="#"><span class="icon icon_fermer"></span> Fermer cette fenêtre</a>
     </div>
     <div id="changer-site-popup" class="white-popup mfp-hide">
-        <h1>Quitter Hacklol Modifier</h1>
-        <p>Êtes-vous sûr de vouloir quitter Hacklol Modifier et de retourner à la page d'accueil du site ?</p>
+        <h1>Quitter <span class="appName"></span></h1>
+        <p>Êtes-vous sûr de vouloir quitter <span class="appName"></span> et de retourner à la page d'accueil du site ?</p>
         <a href="#" class="btn-green" id="quitHacklolBtn"><span class="icon icon_vrai"></span> Oui</a>
         <a class="btn-red popup-modal-dismiss" href="#"><span class="icon icon_fermer"></span> Non</a>
     </div>
     <div id="a-propos-popup" class="white-popup mfp-hide">
-        <h1>A propos d'Hacklol Modifier</h1>
+        <h1>A propos de <span class="appName"></span></h1>
         <div id="testVersionHacklol" style="font-size: 10pt; color: blue;"></div>
-        <table style="width:100%;">
-            <tr>
-                <td><label>Version de l'application</label></td>
-                <td id="versionHacklolAbout"></td>
-            </tr>
-            <tr>
-                <td><label>Date de version</label></td>
-                <td id="dateVersionHacklolAbout"></td>
-            </tr>
-            <tr>
-                <td><label>Crédits</label></td>
-                <td><a href="http://jquery.com/" target="_blank">Jquery</a>, <a href="http://dimsemenov.com/plugins/magnific-popup/" target="_blank">Magnific Popup</a>, jStorage, <a href="https://icomoon.io" target="_blank">IcoMoon Free</a>, colpick Color Picker, <a href="http://www.vincent-rousseau.net/content/mini-paint-html5-avec-canvas" target="_blank">Mini paint HTML5</a>, <a href="http://www.arungudelli.com/html5/matrix-effect-using-html5-and-javascript/" target="_blank">Matrix Effect HTML5+Javascript</a>, <a href="https://github.com/mohammadg/FakeBSOD.com" target="_blank">FakeBSOD</a>, <a href="https://elrumordelaluz.github.io/csshake/" target="_blank">CSSHake</a>
-                </td>
-            </tr>
-        </table>
+        <div><label>Version de l'application :</label> <span id="versionHacklolAbout"></span></div>
+        <div><label>Date de version :</label> <span id="dateVersionHacklolAbout"></span></div>
+        <a class="btn open-popup-link" href="#more-infos-popup"><span class="icon icon_infos"></span> Informations avancées</a>
         <h2>A propos du site choisi</h2>
-        <table style="width:100%;">
-            <tr>
-                <td><label>Adresse URL</label></td>
-                <td>
-                    <div style="width:250px; overflow:auto;"><?php echo htmlentities($url); ?></div>
-                </td>
-            </tr>
-            <tr>
-                <td><label>Contrôles</label></td>
-                <td>
-                    <div class="btn popup-modal-dismiss btn-same-size" href="#" id="retour-page-button"><span class="icon icon_retour"></span> Page précédente</div> <div class="btn popup-modal-dismiss btn-same-size" href="#" id="suivant-page-button"><span class="icon icon_suivant"></span> Page suivante</div> <div class="btn popup-modal-dismiss btn-same-size" href="#" id="reload-page-button"><span class="icon icon_reset"></span> Recharger le site</div> <div class="btn open-popup-link btn-same-size" href="#change-site-popup"><span class="icon icon_reinit"></span> Changer de site</div>
-                </td>
-            </tr>
-        </table>
+        <div><label>Adresse URL :</label></div>
+        <p style="overflow:auto;"><?php echo htmlentities($url); ?></p>
+        <label>Contrôles :</label>
+        <div style="text-align: center;"><a class="btn popup-modal-dismiss btn-same-size" href="#" id="retour-page-button"><span class="icon icon_retour"></span> Page précédente</a><a class="btn popup-modal-dismiss btn-same-size" href="#" id="suivant-page-button"><span class="icon icon_suivant"></span> Page suivante</a><a class="btn popup-modal-dismiss btn-same-size" href="#" id="reload-page-button"><span class="icon icon_reset"></span> Recharger le site</a><a class="btn open-popup-link btn-same-size" href="#change-site-popup"><span class="icon icon_reinit"></span> Changer de site</a></div>
+    </div>
+    <div id="more-infos-popup" class="white-popup mfp-hide">
+        <h1>Informations avancées</h1>
+        <div><span class="appName"></span> est basé sur Hacklol Modifier ainsi que sur d'autres logiciels libres (voir plus bas) – <a href="https://github.com/Eliastik/hacklol-modifier/" target="_blank">Dépôt Github</a> – <a href="http://hacklol.eliastiksofts.com" target="_blank">Site web officiel</a></div>
+        <div><label>Licence :</label> <a href="https://www.gnu.org/licenses/gpl-3.0.txt" target="_blank">GNU GLP-3.0</a></div>
+        <div><label>Auteur(s) :</label> <a href="http://www.eliastiksofts.com" target="_blank">Eliastik</a></div>
+        <div><label>Librairies/crédits :</label> <a href="http://jquery.com/" target="_blank">Jquery</a>, <a href="http://jqueryui.com/" target="_blank">Jquery UI</a>, <a href="http://dimsemenov.com/plugins/magnific-popup/" target="_blank">Magnific Popup</a>, <a href="https://github.com/andris9/jStorage" target="_blank">jStorage</a>, <a href="https://icomoon.io" target="_blank">IcoMoon Free</a>, <a href="https://github.com/josedvq/colpick-jQuery-Color-Picker" target="_blank">colpick Color Picker</a>, <a href="http://www.vincent-rousseau.net/content/mini-paint-html5-avec-canvas" target="_blank">Mini paint HTML5</a>, <a href="http://www.arungudelli.com/html5/matrix-effect-using-html5-and-javascript/" target="_blank">Matrix Effect HTML5+Javascript</a>, <a href="https://github.com/mohammadg/FakeBSOD.com" target="_blank">FakeBSOD</a>, <a href="https://codemirror.net/" target="_blank">CodeMirror</a>, <a href="https://elrumordelaluz.github.io/csshake/" target="_blank">CSSHake</a>, <a href="https://www.php-proxy.com/" target="_blank">PHP-Proxy</a></div>
+        <a class="btn-red popup-modal-dismiss" href="#"><span class="icon icon_fermer"></span> Fermer la fenêtre</a>
     </div>
     <div id="change-site-popup" class="white-popup mfp-hide">
         <h1>Changer de site</h1>
@@ -205,7 +191,7 @@
     <div id="parametres-popup" class="white-popup mfp-hide">
         <h1>Param&egrave;tres</h1>
         <form name="parametres">
-                <label class="control control--checkbox">Affichage de la barre d'outils au démarrage d'Hacklol Modifier
+                <label class="control control--checkbox">Affichage de la barre d'outils au démarrage de <span class="appName"></span>
                     <input type="checkbox" name="checkboxAffichBarre" id="affichagebarre">
                     <div class="control__indicator"></div>
                 </label>
@@ -228,7 +214,7 @@
                     <div class="control__indicator"></div>
                 </label>
                 <p style="font-size: 10pt;">Cet effet peut générer une baisse de fluidité sur certains navigateurs web.</p>
-                <label class="control control--checkbox">Activer Hacklol Page Loader <span style="font-size: 10.5pt;">(recommandé)</span>
+                <label class="control control--checkbox">Activer <span class="appNameLoader"></span> <span style="font-size: 10.5pt;">(recommandé)</span>
                         <input type="checkbox" name="hacklol_pl_checkbox" id="hacklol_page_loader_check">
                     <div class="control__indicator"></div>
                 </label>
@@ -291,7 +277,7 @@
                 <td><span class="keyboard_key">Echap</span></td>
             </tr>
             <tr>
-                <td>Quitter Hacklol Modifier</td>
+                <td>Quitter <span class="appName"></span></td>
                 <td><span class="keyboard_key">G</span> <span class="keyboard_key">Q</span></td>
             </tr>
         </table>
@@ -299,7 +285,7 @@
     </div>
     <div id="erreur-script" class="white-popup mfp-hide">
         <h1>Une erreur est survenue</h1>
-        <p>Une erreur est survenue dans Hacklol Modifier. Vous pouvez toujours utiliser l'application, mais il se peut qu'elle ne fonctionne pas correctement.</p>
+        <p>Une erreur est survenue dans <span class="appName"></span>. Vous pouvez toujours utiliser l'application, mais il se peut qu'elle ne fonctionne pas correctement.</p>
         <p>Vous pouvez aider à résoudre le problème en <a href="https://github.com/Eliastik/hacklol-modifier/issues" target="_blank">postant une issue sur le dépôt Github</a> d'Hacklol Modifier en indiquant ces informations :</p>
         <textarea style="width: 100%;" id="erreurScriptTextarea" rows="10">Rapport d'erreur Javascript automatiquement généré par Hacklol Modifier :</textarea>
         <br /><label class="control control--checkbox">Ne plus afficher à nouveau ce genre d'erreurs durant cette session

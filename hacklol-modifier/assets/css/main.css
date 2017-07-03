@@ -126,6 +126,14 @@ label {
 label.disabled {
     color: grey;
 }
+#a-propos-popup label {
+    width: 200px;
+    margin-right: 20px;
+}
+#more-infos-popup label {
+    width: 150px;
+    margin-right: 20px;
+}
 /* https://kyusuf.com/post/completely-css-custom-checkbox-radio-buttons-and-select-boxes */
 .control {
     position: relative;
