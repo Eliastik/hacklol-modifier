@@ -22,10 +22,10 @@ if (!String.prototype.trim) {
 var hacklol = {
     appName: "Hacklol Modifier",
     hacklolPageLoaderName: "Hacklol Page Loader",
-    description: null,
+    description: i18next.t('description'),
     version: "1.4", // la version d'Hacklol
     dateVersion: "27/06/2017", // date
-    lang: i18next.language.substr(0, 2), // language
+    lang: "fr", // indiquer ici la langue des messages envoyés par le script (fr = Français ; en = Anglais)
     asciiArt: " _____         _   _     _ \n|  |  |___ ___| |_| |___| |\n|     | .'|  _| '_| | . | |\n|__|__|__,|___|_,_|_|___|_|",
     tools: 10, // nb d'outils, utilisé pour les fonctions
     settings: "settings Method",
@@ -57,8 +57,11 @@ var hacklol = {
                 'versionHacklol.html',
                 { },
                 function(data) {
-                    if(data.trim() != versionActuelle.trim()) {
-                        $("#testVersionHacklol").html(i18next.t('outdatedversion') + " " + data.trim() + ".");
+                    if(data.trim() != versionActuelle.trim() && hacklol.lang == "en") {
+                        $("#testVersionHacklol").html("<span class=\"icon icon_infos\"></span> It seem that you don't use the last version of Hacklol Modifier.<br />The current version is : "+ data.trim() +".");
+                    }
+                    else if(data.trim() != versionActuelle.trim()) {
+                        $("#testVersionHacklol").html("<span class=\"icon icon_infos\"></span> Il semblerait que vous n'utilisez pas la dernière version d'Hacklol Modifier.<br />La version actuelle est la : "+ data.trim() +".");
                     }
                 },
                 'text'
@@ -159,10 +162,17 @@ var hacklol = {
                 loadedImagesCount++;
                 var pourcentageLoading = Math.round((100*loadedImagesCount)/imageNames.length);
                 $("#progressLoading").css("width", pourcentageLoading + "%");
-                $("#loadingInfos").text(i18next.t('load.graphics'));
-                $("#backgroundLoadingInfos").text(i18next.t('load.graphics'));
-                $("#pourcentageLoadingInfos").text(pourcentageLoading + "%");
-                $("#backgroundPourcentageLoadingInfos").text(pourcentageLoading + "%");
+                if(hacklol.lang == "en") {
+                    $("#loadingInfos").text("Loading graphic data…");
+                    $("#backgroundLoadingInfos").text("Loading graphic data…");
+                    $("#pourcentageLoadingInfos").text(pourcentageLoading + "%");
+                    $("#backgroundPourcentageLoadingInfos").text(pourcentageLoading + "%");
+                } else {
+                    $("#loadingInfos").text("Chargement des données graphiques…");
+                    $("#backgroundLoadingInfos").text("Chargement des données graphiques…");
+                    $("#pourcentageLoadingInfos").text(pourcentageLoading + "%");
+                    $("#backgroundPourcentageLoadingInfos").text(pourcentageLoading + "%");
+                }
                 if (loadedImagesCount >= imageNames.length) {
                     hacklol.loadAudio();
                 }
@@ -173,10 +183,17 @@ var hacklol = {
                 $("#loadingInfos").css("color", "red");
                 var pourcentageLoading = Math.round((100*loadedImagesCount)/imageNames.length);
                 $("#progressLoading").css("width", pourcentageLoading + "%");
-                $("#loadingInfos").text(i18next.t('load.graphics'));
-                $("#backgroundLoadingInfos").text(i18next.t('load.graphics'));
-                $("#pourcentageLoadingInfos").text(pourcentageLoading + "%");
-                $("#backgroundPourcentageLoadingInfos").text(pourcentageLoading + "%");
+                if(hacklol.lang == "en") {
+                    $("#loadingInfos").text("Loading graphic data…");
+                    $("#backgroundLoadingInfos").text("Loading graphic data…");
+                    $("#pourcentageLoadingInfos").text(pourcentageLoading + "%");
+                    $("#backgroundPourcentageLoadingInfos").text(pourcentageLoading + "%");
+                } else {
+                    $("#loadingInfos").text("Chargement des données graphiques…");
+                    $("#backgroundLoadingInfos").text("Chargement des données graphiques…");
+                    $("#pourcentageLoadingInfos").text(pourcentageLoading + "%");
+                    $("#backgroundPourcentageLoadingInfos").text(pourcentageLoading + "%");
+                }
                 if (loadedImagesCount >= imageNames.length) {
                     hacklol.loadAudio();
                 }
@@ -192,10 +209,17 @@ var hacklol = {
         if (window.HTMLAudioElement) {
             var audioTestMp3 = document.createElement('audio');
             if (audioTestMp3.canPlayType && audioTestMp3.canPlayType("audio/mpeg")) {
-                $("#loadingInfos").text(i18next.t('load.audio'));
-                $("#backgroundLoadingInfos").text(i18next.t('load.audio'));
-                $("#pourcentageLoadingInfos").text("0%");
-                $("#backgroundPourcentageLoadingInfos").text("0%");
+                if(hacklol.lang == "en") {
+                    $("#loadingInfos").text("Loading audio data…");
+                    $("#backgroundLoadingInfos").text("Loading audio data…");
+                    $("#pourcentageLoadingInfos").text("0%");
+                    $("#backgroundPourcentageLoadingInfos").text("0%");
+                } else {
+                    $("#loadingInfos").text("Chargement des données audio…");
+                    $("#backgroundLoadingInfos").text("Chargement des données audio…");
+                    $("#pourcentageLoadingInfos").text("0%");
+                    $("#backgroundPourcentageLoadingInfos").text("0%");
+                }
                 var loadedAudioCount = 0;
                 var errorLoadingAudio = false;
                 var pourcentageLoadingAudio = 0;
@@ -216,10 +240,17 @@ var hacklol = {
                         var errorLoadingAudio = true;
                         var pourcentageLoadingAudio = Math.round((100*loadedAudioCount)/audioFiles.length);
                         $("#progressLoading").css("width", pourcentageLoadingAudio + "%");
-                        $("#loadingInfos").text(i18next.t('load.audio'));
-                        $("#backgroundLoadingInfos").text(i18next.t('load.audio'));
-                        $("#pourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
-                        $("#backgroundPourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
+                        if(hacklol.lang == "en") {
+                            $("#loadingInfos").text("Loading audio data…");
+                            $("#backgroundLoadingInfos").text("Loading audio data…");
+                            $("#pourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
+                            $("#backgroundPourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
+                        } else {
+                            $("#loadingInfos").text("Chargement des données audio…");
+                            $("#backgroundLoadingInfos").text("Chargement des données audio…");
+                            $("#pourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
+                            $("#backgroundPourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
+                        }
                         if (loadedAudioCount >= audioFiles.length) {
                             clearTimeout(timeOutLoading);
                             hacklol.completeLoading();
@@ -255,10 +286,17 @@ var hacklol = {
                                 }, 5000);
                                 var pourcentageLoadingAudio = Math.round((100*loadedAudioCount)/audioFiles.length);
                                 $("#progressLoading").css("width", pourcentageLoadingAudio + "%");
-                                $("#loadingInfos").text(i18next.t('load.audio'));
-                                $("#backgroundLoadingInfos").text(i18next.t('load.audio'));
-                                $("#pourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
-                                $("#backgroundPourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
+                                if(hacklol.lang == "en") {
+                                    $("#loadingInfos").text("Loading audio data…");
+                                    $("#backgroundLoadingInfos").text("Loading audio data…");
+                                    $("#pourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
+                                    $("#backgroundPourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
+                                } else {
+                                    $("#loadingInfos").text("Chargement des données audio…");
+                                    $("#backgroundLoadingInfos").text("Chargement des données audio…");
+                                    $("#pourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
+                                    $("#backgroundPourcentageLoadingInfos").text(pourcentageLoadingAudio + "%");
+                                }
                                 if (loadedAudioCount >= audioFiles.length) {
                                     clearTimeout(timeOutLoading);
                                     hacklol.completeLoading();
@@ -301,14 +339,14 @@ hacklol.tools = {
     edit: function(type) {
         var parametre_hacklol_pl = $.jStorage.get('hacklol_page_loader');
         if (type == "edit") {
-            if(parametre_hacklol_pl == "Non" && confirm(i18next.t('edit.confirm') + " " + hacklol.hacklolPageLoaderName + " " + i18next.t('edit.confirm2'))) {
+            if(parametre_hacklol_pl == "Non" && confirm("Cet outil fonctionne mieux lorsque Hacklol Page Loader est activé dans les paramètres. Vous avez désactivé Hacklol Page Loader, cet outil risque de ne pas fonctionner. Continuer ?")) {
                 try {
                     document.body.contentEditable = true;
                     $("#arret_modif_page").show();
                     $("#modif_page").hide();
                     hacklol.ui.closeToolbar();
                     hacklol.tools.paint("stop");
-                } catch(e) { alert(i18next.t('edit.error')); }
+                } catch(e) { alert("Une erreur est survenue lors de l'activation de l'outil. Veuillez réessayer."); }
             } else if(parametre_hacklol_pl != "Non") {
                 try {
                     document.getElementById("hacklol-iframe").contentEditable = true;
@@ -319,7 +357,7 @@ hacklol.tools = {
                     $("#modif_page").hide();
                     hacklol.ui.closeToolbar();
                     hacklol.tools.paint("stop");
-                } catch(e) { alert(i18next.t('edit.error')); }
+                } catch(e) { alert("Une erreur est survenue lors de l'activation de l'outil. Veuillez réessayer."); }
             }
         } else if (type == "stop") {
             if(parametre_hacklol_pl == "Non") {
@@ -489,8 +527,8 @@ hacklol.tools = {
         var easterEggHeight = ["300", "300", "224", "224", "224", "224", "224", "214", "214", "", "", "", "", "", "", ""];
         var easterEggName = ["mlp", "mlp", "aybabtu", "aybabtu", "troll", "troll", "troll", "ouais", "ouais", "ah", "non", "non", "non", "isname", "isname", "issou"];
         var easterEggSound = ["mlp.mp3", "mlp.mp3", "aybabtu.mp3", "aybabtu.mp3", "trololo.mp3", "trololo.mp3", "trololo.mp3", "ouais.mp3", "ouais.mp3", "ah.mp3", "non.mp3", "non.mp3", "non.mp3", "isname.mp3", "isname.mp3", "issou.mp3"];
-        var easterEggText = [null, null, null, null, null, null, null, null, null, i18next.t('egg.ah'), null, null, null, null, null, null];
-        var indices = [i18next.t('egg.indice.1'), i18next.t('egg.indice.2'), i18next.t('egg.indice.3'), i18next.t('egg.indice.4'), i18next.t('egg.indice.5'), i18next.t('egg.indice.6'), i18next.t('egg.indice.7'), i18next.t('egg.indice.8')];
+        var easterEggText = [null, null, null, null, null, null, null, null, null, "Ah ! Vous avez trouvé un Easter Egg !! Cliquez pour entendre à nouveau le Ah !", null, null, null, null, null, null];
+        var indices = ["Un dessin animé très connu avec des petits poneys.", "Une phrase venant de la mauvaise traduction anglaise du jeu Zero Wing de 1989.", "Une tête de troll.", "Le célèbre .. de Denis Brogniart (en deux lettres).", "L'inverse de Non.", "And his name is .... ....", "L'inverse de Oui.", "Le célèbre ..... de Risitas (en 5 lettres)."];
         var easterEggFound = new Array();
         var numberEasterEgg = hacklol.cleanArray(easterEggName).length;
 
@@ -526,13 +564,13 @@ hacklol.tools = {
                     easterEggFound_global.push(easterEggName[arrayPos]);
                     if(eggFound != true) {
                         if (easterEggText[i] == null && $.jStorage.get('effets_sonores') != "Non") {
-                            $("#p_egg").html($("#p_egg").html() + "<br /><img src='assets/img/" + easterEggImg[i] + "' alt='"+ easterEggKeywords[i].toLowerCase() +"' id='"+ easterEggKeywords[i].toLowerCase() +"' width='"+ easterEggWidth[i] +" height='"+ easterEggHeight[i] +"' class=\'img-resize\' onclick='hacklol.ui.replayEgg(this.src, this.id, \""+ easterEggSound[i] +"\");' style='cursor: pointer;' /><br />" + i18next.t('egg.found1'));
+                            $("#p_egg").html($("#p_egg").html() + "<br /><img src='assets/img/" + easterEggImg[i] + "' alt='"+ easterEggKeywords[i].toLowerCase() +"' id='"+ easterEggKeywords[i].toLowerCase() +"' width='"+ easterEggWidth[i] +" height='"+ easterEggHeight[i] +"' class=\'img-resize\' onclick='hacklol.ui.replayEgg(this.src, this.id, \""+ easterEggSound[i] +"\");' style='cursor: pointer;' /><br />Bravo, vous avez trouvé un Easter Egg !!");
                         } else if(easterEggText[i] == null) {
-                            $("#p_egg").html($("#p_egg").html() + "<br /><img src='assets/img/" + easterEggImg[i] + "' alt='"+ easterEggKeywords[i].toLowerCase() +"' id='"+ easterEggKeywords[i].toLowerCase() +"'  width='"+ easterEggWidth[i] +" height='"+ easterEggHeight[i] +"' class=\'img-resize\' /><br />" + i18next.t('egg.found1') + " " + i18next.t('egg.notaudio'));
+                            $("#p_egg").html($("#p_egg").html() + "<br /><img src='assets/img/" + easterEggImg[i] + "' alt='"+ easterEggKeywords[i].toLowerCase() +"' id='"+ easterEggKeywords[i].toLowerCase() +"'  width='"+ easterEggWidth[i] +" height='"+ easterEggHeight[i] +"' class=\'img-resize\' /><br />Bravo, vous avez trouvé un Easter Egg !!<br />Activez les effets sonores si votre navigateur est compatible et vous aurez une surprise…");
                         } else if(easterEggText[i] != null && $.jStorage.get('effets_sonores') != "Non") {
                             $("#p_egg").html($("#p_egg").html() + "<br /><img src='assets/img/" + easterEggImg[i] + "' alt='"+ easterEggKeywords[i].toLowerCase() +"' id='"+ easterEggKeywords[i].toLowerCase() +"'  width='"+ easterEggWidth[i] +" height='"+ easterEggHeight[i] +"' class=\'img-resize\' onclick='hacklol.ui.replayEgg(this.src, this.id, \""+ easterEggSound[i] +"\");' style='cursor: pointer;' /><br />" + easterEggText[i]);
                         } else {
-                            $("#p_egg").html($("#p_egg").html() + "<br /><img src='assets/img/" + easterEggImg[i] + "' alt='"+ easterEggKeywords[i].toLowerCase() +"' id='"+ easterEggKeywords[i].toLowerCase() +"'  width='"+ easterEggWidth[i] +" height='"+ easterEggHeight[i] +"' class=\'img-resize\' /><br />" + easterEggText[i] + " " + i18next.t('egg.notaudio'));
+                            $("#p_egg").html($("#p_egg").html() + "<br /><img src='assets/img/" + easterEggImg[i] + "' alt='"+ easterEggKeywords[i].toLowerCase() +"' id='"+ easterEggKeywords[i].toLowerCase() +"'  width='"+ easterEggWidth[i] +" height='"+ easterEggHeight[i] +"' class=\'img-resize\' /><br />" + easterEggText[i] +"<br />Activez les effets sonores si votre navigateur est compatible et vous aurez une surprise…");
                         }
                     }
                 }
@@ -553,24 +591,24 @@ hacklol.tools = {
             if(countEasterEgg < numberEasterEgg && countEasterEgg > 0) {
                 var nombre_a_trouve = numberEasterEgg - countEasterEgg;
                 if(countEasterEgg > 1) {
-                    $("#easter_egg_count").text(i18next.t('egg.found') + " " + countEasterEgg + " " + i18next.t('egg.easter-eggs') + ". " + i18next.t('egg.remaining') + " "+ nombre_a_trouve + " " + i18next.t('egg.tofind'));
+                    $("#easter_egg_count").text("Bravo ! Vous avez trouvé "+ countEasterEgg +" Easter Eggs. Il vous en reste "+ nombre_a_trouve +" à trouver.");
                 } else {
-                    $("#easter_egg_count").text(i18next.t('egg.found') + " " + countEasterEgg + " " + i18next.t('egg.easter-egg') + ". " + i18next.t('egg.remaining') + " "+ nombre_a_trouve + " " + i18next.t('egg.tofind'));
+                    $("#easter_egg_count").text("Bravo ! Vous avez trouvé "+ countEasterEgg +" Easter Egg. Il vous en reste "+ nombre_a_trouve +" à trouver.");
                 }
                 
                 if(cheatEasterEgg == true) {
                     if(countEasterEgg > 1) {
-                        $("#easter_egg_count").text(i18next.t('egg.foundcheat') + " " + countEasterEgg + " " + i18next.t('egg.easter-eggs') + " " + i18next.t('egg.cheated') + ". " + i18next.t('egg.cheatbad') + " " + i18next.t('egg.remaining') + " "+ nombre_a_trouve + " " + i18next.t('egg.tofind'));
+                        $("#easter_egg_count").text("Vous avez trouvé "+ countEasterEgg +" Easter Eggs en trichant. C'est mal, m'voyez ! Il vous en reste "+ nombre_a_trouve +" à trouver.");
                     } else {
-                        $("#easter_egg_count").text(i18next.t('egg.foundcheat') + " " + countEasterEgg + " " + i18next.t('egg.easter-egg') + " " + i18next.t('egg.cheated') + ". " + i18next.t('egg.cheatbad') + " " + i18next.t('egg.remaining') + " "+ nombre_a_trouve + " " + i18next.t('egg.tofind'));
+                        $("#easter_egg_count").text("Vous avez trouvé "+ countEasterEgg +" Easter Egg en trichant. C'est mal, m'voyez ! Il vous en reste "+ nombre_a_trouve +" à trouver.");
                     }
                     $("#easter_egg_count").css("color", "red");
                 }
             } else if(countEasterEgg == numberEasterEgg) {
-                $("#easter_egg_count").text(i18next.t('egg.foundall'));
+                $("#easter_egg_count").text("Bravo ! Vous avez trouvé tous les Easter Eggs.");
             
                 if(cheatEasterEgg == true) {
-                    $("#easter_egg_count").text(i18next.t('egg.foundallcheat'));
+                    $("#easter_egg_count").text("Vous avez trouvé tous les Easter Eggs en trichant. C'est mal, m'voyez !");
                     $("#easter_egg_count").css("color", "red");
                 }
             }
@@ -585,27 +623,27 @@ hacklol.tools = {
                 if(countEasterEgg < numberEasterEgg && countEasterEgg > 0) {
                     var nombre_a_trouve = numberEasterEgg - countEasterEgg;
                     if(countEasterEgg > 1) {
-                        $("#easter_egg_count").text(i18next.t('egg.found') + " " + countEasterEgg + " " + i18next.t('egg.easter-eggs') + ". " + i18next.t('egg.remaining') + " "+ nombre_a_trouve + " " + i18next.t('egg.tofind'));
+                        $("#easter_egg_count").text("Bravo ! Vous avez trouvé "+ countEasterEgg +" Easter Eggs. Il vous en reste "+ nombre_a_trouve +" à trouver.");
                     } else {
-                        $("#easter_egg_count").text(i18next.t('egg.found') + " " + countEasterEgg + " " + i18next.t('egg.easter-egg') + ". " + i18next.t('egg.remaining') + " "+ nombre_a_trouve + " " + i18next.t('egg.tofind'));
+                        $("#easter_egg_count").text("Bravo ! Vous avez trouvé "+ countEasterEgg +" Easter Egg. Il vous en reste "+ nombre_a_trouve +" à trouver.");
                     }
                     
                     if($.jStorage.get('easter_egg_deface_cheated') !== null && $.jStorage.get('easter_egg_deface_cheated') == "Oui") {
                         cheatEasterEgg = true;
                         if(countEasterEgg > 1) {
-                            $("#easter_egg_count").text(i18next.t('egg.foundcheat') + " " + countEasterEgg + " " + i18next.t('egg.easter-eggs') + " " + i18next.t('egg.cheated') + ". " + i18next.t('egg.cheatbad') + " " + i18next.t('egg.remaining') + " "+ nombre_a_trouve + " " + i18next.t('egg.tofind'));
+                            $("#easter_egg_count").text("Vous avez trouvé "+ countEasterEgg +" Easter Eggs en trichant. C'est mal, m'voyez ! Il vous en reste "+ nombre_a_trouve +" à trouver.");
                         } else {
-                            $("#easter_egg_count").text(i18next.t('egg.foundcheat') + " " + countEasterEgg + " " + i18next.t('egg.easter-egg') + " " + i18next.t('egg.cheated') + ". " + i18next.t('egg.cheatbad') + " " + i18next.t('egg.remaining') + " "+ nombre_a_trouve + " " + i18next.t('egg.tofind'));
+                            $("#easter_egg_count").text("Vous avez trouvé "+ countEasterEgg +" Easter Egg en trichant. C'est mal, m'voyez ! Il vous en reste "+ nombre_a_trouve +" à trouver.");
                         }
                         $("#easter_egg_count").css("color", "red");
                         return;
                     }
                 } else if(countEasterEgg == numberEasterEgg) {
-                    $("#easter_egg_count").text(i18next.t('egg.foundall'));
+                    $("#easter_egg_count").text("Bravo ! Vous avez trouvé tous les Easter Eggs.");
             
                     if($.jStorage.get('easter_egg_deface_cheated') !== null && $.jStorage.get('easter_egg_deface_cheated') == "Oui") {
                         cheatEasterEgg = true;
-                        $("#easter_egg_count").text(i18next.t('egg.foundallcheat'));
+                        $("#easter_egg_count").text("Vous avez trouvé tous les Easter Eggs en trichant. C'est mal, m'voyez !");
                         $("#easter_egg_count").css("color", "red");
                         return;
                     }
@@ -617,11 +655,11 @@ hacklol.tools = {
             return true;
         } else if(type == "cheat") {
             if(cheatEasterEgg == true) {
-                alert(i18next.t('egg.cheatalready'));
+                alert("Vous avez déjà révélé tous les Easter Eggs.");
                 return;
             }
-            if(confirm(i18next.t('egg.cheatconfirm1')) && confirm(i18next.t('egg.cheatconfirm2'))) {
-                alert(i18next.t('egg.cheatok'));
+            if(confirm("Êtes-vous sûr de vouloir révéler tous les Easter Eggs ?") && confirm("Êtes-vous vraiment sûr de vouloir tricher ?")) {
+                alert("OK, comme vous voulez… Cliquez sur « Défacer le site » pour confirmer.");
                 $("#editeur_deface").val(easterEggKeywords);
                 cheatEasterEgg = true;
                 $.jStorage.set('easter_egg_deface_cheated', "Oui");
@@ -738,7 +776,7 @@ hacklol.tools.matrix = {
         $("#matrix-not-compatible").show();
         $("#matrix").hide();
         $("#matrix-not-compatible").click(function() {
-            alert(i18next.t('matrix.error'));
+            alert("Désolé, cet outil n'est pas compatible avec votre navigateur.\nMettez à jour votre navigateur, puis réessayez.");
         });
     }
 }());
@@ -919,13 +957,21 @@ hacklol.settings = {
             changeLng($("#languageSelect").val());
             // fin
             if ($.jStorage.storageAvailable()) { // si le LocalStorage est disponible
-                alert(i18next.t('settings.saved'));
+                if (hacklol.lang == "en") {
+                    alert("Your settings have been saved.");
+                } else {
+                    alert("Vos paramètres ont été enregistrés.");
+                }
                 hacklol.settings.exe();
                 hacklol.ui.closeWindow();
                 hacklol.tools.edit("stop");
                 return true;
             } else {
-                alert(i18next.t('settings.error'));
+                if (hacklol.lang == "en") {
+                    alert("Your settings have been saved for this session only, because your browser doesn't support the functionality localstorage.");
+                } else {
+                    alert("Vos paramètres ont été enregistrés pour cette session seulement, car votre navigateur n'est pas compatible avec la fonctionnalité de stockage de données locales.");
+                }
                 hacklol.settings.exe();
                 hacklol.ui.closeWindow();
                 hacklol.tools.edit("stop");
@@ -961,13 +1007,23 @@ hacklol.settings = {
                 $('#effets_sonores').prop('checked', false);
                 $('#effets_sonores').prop('checked', false);
                 $("#effets_sonores").attr("disabled", "disabled");
-                $("#indication_error").text(i18next.t('settings.errormp3'));
+                if (hacklol.lang == "en") {
+                    $("#indication_error").text("Your browser is incompatible with .mp3 audio files.");
+                }
+                else {
+                    $("#indication_error").text("Votre navigateur est incompatible avec les fichiers audio .mp3.");
+                }
             }
         } else {
             $('#effets_sonores').prop('checked', false);
             $('#effets_sonores').prop('checked', false);
             $("#effets_sonores").attr("disabled", "disabled");
-            $("#indication_error").text(i18next.t('settings.erroraudio'));
+            if (hacklol.lang == "en") {
+                $("#indication_error").text("Your browser is incompatible with playing audio files.");
+            }
+            else {
+                $("#indication_error").text("Votre navigateur est incompatible avec la lecture de fichiers audio.");
+            }
         }
         // hacklol page loader
         var parametre_hacklol_pl = $.jStorage.get('hacklol_page_loader');
@@ -1065,7 +1121,11 @@ hacklol.settings = {
         cheatEasterEgg = false;
         $("#easter_egg_count").css("color", "green");
         $("#easter_egg_count").text("");
-        alert(i18next.t('settings.reseted'));
+        if(hacklol.lang == "en") {
+            alert("Data deleted.");
+        } else {
+            alert("Toutes les données ont été supprimées.");
+        }
         hacklol.settings.exe();
         hacklol.ui.closeWindow();
     }
@@ -1078,7 +1138,7 @@ hacklol.ui = {
         $("#mask_opbh").stop(true, true).show();
         $("#btn-show-toolbar").stop(true, true).fadeIn("slow");
         $("#menuMobile").hide();
-        $("#lienMenuMobile").html("<span class=\"icon icon_menu\"></span> " + i18next.t('toolbar.menu'));
+        $("#lienMenuMobile").html("<span class=\"icon icon_menu\"></span> Menu");
         menuLienLib = 1;
     },
     // Afficher la barre d'outils
@@ -1232,13 +1292,17 @@ hacklol.ui.paint = {
 hacklol.ui.menuMobile = {
     // En cas de click
     click: function() {
-        if (menuLienLib == 1) {
+        if (menuLienLib == 1 && hacklol.lang == "en") {
             $("#menuMobile").stop().slideDown("slow");
-            $("#lienMenuMobile").html("<span class=\"icon icon_fermer\"></span> " + i18next.t('toolbar.menuclose'));
+            $("#lienMenuMobile").html("<span class=\"icon icon_fermer\"></span> Close the menu");
+            menuLienLib = 2;
+        } else if (menuLienLib == 1) {
+            $("#menuMobile").stop().slideDown("slow");
+            $("#lienMenuMobile").html("<span class=\"icon icon_fermer\"></span> Fermer le menu");
             menuLienLib = 2;
         } else {
             $("#menuMobile").stop().slideUp("slow");
-            $("#lienMenuMobile").html("<span class=\"icon icon_menu\"></span> " + i18next.t('toolbar.menu'));
+            $("#lienMenuMobile").html("<span class=\"icon icon_menu\"></span> Menu");
             menuLienLib = 1;
         }
     }
@@ -1303,7 +1367,9 @@ $(document).ready(function() {
     });
     $("#reset_data").click(function() {
         // Réinitialiser données
-        if(confirm(i18next.t('settings.resetconfirm'))) {
+        if(hacklol.lang == "en" && confirm("Are you sure to delete ALL the Hacklol Modifier data ?")) {
+            hacklol.settings.resetData();
+        } else if(hacklol.lang == "fr" && confirm("Êtes-vous sûr de vouloir supprimer TOUTES les données enregistrées d'Hacklol Modifier ?")) {
             hacklol.settings.resetData();
         }
     });
@@ -1461,11 +1527,11 @@ $(document).ready(function() {
         $("#errorUrlChange").hide();
         hacklol.tools.edit("stop");
         if(url.trim() == "") {
-            $("#errorUrlChange").html("<span class='icon icon_error'></span> " + i18next.t('changesite.empty'));
+            $("#errorUrlChange").html("<span class='icon icon_error'></span> Vous n'avez rien entré.");
             $("#errorUrlChange").show();
             return;
         } else if(hacklol.validateUrl(url) == false) {
-            $("#errorUrlChange").html("<span class='icon icon_error'></span> " + i18next.t('changesite.errorurl'));
+            $("#errorUrlChange").html("<span class='icon icon_error'></span> Adresse invalide.");
             $("#errorUrlChange").show();
             return;
         }

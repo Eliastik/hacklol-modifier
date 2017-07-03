@@ -1097,7 +1097,7 @@ Pour ajouter une icone, voir ici : https://icomoon.io/app/ */
     z-index:1040;
     opacity:0.6;
     /* fix for Jquery UI draggable */
-    width: 140px !important;
+    width: 160px !important;
     height: 16px !important;
 }
 #btn-show-toolbar:hover {
@@ -1114,7 +1114,7 @@ Pour ajouter une icone, voir ici : https://icomoon.io/app/ */
     z-index:1040;
     opacity:0.6;
     /* fix for Jquery UI draggable */
-    width: 140px !important;
+    width: 160px !important;
     height: 16px !important;
 }
 #btn-show-toolbar-paint:hover {

@@ -1,0 +1,16 @@
+{
+    "translation": {
+        "description": "EHacklol est une application utilisable directement sur votre navigateur web qui vous permet de modifier des sites web.",
+        "loading": {
+            "title": "Chargement de <span class='appName'>l'application</span> en cours…",
+            "start": "Commencer à utiliser <span class='appName'>l'application</span> et charger en arrière-plan…"
+        },
+        "language": {
+            "en": "English",
+            "fr": "Français"
+        },
+        "bsod-popup": {
+            "title": "Test"
+        }
+    }
+}

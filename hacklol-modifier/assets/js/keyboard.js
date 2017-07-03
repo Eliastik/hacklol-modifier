@@ -32,7 +32,7 @@ $(document).keydown(function(e)
 				$("#toolbar-hacklol").slideToggle("slow");
 				$("#btn-show-toolbar").fadeToggle("slow");
 				$("#menuMobile").hide();
-				$("#lienMenuMobile").html("<span class=\"icon icon_menu\"></span> Menu");
+				$("#lienMenuMobile").html("<span class=\"icon icon_menu\"></span>" + i18next.t('toolbar.menu'));
 				menuLienLib = 1;
 				return false;
 				break;

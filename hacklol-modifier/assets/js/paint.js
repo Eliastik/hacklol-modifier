@@ -217,12 +217,7 @@ $(document).ready(function() {
 		$("#paint-not-compatible").show();
 		$("#click-paint").hide();
 		$("#paint-not-compatible").click(function() {
-			if(hacklol.lang == "en") {
-				alert("Sorry, this tool isn't compatible with your web browser.\nUpdate your browser, and try again.");
-			}
-			else {
-				alert("Désolé, cet outil n'est pas compatible avec votre navigateur.\nMettez à jour votre navigateur, puis réessayez.");
-			}
+			alert(i18next.t('paint.not-compatible'));
 		});
 	}
 });
