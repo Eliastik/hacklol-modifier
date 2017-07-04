@@ -24,7 +24,7 @@ var hacklol = {
     hacklolPageLoaderName: "Hacklol Page Loader",
     description: null,
     version: "1.4", // la version d'Hacklol
-    dateVersion: "27/06/2017", // date
+    dateVersion: "4/07/2017", // date
     lang: function() {
         if(typeof(i18next.language) !== 'undefined') {
             return i18next.language.substr(0, 2);
