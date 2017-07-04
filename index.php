@@ -2,8 +2,9 @@
         @session_start();
         @session_unset();
         @session_destroy();
-        
+
         require("config.php");
+        require("locales.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,37 +27,38 @@
         <![endif]-->
         <?php
             if($hacklolConfig['enableRecaptcha'] == true) { ?>
-        
+
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <?php } ?>
-        
+
     </head>
     <body>
         <div class="container">
             <form class="form-signin" method="post" action="/hacklol-modifier/index.php">
-                <h2 class="form-signin-heading"><?php 
+                <h2 class="form-signin-heading"><?php
                 if(strtoupper($hacklolConfig['appName']) == "HACKLOL MODIFIER") {
                     echo '<img src="img/logo_hacklol_modifier.png" width="306" alt="Hacklol Modifier" class="img-auto-resize" />';
                 } else {
-                    echo $hacklolConfig['appName']; 
+                    echo $hacklolConfig['appName'];
                 }
                 ?></h2>
-                <p>Entrez l'adresse du site web que vous souhaitez modifier. <strong>L'adresse doit commencer par http://</strong></p>
+                <p><?php echo _("enter-address") ?> <strong><?php echo _("url-http") ?></strong></p>
                 <div class="checkbox">
-                    <label for="inputEmail" class="sr-only">Adresse du site web</label>
-                    <input type="url" id="siteurl" name="siteurl" class="form-control" placeholder="Adresse du site web" value="<?php echo $hacklolConfig['defaultWebsite']; ?>" required autofocus>
+                    <label for="inputEmail" class="sr-only"><?php echo _("url-site-label") ?></label>
+                    <input type="url" id="siteurl" name="siteurl" class="form-control" placeholder="<?php echo _("url-site-placeholder") ?>" value="<?php echo $hacklolConfig['defaultWebsite']; ?>" required autofocus>
                 </div>
                 <?php
                     if($hacklolConfig['enableRecaptcha'] == true) { ?>
-                        
+
                  <div class="g-recaptcha" data-lang="fr" data-sitekey="<?php echo $hacklolConfig['recaptchaPublicKey']; ?>" data-theme="white" style="margin-bottom: 10px;"></div>
                 <?php } ?>
-                
-                <input id="valider" name="valider" class="btn btn-lg btn-primary btn-block" value="Valider" type="submit" />
+
+                <input id="valider" name="valider" class="btn btn-lg btn-primary btn-block" value="<?php echo _("form-validate") ?>" type="submit" />
             </form>
         <footer>
-            By <a href="http://www.eliastiksofts.com" target="_blank">Eliastik</a> – <a href="https://github.com/Eliastik/hacklol-modifier/" target="_blank">Code source sur Github</a> – <a href="http://hacklol.eliastiksofts.com" target="_blank">Site web Hacklol officiel</a>
+            By <a href="http://www.eliastiksofts.com" target="_blank">Eliastik</a> – <a href="https://github.com/Eliastik/hacklol-modifier/" target="_blank"><?php echo _("source-code") ?></a> – <a href="http://hacklol.eliastiksofts.com" target="_blank"><?php echo _("hacklol-official") ?></a>
             <div class="version">Version <?php echo $hacklolConfig['appVersion']; ?></div>
+            <div class="lang"><a href="?lang=fr">Français</a> – <a href="?lang=en">English</a></div>
         </footer>
         </div> <!-- /container -->
     </body>

@@ -19,6 +19,9 @@ footer {
   margin-top: 5px;
   color: grey;
 }
+.lang {
+  margin-top: 5px;
+}
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
   margin-bottom: 10px;

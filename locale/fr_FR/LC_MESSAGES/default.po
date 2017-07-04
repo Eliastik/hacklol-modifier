@@ -1,0 +1,119 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-04 03:09+0200\n"
+"PO-Revision-Date: 2017-07-04 12:58+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: index.php:44
+msgid "enter-address"
+msgstr "Entrez l'adresse du site web que vous souhaitez modifier."
+
+#: index.php:44
+msgid "url-http"
+msgstr "L'adresse doit commencer par http://"
+
+#: index.php:46
+msgid "url-site-label"
+msgstr "Adresse du site web"
+
+#: index.php:47
+msgid "url-site-placeholder"
+msgstr "Adresse du site web"
+
+#: index.php:55
+msgid "form-validate"
+msgstr "Valider"
+
+#: index.php:58
+msgid "source-code"
+msgstr "Code source sur Github"
+
+#: index.php:58
+msgid "hacklol-official"
+msgstr "Site web Hacklol officiel"
+
+#: hacklol-modifier/index.php:98
+msgid "errors-form"
+msgstr "Erreurs dans le formulaire"
+
+#: hacklol-modifier/index.php:99
+msgid "the"
+msgstr "Les"
+
+#: hacklol-modifier/index.php:99
+msgid "following-errors"
+msgstr "erreurs suivantes ont été commises lors de l'envoi du formulaire :"
+
+#: hacklol-modifier/index.php:102
+msgid "error-form"
+msgstr "Erreur dans le formulaire"
+
+#: hacklol-modifier/index.php:103
+msgid "following-error"
+msgstr "L'erreur suivante a été commise lors de l'envoi du formulaire :"
+
+#: hacklol-modifier/index.php:109
+msgid "error-maintenance"
+msgstr "est actuellement en maintenance. Veuillez réessayer ultérieurement."
+
+#: hacklol-modifier/index.php:113
+msgid "anti-flood"
+msgstr "Vous devez attendre 3 minutes avant d'envoyer à nouveau un formulaire pour accéder à"
+
+#: hacklol-modifier/index.php:117
+msgid "error-form-not-submited"
+msgstr "Il semble que vous ayez accédé à cette page sans passer par le formulaire."
+
+#: hacklol-modifier/index.php:120
+msgid "error-form-field-empty"
+msgstr "Certains champs de formulaire sont vides."
+
+#: hacklol-modifier/index.php:123
+msgid "error-url-incorrect"
+msgstr "L'adresse URL entrée est invalide."
+
+#: hacklol-modifier/index.php:126
+msgid "error-url-ip"
+msgstr "L'adresse du site ne doit pas être une adresse IP."
+
+#: hacklol-modifier/index.php:129
+msgid "error-hacklol"
+msgstr "Il est impossible de modifier Hacklol avec"
+
+#: hacklol-modifier/index.php:132
+msgid "error-access"
+msgstr "L'accès à ce site avec"
+
+#: hacklol-modifier/index.php:132
+msgid "error-access-forbidden"
+msgstr " a été interdit pour des raisons de sécurité et/ou suite à une demande de son webmaster."
+
+#: hacklol-modifier/index.php:132
+msgid "error-detected-keyword"
+msgstr "Mot clef détecté :"
+
+#: hacklol-modifier/index.php:135
+msgid "error-recaptcha-timeout"
+msgstr "Une erreur est survenue lors de la vérification du ReCaptcha auprès du serveur de Google. Veuillez réessayer ultérieurement."
+
+#: hacklol-modifier/index.php:138
+msgid "error-false-recaptcha"
+msgstr "ReCaptcha invalide."
+
+#: hacklol-modifier/index.php:142
+msgid "back-to-form"
+msgstr "Retour au formulaire"

@@ -1,8 +1,12 @@
 <?php
-/* Hacklol Modifier PHP - Version 1.3.1
+/* Hacklol Modifier PHP - Version 1.4
 by Eliastik */
 session_start(); // on démarre une session
+
 require("../config.php");
+$path = "../locale";
+require("../locales.php");
+
 $url = null;
 $valid = null;
 $recaptchaVerifReponse = false;
@@ -39,8 +43,6 @@ else {
             if(is_url_ip($url) === true) {
                 $erreurUrlIP = true;
                 $nbErreursForm++;
-            } else if(filter_var("http://" . $url, FILTER_VALIDATE_URL) !== false) { // si URL invalide, on essaye de voir si l'URL est valide en ajoutant http:// (si l'utilisateur l'a oublié)
-                $url = "http://" . $url;
             } else {
                 $erreurUrlIncorrect = true;
                 $nbErreursForm++;
@@ -97,51 +99,51 @@ if($nbErreursForm > 0) {
         <div class="container">
             <?php
                 if($nbErreursForm > 1) {
-                    echo "<h2>". $hacklolConfig['appName'] ." – Erreurs dans le formulaire</h2>
-                    <p>Les $nbErreursForm erreurs suivantes ont été commises lors de l'envoi du formulaire :</p>";
+                    echo "<h2>". $hacklolConfig['appName'] ." – " . _("errors-form") . "</h2>
+                    <p>" . _("the") . " " . $nbErreursForm . " " . _("following-errors") . "</p>";
                 }
                 else {
-                    echo "<h2>". $hacklolConfig['appName'] ." – Erreur dans le formulaire</h2>
-                    <p>L'erreur suivante a été commise lors de l'envoi du formulaire :</p>";
+                    echo "<h2>". $hacklolConfig['appName'] ." – " . _("error-form") . "</h2>
+                    <p>" . _("following-error") . "</p>";
                 }
-                
+
                 echo"<ul>";
-                
+
                 if($erreurMaintenance == true) {
-                    echo "<li>". $hacklolConfig['appName'] ." est actuellement en maintenance. Veuillez réessayer ultérieurement.</li>";
+                    echo "<li>". $hacklolConfig['appName'] . " " . _("error-maintenance") . "</li>";
                 }
 
                 if($erreurFlood == true) {
-                    echo "<li>Vous devez attendre 3 minutes avant d'envoyer à nouveau un formulaire pour accéder à ". $hacklolConfig['appName'] .".</li>";
+                    echo "<li>" . _("anti-flood")  . " " . $hacklolConfig['appName'] .".</li>";
                 }
 
                 if($erreurButtonError == true) {
-                    echo "<li>Il semble que vous ayez accédé à cette page sans passer par le formulaire.</li>";
+                    echo "<li>" . _("error-form-not-submited") . "</li>";
                 }
                 if($erreurFormIncomplete == true) {
-                    echo "<li>Certains champs de formulaire sont vides.</li>";
+                    echo "<li>" . _("error-form-field-empty") . "</li>";
                 }
                 if($erreurUrlIncorrect == true) {
-                    echo "<li>L'adresse URL entrée est invalide.</li>";
+                    echo "<li>" . _("error-url-incorrect") . "</li>";
                 }
                 if($erreurUrlIP == true) {
-                    echo "<li>L'adresse du site ne doit pas être une adresse IP.</li>";
+                    echo "<li>" . _("error-url-ip") . "</li>";
                 }
                 if($erreurUrlHacklol == true) {
-                    echo "<li>Il est impossible de modifier Hacklol avec ". $hacklolConfig['appName'] ."…</li>";
+                    echo "<li>" . _("error-hacklol") . " " . $hacklolConfig['appName'] ."…</li>";
                 }
                 if($erreurUrlInBlacklist == true) {
-                    echo '<li>L\'accès à ce site avec '. $hacklolConfig['appName'] .' a été interdit pour des raisons de sécurité et/ou suite à une demande de son webmaster.<br /><strong>Mot clef détecté :</strong> '. htmlspecialchars($verifInBl[1]) .'.</li>';
+                    echo '<li>' . _("error-access") . ' '. $hacklolConfig['appName'] .' ' . _("error-access-forbidden") . '<br /><strong>' . _("error-detected-keyword") . '</strong> '. htmlspecialchars($verifInBl[1]) .'.</li>';
                 }
                 if($erreurRecaptchaIsNull == true) {
-                    echo "<li>Une erreur est survenue lors de la vérification du ReCaptcha auprès du serveur de Google. Veuillez réessayer ultérieurement.</li>";
+                    echo "<li>" . _("error-recaptcha-timeout") . "</li>";
                 }
                 if($erreurRecaptchaIsFalse == true) {
-                    echo "<li>ReCaptcha invalide.</li>";
+                    echo "<li>" . _("error-false-recaptcha") . "</li>";
                 }
             ?>
             </ul>
-        <a class="btn btn-lg btn-primary" href="/">Retour au formulaire</a>
+        <a class="btn btn-lg btn-primary" href="/"><?php echo _("back-to-form") ?></a>
         </div> <!-- /container -->
     </body>
 </html>
@@ -151,7 +153,7 @@ if($nbErreursForm > 0) {
 else {
     $_SESSION['urlPageHacklol'] = $url;
     $hacklol_modifier_require_pass = "hacklol";
-    
+
     require('hacklol-modifier.php');
 }
 // Fonction qui permet de vérifier la réponse du captcha - source : http://www.grafikart.fr/tutoriels/php/recaptcha-anti-spam-346

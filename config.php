@@ -7,7 +7,7 @@
         "shortAppName" => "Hacklol",
         "pageLoaderName" => "Hacklol Page Loader",
         "appVersion" => "1.4",
-        "defaultWebsite" => "http://www.google.fr",
+        "defaultWebsite" => "",
         "enableRecaptcha" => false, // Enable Google Recaptcha v2
         "recaptchaPublicKey" => "", // To get the Recaptcha key -> https://www.google.com/recaptcha/admin
         "recaptchaPrivateKey" => ""
