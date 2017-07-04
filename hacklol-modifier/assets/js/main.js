@@ -25,7 +25,11 @@ var hacklol = {
     description: null,
     version: "1.4", // la version d'Hacklol
     dateVersion: "27/06/2017", // date
-    lang: i18next.language.substr(0, 2), // language
+    lang: function() {
+        if(typeof(i18next.language) !== 'undefined') {
+            return i18next.language.substr(0, 2);
+        }
+    }, // language
     asciiArt: " _____         _   _     _ \n|  |  |___ ___| |_| |___| |\n|     | .'|  _| '_| | . | |\n|__|__|__,|___|_,_|_|___|_|",
     tools: 10, // nb d'outils, utilisé pour les fonctions
     settings: "settings Method",
@@ -1264,7 +1268,7 @@ $(document).ready(function() {
         $("#btn-show-toolbar-paint").css("left", "");
     });
     // Chargement images
-    hacklol.loadImages();
+    setTimeout(function() { hacklol.loadImages() }, 500);
     // AFFICHER VERSION ET DATE DE VERSION HACKLOL Modifier
     $("#versionHacklolAbout").text(hacklol.version);
     $("#dateVersionHacklolAbout").text(hacklol.dateVersion);
