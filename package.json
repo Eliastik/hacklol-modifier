@@ -1,0 +1,26 @@
+{
+  "name": "hacklol-modifier",
+  "version": "1.4.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "gulp-clean-css": "^3.5.0",
+    "gulp-minify": "^1.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eliastik/hacklol-modifier.git"
+  },
+  "author": "Eliastik",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Eliastik/hacklol-modifier/issues"
+  },
+  "homepage": "https://github.com/Eliastik/hacklol-modifier#readme"
+}

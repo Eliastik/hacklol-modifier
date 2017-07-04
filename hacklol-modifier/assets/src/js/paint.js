@@ -1,4 +1,4 @@
-/* Fichier de script (paint.js) pour Hacklol Modifier v. 1.2.3 - du 22/10/2016 */
+﻿/* Fichier de script (paint.js) pour Hacklol Modifier v. 1.2.3 - du 22/10/2016 */
 $(document).ready(function() {
 	if(window.HTMLCanvasElement) {
 		// Variables :

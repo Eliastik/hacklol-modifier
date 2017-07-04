@@ -30,7 +30,7 @@
         <script type="text/javascript" src="libs/js/i18next/i18next.min.js"></script>
         <script type="text/javascript" src="libs/js/i18next/jquery-i18next.min.js"></script>
         <script type="text/javascript" src="libs/js/i18next/i18nextBrowserLanguageDetector.min.js"></script>
-        <script type="text/javascript" src="assets/locales/i18n.js"></script>
+        <script type="text/javascript" src="assets/locales/i18n-min.js"></script>
     </head>
     <body>
         <div id="mask_chargement"></div>
@@ -386,10 +386,10 @@
         <script type="text/javascript">
             urlPage_global = "<?php echo addslashes($url); ?>";
         </script>
-        <script type="text/javascript" src="assets/js/main.js"></script>
-        <script type="text/javascript" src="assets/js/keyboard.js"></script>
-        <script type="text/javascript" src="assets/js/paint.js"></script>
-        <script type="text/javascript" src="assets/js/detectError.js"></script>
-        <script type="text/javascript" src="assets/js/user-script.js"></script>
+        <script type="text/javascript" src="assets/js/main-min.js"></script>
+        <script type="text/javascript" src="assets/js/keyboard-min.js"></script>
+        <script type="text/javascript" src="assets/js/paint-min.js"></script>
+        <script type="text/javascript" src="assets/js/detectError-min.js"></script>
+        <script type="text/javascript" src="assets/js/user-script-min.js"></script>
     </body>
 </html>
