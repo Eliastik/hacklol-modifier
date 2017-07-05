@@ -160,7 +160,7 @@
             <div><label for="editeur_deface" data-i18n="deface.textform"></label></div>
             <div><textarea id="editeur_deface" style="width:100%; height:200px;" data-i18n="[placeholder]deface.textplaceholder" placeholder=""></textarea></div>
             <div><label for="colorpicker3" data-i18n="deface.backgroundcolor"></label></div>
-            <div><input type="text" id="colorpicker3" maxlength="6" data-i18n="[placeholder]deface.backgroundcolorplaceholder" placeholder="" value="FE4A4A" style="border-color: #FE4A4A" /></div>
+            <div><a href="#" id="colorpicker3" style="background-color: #FE4A4A;" value="FE4A4A"></a></div>
             <div><a id="defacer_site_ok" class="btn-green popup-modal-dismiss"><span class="icon icon_vrai"></span> <span data-i18n="validate"></span></a>
             <a id="defacer_site_reafficher" class="btn popup-modal-dismiss" style="display: none;"><span class="icon icon_page"></span> <span data-i18n="deface.reset"></span></a>
             <a class="btn-red popup-modal-dismiss" href="#"><span class="icon icon_fermer"></span> <span data-i18n="closewindow"></span></a></div>
@@ -263,8 +263,8 @@
                         </select>
                     </p>
                     <div id="choixcouleur" style="display:none;">
-                        <label for="colorpicker1" id="colorpicker-indication" data-i18n="settings.color.choosecolor"></label>
-                        <input type="text" id="colorpicker1" maxlength="6" data-i18n="[placeholder]settings.color.choosecolorplaceholder" placeholder="" style="border-color: #000000" />
+                        <label for="colorpicker1" id="colorpicker-indication" data-i18n="settings.color.choosecolor"></label><br />
+                        <a href="#" id="colorpicker1" style="background-color: #ffffff;" value="ffffff"></a>
                     </div>
                     <p>
                     <label for="couleurBarreSelect" data-i18n="settings.language"></label>

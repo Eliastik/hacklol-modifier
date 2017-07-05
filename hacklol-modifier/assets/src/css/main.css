@@ -1254,20 +1254,17 @@ input#largeur_pinceau {
 }
 /* color picker */
 #colorpicker1, #colorpicker3 {
-    margin:0;
-    padding:0;
-    border:0;
-    width:70px;
-    height:20px;
-    border-right:20px solid green;
-    line-height:20px;
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-bottom: 1px solid black;
-    transition: none;
-}
-.colpick_hex {
-    margin-top: -235px !important;
+    background-image: url(../img/points.png);
+    margin:0 0 0px 0;
+    margin-left:2px;
+    display:inline-block;
+    width:30px;
+    height:30px;
+    margin-right:10px;
+    text-indent:-4000px;
+    overflow:hidden;
+    border-radius:50%;
+    border: 2px solid black;
 }
 /* canvas pour la fonction matrix */
 canvas#q {

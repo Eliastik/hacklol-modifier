@@ -161,17 +161,44 @@ $(document).ready(function() {
 		});
 		
 		$('#choixCouleur').colpick({
-		layout:'hex',
-		submit:0,
-		color: 'ffffff',
-		colorScheme:'dark',
-		onChange:function(hsb,hex,rgb,el,bySetColor) {
-			$("#choixCouleur").css("background-color", "#"+hex);
-			color = "#"+hex;
-		},
-		onShow:function(hsb,hex,rgb,el,bySetColor) {
-			color = $("#choixCouleur").css("background-color");
-		}
+            layout:'hex',
+            submit:0,
+            color: 'ffffff',
+            colorScheme:'dark',
+            onChange:function(hsb,hex,rgb,el,bySetColor) {
+                $("#choixCouleur").css("background-color", "#"+hex);
+                color = "#"+hex;
+            },
+            onShow:function(hsb,hex,rgb,el,bySetColor) {
+                color = $("#choixCouleur").css("background-color");
+                // Fix - https://github.com/josedvq/colpick-jQuery-Color-Picker/issues/24
+                var $colorDiv = $(hsb);
+                var div = {
+                    top: parseInt($colorDiv.css('top'), 10),
+                    left: parseInt($colorDiv.css('left'), 10)
+                };
+                div.right = div.left + $colorDiv.outerWidth();
+                div.bottom = div.top + $colorDiv.outerHeight();
+
+                var $win = $(window);
+                var viewport = {
+                    top: $win.scrollTop(),
+                    left: $win.scrollLeft()
+                };
+                viewport.right = viewport.left + $win.width();
+                viewport.bottom = viewport.top + $win.height();
+
+                //if the colorpicker goes off the bottom of the viewport
+                if(div.bottom>viewport.bottom) {
+                    div.top = div.top - $colorDiv.outerHeight();
+                    $colorDiv.css('top',div.top+'px');
+                }
+                //if the colorpicker goes off the right of the viewport
+                if(div.right>viewport.right) {
+                    div.left = div.left - $colorDiv.outerWidth();
+                    $colorDiv.css('left',div.left+'px');
+                }
+            }
 		});
 		
 		// Largeur du pinceau :

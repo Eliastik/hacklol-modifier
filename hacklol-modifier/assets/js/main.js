@@ -518,7 +518,7 @@ hacklol.tools = {
         var numberEasterEgg = hacklol.cleanArray(easterEggName).length;
 
         if(type == "deface") {
-            var couleur_deface_arriere = $("#colorpicker3").val();
+            var couleur_deface_arriere = $("#colorpicker3").attr("value");
             var contrastColorTextDeface = hacklol.getContrastYIQ(couleur_deface_arriere);
             $("#deface_div").css("background-color", "#" + couleur_deface_arriere);
             $("#deface_div").css("color", contrastColorTextDeface);
@@ -866,8 +866,8 @@ hacklol.settings = {
             $('#couleurBarreSelect option[value="Personnalisation"]').prop('selected', true);
             $("#choixcouleur").show();
             $("#colorpicker1").colpickSetColor($.jStorage.get('couleur_barre'));
-            $('#colorpicker1').val(parametre_couleur_barre.substr(1));
-            $("#colorpicker1").css("border-color", $.jStorage.get('couleur_barre'));
+            $('#colorpicker1').attr("value", parametre_couleur_barre.substr(1));
+            $('#colorpicker1').css("background-color", parametre_couleur_barre.substr(1));
         } else {
             $("#choixcouleur").hide();
         }
@@ -936,7 +936,7 @@ hacklol.settings = {
             } else if (couleur_barre_selected == "Blanc") {
                 $.jStorage.set('couleur_barre', 'Blanc');
             } else if (couleur_barre_selected == "Personnalisation") {
-                var colorpicker_couleur_choisie = $("#colorpicker1").val();
+                var colorpicker_couleur_choisie = $("#colorpicker1").attr("value");
                 $.jStorage.set('couleur_barre', '#' + colorpicker_couleur_choisie.substr(0, 6));
             }
             changeLng($("#languageSelect").val());
@@ -1057,8 +1057,8 @@ hacklol.settings = {
         } else if (parametre_couleur_barre.charAt(0) == "#") {
             $("#toolbar-hacklol").css("background-color", $.jStorage.get('couleur_barre')); // change la couleur de la barre du haut
             $('#couleurBarreSelect option[value="Personnalisation"]').prop('selected', true); // select Couleur personalisée... dans le menu déroulant
-            $('#colorpicker1').val(parametre_couleur_barre.substr(1)); // affiche le code couleur dans le input avec le # supprimé
-            $("#colorpicker1").css("border-color", $.jStorage.get('couleur_barre')); // change la couleur du input
+            $('#colorpicker1').attr("value", parametre_couleur_barre.substr(1)); // affiche le code couleur dans le input avec le # supprimé
+            $("#colorpicker1").css("background-color", $.jStorage.get('couleur_barre')); // change la couleur du input
             $("#choixcouleur").show(); // affiche le choix de couleur
             $("#colorpicker1").colpickSetColor($.jStorage.get('couleur_barre'));
         } else {
@@ -1082,8 +1082,9 @@ hacklol.settings = {
         errorDisabled = false;
         pageChargeeFirst = 1;
         $('input[name=checkboxDisableErrors]').prop('checked', false);
-        $("#colorpicker1").val("");
-        $("#colorpicker1").css("border-color", "#000000");
+        $("#colorpicker1").attr("value", "");
+        $("#colorpicker1").css("background-color", "#ffffff");
+        $("#colorpicker1").colpickSetColor("#ffffff");
         easterEggFound_global = new Array();
         cheatEasterEgg = false;
         $("#easter_egg_count").css("color", "green");
@@ -1504,17 +1505,14 @@ $(document).ready(function() {
     // Defacer site
     // Color picker
     $('#colorpicker3').colpick({
-        layout: 'hex',
-        submit: 0,
+        layout:'hex',
+        submit:0,
         color: 'FE4A4A',
-        colorScheme: 'dark',
-        onChange: function(hsb, hex, rgb, el, bySetColor) {
-            $(el).css('border-color', '#' + hex);
-            // Fill the text box just if the color was set using the picker, and not the colpickSetColor function.
-            if (!bySetColor) $(el).val(hex);
+        colorScheme:'dark',
+        onChange:function(hsb,hex,rgb,el,bySetColor) {
+            $("#colorpicker3").css("background-color", "#"+hex);
+            $("#colorpicker3").attr("value", hex);
         }
-    }).keyup(function() {
-        $(this).colpickSetColor(this.value);
     });
     $("#defacer_site_ok").click(function() {
         hacklol.tools.deface("deface");
@@ -1621,17 +1619,14 @@ $(document).ready(function() {
     }());
     // Color picker
     $('#colorpicker1').colpick({
-        layout: 'hex',
-        submit: 0,
-        color: '000000',
-        colorScheme: 'dark',
-        onChange: function(hsb, hex, rgb, el, bySetColor) {
-            $(el).css('border-color', '#' + hex);
-            // Fill the text box just if the color was set using the picker, and not the colpickSetColor function.
-            if (!bySetColor) $(el).val(hex);
+        layout:'hex',
+        submit:0,
+        color: 'ffffff',
+        colorScheme:'dark',
+        onChange:function(hsb,hex,rgb,el,bySetColor) {
+            $("#colorpicker1").css("background-color", "#"+hex);
+            $("#colorpicker1").attr("value", hex);
         }
-    }).keyup(function() {
-        $(this).colpickSetColor(this.value);
     });
     $("#couleurBarreSelect").change(function() {
         if ($('#couleurBarreSelect option:selected').val() == "Personnalisation") {
