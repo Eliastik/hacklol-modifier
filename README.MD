@@ -183,7 +183,7 @@ PHP-Proxy is installed via composer in the folder hacklol-modifier/page_loader. 
 
 The app name is editable by modifying the files config.php and hacklol-modifier/assets/src/js/main.js.
 
-### Journal des mises à jour
+### Changelog
 
 * Version 1.4 (4/07/2017):
     - Initial release for Github
