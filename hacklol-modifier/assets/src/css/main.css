@@ -72,7 +72,7 @@ html, body {
     -o-transform: translateZ(0);
 }
 .scrollBarAuto {
-    overflow-y: auto !important;
+    overflow: auto !important;
 }
 /* styles de texte */
 .red {
