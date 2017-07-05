@@ -1,19 +1,19 @@
 /* Hacklol Modifier 1.4
- * 
+ *
  * Copyright (C) 2014-2017 Eliastik (eliastiksofts.com)
- * 
+ *
  * This file is part of Hacklol Modifier.
- * 
+ *
  * Hacklol Modifier is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * Hacklol Modifier is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with Hacklol Modifier.  If not, see <http://www.gnu.org/licenses/>.
  *  */
@@ -422,14 +422,14 @@ hacklol.tools = {
             $("#explosion_img_effet").removeClass("vertical-align-bottom");
             $("#explosion_img").fadeIn();
             $("#mask_explosion").fadeIn();
-            
+
             if(explodeEffect == 1) {
                 if ($.jStorage.get('effets_sonores') != "Non" && typeof(audio) != 'undefined' && explodeSoundEffect == 1) {
                         audio.play();
                 } else if ($.jStorage.get('effets_sonores') != "Non" && typeof(audio_explosion_bis) != 'undefined' && explodeSoundEffect == 2) {
                         audio_explosion_bis.play();
                 }
-                
+
                 hacklol.shake(3000);
                 $("#explosion_img").fadeOut(3000, function() {
                     $("#explosion_img_effet").removeAttr("src", "");
@@ -439,7 +439,7 @@ hacklol.tools = {
                 }).prop("src", "assets/img/explosion.gif");
                 $("#mask_explosion").fadeOut(3000);
                 setTimeout("hacklol.ui.showToolbar(); hacklol.ui.paint.showToolbar();", 3100);
-                
+
                 if(page_gelee == 0) {
                     $("#hacklol-iframeWrapper").fadeOut(2000);
                     $("#click-explosion-stop").show();
@@ -459,7 +459,7 @@ hacklol.tools = {
                 if ($.jStorage.get('effets_sonores') != "Non" && typeof(audio_explosion_2) != 'undefined') {
                     audio_explosion_2.play();
                 }
-                
+
                 $("#explosion_img_effet").addClass("vertical-align-bottom");
                 hacklol.shake(1510);
                 $("#explosion_img").fadeOut(1510, function() {
@@ -470,7 +470,7 @@ hacklol.tools = {
                 }).prop("src", "assets/img/explosion2.gif");
                 $("#mask_explosion").fadeOut(1510);
                 setTimeout("hacklol.ui.showToolbar(); hacklol.ui.paint.showToolbar();", 1610);
-                
+
                 if(page_gelee == 0) {
                     $("#hacklol-iframeWrapper").fadeOut(1000);
                     $("#click-explosion-stop").show();
@@ -482,7 +482,7 @@ hacklol.tools = {
                     if ($.jStorage.get('effets_sonores') != "Non" && typeof(audio_gel) != 'undefined') {
                         audio_gel.play();
                     }
-                    
+
                     $("#gel_img").fadeOut(1300);
                     $("#click-gel").show();
                     $("#click-gel-infos-d").hide();
@@ -570,7 +570,7 @@ hacklol.tools = {
                     window["audio_" + easterEggFound[i]].play();
                 }
             }
-            
+
             $("#easter_egg_count").css("color", "green");
 
             if(countEasterEgg < numberEasterEgg && countEasterEgg > 0) {
@@ -580,7 +580,7 @@ hacklol.tools = {
                 } else {
                     $("#easter_egg_count").text(i18next.t('egg.found') + " " + countEasterEgg + " " + i18next.t('egg.easter-egg') + ". " + i18next.t('egg.remaining') + " "+ nombre_a_trouve + " " + i18next.t('egg.tofind'));
                 }
-                
+
                 if(cheatEasterEgg == true) {
                     if(countEasterEgg > 1) {
                         $("#easter_egg_count").text(i18next.t('egg.foundcheat') + " " + countEasterEgg + " " + i18next.t('egg.easter-eggs') + " " + i18next.t('egg.cheated') + ". " + i18next.t('egg.cheatbad') + " " + i18next.t('egg.remaining') + " "+ nombre_a_trouve + " " + i18next.t('egg.tofind'));
@@ -591,7 +591,7 @@ hacklol.tools = {
                 }
             } else if(countEasterEgg == numberEasterEgg) {
                 $("#easter_egg_count").text(i18next.t('egg.foundall'));
-            
+
                 if(cheatEasterEgg == true) {
                     $("#easter_egg_count").text(i18next.t('egg.foundallcheat'));
                     $("#easter_egg_count").css("color", "red");
@@ -612,7 +612,7 @@ hacklol.tools = {
                     } else {
                         $("#easter_egg_count").text(i18next.t('egg.found') + " " + countEasterEgg + " " + i18next.t('egg.easter-egg') + ". " + i18next.t('egg.remaining') + " "+ nombre_a_trouve + " " + i18next.t('egg.tofind'));
                     }
-                    
+
                     if($.jStorage.get('easter_egg_deface_cheated') !== null && $.jStorage.get('easter_egg_deface_cheated') == "Oui") {
                         cheatEasterEgg = true;
                         if(countEasterEgg > 1) {
@@ -625,7 +625,7 @@ hacklol.tools = {
                     }
                 } else if(countEasterEgg == numberEasterEgg) {
                     $("#easter_egg_count").text(i18next.t('egg.foundall'));
-            
+
                     if($.jStorage.get('easter_egg_deface_cheated') !== null && $.jStorage.get('easter_egg_deface_cheated') == "Oui") {
                         cheatEasterEgg = true;
                         $("#easter_egg_count").text(i18next.t('egg.foundallcheat'));
