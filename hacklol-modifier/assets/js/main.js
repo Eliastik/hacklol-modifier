@@ -1,4 +1,22 @@
-/* Main.js Hacklol Modifier v. 1.4 - by Eliastik */
+/* Hacklol Modifier 1.4
+ * 
+ * Copyright (C) 2014-2017 Eliastik (eliastiksofts.com)
+ * 
+ * This file is part of Hacklol Modifier.
+ * 
+ * Hacklol Modifier is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * Hacklol Modifier is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with Hacklol Modifier.  If not, see <http://www.gnu.org/licenses/>.
+ *  */
 page_gelee = 0; // variable permettant de savoir si la page est gelée
 menuLienLib = 1; // variable utilisée pour le libelé du menu
 pageChargeeHPL = 0; // variable pour Hacklol Page Loader
