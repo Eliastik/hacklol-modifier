@@ -8,7 +8,8 @@
   },
   "devDependencies": {
     "gulp-clean-css": "^3.5.0",
-    "gulp-minify": "^1.0.0"
+    "gulp-minify": "^1.0.0",
+    "gulp-zip": "^4.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -411,6 +411,7 @@ hacklol.tools = {
                 } else if ($.jStorage.get('effets_sonores') != "Non" && typeof(audio_explosion_bis) != 'undefined' && explodeSoundEffect == 2) {
                         audio_explosion_bis.play();
                 }
+                
                 hacklol.shake(3000);
                 $("#explosion_img").fadeOut(3000, function() {
                     $("#explosion_img_effet").removeAttr("src", "");
@@ -440,7 +441,7 @@ hacklol.tools = {
                 if ($.jStorage.get('effets_sonores') != "Non" && typeof(audio_explosion_2) != 'undefined') {
                     audio_explosion_2.play();
                 }
-            
+                
                 $("#explosion_img_effet").addClass("vertical-align-bottom");
                 hacklol.shake(1510);
                 $("#explosion_img").fadeOut(1510, function() {
