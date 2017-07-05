@@ -1,5 +1,5 @@
-# ![Hacklol Modifier](img/logo_hacklol_modifier.png =306x)
-![Screeenshot](img/screenshot.png =640x)
+<img src="https://raw.githubusercontent.com/Eliastik/hacklol-modifier/master/img/logo_hacklol_modifier.png" width="306" alt="Hacklol Modifier" />
+<img src="https://raw.githubusercontent.com/Eliastik/hacklol-modifier/master/img/screenshot.png" width="640" alt="Screenshot" />
 
 ## Français :
 
