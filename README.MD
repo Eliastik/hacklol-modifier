@@ -130,7 +130,7 @@ The app is available in english and in french.
 
 * Online version: http://hacklol.eliastiksofts.com
 
-### A propos de l'application
+### About the app
 
 * By Eliastik ( http://www.eliastiksofts.com )
 * Languages : HTML, CSS, Javascript, PHP
