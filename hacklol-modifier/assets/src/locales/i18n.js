@@ -122,7 +122,7 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                     "easter-egg": "Easter Egg",
                     "easter-eggs": "Easter Eggs",
                     remaining: "You still have ",
-                    tofind: "to find",
+                    tofind: "to find.",
                     cheated: "by cheating",
                     cheatbad: "It's bad, you know !",
                     foundall: "Congratulations, you found all of the Easter Egg !!",
@@ -130,7 +130,7 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                     cheatalready: "You have already revealed all the Easter Eggs.",
                     cheatconfirm1: "Are you sure you want to reveal all the Easter Eggs ?",
                     cheatconfirm2: "Are you sure you want to cheat ?",
-                    cheatok: "OK, like you want… Click on « Deface the website » to confirm."
+                    cheatok: "OK, like you want… Click on « Validate » to confirm."
                 },
                 "bsod-popup": {
                     title: "BSOD",
@@ -378,7 +378,7 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                     cheatalready: "Vous avez déjà révélé tous les Easter Eggs.",
                     cheatconfirm1: "Êtes-vous sûr de vouloir révéler tous les Easter Eggs ?",
                     cheatconfirm2: "Êtes-vous vraiment sûr de vouloir tricher ?",
-                    cheatok: "OK, comme vous voulez… Cliquez sur « Défacer le site » pour confirmer."
+                    cheatok: "OK, comme vous voulez… Cliquez sur « Valider » pour confirmer."
                 },
                 "bsod-popup": {
                     title: "BSOD",
