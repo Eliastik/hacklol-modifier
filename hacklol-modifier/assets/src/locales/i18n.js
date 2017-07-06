@@ -518,7 +518,6 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
     },
     fallbackLng: ['en', 'fr'],
     load: 'languageOnly',
-    debug: true,
     "detection": {
         order: ['querystring', 'localStorage', 'navigator', 'htmlTag'],
         lookupQuerystring: 'lng',
