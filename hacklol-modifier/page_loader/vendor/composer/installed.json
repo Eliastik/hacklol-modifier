@@ -37,87 +37,9 @@
         ]
     },
     {
-        "name": "athlon1600/php-proxy-plugin-bundle",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Athlon1600/php-proxy-plugin-bundle.git",
-            "reference": "172202c9b7913dc397b0a2eeacb68984a73f5c6e"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Athlon1600/php-proxy-plugin-bundle/zipball/172202c9b7913dc397b0a2eeacb68984a73f5c6e",
-            "reference": "172202c9b7913dc397b0a2eeacb68984a73f5c6e",
-            "shasum": ""
-        },
-        "require": {
-            "athlon1600/youtube-downloader": "^1.0"
-        },
-        "time": "2017-03-17 19:59:40",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "Proxy\\Plugin\\": "src/"
-            },
-            "files": [
-                "src/utils.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "description": "A collection of useful plugins to be used with php-proxy"
-    },
-    {
-        "name": "athlon1600/php-proxy",
-        "version": "v5.0.4",
-        "version_normalized": "5.0.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Athlon1600/php-proxy.git",
-            "reference": "77f67a3824d42520d2e6008b607d5f5b932504bb"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Athlon1600/php-proxy/zipball/77f67a3824d42520d2e6008b607d5f5b932504bb",
-            "reference": "77f67a3824d42520d2e6008b607d5f5b932504bb",
-            "shasum": ""
-        },
-        "require": {
-            "ext-curl": "*",
-            "symfony/event-dispatcher": "~3.2"
-        },
-        "suggest": {
-            "predis/predis": "For caching purposes"
-        },
-        "time": "2017-06-24 18:06:56",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Proxy\\": "src/"
-            },
-            "files": [
-                "src/helpers.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "homepage": "https://www.php-proxy.com/",
-        "keywords": [
-            "php proxy",
-            "php proxy script",
-            "php web proxy",
-            "proxy script",
-            "web proxy"
-        ]
-    },
-    {
         "name": "symfony/event-dispatcher",
-        "version": "v3.3.8",
-        "version_normalized": "3.3.8.0",
+        "version": "v3.3.9",
+        "version_normalized": "3.3.9.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/event-dispatcher.git",
@@ -178,5 +100,83 @@
         ],
         "description": "Symfony EventDispatcher Component",
         "homepage": "https://symfony.com"
+    },
+    {
+        "name": "athlon1600/php-proxy",
+        "version": "v5.0.5",
+        "version_normalized": "5.0.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Athlon1600/php-proxy.git",
+            "reference": "42c7a5e999ea3999e3141263ade2fcd348146ce5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Athlon1600/php-proxy/zipball/42c7a5e999ea3999e3141263ade2fcd348146ce5",
+            "reference": "42c7a5e999ea3999e3141263ade2fcd348146ce5",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "symfony/event-dispatcher": "~3.2"
+        },
+        "suggest": {
+            "predis/predis": "For caching purposes"
+        },
+        "time": "2017-09-16 03:29:19",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Proxy\\": "src/"
+            },
+            "files": [
+                "src/helpers.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "homepage": "https://www.php-proxy.com/",
+        "keywords": [
+            "php proxy",
+            "php proxy script",
+            "php web proxy",
+            "proxy script",
+            "web proxy"
+        ]
+    },
+    {
+        "name": "athlon1600/php-proxy-plugin-bundle",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Athlon1600/php-proxy-plugin-bundle.git",
+            "reference": "b09920be6759728088893ed402545b1b57b65863"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Athlon1600/php-proxy-plugin-bundle/zipball/b09920be6759728088893ed402545b1b57b65863",
+            "reference": "b09920be6759728088893ed402545b1b57b65863",
+            "shasum": ""
+        },
+        "require": {
+            "athlon1600/youtube-downloader": "^1.0"
+        },
+        "time": "2017-09-16 03:34:37",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Proxy\\Plugin\\": "src/"
+            },
+            "files": [
+                "src/utils.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "A collection of useful plugins to be used with php-proxy"
     }
 ]
