@@ -128,7 +128,7 @@
         $lang = set_custom_lang($_COOKIE['main-lang']);
     } else {
         $lang_tmp = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-        $lang = set_custom_lang_cookie($lang_tmp);
+        $lang = set_custom_lang($lang_tmp);
     }
     
     $filename = 'default';
