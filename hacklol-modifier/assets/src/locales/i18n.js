@@ -549,6 +549,6 @@ function translateContent() {
 function changeLng(lng) {
     i18next.changeLanguage(lng);
 }
-i18next.on('languageChanged', () => {
+i18next.on('languageChanged', function() {
     translateContent();
 });
