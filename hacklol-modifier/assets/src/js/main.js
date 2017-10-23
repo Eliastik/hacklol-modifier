@@ -1,4 +1,4 @@
-/* Hacklol Modifier 1.4
+/* Hacklol Modifier 1.4.1
  *
  * Copyright (C) 2014-2017 Eliastik (eliastiksofts.com)
  *
@@ -42,8 +42,8 @@ var hacklol = {
     hacklolPageLoaderName: "Hacklol Page Loader",
     disablePageLoaderByDefault: false, // disable the Page Loader by default (can be enabled by the user later)
     description: null,
-    version: "1.4", // la version d'Hacklol
-    dateVersion: "4/07/2017", // date
+    version: "1.4.1", // la version d'Hacklol
+    dateVersion: "23/10/2017", // date
     lang: function() {
         if(typeof(i18next.language) !== 'undefined') {
             return i18next.language.substr(0, 2);
@@ -921,6 +921,7 @@ hacklol.settings = {
 
             // language
             changeLng($("#languageSelect").val());
+            hacklol.checkVersion();
             // fin
             if ($.jStorage.storageAvailable()) { // si le LocalStorage est disponible
                 alert(i18next.t('settings.saved'));

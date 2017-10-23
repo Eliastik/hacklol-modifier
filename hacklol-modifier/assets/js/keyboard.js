@@ -1,4 +1,4 @@
-/* Hacklol Modifier 1.4 */
+/* Hacklol Modifier 1.4.1 */
 // Raccourci multi-touche
 var isG = false;
  

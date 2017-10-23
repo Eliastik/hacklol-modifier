@@ -1,4 +1,4 @@
-/* Hacklol Modifier 1.4
+/* Hacklol Modifier 1.4.1
  *
  * Copyright (C) 2014-2017 Eliastik (eliastiksofts.com)
  *

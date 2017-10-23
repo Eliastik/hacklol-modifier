@@ -1,4 +1,4 @@
-﻿/* Hacklol Modifier 1.4 */
+﻿/* Hacklol Modifier 1.4.1 */
 $(document).ready(function() {
 	if(window.HTMLCanvasElement) {
 		// Variables :
