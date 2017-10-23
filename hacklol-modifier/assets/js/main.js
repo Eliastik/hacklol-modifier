@@ -1120,45 +1120,18 @@ hacklol.ui = {
           }
         });
     },
+    elementsWithBlur: ["#toolbar-hacklol", "#hacklol-iframe", "#btn-show-toolbar-paint", "#btn-show-toolbar", "#paint-tools", "#canvas", "#deface_div", "#gel_img", ".bulleMenu", "#q", "#menuMobile", "#mask_explosion", "#explosion_img", "#genericBSOD", "#win8BSOD", "#img_start_hacklol", "#background-loading-indicator"],
     // Activation de l'effet de flou
     flou: function() {
-        $("#toolbar-hacklol").addClass("blur-desactived");
-        $("#hacklol-iframe").addClass("blur-desactived");
-        $("#btn-show-toolbar-paint").addClass("blur-desactived");
-        $("#btn-show-toolbar").addClass("blur-desactived");
-        $("#paint-tools").addClass("blur-desactived");
-        $("#canvas").addClass("blur-desactived");
-        $("#deface_div").addClass("blur-desactived");
-        $("#gel_img").addClass("blur-desactived");
-        $(".bulleMenu").addClass("blur-desactived");
-        $("#q").addClass("blur-desactived");
-        $("#menuMobile").addClass("blur-desactived");
-        $("#mask_explosion").addClass("blur-desactived");
-        $("#explosion_img").addClass("blur-desactived");
-        $("#genericBSOD").addClass("blur-desactived");
-        $("#win8BSOD").addClass("blur-desactived");
-        $("#img_start_hacklol").addClass("blur-desactived");
-        $("#background-loading-indicator").addClass("blur-desactived");
+        for(i=0; i < hacklol.ui.elementsWithBlur.length; i++) {
+            $(hacklol.ui.elementsWithBlur[i]).addClass("blur-desactived");
+        }
     },
     // Desactivation de l'effet de flou
     desactivFlou: function() {
-        $("#toolbar-hacklol").removeClass("blur-desactived");
-        $("#hacklol-iframe").removeClass("blur-desactived");
-        $("#btn-show-toolbar-paint").removeClass("blur-desactived");
-        $("#btn-show-toolbar").removeClass("blur-desactived");
-        $("#paint-tools").removeClass("blur-desactived");
-        $("#canvas").removeClass("blur-desactived");
-        $("#deface_div").removeClass("blur-desactived");
-        $("#gel_img").removeClass("blur-desactived");
-        $(".bulleMenu").removeClass("blur-desactived");
-        $("#q").removeClass("blur-desactived");
-        $("#menuMobile").removeClass("blur-desactived");
-        $("#mask_explosion").removeClass("blur-desactived");
-        $("#explosion_img").removeClass("blur-desactived");
-        $("#genericBSOD").removeClass("blur-desactived");
-        $("#win8BSOD").removeClass("blur-desactived");
-        $("#img_start_hacklol").removeClass("blur-desactived");
-        $("#background-loading-indicator").removeClass("blur-desactived");
+        for(i=0; i < hacklol.ui.elementsWithBlur.length; i++) {
+            $(hacklol.ui.elementsWithBlur[i]).removeClass("blur-desactived");
+        }
     },
     audio: function() {
         // AUDIO - SI L'UTILISATEUR A ACTIVE LES EFFETS SONORES ET QUE SON NAVIGATEUR EST COMPATIBLE, ON LES CHARGE
