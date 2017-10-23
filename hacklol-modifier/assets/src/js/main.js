@@ -1467,6 +1467,8 @@ $(document).ready(function() {
         else {
             hacklol.loadPage(url, true);
         }
+        
+        $("#urlSiteChosen").text(url);
         hacklol.ui.closeWindow();
     });
     $("#urlChangeSite").val(hacklol.urlPage);

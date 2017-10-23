@@ -193,7 +193,7 @@
             <a class="btn open-popup-link" href="#more-infos-popup"><span class="icon icon_infos"></span> <span data-i18n="about.advancedinfos"></span></a>
             <h2 data-i18n="about.sitetitle"></h2>
             <div><label data-i18n="about.url"></label></div>
-            <p style="overflow:auto;"><?php echo htmlentities($url); ?></p>
+            <p style="overflow:auto;" id="urlSiteChosen"><?php echo htmlentities($url); ?></p>
             <label data-i18n="about.controls"></label>
             <div style="text-align: center;"><a class="btn popup-modal-dismiss btn-same-size" href="#" id="retour-page-button"><span class="icon icon_retour"></span> <span data-i18n="about.previous"></span></a><a class="btn popup-modal-dismiss btn-same-size" href="#" id="suivant-page-button"><span class="icon icon_suivant"></span> <span data-i18n="about.next"></span></a><a class="btn popup-modal-dismiss btn-same-size" href="#" id="reload-page-button"><span class="icon icon_reset"></span> <span data-i18n="about.reload"></span></a><a class="btn open-popup-link btn-same-size" href="#change-site-popup"><span class="icon icon_reinit"></span> <span data-i18n="about.change"></span></a></div>
         </div>
