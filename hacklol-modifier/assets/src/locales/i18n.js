@@ -45,7 +45,9 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                     close: "Close the toolbar",
                     menu: "Menu",
                     open: "Open the toolbar",
-                    menuclose: "Close the menu"
+                    menuclose: "Close the menu",
+                    imgStart: "assets/img/hacklol_start_fleche_en.png",
+                    imgStartAlt: "Click here to start to use the app…"
                 },
                 "toolbox": {
                     title: "Toolbox",
@@ -293,7 +295,9 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                     close: "Fermer la barre",
                     menu: "Menu",
                     open: "Ouvrir la barre",
-                    menuclose: "Fermer le menu"
+                    menuclose: "Fermer le menu",
+                    imgStart: "assets/img/hacklol_start_fleche.png",
+                    imgStartAlt: "Cliquez ici pour commencer à utiliser l'application…"
                 },
                 "toolbox": {
                     title: "Boite à outils",

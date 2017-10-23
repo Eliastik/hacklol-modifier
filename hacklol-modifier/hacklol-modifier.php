@@ -93,7 +93,7 @@
 -----------><li class="open-popup-link lienMenu ripplelink" href="#changer-site-popup"><span class="icon icon_quitter"></span> <span data-i18n="toolbar.quit"></span></li><!-- @whitespace
 -----------><li class="btn_close_bar lienMenu ripplelink"><span class="icon icon_fermer"></span> <span data-i18n="toolbar.close"></span></li>
         </ul>
-        <img src="assets/img/hacklol_start_fleche.png" alt="Cliquez ici pour commencer à utiliser l'application…" id="img_start_hacklol" class="bounce" />
+        <img id="img_start_hacklol" class="bounce" data-i18n="[src]toolbar.imgStart;[alt]toolbar.imgStartAlt" />
         <!-- popups -->
         <div id="toolbox-popup" class="white-popup mfp-hide">
             <h1 data-i18n="toolbox.title"></span></h1>
