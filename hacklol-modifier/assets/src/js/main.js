@@ -1356,8 +1356,8 @@ $(document).ready(function() {
         type: 'ajax',
         removalDelay: 300,
         mainClass: 'mfp-fade',
-        cursor: 'mfp-ajax-cur', // CSS class that will be added to body during the loading (adds "progress" cursor)
-        tError: '<a href="%url%" target="_blank">Le contenu</a> n\'a pas pu être chargé correctement.<br /><a href="%url%" target="_blank">The content</a> could not be loaded.', //  Error message, can contain %curr% and %total% tags if gallery is enabled
+        cursor: 'mfp-ajax-cur',
+        tError: '<a href="%url%" target="_blank">Le contenu</a> n\'a pas pu être chargé correctement.<br /><a href="%url%" target="_blank">The content</a> could not be loaded.',
         callbacks: {
             open: function() {
                 $("body").addClass("scrollBarAuto");
