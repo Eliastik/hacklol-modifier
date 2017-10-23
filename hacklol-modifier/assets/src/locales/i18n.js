@@ -1,19 +1,19 @@
 /* Hacklol Modifier 1.4
- * 
+ *
  * Copyright (C) 2014-2017 Eliastik (eliastiksofts.com)
- * 
+ *
  * This file is part of Hacklol Modifier.
- * 
+ *
  * Hacklol Modifier is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * Hacklol Modifier is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with Hacklol Modifier.  If not, see <http://www.gnu.org/licenses/>.
  *  */
@@ -188,6 +188,7 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                     enable: "Enable",
                     recommended: "(recommended)",
                     hacklolpageloaderinfos: "This option loads the websites on the server of <span class='appName'></span>. Improves the compatibility with websites. <strong>Disable this option if the website is incorrectly displayed</strong>.",
+                    hacklolPageLoaderDisabledByDefault: "– Disabled by default by the website administrator",
                     toolbarscolor: "Toolbars color:",
                     color: {
                         default: "Default (lightgray)",
@@ -263,7 +264,7 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                     audio: "Loading audio data…"
                 },
                 "edit": {
-                    confirm: "This tool works best when", 
+                    confirm: "This tool works best when",
                     confirm2: "is enabled in the settings. You have disabled this option, this tool might not work. Continue ?",
                     error: "An error has occurred during the activation of the tool. Please try again."
                 },
@@ -441,6 +442,7 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                     enable: "Activer",
                     recommended: "(recommandé)",
                     hacklolpageloaderinfos: "Permet aux sites web d'être chargés depuis le serveur de <span class='appName'></span>. Améliore la compatibilité des sites. <strong>Désactivez cette option si le site s'affiche mal</strong>.",
+                    hacklolPageLoaderDisabledByDefault: "– Désactivé par défaut par l'administrateur du site",
                     toolbarscolor: "Couleur des barres d'outils :",
                     color: {
                         default: "Par défaut (gris clair)",
@@ -516,7 +518,7 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                     audio: "Chargement des données audio…"
                 },
                 "edit": {
-                    confirm: "Cet outil fonctionne mieux lorsque", 
+                    confirm: "Cet outil fonctionne mieux lorsque",
                     confirm2: "est activé dans les paramètres. Vous avez désactivé cette option, cet outil risque de ne pas fonctionner. Continuer ?",
                     error: "Une erreur est survenue lors de l'activation de l'outil. Veuillez réessayer."
                 },

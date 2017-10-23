@@ -1,24 +1,24 @@
 <?php
 /* Hacklol Modifier 1.4
- * 
+ *
  * Copyright (C) 2014-2017 Eliastik (eliastiksofts.com)
- * 
+ *
  * This file is part of Hacklol Modifier.
- * 
+ *
  * Hacklol Modifier is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * Hacklol Modifier is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with Hacklol Modifier.  If not, see <http://www.gnu.org/licenses/>.
  *  */
- 
+
     if(empty($hacklol_modifier_require_pass) || $hacklol_modifier_require_pass !== "hacklol") {
         die("ERR: You have to submit the form to access to Hacklol Modifier.");
     }
@@ -60,7 +60,7 @@
             <h1 data-i18n="[html]loading.title">Chargement de <span class="appName">l'application</span> en cours…</h1>
             <div class="horizontal-center mb"><img src="assets/img/chargement.gif" alt="Chargement" id="loadingIndicator" /> <span id="loadingInfos"></span></div>
             <div class="horizontal-center mb"><div class="progress mr vertical-center"><div class="progress-value" id="progressLoading" style="width: 0%;"></div></div> <span id="pourcentageLoadingInfos">0%</span></div>
-            <div class="horizontal-center mt" style="font-size: 10pt;"><a href="#" id="loadInBackground" data-i18n="[html]loading.start">Commencer à utiliser <span class="appName">l'application</span> et charger en arrière-plan…</a></div>
+            <div class="horizontal-center mt" style="font-size: 13pt;"><a href="#" id="loadInBackground" data-i18n="[html]loading.start">Commencer à utiliser <span class="appName">l'application</span> et charger en arrière-plan…</a></div>
             <div class="horizontal-center mt" style="font-size: 12pt; color: red;" id="noscript-text"><span class="icon icon_warning"></span> Javascript est désactivé dans votre navigateur. Javascript est nécessaire au fonctionnement de l'application. <a href="http://www.enable-javascript.com/fr/" target="_blank">Comment activer Javascript ?</a> – <a href="/">Retour à l'accueil du site</a>.</div>
         </div>
         <!-- disparait si javascript est actif -->
@@ -159,8 +159,7 @@
             <div><input type="text" id="titre_deface_input" data-i18n="[placeholder]deface.titleplaceholder" placeholder="" style="width:100%;" /></div>
             <div><label for="editeur_deface" data-i18n="deface.textform"></label></div>
             <div><textarea id="editeur_deface" style="width:100%; height:200px;" data-i18n="[placeholder]deface.textplaceholder" placeholder=""></textarea></div>
-            <div><label for="colorpicker3" data-i18n="deface.backgroundcolor"></label></div>
-            <div><a href="#" id="colorpicker3" style="background-color: #FE4A4A;" value="FE4A4A"></a></div>
+            <div><label for="colorpicker3" data-i18n="deface.backgroundcolor"></label> <a href="#" id="colorpicker3" style="background-color: #FE4A4A;" value="FE4A4A"></a></div>
             <div><a id="defacer_site_ok" class="btn-green popup-modal-dismiss"><span class="icon icon_vrai"></span> <span data-i18n="validate"></span></a>
             <a id="defacer_site_reafficher" class="btn popup-modal-dismiss" style="display: none;"><span class="icon icon_page"></span> <span data-i18n="deface.reset"></span></a>
             <a class="btn-red popup-modal-dismiss" href="#"><span class="icon icon_fermer"></span> <span data-i18n="closewindow"></span></a></div>
@@ -239,14 +238,14 @@
                             <input type="checkbox" name="flou_effet_checkbox" id="flou_effet">
                         <div class="control__indicator"></div>
                     </label>
-                    <p style="font-size: 10pt;" data-i18n="settings.blurinfos"></p>
-                    <label class="control control--checkbox"><span data-i18n="settings.enable"></span> <span class="appNameLoader"></span> <span style="font-size: 10.5pt;" data-i18n="settings.recommended"></span>
+                    <p style="font-size: 10pt; margin: 0;" data-i18n="settings.blurinfos"></p>
+                    <label class="control control--checkbox"><span data-i18n="settings.enable"></span> <span class="appNameLoader"></span> <span style="font-size: 10.5pt;" data-i18n="settings.recommended"></span> <span style="font-size: 10.5pt; color: red; display: none;" data-i18n="[html]settings.hacklolPageLoaderDisabledByDefault" id="hacklolPageLoaderDisabledByDefault"></span>
                             <input type="checkbox" name="hacklol_pl_checkbox" id="hacklol_page_loader_check">
                         <div class="control__indicator"></div>
                     </label>
-                        <p style="font-size: 10pt;" data-i18n="[html]settings.hacklolpageloaderinfos"></p>
-                    <p>
-                    <label for="couleurBarreSelect" data-i18n="settings.toolbarscolor"></label>
+                        <p style="font-size: 10pt; margin: 0;" data-i18n="[html]settings.hacklolpageloaderinfos"></p>
+                    <p style="margin: 0;">
+                        <label for="couleurBarreSelect" data-i18n="settings.toolbarscolor"></label>
                         <select name="couleurBarreSelect" id="couleurBarreSelect">
                             <option value="Defaut" data-i18n="settings.color.default"></option>
                             <option value="Personnalisation" data-i18n="settings.color.personalized"></option>
@@ -263,13 +262,11 @@
                         </select>
                     </p>
                     <div id="choixcouleur" style="display:none;">
-                        <label for="colorpicker1" id="colorpicker-indication" data-i18n="settings.color.choosecolor"></label><br />
-                        <a href="#" id="colorpicker1" style="background-color: #ffffff;" value="ffffff"></a>
+                        <label for="colorpicker1" id="colorpicker-indication" data-i18n="settings.color.choosecolor" style="font-size: 11pt;"></label> <a href="#" id="colorpicker1" style="background-color: #ffffff;" value="ffffff"></a>
                     </div>
-                    <p>
-                    <label for="couleurBarreSelect" data-i18n="settings.language"></label>
-                            <select id="languageSelect">
-                            </select>
+                    <p style="margin: 0;">
+                        <label for="languageSelect" data-i18n="settings.language"></label>
+                        <select id="languageSelect"></select>
                     </p>
                     <a id="parametre_ok" class="btn-green"><span class="icon icon_vrai"></span> <span data-i18n="ok"></span></a>
                     <a onclick="javascript:optionsCheck();" class="btn-red popup-modal-dismiss" href="#"><span class="icon icon_fermer"></span> <span data-i18n="cancel"></span></a>

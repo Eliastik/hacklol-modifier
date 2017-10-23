@@ -40,6 +40,7 @@ if (!String.prototype.trim) {
 var hacklol = {
     appName: "Hacklol Modifier",
     hacklolPageLoaderName: "Hacklol Page Loader",
+    disablePageLoaderByDefault: false, // disable the Page Loader by default (can be enabled by the user later)
     description: null,
     version: "1.4", // la version d'Hacklol
     dateVersion: "4/07/2017", // date
@@ -52,7 +53,7 @@ var hacklol = {
     }, // language
     asciiArt: " _____         _   _     _ \n|  |  |___ ___| |_| |___| |\n|     | .'|  _| '_| | . | |\n|__|__|__,|___|_,_|_|___|_|",
     tools: 10, // nb d'outils, utilisé pour les fonctions
-    settings: "settings Method",
+    settings: "Settings Method",
     ui: "User Interface Method",
     urlPage: urlPage_global,
     console: function() {
@@ -126,6 +127,7 @@ var hacklol = {
             $("#hacklol-iframe").attr("src", "hacklol-iframe.php?q=" + hacklolPageLoaderBaseURL);
             return true;
         }
+
         return false;
     },
     reloadPage: function() {
@@ -141,6 +143,7 @@ var hacklol = {
     },
     creerOutil: function(titre, fonction, fermerFenetre, idButton, style_css) {
         var elTool = document.createElement("a");
+
         if(fonction !== null) {
             elTool.setAttribute("onclick", fonction);
         }
@@ -154,6 +157,7 @@ var hacklol = {
         if(style_css !== null) {
             elTool.setAttribute("style", style_css);
         }
+
         elTool.innerHTML = titre;
         document.getElementById("toolbox-popup").appendChild(elTool);
         hacklol.tools++;
@@ -637,11 +641,11 @@ hacklol.tools = {
             }
         } else if(type == "indice") {
             var numIndice = hacklol.random(1, numberEasterEgg);
-            
+
             if(confirm(i18next.t('egg.indice.' + numIndice) + "\n\n" + i18next.t('egg.indice.newIndice'))) {
                 hacklol.tools.deface("indice");
             }
-            
+
             return true;
         } else if(type == "cheat") {
             if(cheatEasterEgg == true) {
@@ -822,12 +826,18 @@ hacklol.settings = {
         }
         // hacklol page loader
         var parametre_hacklol_pl = $.jStorage.get('hacklol_page_loader');
-        if (parametre_hacklol_pl == "Oui") {
+        if(hacklol.disablePageLoaderByDefault == true && parametre_hacklol_pl !== "Oui") {
+            $('#hacklol_page_loader_check').prop('checked', false);
+        } else if (parametre_hacklol_pl == "Oui") {
             $('#hacklol_page_loader_check').prop('checked', true);
         } else if (parametre_hacklol_pl == "Non") {
             $('#hacklol_page_loader_check').prop('checked', false);
         } else {
             $('#hacklol_page_loader_check').prop('checked', true);
+        }
+
+        if(hacklol.disablePageLoaderByDefault == true) {
+            $("#hacklolPageLoaderDisabledByDefault").show();
         }
         // couleur barre
         var parametre_couleur_barre = $.jStorage.get('couleur_barre');
@@ -999,7 +1009,17 @@ hacklol.settings = {
         }
         // hacklol page loader
         var parametre_hacklol_pl = $.jStorage.get('hacklol_page_loader');
-        if (parametre_hacklol_pl == "Non" && pageChargeeFirst == 1) {
+        if(hacklol.disablePageLoaderByDefault == true && pageChargeeFirst == 1 && parametre_hacklol_pl !== "Oui") {
+            hacklol.loadPage(hacklol.urlPage, false);
+            pageChargeeHPL = 0;
+            pageChargeeFirst = 0;
+        }
+        else if(hacklol.disablePageLoaderByDefault == true && pageChargeeHPL != 0 && parametre_hacklol_pl !== "Oui") {
+            hacklol.loadPage(hacklol.urlPage, false);
+            pageChargeeHPL = 0;
+            pageChargeeFirst = 0;
+        }
+        else if (parametre_hacklol_pl == "Non" && pageChargeeFirst == 1) {
             hacklol.loadPage(hacklol.urlPage, false);
             pageChargeeHPL = 0;
             pageChargeeFirst = 0;

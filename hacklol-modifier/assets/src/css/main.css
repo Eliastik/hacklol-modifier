@@ -1265,6 +1265,7 @@ input#largeur_pinceau {
     overflow:hidden;
     border-radius:50%;
     border: 2px solid black;
+    vertical-align: middle;
 }
 /* canvas pour la fonction matrix */
 canvas#q {
