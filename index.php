@@ -31,7 +31,7 @@
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <?php } ?>
         
-        <script src="https://raw.githubusercontent.com/Eliastik/hacklol-modifier/master/version.js"></script>
+        <script src="https://cdn.rawgit.com/Eliastik/hacklol-modifier/master/version.js"></script>
     </head>
     <body>
         <div class="container">
