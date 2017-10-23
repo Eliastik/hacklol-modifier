@@ -1058,6 +1058,8 @@ hacklol.settings = {
         cheatEasterEgg = false;
         $("#easter_egg_count").css("color", "green");
         $("#easter_egg_count").text("");
+        $("#titre_deface_input").val("");
+        $("#editeur_deface").val("");
         alert(i18next.t('settings.reseted'));
         hacklol.settings.exe();
         hacklol.ui.closeWindow();
