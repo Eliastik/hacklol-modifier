@@ -46,6 +46,8 @@ var hacklol = {
     lang: function() {
         if(typeof(i18next.language) !== 'undefined') {
             return i18next.language.substr(0, 2);
+        } else {
+            return false;
         }
     }, // language
     asciiArt: " _____         _   _     _ \n|  |  |___ ___| |_| |___| |\n|     | .'|  _| '_| | . | |\n|__|__|__,|___|_,_|_|___|_|",
@@ -172,7 +174,7 @@ var hacklol = {
     },
     loadImages: function() {
         var loadedImagesCount = 0;
-        var imageNames = ['assets/img/select-arrow.png','assets/img/explosion.gif','assets/img/explosion2.gif','assets/img/gel.png','assets/img/points.png','assets/img/sadface.png', 'assets/img/mlp_egg.png', 'assets/img/aybabtu.png', 'assets/img/trollface.png', 'assets/img/check.png', 'assets/img/ouais.png', 'assets/img/ah.gif', 'assets/img/non.gif', 'assets/img/isname.jpg', 'assets/img/issou.jpg'];
+        var imageNames = ['assets/img/select-arrow.png','assets/img/explosion.gif','assets/img/explosion2.gif','assets/img/gel.png','assets/img/points.png','assets/img/sadface.png', 'assets/img/mlp_egg.png', 'assets/img/aybabtu.png', 'assets/img/trollface.png', 'assets/img/check.png', 'assets/img/ouais.png', 'assets/img/ah.gif', 'assets/img/non.gif', 'assets/img/isname.jpg', 'assets/img/issou.jpg', 'assets/img/jspvips.gif', 'assets/img/hendek.jpg'];
         var imagesArray = [];
         for (var i = 0; i < imageNames.length; i++) {
             var image = new Image();
@@ -221,7 +223,7 @@ var hacklol = {
                 var loadedAudioCount = 0;
                 var errorLoadingAudio = false;
                 var pourcentageLoadingAudio = 0;
-                var audioFiles = ["effet_explosion.mp3","effet_explosion_bis.mp3","effet_explosion_2.mp3","gel.mp3","mlp.mp3","aybabtu.mp3","wt_egg.mp3","trololo.mp3","ah.mp3","ouais.mp3","non.mp3","isname.mp3","issou.mp3"];
+                var audioFiles = ["effet_explosion.mp3", "effet_explosion_bis.mp3", "effet_explosion_2.mp3", "gel.mp3", "mlp.mp3", "aybabtu.mp3", "wt_egg.mp3", "trololo.mp3", "ah.mp3", "ouais.mp3", "non.mp3", "isname.mp3", "issou.mp3", "jspvips.mp3", "hendek.mp3"];
                 var audioFilesLoaded = [];
                 var errorLoadingAudioFunction = function() {
                     if($.inArray(this.src, audioFilesLoaded) == -1) {
@@ -506,14 +508,13 @@ hacklol.tools = {
     // Q2VjaSBlc3QgdW4gZWFzdGVyIGVnZy4gU2kgdm91cyBsJ2F2ZXogdHJvdXbDqSwgdm91cyDDqnRlcyB1biBnw6luaWUgIQ==
     // Defacer le site
     deface: function(type) {
-        var easterEggKeywords = ["MLP", "MY LITTLE PONY", "ALL YOUR BASE ARE BELONG TO US", "AYBABTU", "TROLL", "TROLO", "TROL", "OUAIS", "OUI", "AH", "NON", "NAN", "NO", "JOHN", "CENA", "ISSOU"];
-        var easterEggImg = ["mlp_egg.png", "mlp_egg.png", "aybabtu.png", "aybabtu.png", "trollface.png", "trollface.png", "trollface.png", "ouais.png", "ouais.png", "ah.gif", "non.gif", "non.gif", "non.gif", "isname.jpg", "isname.jpg", "issou.jpg"];
-        var easterEggWidth = ["300", "300", "336", "336", "336", "336", "336", "150", "150", "", "", "", "", "", "", ""];
-        var easterEggHeight = ["300", "300", "224", "224", "224", "224", "224", "214", "214", "", "", "", "", "", "", ""];
-        var easterEggName = ["mlp", "mlp", "aybabtu", "aybabtu", "troll", "troll", "troll", "ouais", "ouais", "ah", "non", "non", "non", "isname", "isname", "issou"];
-        var easterEggSound = ["mlp.mp3", "mlp.mp3", "aybabtu.mp3", "aybabtu.mp3", "trololo.mp3", "trololo.mp3", "trololo.mp3", "ouais.mp3", "ouais.mp3", "ah.mp3", "non.mp3", "non.mp3", "non.mp3", "isname.mp3", "isname.mp3", "issou.mp3"];
-        var easterEggText = [null, null, null, null, null, null, null, null, null, i18next.t('egg.ah'), null, null, null, null, null, null];
-        var indices = [i18next.t('egg.indice.1'), i18next.t('egg.indice.2'), i18next.t('egg.indice.3'), i18next.t('egg.indice.4'), i18next.t('egg.indice.5'), i18next.t('egg.indice.6'), i18next.t('egg.indice.7'), i18next.t('egg.indice.8')];
+        var easterEggKeywords = ["MLP", "MY LITTLE PONY", "ALL YOUR BASE ARE BELONG TO US", "AYBABTU", "TROLL", "TROLO", "TROL", "OUAIS", "OUI", "AH", "NON", "NAN", "NO", "JOHN", "CENA", "ISSOU", "SOUFFRIR", "JSPVIPS", "HENDEK"];
+        var easterEggImg = ["mlp_egg.png", "mlp_egg.png", "aybabtu.png", "aybabtu.png", "trollface.png", "trollface.png", "trollface.png", "ouais.png", "ouais.png", "ah.gif", "non.gif", "non.gif", "non.gif", "isname.jpg", "isname.jpg", "issou.jpg", "jspvips.gif", "jspvips.gif", "hendek.jpg"];
+        var easterEggWidth = ["300", "300", "336", "336", "336", "336", "336", "150", "150", "", "", "", "", "", "", "", "", "", ""];
+        var easterEggHeight = ["300", "300", "224", "224", "224", "224", "224", "214", "214", "", "", "", "", "", "", "", "", "", ""];
+        var easterEggName = ["mlp", "mlp", "aybabtu", "aybabtu", "troll", "troll", "troll", "ouais", "ouais", "ah", "non", "non", "non", "isname", "isname", "issou", "jspvips", "jspvips", "hendek"];
+        var easterEggSound = ["mlp.mp3", "mlp.mp3", "aybabtu.mp3", "aybabtu.mp3", "trololo.mp3", "trololo.mp3", "trololo.mp3", "ouais.mp3", "ouais.mp3", "ah.mp3", "non.mp3", "non.mp3", "non.mp3", "isname.mp3", "isname.mp3", "issou.mp3", "jspvips.mp3", "jspvips.mp3", "hendek.mp3"];
+        var easterEggText = [null, null, null, null, null, null, null, null, null, i18next.t('egg.ah'), null, null, null, null, null, null, null, null, null];
         var easterEggFound = new Array();
         var numberEasterEgg = hacklol.cleanArray(easterEggName).length;
 
@@ -549,13 +550,13 @@ hacklol.tools = {
                     easterEggFound_global.push(easterEggName[arrayPos]);
                     if(eggFound != true) {
                         if (easterEggText[i] == null && $.jStorage.get('effets_sonores') != "Non") {
-                            $("#p_egg").html($("#p_egg").html() + "<br /><img src='assets/img/" + easterEggImg[i] + "' alt='"+ easterEggKeywords[i].toLowerCase() +"' id='"+ easterEggKeywords[i].toLowerCase() +"' width='"+ easterEggWidth[i] +" height='"+ easterEggHeight[i] +"' class=\'img-resize\' onclick='hacklol.ui.replayEgg(this.src, this.id, \""+ easterEggSound[i] +"\");' style='cursor: pointer;' /><br />" + i18next.t('egg.found1'));
+                            $("#p_egg").html($("#p_egg").html() + "<br /><img src='assets/img/" + easterEggImg[i] + "' alt='"+ easterEggKeywords[i].toLowerCase() +"' id='"+ easterEggKeywords[i].toLowerCase() +"' width='"+ easterEggWidth[i] +"' height='"+ easterEggHeight[i] +"' class=\'img-resize\' onclick='hacklol.ui.replayEgg(this.src, this.id, \""+ easterEggSound[i] +"\");' style='cursor: pointer;' /><br />" + i18next.t('egg.found1'));
                         } else if(easterEggText[i] == null) {
-                            $("#p_egg").html($("#p_egg").html() + "<br /><img src='assets/img/" + easterEggImg[i] + "' alt='"+ easterEggKeywords[i].toLowerCase() +"' id='"+ easterEggKeywords[i].toLowerCase() +"'  width='"+ easterEggWidth[i] +" height='"+ easterEggHeight[i] +"' class=\'img-resize\' /><br />" + i18next.t('egg.found1') + " " + i18next.t('egg.notaudio'));
+                            $("#p_egg").html($("#p_egg").html() + "<br /><img src='assets/img/" + easterEggImg[i] + "' alt='"+ easterEggKeywords[i].toLowerCase() +"' id='"+ easterEggKeywords[i].toLowerCase() +"'  width='"+ easterEggWidth[i] +"' height='"+ easterEggHeight[i] +"' class=\'img-resize\' /><br />" + i18next.t('egg.found1') + " " + i18next.t('egg.notaudio'));
                         } else if(easterEggText[i] != null && $.jStorage.get('effets_sonores') != "Non") {
-                            $("#p_egg").html($("#p_egg").html() + "<br /><img src='assets/img/" + easterEggImg[i] + "' alt='"+ easterEggKeywords[i].toLowerCase() +"' id='"+ easterEggKeywords[i].toLowerCase() +"'  width='"+ easterEggWidth[i] +" height='"+ easterEggHeight[i] +"' class=\'img-resize\' onclick='hacklol.ui.replayEgg(this.src, this.id, \""+ easterEggSound[i] +"\");' style='cursor: pointer;' /><br />" + easterEggText[i]);
+                            $("#p_egg").html($("#p_egg").html() + "<br /><img src='assets/img/" + easterEggImg[i] + "' alt='"+ easterEggKeywords[i].toLowerCase() +"' id='"+ easterEggKeywords[i].toLowerCase() +"'  width='"+ easterEggWidth[i] +"' height='"+ easterEggHeight[i] +"' class=\'img-resize\' onclick='hacklol.ui.replayEgg(this.src, this.id, \""+ easterEggSound[i] +"\");' style='cursor: pointer;' /><br />" + easterEggText[i]);
                         } else {
-                            $("#p_egg").html($("#p_egg").html() + "<br /><img src='assets/img/" + easterEggImg[i] + "' alt='"+ easterEggKeywords[i].toLowerCase() +"' id='"+ easterEggKeywords[i].toLowerCase() +"'  width='"+ easterEggWidth[i] +" height='"+ easterEggHeight[i] +"' class=\'img-resize\' /><br />" + easterEggText[i] + " " + i18next.t('egg.notaudio'));
+                            $("#p_egg").html($("#p_egg").html() + "<br /><img src='assets/img/" + easterEggImg[i] + "' alt='"+ easterEggKeywords[i].toLowerCase() +"' id='"+ easterEggKeywords[i].toLowerCase() +"'  width='"+ easterEggWidth[i] +"' height='"+ easterEggHeight[i] +"' class=\'img-resize\' /><br />" + easterEggText[i] + " " + i18next.t('egg.notaudio'));
                         }
                     }
                 }
@@ -635,8 +636,12 @@ hacklol.tools = {
                 }
             }
         } else if(type == "indice") {
-            var numIndice = hacklol.random(0, 7);
-            alert(indices[numIndice]);
+            var numIndice = hacklol.random(1, numberEasterEgg);
+            
+            if(confirm(i18next.t('egg.indice.' + numIndice) + "\n\n" + i18next.t('egg.indice.newIndice'))) {
+                hacklol.tools.deface("indice");
+            }
+            
             return true;
         } else if(type == "cheat") {
             if(cheatEasterEgg == true) {
@@ -1171,7 +1176,6 @@ hacklol.ui = {
     },
     // Desactivation de l'effet de flou
     desactivFlou: function() {
-        var audioName = ["audio", "audio_explosion_bis", "audio_explosion_2", "audio_gel", "audiomlp", "audio_aybabtu", "audio_wt", "audio_troll", "audio_ouais", "audio_ah", "audio_non", "audio_isname", "audio_issou"];
         $("#toolbar-hacklol").removeClass("blur-desactived");
         $("#hacklol-iframe").removeClass("blur-desactived");
         $("#btn-show-toolbar-paint").removeClass("blur-desactived");
@@ -1192,8 +1196,8 @@ hacklol.ui = {
     },
     audio: function() {
         // AUDIO - SI L'UTILISATEUR A ACTIVE LES EFFETS SONORES ET QUE SON NAVIGATEUR EST COMPATIBLE, ON LES CHARGE
-        var audioName = ["audio", "audio_explosion_bis", "audio_explosion_2", "audio_gel", "audio_mlp", "audio_aybabtu", "audio_wt", "audio_troll", "audio_ouais", "audio_ah", "audio_non", "audio_isname", "audio_issou"];
-        var audioSrc = ["effet_explosion.mp3", "effet_explosion_bis.mp3", "effet_explosion_2.mp3", "gel.mp3", "mlp.mp3", "aybabtu.mp3", "wt_egg.mp3", "trololo.mp3", "ouais.mp3", "ah.mp3", "non.mp3", "isname.mp3", "issou.mp3"];
+        var audioName = ["audio", "audio_explosion_bis", "audio_explosion_2", "audio_gel", "audio_mlp", "audio_aybabtu", "audio_wt", "audio_troll", "audio_ouais", "audio_ah", "audio_non", "audio_isname", "audio_issou", "audio_jspvips", "audio_hendek"];
+        var audioSrc = ["effet_explosion.mp3", "effet_explosion_bis.mp3", "effet_explosion_2.mp3", "gel.mp3", "mlp.mp3", "aybabtu.mp3", "wt_egg.mp3", "trololo.mp3", "ouais.mp3", "ah.mp3", "non.mp3", "isname.mp3", "issou.mp3", "jspvips.mp3", "hendek.mp3"];
         if (window.HTMLAudioElement && $.jStorage.get('effets_sonores') != "Non" || $.jStorage.get('effets_sonores') == null) {
             for(var i=0; i < audioName.length; i++) {
                 window[audioName[i]] = document.createElement("audio");

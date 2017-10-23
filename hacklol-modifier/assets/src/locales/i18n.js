@@ -108,14 +108,17 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                 "egg": {
                     ah: "Ah ! You found an Easter Egg !! Click here to hear again the Ah !",
                     indice: {
+                        newIndice: "Do you want to get another indication?",
                         1: "A well-known cartoon with small ponies.",
                         2: "A sentence coming from the bad English translation of the game Zero Wing of 1989.",
                         3: "Troll.",
-                        4: "The famous .. of Denis Brogniart, a french TV presenter (in 2 letters).",
+                        4: "The famous .. of Denis Brogniart, a french TV presenter (in 2 letters, search with Google).",
                         5: "The opposite of No.",
                         6: "And his name is .... (4 letters) .... (4 letters)",
                         7: "The opposite of Yes.",
-                        8: "The famous ..... of Risitas (in 5 letters)."
+                        8: "The famous ..... of Risitas (in 5 letters).",
+                        9: "J'suis pas venue ici pour ........ OK ?! (in 8 letters, search with Google)",
+                        10: "Appelez les h....k ! (in 6 letters, search with Google)"
                     },
                     found1: "Congratulations, you found an Easter Egg !!",
                     notaudio: "Turn on the sound effects if your browser is compatible and you'll get a surprise…",
@@ -358,6 +361,7 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                 "egg": {
                     ah: "Ah ! Vous avez trouvé un Easter Egg !! Cliquez pour entendre à nouveau le Ah !",
                     indice: {
+                        newIndice: "Voulez-vous obtenir un nouvel indice ?",
                         1: "Un dessin animé très connu avec des petits poneys.",
                         2: "Une phrase venant de la mauvaise traduction anglaise du jeu Zero Wing de 1989.",
                         3: "Une tête de troll.",
@@ -365,7 +369,9 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                         5: "Le contraire de Non.",
                         6: "And his name is .... (4 lettres) .... (4 lettres)",
                         7: "Le contraire de Oui.",
-                        8: "Le célèbre ..... de Risitas (en 5 lettres)."
+                        8: "Le célèbre ..... de Risitas (en 5 lettres).",
+                        9: "J'suis pas venue ici pour ........ OK ?! (en 8 lettres)",
+                        10: "Appelez les h....k ! (en 6 lettres)"
                     },
                     found1: "Bravo, vous avez trouvé un Easter Egg !!",
                     notaudio: "Activez les effets sonores si votre navigateur est compatible et vous aurez une surprise…",
