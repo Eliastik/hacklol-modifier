@@ -75,7 +75,7 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                 },
                 "user-script": {
                     title: "User script",
-                    infos: "Here, you can edit a script for <span class='appName'>Hacklol Modifier</span> using JavaScript. It will be executed when starting <span class='appName'>Hacklol Modifier</span>. Some functions have been disabled for security reasons.<br /><strong>Warning, deleting your navigation data like LocalStorage or Cookies will delete your User Script.</strong>",
+                    infos: "Here, you can edit a script for <span class='appName'>the app</span> using JavaScript. It will be executed when starting <span class='appName'>the app</span>. Some functions have been disabled for security reasons.<br /><strong>Warning, deleting your navigation data like LocalStorage or Cookies will delete your User Script.</strong>",
                     log: "Script log:",
                     save: "Save",
                     reset: "Reset the script",
@@ -95,7 +95,7 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                     titleplaceholder: "Enter a title…",
                     textform: "Text:",
                     textplaceholder: "Enter the text who will be displayed…",
-                    backgroundcolor: "Bacgkround color:",
+                    backgroundcolor: "Background color:",
                     backgroundcolorplaceholder: "Click here…",
                     reset: "Show the page"
                 },
@@ -130,11 +130,11 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                     tofind: "to find.",
                     cheated: "by cheating",
                     cheatbad: "It's bad, you know !",
-                    foundall: "Congratulations, you found all of the Easter Egg !!",
-                    foundallcheat: "You found all of the Easter Egg by cheating. It's bad, you know !",
+                    foundall: "Congratulations, you found all the Easter Egg !!",
+                    foundallcheat: "You found all the Easter Egg by cheating. It's bad, you know !",
                     cheatalready: "You have already revealed all the Easter Eggs.",
-                    cheatconfirm1: "Are you sure you want to reveal all the Easter Eggs ?",
-                    cheatconfirm2: "Are you sure you want to cheat ?",
+                    cheatconfirm1: "Are you sure that you want to reveal all the Easter Eggs?",
+                    cheatconfirm2: "Are you really sure that you want to cheat?",
                     cheatok: "OK, like you want… Click on « Validate » to confirm."
                 },
                 "bsod-popup": {
@@ -142,11 +142,11 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                     select: "Select the type of BSOD you want to display :",
                     winxp: "Windows XP/Vista/7",
                     win8: "Windows 8/10",
-                    infos: "Tip to display the BSOD in fullscreen mode: Close the top toolbar, then make the keyboard shortcut G + M to hide the button Open the toolbar, then put your web browser in fullscreen mode (F11)."
+                    infos: "Tip to display the BSOD in fullscreen mode: close the top toolbar, then use the keyboard shortcut G + M to hide the button Open the toolbar, then put your web browser in fullscreen mode (F11)."
                 },
                 "quit": {
                     title: "Exit",
-                    infos: "Are you sure that you want to exit <span class='appName'></span> ?"
+                    infos: "Are you sure that you want to exit <span class='appName'>the app</span>?"
                 },
                 "about": {
                     title: "About",
@@ -159,18 +159,18 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                     previous: "Previous page",
                     next: "Next page",
                     reload: "Reload the website",
-                    change: "Change of website"
+                    change: "Change website"
                 },
                 "advancedinfos": {
                     title: "Advanced informations",
-                    infos: "<span class='appName'></span> is based on Hacklol Modifier as well as other free software (see below) – <a href='https://github.com/Eliastik/hacklol-modifier/' target='_blank'>Github repository</a> – <a href='http://hacklol.eliastiksofts.com' target='_blank'>Official website</a>",
+                    infos: "<span class='appName'>This app</span> is based on Hacklol Modifier as well as other free software (see below) – <a href='https://github.com/Eliastik/hacklol-modifier/' target='_blank'>Github repository</a> – <a href='http://hacklol.eliastiksofts.com' target='_blank'>Official website</a>",
                     license: "License:",
                     authors: "Author(s):",
                     libraries: "Libraries/credits:",
                     more: "(and maybe others…)"
                 },
                 "changesite": {
-                    title: "Change of website",
+                    title: "Change website",
                     label: "Enter the address of the website you want to edit:",
                     placeholder: "Enter the website address…",
                     empty: "You didn't enter anything.",
@@ -187,7 +187,7 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                     blurinfos: "This effect can cause a drop in fluidity on some web browsers.",
                     enable: "Enable",
                     recommended: "(recommended)",
-                    hacklolpageloaderinfos: "This option loads the websites on the server of <span class='appName'></span>. Improves the compatibility with websites. <strong>Disable this option if the website is incorrectly displayed</strong>.",
+                    hacklolpageloaderinfos: "This option loads the websites on the server of <span class='appName'>the app</span>. Improves the compatibility of the websites. <strong>Disable this option if the website is incorrectly displayed</strong>.",
                     hacklolPageLoaderDisabledByDefault: "– Disabled by default by the website administrator",
                     toolbarscolor: "Toolbars color:",
                     color: {
@@ -210,10 +210,10 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                     reset: "Reset the data",
                     saved: "Your settings have been saved.",
                     error: "Your settings have been saved for this session only, because your browser doesn't support the functionality localstorage.",
-                    errormp3: "Your browser is incompatible white mp3 files.",
+                    errormp3: "Your browser is incompatible with the mp3 files.",
                     erroraudio: "Your browser can't play audio files.",
                     reseted: "All the data have been deleted.",
-                    resetconfirm: "Are you sure to delete ALL the data ?"
+                    resetconfirm: "Are you sure that you want to delete ALL the data saved?"
                 },
                 "shortcut": {
                     title: "Keyboard shortcut",
@@ -229,8 +229,8 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                 },
                 "error": {
                     title: "An error has occurred",
-                    infos: "An error has occurred in <span class='appName'></span>. You can still use the application, but it may not work properly.",
-                    help: "You can help to solve the problem by <a href='https://github.com/Eliastik/hacklol-modifier/issues' target='_blank'>posting an issue on the Github repository</a> of Hacklol Modifier by indicating this informations:",
+                    infos: "An error has occurred in <span class='appName'>the app</span>. You can still use the application, but it may not work properly.",
+                    help: "You can help to solve the problem by <a href='https://github.com/Eliastik/hacklol-modifier/issues' target='_blank'>posting an issue on the Github repository</a> of Hacklol Modifier by indicating these informations:",
                     stop: "Don't show again this kind of errors during this session"
                 },
                 "colors": {
@@ -257,16 +257,16 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                 "paint": {
                     "not-compatible": "Sorry, this tool isn't compatible with your web browser.\nUpdate it, and try again."
                 },
-                console: "Hi! It seems that you are familiar with JavaScript console. If you know how to code, you can help to improve Hacklol Modifier on the Github repository: https://github.com/Eliastik/hacklol-modifier/",
+                console: "Hi! It seems that you are familiar with the JavaScript console. If you know how to code, you can help to improve Hacklol Modifier on the Github repository: https://github.com/Eliastik/hacklol-modifier/",
                 outdatedversion: "It seems that you are not using the latest version of <span class='appName'>the app</span>.<br />The latest version is:",
                 outdatedversioncache: "Try to clear the cache of your browser (<a href='https://www.lifewire.com/how-to-clear-cache-2617980' target='_blank'>more infos here</a>).",
                 "load": {
-                    graphics: "Loading graphics data…",
+                    graphics: "Loading graphic data…",
                     audio: "Loading audio data…"
                 },
                 "edit": {
                     confirm: "This tool works best when",
-                    confirm2: "is enabled in the settings. You have disabled this option, this tool might not work. Continue ?",
+                    confirm2: "is enabled in the settings. You have disabled this option, this tool might not work. Continue?",
                     error: "An error has occurred during the activation of the tool. Please try again."
                 },
                 "matrix": {
@@ -330,7 +330,7 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                 },
                 "user-script": {
                     title: "Script utilisateur",
-                    infos: "Ici, vous pouvez éditer un script utilisateur pour <span class='appName'></span> grâce au langage de programmation JavaScript. Il sera exécuté à chaque démarrage de <span class='appName'></span> et lors de la sauvegarde de celui-ci. Une documentation est disponible en ligne pour vous permettre d'utiliser les fonctionnalités de <span class='appName'></span> dans vos scripts. Veuillez noter que certaines fonctions sont désactivées pour des raisons de sécurité.<br /><strong>Attention, supprimer vos données de navigation telle que le LocalStorage ou vos cookies aura pour effet de supprimer definitivement votre User Script. Je vous conseille de faire une sauvegarde de celui-ci pour éviter cela.</strong>",
+                    infos: "Ici, vous pouvez éditer un script utilisateur pour <span class='appName'>l'application</span> grâce au langage de programmation JavaScript. Il sera exécuté à chaque démarrage de <span class='appName'>l'application</span> et lors de la sauvegarde de celui-ci. Une documentation est disponible en ligne pour vous permettre d'utiliser les fonctionnalités de <span class='appName'>l'application</span> dans vos scripts. Veuillez noter que certaines fonctions sont désactivées pour des raisons de sécurité.<br /><strong>Attention, supprimer vos données de navigation telle que le LocalStorage ou vos cookies aura pour effet de supprimer definitivement votre User Script. Je vous conseille de faire une sauvegarde de celui-ci pour éviter cela.</strong>",
                     log: "Journal du script :",
                     save: "Enregistrer",
                     reset: "Réinitialiser le script",
@@ -397,11 +397,11 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                     select: "Sélectionnez le type de BSOD que vous voulez afficher :",
                     winxp: "Windows XP/Vista/7",
                     win8: "Windows 8/10",
-                    infos: "Astuce pour afficher le BSOD en plein écran : Fermez la barre du haut, puis faites le raccourci clavier G + M pour masquer le bouton d'ouverture de la barre, puis mettez votre navigateur web en plein écran (touche F11)."
+                    infos: "Astuce pour afficher le BSOD en plein écran : fermez la barre du haut, puis faites le raccourci clavier G + M pour masquer le bouton d'ouverture de la barre, puis mettez votre navigateur web en plein écran (touche F11)."
                 },
                 "quit": {
                     title: "Quitter",
-                    infos: "Êtes-vous sûr de vouloir quitter <span class='appName'></span> et de retourner à la page d'accueil du site ?"
+                    infos: "Êtes-vous sûr de vouloir quitter <span class='appName'>l'application</span> ?"
                 },
                 "about": {
                     title: "À propos de",
@@ -418,10 +418,10 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                 },
                 "advancedinfos": {
                     title: "Informations avancées",
-                    infos: "<span class='appName'></span> est basé sur Hacklol Modifier ainsi que sur d'autres logiciels libres (voir plus bas) – <a href='https://github.com/Eliastik/hacklol-modifier/' target='_blank'>Dépôt Github</a> – <a href='http://hacklol.eliastiksofts.com' target='_blank'>Site web officiel</a>",
+                    infos: "<span class='appName'>L'application</span> est basé sur Hacklol Modifier ainsi que sur d'autres logiciels libres (voir plus bas) – <a href='https://github.com/Eliastik/hacklol-modifier/' target='_blank'>Dépôt Github</a> – <a href='http://hacklol.eliastiksofts.com' target='_blank'>Site web officiel</a>",
                     license: "Licence :",
                     authors: "Auteur(s) :",
-                    libraries: "Librairies/crédits :",
+                    libraries: "Bibliothèques logicielles/crédits :",
                     more: "(et peut-être d'autres…)"
                 },
                 "changesite": {
@@ -442,7 +442,7 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                     blurinfos: "Cet effet peut générer une baisse de fluidité sur certains navigateurs web.",
                     enable: "Activer",
                     recommended: "(recommandé)",
-                    hacklolpageloaderinfos: "Permet aux sites web d'être chargés depuis le serveur de <span class='appName'></span>. Améliore la compatibilité des sites. <strong>Désactivez cette option si le site s'affiche mal</strong>.",
+                    hacklolpageloaderinfos: "Permet aux sites web d'être chargés depuis le serveur de <span class='appName'>l'application</span>. Améliore la compatibilité des sites. <strong>Désactivez cette option si le site s'affiche mal</strong>.",
                     hacklolPageLoaderDisabledByDefault: "– Désactivé par défaut par l'administrateur du site",
                     toolbarscolor: "Couleur des barres d'outils :",
                     color: {
@@ -459,7 +459,7 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                         black: "Noir",
                         white: "Blanc",
                         choosecolor: "Veuillez choisir une couleur :",
-                        choosecolorplaceholder: "Cliquez ici"
+                        choosecolorplaceholder: "Cliquez ici…"
                     },
                     language: "Langue :",
                     reset: "Réinitialiser les données",
@@ -484,7 +484,7 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                 },
                 "error": {
                     title: "Une erreur est survenue",
-                    infos: "Une erreur est survenue dans <span class='appName'></span>. Vous pouvez toujours utiliser l'application, mais il se peut qu'elle ne fonctionne pas correctement.",
+                    infos: "Une erreur est survenue dans <span class='appName'>l'application</span>. Vous pouvez toujours utiliser l'application, mais il se peut qu'elle ne fonctionne pas correctement.",
                     help: "Vous pouvez aider à résoudre le problème en <a href='https://github.com/Eliastik/hacklol-modifier/issues' target='_blank'>postant une issue sur le dépôt Github</a> d'Hacklol Modifier en indiquant ces informations :",
                     stop: "Ne plus afficher à nouveau ce genre d'erreurs durant cette session"
                 },
@@ -510,7 +510,7 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                     save: "Sauvegarder le dessin"
                 },
                 "paint": {
-                    "not-compatible": "Désolé, cet outil n'est pas compatible avec votre navigateur.\nMettez à jour votre navigateur, puis réessayez."
+                    "not-compatible": "Désolé, cet outil n'est pas compatible avec votre navigateur.\nMettez-le à jour, puis réessayez."
                 },
                 console: "Salut ! Il semblerait que vous soyez familier avec la console Javascript.\nSi vous savez coder, vous pouvez aider à améliorer Hacklol Modifier sur le dépôt Github : https://github.com/Eliastik/hacklol-modifier/",
                 outdatedversion: "Il semblerait que vous n'utilisez pas la dernière version de <span class='appName'>l'application</span>.<br />La version actuelle est la :",
@@ -525,7 +525,7 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                     error: "Une erreur est survenue lors de l'activation de l'outil. Veuillez réessayer."
                 },
                 "matrix": {
-                    error: "Désolé, cet outil n'est pas compatible avec votre navigateur.\nMettez à jour votre navigateur, puis réessayez."
+                    error: "Désolé, cet outil n'est pas compatible avec votre navigateur.\nMettez-le à jour, puis réessayez."
                 }
             }
         }
