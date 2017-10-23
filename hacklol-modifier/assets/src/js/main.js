@@ -515,13 +515,13 @@ hacklol.tools = {
     // Q2VjaSBlc3QgdW4gZWFzdGVyIGVnZy4gU2kgdm91cyBsJ2F2ZXogdHJvdXbDqSwgdm91cyDDqnRlcyB1biBnw6luaWUgIQ==
     // Defacer le site
     deface: function(type) {
-        var easterEggKeywords = ["MLP", "MY LITTLE PONY", "ALL YOUR BASE ARE BELONG TO US", "AYBABTU", "TROLL", "TROLO", "TROL", "OUAIS", "OUI", "AH", "NON", "NAN", "NO", "JOHN", "CENA", "ISSOU", "SOUFFRIR", "JSPVIPS", "HENDEK"];
-        var easterEggImg = ["mlp_egg.png", "mlp_egg.png", "aybabtu.png", "aybabtu.png", "trollface.png", "trollface.png", "trollface.png", "ouais.png", "ouais.png", "ah.gif", "non.gif", "non.gif", "non.gif", "isname.jpg", "isname.jpg", "issou.jpg", "jspvips.gif", "jspvips.gif", "hendek.jpg"];
-        var easterEggWidth = ["300", "300", "336", "336", "336", "336", "336", "150", "150", "", "", "", "", "", "", "", "", "", ""];
-        var easterEggHeight = ["300", "300", "224", "224", "224", "224", "224", "214", "214", "", "", "", "", "", "", "", "", "", ""];
-        var easterEggName = ["mlp", "mlp", "aybabtu", "aybabtu", "troll", "troll", "troll", "ouais", "ouais", "ah", "non", "non", "non", "isname", "isname", "issou", "jspvips", "jspvips", "hendek"];
-        var easterEggSound = ["mlp.mp3", "mlp.mp3", "aybabtu.mp3", "aybabtu.mp3", "trololo.mp3", "trololo.mp3", "trololo.mp3", "ouais.mp3", "ouais.mp3", "ah.mp3", "non.mp3", "non.mp3", "non.mp3", "isname.mp3", "isname.mp3", "issou.mp3", "jspvips.mp3", "jspvips.mp3", "hendek.mp3"];
-        var easterEggText = [null, null, null, null, null, null, null, null, null, i18next.t('egg.ah'), null, null, null, null, null, null, null, null, null];
+        var easterEggKeywords = ["MLP", "MY LITTLE PONY", "ALL YOUR BASE ARE BELONG TO US", "AYBABTU", "TROLL", "TROLO", "TROL", "OUAIS", "OUI", "YES", "AH", "NON", "NAN", "NO", "JOHN", "CENA", "ISSOU", "SOUFFRIR", "JSPVIPS", "HENDEK"];
+        var easterEggImg = ["mlp_egg.png", "mlp_egg.png", "aybabtu.png", "aybabtu.png", "trollface.png", "trollface.png", "trollface.png", "ouais.png", "ouais.png", "ouais.png", "ah.gif", "non.gif", "non.gif", "non.gif", "isname.jpg", "isname.jpg", "issou.jpg", "jspvips.gif", "jspvips.gif", "hendek.jpg"];
+        var easterEggWidth = ["300", "300", "336", "336", "336", "336", "336", "150", "150", "150", "", "", "", "", "", "", "", "", "", ""];
+        var easterEggHeight = ["300", "300", "224", "224", "224", "224", "224", "214", "214", "214", "", "", "", "", "", "", "", "", "", ""];
+        var easterEggName = ["mlp", "mlp", "aybabtu", "aybabtu", "troll", "troll", "troll", "ouais", "ouais", "ouais", "ah", "non", "non", "non", "isname", "isname", "issou", "jspvips", "jspvips", "hendek"];
+        var easterEggSound = ["mlp.mp3", "mlp.mp3", "aybabtu.mp3", "aybabtu.mp3", "trololo.mp3", "trololo.mp3", "trololo.mp3", "ouais.mp3", "ouais.mp3", "ouais.mp3", "ah.mp3", "non.mp3", "non.mp3", "non.mp3", "isname.mp3", "isname.mp3", "issou.mp3", "jspvips.mp3", "jspvips.mp3", "hendek.mp3"];
+        var easterEggText = [null, null, null, null, null, null, null, null, null, null, i18next.t('egg.ah'), null, null, null, null, null, null, null, null, null];
         var easterEggFound = new Array();
         var numberEasterEgg = hacklol.cleanArray(easterEggName).length;
 
