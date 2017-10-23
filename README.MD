@@ -47,11 +47,21 @@ npm install
 gulp
 ````
 
+Pour mettre à jour les paquets NPM :
+````
+npm update
+````
+
 Pour mettre à jour PHP-Proxy (nécessite composer) :
 
 ````
 cd hacklol-modifier/page_loader
 composer update
+````
+
+Pour mettre à jour le template de traduction (uniquement sur Linux, rendre le fichier exécutable) :
+````
+./translations_update.sh
 ````
 
 ### Fonctionnement
@@ -187,11 +197,21 @@ npm install
 gulp
 ````
 
-To update PHP-Proxy (require composer) :
+To update the NPM packages:
+````
+npm update
+````
+
+To update PHP-Proxy (require composer):
 
 ````
 cd hacklol-modifier/page_loader
 composer update
+````
+
+To update the translation template (only on Linux, don't forget to render the file executable):
+````
+./translations_update.sh
 ````
 
 ### How the app works
