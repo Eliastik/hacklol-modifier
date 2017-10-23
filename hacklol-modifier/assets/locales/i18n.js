@@ -142,7 +142,7 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                     select: "Select the type of BSOD you want to display :",
                     winxp: "Windows XP/Vista/7",
                     win8: "Windows 8/10",
-                    infos: "Tip to display the BSOD in fullscreen mode: Close the top toolbar, then make the keyboard shortcut G + M to hide the button <i>Open the toolbar</i>, then put your web browser in fullscreen mode (F11)."
+                    infos: "Tip to display the BSOD in fullscreen mode: Close the top toolbar, then make the keyboard shortcut G + M to hide the button Open the toolbar, then put your web browser in fullscreen mode (F11)."
                 },
                 "quit": {
                     title: "Exit",
