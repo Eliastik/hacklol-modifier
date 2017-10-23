@@ -29,6 +29,14 @@ gulp.task('build-release', function () {
         .pipe(gulp.dest('./build'));
 });
 
+gulp.task('build-pl', function () {
+    return gulp.src("hacklol-modifier/page_loader/**")
+        .pipe(zip('page-loader-build.zip'))
+        .pipe(gulp.dest('./build'));
+});
+
 gulp.task('default', ['compress-js', 'compress-css', 'compress-locales']);
 
 gulp.task('build', ['compress-js', 'compress-css', 'compress-locales', 'build-release']);
+
+gulp.task('build-page-loader', ['build-pl']);
