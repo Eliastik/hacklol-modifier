@@ -13,7 +13,7 @@ L'application est disponible en français et en anglais.
 
 * By Eliastik ( http://www.eliastiksofts.com )
 * Langages : HTML, CSS, Javascript, PHP
-* Version actuelle : 1.4 (4/07/2017)
+* Version actuelle : 1.4.1 (23/10/2017)
 * Dépôt Github : https://github.com/Eliastik/hacklol-modifier
 * Licence : GNU GPL 3.0
 
@@ -64,6 +64,26 @@ Le nom de l'application est modifiable en éditant le fichier config.php et hack
 
 ### Journal des mises à jour
 
+* Version 1.4.1 (23/10/2017) :
+    - Ajout de deux nouveaux Easter Eggs, à vous de les trouver !
+    - Corrections de bugs et ajustements (Hacklol Modifier) :
+        - Ajout de la possibilité de désactiver par défaut Hacklol Page Loader ;
+        - Amélioration de la fonction de sauvegarde de la fonction Dessiner sur la page (permet de télécharger le dessin directement dans l'appareil) ;
+        - Correction d'un bug avec le moteur de traduction et Internet Explorer (compatibilité à partir de la version 9) ;
+        - Correction d'un son (Easter Egg) et d'un des effets d'explosion (animation) ;
+        - Corrections et optimisations du code (réduction de certaines parties du code à quelques lignes) ;
+        - Corrections des textes (anglais et français) ;
+        - Lors du changement de site depuis l'interface d'Hacklol Modifier, l'URL du nouveau site choisi est affichée dans la fenêtre A propos ;
+        - Correction de la détection des nouvelles versions d'Hacklol Modifier ;
+        - Ajout d'un effet d'ombre sur la barre d'outils de la fonction Dessiner sur la page ;
+        - Correction d'un bug de PHP-Proxy ;
+        - Mise à jour de certaines bibliothèques logicielles (i18next, CodeMirror) et de PHP-Proxy ;
+        - Autres corrections et ajustements mineurs.
+    - Corrections de bugs et ajustements (formulaire) :
+        - Correction du moteur de traduction et de la traduction du formulaire permettant d'accéder à Hacklol Modifier ;
+        - Ajout d'une détection des mises à jour.
+    - Ajout de la commande "gulp build-page-loader" permettant de créer un build de Hacklol Page Loader.
+
 * Version 1.4 (4/07/2017) :
     - Release initiale pour Github ;
     - Amélioration de l'architecture générale de l'application ;
@@ -85,16 +105,15 @@ Le nom de l'application est modifiable en éditant le fichier config.php et hack
         - Délai avant le chargement des données au démarrage ;
         - Simplification de certains parties du code ;
         - Autres corrections mineures.
-    
-* Ancien journal des changements : http://hacklol.eliastiksofts.com/news.php
+
+* Anciens journaux des changements ici : http://hacklol.eliastiksofts.com/news/
 
 ### To-do list
 
 Choses qui sont planifiées pour être ajoutées à l'application (peut-être) :
 
 - Outil "Gravity", comme Google Gravity : http://mrdoob.com/projects/chromeexperiments/google-gravity/ ;
-- Outil "DDOS", simulation d'un DDOS sur le site ;
-- Ajout de nouveaux Easter Eggs.
+- Outil "DDOS", simulation d'un DDOS sur le site.
 
 ### Librairies/crédits
 
@@ -134,7 +153,7 @@ The app is available in english and in french.
 
 * By Eliastik ( http://www.eliastiksofts.com )
 * Languages : HTML, CSS, Javascript, PHP
-* Current version: 1.4 (4/07/2017)
+* Current version: 1.4.1 (23/10/2017)
 * Github repository: https://github.com/Eliastik/hacklol-modifier
 * License: GNU GPL 3.0
 
@@ -184,6 +203,25 @@ PHP-Proxy is installed via composer in the folder hacklol-modifier/page_loader. 
 The app name is editable by modifying the files config.php and hacklol-modifier/assets/src/js/main.js.
 
 ### Changelog
+* Version 1.4.1 (23/10/2017) :
+    - Added two new Easter Eggs, it's up to you to find them!
+    - Bugs fixes and adjustments (Hacklol Modifier) :
+        - Added the ability to disable Hacklol Page Loader by default;
+        - Improvement of the save function of the tool Draw on the page (allows to download the drawing directly into the device);
+        - Fixed a bug with the translation engine and Internet Explorer (compatibility from version 9);
+        - Fixed a sound (Easter Egg) and an explosion effect (animation);
+        - Corrections and optimizations of the code (reduction of some parts of the code to a few lines);
+        - Corrections of the texts (English and French);
+        - When changing websites with the Hacklol Modifier interface, the URL of the new selected website is displayed in the About window;
+        - Fixed the detection of new versions of Hacklol Modifier;
+        - Added a shadow effect on the toolbar of the Draw on the page function;
+        - Fixed a PHP-Proxy bug;
+        - Update of some software libraries (i18next, CodeMirror) and PHP-Proxy;
+        - Other minor corrections and adjustments.
+    - Bug fixes and adjustments (form):
+        - Correction of the translation engine and of the texts of the form;
+        - Added detection of updates.
+    - Added the command "gulp build-page-loader" to create a build of Hacklol Page Loader.
 
 * Version 1.4 (4/07/2017):
     - Initial release for Github
@@ -206,16 +244,15 @@ The app name is editable by modifying the files config.php and hacklol-modifier/
         - Delay before the loading of data at application startup
         - Simplification of certain parts of the code
         - Other minor adjustments.
-    
-* Old changelog page (FR): http://hacklol.eliastiksofts.com/news.php
+
+* Old changelog here (FR): http://hacklol.eliastiksofts.com/news/
 
 ### To-do list
 
 Things that are planned to be added to the application (maybe):
 
 - "Gravity" tool, like Google Gravity: http://mrdoob.com/projects/chromeexperiments/google-gravity/ ;
-- "DDOS" tool, too simulate a DDOS of the website ;
-- Add new Easter Eggs.
+- "DDOS" tool, to simulate a DDOS of the website.
 
 ### Libraries/credits
 
