@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-16 17:47+0200\n"
+"POT-Creation-Date: 2017-10-23 18:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,32 +17,40 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: index.php:45
+#: index.php:46
 msgid "enter-address"
 msgstr ""
 
-#: index.php:45
+#: index.php:46
 msgid "url-http"
 msgstr ""
 
-#: index.php:47
+#: index.php:48
 msgid "url-site-label"
 msgstr ""
 
-#: index.php:48
+#: index.php:49
 msgid "url-site-placeholder"
 msgstr ""
 
-#: index.php:56
+#: index.php:57
 msgid "form-validate"
 msgstr ""
 
-#: index.php:59
+#: index.php:60
 msgid "source-code"
 msgstr ""
 
-#: index.php:59
+#: index.php:60
 msgid "hacklol-official"
+msgstr ""
+
+#: index.php:74
+msgid "new-version-available"
+msgstr ""
+
+#: index.php:75
+msgid "download-new-version"
 msgstr ""
 
 #: hacklol-modifier/index.php:119

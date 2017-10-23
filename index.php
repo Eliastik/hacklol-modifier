@@ -30,7 +30,8 @@
 
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <?php } ?>
-
+        
+        <script src="https://raw.githubusercontent.com/Eliastik/hacklol-modifier/master/version.js"></script>
     </head>
     <body>
         <div class="container">
@@ -55,11 +56,27 @@
 
                 <input id="valider" name="valider" class="btn btn-lg btn-primary btn-block" value="<?php echo _("form-validate") ?>" type="submit" />
             </form>
-        <footer>
-            By <a href="http://www.eliastiksofts.com" target="_blank">Eliastik</a> – <a href="https://github.com/Eliastik/hacklol-modifier/" target="_blank"><?php echo _("source-code") ?></a> – <a href="http://hacklol.eliastiksofts.com" target="_blank"><?php echo _("hacklol-official") ?></a>
-            <div class="version">Version <?php echo $hacklolConfig['appVersion']; ?></div>
-            <div class="lang"><a href="?lang=fr">Français</a> – <a href="?lang=en">English</a></div>
-        </footer>
+            <footer>
+                By <a href="http://www.eliastiksofts.com" target="_blank">Eliastik</a> – <a href="https://github.com/Eliastik/hacklol-modifier/" target="_blank"><?php echo _("source-code") ?></a> – <a href="http://hacklol.eliastiksofts.com" target="_blank"><?php echo _("hacklol-official") ?></a>
+                <div class="version">Version <?php echo $hacklolConfig['appVersion']; ?> <span id="newVersion" style="display: none; color: blue;">–</span> <span id="newVersionText" style="color: blue;"></span> <span id="newVersionLink" style="color: blue;"></span></span></div>
+                <div class="lang"><a href="?lang=fr">Français</a> – <a href="?lang=en">English</a></div>
+            </footer>
         </div> <!-- /container -->
+        <script type="text/javascript">
+            // Check for update
+            String.prototype.strcmp = function(str) {
+                return ((this == str) ? 0 : ((this > str) ? 1 : -1));
+            };
+
+            if(typeof(latestVersionFromGithub) !== "undefined" && latestVersionFromGithub !== null) {
+                var currentVersion = "<?php echo $hacklolConfig['appVersion']; ?>";
+                var newVersionTest = currentVersion.strcmp(latestVersionFromGithub);
+                if(newVersionTest < 0) {
+                    document.getElementById("newVersionText").innerHTML = "<?php echo _("new-version-available") ?>";
+                    document.getElementById("newVersionLink").innerHTML = "<a href='https://github.com/Eliastik/hacklol-modifier/releases/latest/' target='_blank'><?php echo _("download-new-version") ?></a>.";
+                    document.getElementById("newVersion").style.display = "inline-block";
+                }
+            }
+        </script>
     </body>
 </html>
