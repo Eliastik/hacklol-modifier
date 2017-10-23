@@ -79,14 +79,14 @@ var hacklol = {
         var versionActuelle = hacklol.version;
         $("#testVersionHacklol").text("");
         $.post(
-                'versionHacklol.html',
-                { },
-                function(data) {
-                    if(data.trim() != versionActuelle.trim()) {
-                        $("#testVersionHacklol").html(i18next.t('outdatedversion') + " " + data.trim() + ".");
-                    }
-                },
-                'text'
+            'versionHacklol.html',
+            { },
+            function(data) {
+                if(data.trim() != versionActuelle.trim()) {
+                    $("#testVersionHacklol").html(i18next.t('outdatedversion') + " " + data.trim() + ".");
+                }
+            },
+            'text'
         );
     },
     random: function(min, max) {
@@ -148,6 +148,7 @@ var hacklol = {
             elTool.setAttribute("onclick", fonction);
         }
         elTool.setAttribute("class", "btn");
+
         if(fermerFenetre == true) {
             elTool.setAttribute("class", elTool.getAttribute("class") + " popup-modal-dismiss");
         }
@@ -219,6 +220,7 @@ var hacklol = {
         $("#progressLoading").css("width", "0%");
         if (window.HTMLAudioElement) {
             var audioTestMp3 = document.createElement('audio');
+            var audioFiles = ["effet_explosion.mp3", "effet_explosion_bis.mp3", "effet_explosion_2.mp3", "gel.mp3", "mlp.mp3", "aybabtu.mp3", "wt_egg.mp3", "trololo.mp3", "ah.mp3", "ouais.mp3", "non.mp3", "isname.mp3", "issou.mp3", "jspvips.mp3", "hendek.mp3"];
             if (audioTestMp3.canPlayType && audioTestMp3.canPlayType("audio/mpeg")) {
                 $("#loadingInfos").text(i18next.t('load.audio'));
                 $("#backgroundLoadingInfos").text(i18next.t('load.audio'));
@@ -227,7 +229,6 @@ var hacklol = {
                 var loadedAudioCount = 0;
                 var errorLoadingAudio = false;
                 var pourcentageLoadingAudio = 0;
-                var audioFiles = ["effet_explosion.mp3", "effet_explosion_bis.mp3", "effet_explosion_2.mp3", "gel.mp3", "mlp.mp3", "aybabtu.mp3", "wt_egg.mp3", "trololo.mp3", "ah.mp3", "ouais.mp3", "non.mp3", "isname.mp3", "issou.mp3", "jspvips.mp3", "hendek.mp3"];
                 var audioFilesLoaded = [];
                 var errorLoadingAudioFunction = function() {
                     if($.inArray(this.src, audioFilesLoaded) == -1) {
@@ -317,6 +318,7 @@ var hacklol = {
             // BSOD BlinkFont
             hacklol.blinkFontBSOD();
         }
+
         $("#background-loading-indicator").fadeOut();
     }
 };
@@ -841,51 +843,30 @@ hacklol.settings = {
         }
         // couleur barre
         var parametre_couleur_barre = $.jStorage.get('couleur_barre');
-        if (parametre_couleur_barre == "Defaut") {
-            $('#couleurBarreSelect option[value="Defaut"]').prop('selected', true);
-            $("#choixcouleur").hide();
-        } else if (parametre_couleur_barre == "Bleu") {
-            $('#couleurBarreSelect option[value="Bleu"]').prop('selected', true);
-            $("#choixcouleur").hide();
-        } else if (parametre_couleur_barre == "Rouge") {
-            $('#couleurBarreSelect option[value="Rouge"]').prop('selected', true);
-            $("#choixcouleur").hide();
-        } else if (parametre_couleur_barre == "Vert") {
-            $('#couleurBarreSelect option[value="Vert"]').prop('selected', true);
-            $("#choixcouleur").hide();
-        } else if (parametre_couleur_barre == "Jaune") {
-            $('#couleurBarreSelect option[value="Jaune"]').prop('selected', true);
-            $("#choixcouleur").hide();
-        } else if (parametre_couleur_barre == "Orange") {
-            $('#couleurBarreSelect option[value="Orange"]').prop('selected', true);
-            $("#choixcouleur").hide();
-        } else if (parametre_couleur_barre == "Rose") {
-            $('#couleurBarreSelect option[value="Rose"]').prop('selected', true);
-            $("#choixcouleur").hide();
-        } else if (parametre_couleur_barre == "Violet") {
-            $('#couleurBarreSelect option[value="Violet"]').prop('selected', true);
-            $("#choixcouleur").hide();
-        } else if (parametre_couleur_barre == "Brun") {
-            $('#couleurBarreSelect option[value="Brun"]').prop('selected', true);
-            $("#choixcouleur").hide();
-        } else if (parametre_couleur_barre == "Noir") {
-            $('#couleurBarreSelect option[value="Noir"]').prop('selected', true);
-            $("#choixcouleur").hide();
-        } else if (parametre_couleur_barre == "Blanc") {
-            $('#couleurBarreSelect option[value="Blanc"]').prop('selected', true);
-            $("#choixcouleur").hide();
-        } else if ($.jStorage.get('couleur_barre') == null) {
-            $('#couleurBarreSelect option[value="Defaut"]').prop('selected', true);
-            $("#choixcouleur").hide();
-        } else if (parametre_couleur_barre.charAt(0) == "#") {
-            $('#couleurBarreSelect option[value="Personnalisation"]').prop('selected', true);
+        var couleur_barre_set = "Defaut";
+
+        if(parametre_couleur_barre !== null && parametre_couleur_barre.charAt(0) == "#") {
             $("#choixcouleur").show();
-            $("#colorpicker1").colpickSetColor($.jStorage.get('couleur_barre'));
+            var couleur_barre_set = "Personnalisation";
+            $("#colorpicker1").colpickSetColor(parametre_couleur_barre);
             $('#colorpicker1').attr("value", parametre_couleur_barre.substr(1));
             $('#colorpicker1').css("background-color", parametre_couleur_barre.substr(1));
         } else {
             $("#choixcouleur").hide();
+
+            if(parametre_couleur_barre !== null) {
+                var colorName = ["Defaut", "Bleu", "Rouge", "Vert", "Jaune", "Orange", "Rose", "Violet", "Brun", "Noir", "Blanc"];
+
+                for (var i=0; i < colorName.length; i++) {
+                    if(colorName[i] == parametre_couleur_barre) {
+                        var couleur_barre_set = colorName[i];
+                    }
+                }
+            }
         }
+
+        $('#couleurBarreSelect option[value="'+ couleur_barre_set +'"]').prop('selected', true);
+
         return true;
     },
     // Sauvegarder les paramètres
@@ -928,32 +909,17 @@ hacklol.settings = {
             }
             // couleur barre outils
             var couleur_barre_selected = $('#couleurBarreSelect option:selected').val();
-            if (couleur_barre_selected == "Defaut") {
-                $.jStorage.set('couleur_barre', 'Defaut');
-            } else if (couleur_barre_selected == "Bleu") {
-                $.jStorage.set('couleur_barre', 'Bleu');
-            } else if (couleur_barre_selected == "Rouge") {
-                $.jStorage.set('couleur_barre', 'Rouge');
-            } else if (couleur_barre_selected == "Vert") {
-                $.jStorage.set('couleur_barre', 'Vert');
-            } else if (couleur_barre_selected == "Jaune") {
-                $.jStorage.set('couleur_barre', 'Jaune');
-            } else if (couleur_barre_selected == "Orange") {
-                $.jStorage.set('couleur_barre', 'Orange');
-            } else if (couleur_barre_selected == "Rose") {
-                $.jStorage.set('couleur_barre', 'Rose');
-            } else if (couleur_barre_selected == "Violet") {
-                $.jStorage.set('couleur_barre', 'Violet');
-            } else if (couleur_barre_selected == "Brun") {
-                $.jStorage.set('couleur_barre', 'Brun');
-            } else if (couleur_barre_selected == "Noir") {
-                $.jStorage.set('couleur_barre', 'Noir');
-            } else if (couleur_barre_selected == "Blanc") {
-                $.jStorage.set('couleur_barre', 'Blanc');
-            } else if (couleur_barre_selected == "Personnalisation") {
-                var colorpicker_couleur_choisie = $("#colorpicker1").attr("value");
-                $.jStorage.set('couleur_barre', '#' + colorpicker_couleur_choisie.substr(0, 6));
+            var couleur_barre_set = "Defaut";
+
+            if(couleur_barre_selected == "Personnalisation") {
+                var couleur_barre_set = "#" + $("#colorpicker1").attr("value").substr(0, 6);
+            } else {
+                var couleur_barre_set = couleur_barre_selected;
             }
+
+            $.jStorage.set('couleur_barre', couleur_barre_set);
+
+            // language
             changeLng($("#languageSelect").val());
             // fin
             if ($.jStorage.storageAvailable()) { // si le LocalStorage est disponible
@@ -1043,54 +1009,30 @@ hacklol.settings = {
         hacklol.tools.deface("check");
         // couleur barre
         var parametre_couleur_barre = $.jStorage.get('couleur_barre');
-        if (parametre_couleur_barre == "Defaut") {
-            $("#toolbar-hacklol").css("background-color", "#bdc3c7");
-            $('#couleurBarreSelect option[value="Defaut"]').prop('selected', true);
-        } else if (parametre_couleur_barre == "Bleu") {
-            $("#toolbar-hacklol").css("background-color", "#3498db");
-            $('#couleurBarreSelect option[value="Bleu"]').prop('selected', true);
-        } else if (parametre_couleur_barre == "Rouge") {
-            $("#toolbar-hacklol").css("background-color", "#e74c3c");
-            $('#couleurBarreSelect option[value="Rouge"]').prop('selected', true);
-        } else if (parametre_couleur_barre == "Vert") {
-            $("#toolbar-hacklol").css("background-color", "#2ecc71");
-            $('#couleurBarreSelect option[value="Vert"]').prop('selected', true);
-        } else if (parametre_couleur_barre == "Jaune") {
-            $("#toolbar-hacklol").css("background-color", "#f1c40f");
-            $('#couleurBarreSelect option[value="Jaune"]').prop('selected', true);
-        } else if (parametre_couleur_barre == "Orange") {
-            $("#toolbar-hacklol").css("background-color", "#e88834");
-            $('#couleurBarreSelect option[value="Orange"]').prop('selected', true);
-        } else if (parametre_couleur_barre == "Rose") {
-            $("#toolbar-hacklol").css("background-color", "#f472d0");
-            $('#couleurBarreSelect option[value="Rose"]').prop('selected', true);
-        } else if (parametre_couleur_barre == "Violet") {
-            $("#toolbar-hacklol").css("background-color", "#9b59b6");
-            $('#couleurBarreSelect option[value="Violet"]').prop('selected', true);
-        } else if (parametre_couleur_barre == "Brun") {
-            $("#toolbar-hacklol").css("background-color", "#825a2c");
-            $('#couleurBarreSelect option[value="Brun"]').prop('selected', true);
-        } else if (parametre_couleur_barre == "Noir") {
-            $("#toolbar-hacklol").css("background-color", "black");
-            $('#couleurBarreSelect option[value="Noir"]').prop('selected', true);
-        } else if (parametre_couleur_barre == "Blanc") {
-            $("#toolbar-hacklol").css("background-color", "white");
-            $('#couleurBarreSelect option[value="Blanc"]').prop('selected', true);
-        } else if ($.jStorage.get('couleur_barre') == null) {
-            $("#toolbar-hacklol").css("background-color", "#bdc3c7");
-            $('#couleurBarreSelect option[value="Defaut"]').prop('selected', true);
-        } else if (parametre_couleur_barre.charAt(0) == "#") {
-            $("#toolbar-hacklol").css("background-color", $.jStorage.get('couleur_barre')); // change la couleur de la barre du haut
-            $('#couleurBarreSelect option[value="Personnalisation"]').prop('selected', true); // select Couleur personalisée... dans le menu déroulant
+        var couleur_barre_set = "#bdc3c7";
+        $("#choixcouleur").hide();
+
+        if(parametre_couleur_barre !== null && parametre_couleur_barre.charAt(0) == "#") {
+            var couleur_barre_set = parametre_couleur_barre;
             $('#colorpicker1').attr("value", parametre_couleur_barre.substr(1)); // affiche le code couleur dans le input avec le # supprimé
-            $("#colorpicker1").css("background-color", $.jStorage.get('couleur_barre')); // change la couleur du input
+            $("#colorpicker1").css("background-color", parametre_couleur_barre); // change la couleur du input
             $("#choixcouleur").show(); // affiche le choix de couleur
-            $("#colorpicker1").colpickSetColor($.jStorage.get('couleur_barre'));
+            $("#colorpicker1").colpickSetColor(parametre_couleur_barre);
         } else {
-            $("#toolbar-hacklol").css("background-color", "#bdc3c7");
-            $('#couleurBarreSelect option[value="Defaut"]').prop('selected', true);
+            if(parametre_couleur_barre !== null) {
+                var colorName = ["Defaut", "Bleu", "Rouge", "Vert", "Jaune", "Orange", "Rose", "Violet", "Brun", "Noir", "Blanc"];
+                var colorCode = ["#bdc3c7", "#3498db", "#e74c3c", "#2ecc71", "#f1c40f", "#e88834", "#f472d0", "#9b59b6", "#825a2c", "black", "white"];
+
+                for (var i=0; i < colorName.length; i++) {
+                    if(colorName[i] == parametre_couleur_barre) {
+                        var couleur_barre_set = colorCode[i];
+                    }
+                }
+            }
         }
-        $("#paint-tools").css("background-color", $("#toolbar-hacklol").css("background-color"));
+
+        $("#toolbar-hacklol").css("background-color", couleur_barre_set);
+        $("#paint-tools").css("background-color", couleur_barre_set);
         var contrastColor = hacklol.getContrastYIQ(hacklol.rgb2hex($("#toolbar-hacklol").css("background-color")));
         $("#toolbar-hacklol").css("color", contrastColor);
         $("#paint-tools").css("color", contrastColor);
