@@ -258,7 +258,8 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                     "not-compatible": "Sorry, this tool isn't compatible with your web browser.\nUpdate it, and try again."
                 },
                 console: "Hi! It seems that you are familiar with JavaScript console. If you know how to code, you can help to improve Hacklol Modifier on the Github repository: https://github.com/Eliastik/hacklol-modifier/",
-                outdatedversion: "It seems that you are not using the latest version of the app.<br /The latest version is:",
+                outdatedversion: "It seems that you are not using the latest version of <span class='appName'>the app</span>.<br />The latest version is:",
+                outdatedversioncache: "Try to clear the cache of your browser (<a href='https://www.lifewire.com/how-to-clear-cache-2617980' target='_blank'>more infos here</a>).",
                 "load": {
                     graphics: "Loading graphics data…",
                     audio: "Loading audio data…"
@@ -513,6 +514,7 @@ i18next.use(window.i18nextBrowserLanguageDetector).init({
                 },
                 console: "Salut ! Il semblerait que vous soyez familier avec la console Javascript.\nSi vous savez coder, vous pouvez aider à améliorer Hacklol Modifier sur le dépôt Github : https://github.com/Eliastik/hacklol-modifier/",
                 outdatedversion: "Il semblerait que vous n'utilisez pas la dernière version de <span class='appName'>l'application</span>.<br />La version actuelle est la :",
+                outdatedversioncache: "Essayez de vider le cache de votre navigateur (<a href='https://www.e-monsite.com/pages/tutoriels/trucs-et-astuces-pour-debuter/vider-le-cache-du-navigateur.html' target='_blank'>plus d'infos ici</a>).",
                 "load": {
                     graphics: "Chargement des données graphiques…",
                     audio: "Chargement des données audio…"

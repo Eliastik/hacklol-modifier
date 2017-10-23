@@ -187,7 +187,7 @@
         </div>
         <div id="a-propos-popup" class="white-popup mfp-hide">
             <h1><span data-i18n="about.title"></span> <span class="appName"></span></h1>
-            <div id="testVersionHacklol" style="font-size: 10pt; color: blue;"></div>
+            <p id="testVersionHacklol" style="font-size: 10pt; color: blue;"></p>
             <div><label data-i18n="about.version"></label> <span id="versionHacklolAbout"></span></div>
             <div><label data-i18n="about.date"></label> <span id="dateVersionHacklolAbout"></span></div>
             <a class="btn open-popup-link" href="#more-infos-popup"><span class="icon icon_infos"></span> <span data-i18n="about.advancedinfos"></span></a>

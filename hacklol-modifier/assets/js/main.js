@@ -78,12 +78,13 @@ var hacklol = {
     checkVersion: function() {
         var versionActuelle = hacklol.version;
         $("#testVersionHacklol").text("");
+        
         $.post(
             'versionHacklol.html',
             { },
             function(data) {
                 if(data.trim() != versionActuelle.trim()) {
-                    $("#testVersionHacklol").html(i18next.t('outdatedversion') + " " + data.trim() + ".");
+                    $("#testVersionHacklol").html("<span class='icon icon_infos'></span> " + i18next.t('outdatedversion') + " " + data.trim() + ". " + i18next.t('outdatedversioncache'));
                 }
             },
             'text'
