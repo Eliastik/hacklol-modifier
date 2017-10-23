@@ -404,8 +404,7 @@
         <!-- scripts page global -->
         <script type="text/javascript">
             urlPage_global = "<?php echo addslashes($url); ?>";
-            <?php
-                if(isset($lang)) { ?>
+            <?php if(isset($lang)) { ?>
                     $(document).ready(function() {
                        changeLng("<?php echo substr($lang, 0, 2); ?>");
                     });
