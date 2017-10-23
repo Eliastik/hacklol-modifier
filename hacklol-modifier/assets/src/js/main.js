@@ -78,7 +78,7 @@ var hacklol = {
     checkVersion: function() {
         var versionActuelle = hacklol.version;
         $("#testVersionHacklol").text("");
-        
+
         $.post(
             'versionHacklol.html',
             { },
@@ -1469,7 +1469,7 @@ $(document).ready(function() {
         else {
             hacklol.loadPage(url, true);
         }
-        
+
         $("#urlSiteChosen").text(url);
         hacklol.ui.closeWindow();
     });
