@@ -1,6 +1,6 @@
 <?php
 /* ProtectPlugin pour Hacklol Modifier, by Eliastik
-   Dernière modification : 25/06/2016 - Version 1.1 */
+   Dernière modification : 24/10/2017 - Version 1.2 */
 
 use Proxy\Plugin\AbstractPlugin;
 use Proxy\Event\ProxyEvent;
@@ -60,18 +60,21 @@ class ProtectPlugin extends AbstractPlugin {
     }
 
     public function onCompleted(ProxyEvent $event){
-        /* suppression des scripts antis-iframes
+        // Remove anti-iframes scripts
         $response = $event['response'];
         $str = $response->getContent();
 
-        $str = preg_replace('/if\(.*?window.*?parent.*?length.*\).*?\{.*?\}/i', '', $str);
+        /*$str = preg_replace('/if\(.*?window.*?parent.*?length.*\).*?\{.*?\}/i', '', $str);
         $str = preg_replace('/if\(*?top.*\).*?\{.*?\}/i', '', $str);
         $str = preg_replace('/.*?top.*?location.*?[\s.*?].*?;/i', '', $str);
         $str = preg_replace('/.*?window.*?self.*?;?/i', '', $str);
         $str = preg_replace('/.*?top.*?self.[\t\r\n\s]*?.*;?/i', '', $str);
-        $str = preg_replace('/.*?window.*?open.\(.*?,[\t\r\n\s]*?.*_top.*\)/i', '', $str);
+        $str = preg_replace('/.*?window.*?open.\(.*?,[\t\r\n\s]*?.*_top.*\)/i', '', $str); */
+        
+        // Fix for Facebook (and maybe other websites) :
+        $str = preg_replace('/<script.*?top.*?self.*?script>|<script.*?self.*?top.*?script>/i', '', $str);
 
-        $response->setContent($str);*/
+        $response->setContent($str);
     }
 }
 function is_url_ip($url) {
