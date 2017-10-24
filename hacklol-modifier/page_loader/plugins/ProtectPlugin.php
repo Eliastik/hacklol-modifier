@@ -64,7 +64,7 @@ class ProtectPlugin extends AbstractPlugin {
         $response = $event['response'];
         $str = $response->getContent();
 
-        /*$str = preg_replace('/if\(.*?window.*?parent.*?length.*\).*?\{.*?\}/i', '', $str);
+        /* $str = preg_replace('/if\(.*?window.*?parent.*?length.*\).*?\{.*?\}/i', '', $str);
         $str = preg_replace('/if\(*?top.*\).*?\{.*?\}/i', '', $str);
         $str = preg_replace('/.*?top.*?location.*?[\s.*?].*?;/i', '', $str);
         $str = preg_replace('/.*?window.*?self.*?;?/i', '', $str);
@@ -73,6 +73,9 @@ class ProtectPlugin extends AbstractPlugin {
         
         // Fix for Facebook (and maybe other websites) :
         $str = preg_replace('/<script.*?top.*?self.*?script>|<script.*?self.*?top.*?script>/i', '', $str);
+        
+        // Remove target attribute (prevent opening links in new tab) :
+        $str = preg_replace('/\s*target=("|\'|\s|)(_blank|_top|_parent)("|\'|\s)/i', '', $str);
 
         $response->setContent($str);
     }
