@@ -29,7 +29,7 @@ class ProtectPlugin extends AbstractPlugin {
                     die("Votre adresse IP est bannie. Vous ne pouvez pas utiliser ". $appName);
                 }
             }
-            
+
             $url = $event['request']->getUri();
 
             /* on vérifie la validité de l'URL (vérifie si le site est appelé à partir de son IP)
@@ -70,10 +70,10 @@ class ProtectPlugin extends AbstractPlugin {
         $str = preg_replace('/.*?window.*?self.*?;?/i', '', $str);
         $str = preg_replace('/.*?top.*?self.[\t\r\n\s]*?.*;?/i', '', $str);
         $str = preg_replace('/.*?window.*?open.\(.*?,[\t\r\n\s]*?.*_top.*\)/i', '', $str); */
-        
+
         // Fix for Facebook (and maybe other websites) :
-        $str = preg_replace('/<script.*?top.*?self.*?script>|<script.*?self.*?top.*?script>/i', '', $str);
-        
+        $str = preg_replace('/<script.*?if\s*\(\s*top.*?self.*?\).*?script>|<script.*?if\s*\(\s*self.*?top.*?\).*?script>/i', '', $str);
+
         // Remove target attribute (prevent opening links in new tab) :
         $str = preg_replace('/\s*target=("|\'|\s|)(_blank|_top|_parent)("|\'|\s)/i', '', $str);
 
