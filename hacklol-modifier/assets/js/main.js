@@ -134,7 +134,7 @@ var hacklol = {
     reloadPage: function() {
         var parametre_hacklol_pl = $.jStorage.get('hacklol_page_loader');
         hacklol.tools.edit("stop");
-        
+
         if(hacklol.disablePageLoaderByDefault == true && parametre_hacklol_pl !== "Oui") {
             hacklol.loadPage(hacklol.urlPage, false);
         } else if (parametre_hacklol_pl == "Oui") {
@@ -144,7 +144,39 @@ var hacklol = {
         } else {
             hacklol.loadPage(hacklol.urlPage, true);
         }
-        
+
+        return true;
+    },
+    changeSite: function() {
+        var parametre_hacklol_pl = $.jStorage.get('hacklol_page_loader');
+        var url = $("#urlChangeSite").val();
+        $("#errorUrlChange").text("");
+        $("#errorUrlChange").hide();
+        hacklol.tools.edit("stop");
+        if(url.trim() == "") {
+            $("#errorUrlChange").html("<span class='icon icon_error'></span> " + i18next.t('changesite.empty'));
+            $("#errorUrlChange").show();
+            return false;
+        } else if(hacklol.validateUrl(url) == false) {
+            $("#errorUrlChange").html("<span class='icon icon_error'></span> " + i18next.t('changesite.errorurl'));
+            $("#errorUrlChange").show();
+            return false;
+        }
+
+        if(hacklol.disablePageLoaderByDefault == true && parametre_hacklol_pl !== "Oui") {
+            hacklol.loadPage(url, false);
+        } else if (parametre_hacklol_pl == "Oui") {
+            hacklol.loadPage(url, true);
+        } else if (parametre_hacklol_pl == "Non") {
+            hacklol.loadPage(url, false);
+        } else {
+            hacklol.loadPage(url, true);
+        }
+
+        $("#urlSiteChosen").text(url);
+        urlPage_global = url;
+        hacklol.urlPage = url;
+        hacklol.ui.closeWindow();
         return true;
     },
     creerOutil: function(titre, fonction, fermerFenetre, idButton, style_css) {
@@ -1427,35 +1459,13 @@ $(document).ready(function() {
     });
     // Changer de site
     $("#change_site_ok").click(function() {
-        var parametre_hacklol_pl = $.jStorage.get('hacklol_page_loader');
-        var url = $("#urlChangeSite").val();
-        $("#errorUrlChange").text("");
-        $("#errorUrlChange").hide();
-        hacklol.tools.edit("stop");
-        if(url.trim() == "") {
-            $("#errorUrlChange").html("<span class='icon icon_error'></span> " + i18next.t('changesite.empty'));
-            $("#errorUrlChange").show();
-            return;
-        } else if(hacklol.validateUrl(url) == false) {
-            $("#errorUrlChange").html("<span class='icon icon_error'></span> " + i18next.t('changesite.errorurl'));
-            $("#errorUrlChange").show();
-            return;
+        hacklol.changeSite();
+    });
+    // appui bouton entrer changer de site
+    $('#urlChangeSite').keypress(function(e){
+        if(e.which == 13) {
+            hacklol.changeSite();
         }
-        
-        if(hacklol.disablePageLoaderByDefault == true && parametre_hacklol_pl !== "Oui") {
-            hacklol.loadPage(url, false);
-        } else if (parametre_hacklol_pl == "Oui") {
-            hacklol.loadPage(url, true);
-        } else if (parametre_hacklol_pl == "Non") {
-            hacklol.loadPage(url, false);
-        } else {
-            hacklol.loadPage(url, true);
-        }
-
-        $("#urlSiteChosen").text(url);
-        urlPage_global = url;
-        hacklol.urlPage = url;
-        hacklol.ui.closeWindow();
     });
     $("#urlChangeSite").val(hacklol.urlPage);
     // Defacer site
