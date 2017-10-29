@@ -134,12 +134,17 @@ var hacklol = {
     reloadPage: function() {
         var parametre_hacklol_pl = $.jStorage.get('hacklol_page_loader');
         hacklol.tools.edit("stop");
-        if (parametre_hacklol_pl == "Non") {
+        
+        if(hacklol.disablePageLoaderByDefault == true && parametre_hacklol_pl !== "Oui") {
             hacklol.loadPage(hacklol.urlPage, false);
-        }
-        else {
+        } else if (parametre_hacklol_pl == "Oui") {
+            hacklol.loadPage(hacklol.urlPage, true);
+        } else if (parametre_hacklol_pl == "Non") {
+            hacklol.loadPage(hacklol.urlPage, false);
+        } else {
             hacklol.loadPage(hacklol.urlPage, true);
         }
+        
         return true;
     },
     creerOutil: function(titre, fonction, fermerFenetre, idButton, style_css) {
@@ -1436,14 +1441,20 @@ $(document).ready(function() {
             $("#errorUrlChange").show();
             return;
         }
-        if (parametre_hacklol_pl == "Non") {
+        
+        if(hacklol.disablePageLoaderByDefault == true && parametre_hacklol_pl !== "Oui") {
             hacklol.loadPage(url, false);
-        }
-        else {
+        } else if (parametre_hacklol_pl == "Oui") {
+            hacklol.loadPage(url, true);
+        } else if (parametre_hacklol_pl == "Non") {
+            hacklol.loadPage(url, false);
+        } else {
             hacklol.loadPage(url, true);
         }
 
         $("#urlSiteChosen").text(url);
+        urlPage_global = url;
+        hacklol.urlPage = url;
         hacklol.ui.closeWindow();
     });
     $("#urlChangeSite").val(hacklol.urlPage);
