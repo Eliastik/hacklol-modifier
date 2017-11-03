@@ -369,15 +369,17 @@ hacklol.tools = {
     edit: function(type) {
         var parametre_hacklol_pl = $.jStorage.get('hacklol_page_loader');
         if (type == "edit") {
-            if(parametre_hacklol_pl == "Non" && confirm(i18next.t('edit.confirm') + " " + hacklol.hacklolPageLoaderName + " " + i18next.t('edit.confirm2'))) {
-                try {
-                    document.body.contentEditable = true;
-                    $("#arret_modif_page").show();
-                    $("#modif_page").hide();
-                    hacklol.ui.closeToolbar();
-                    hacklol.tools.paint("stop");
-                } catch(e) { alert(i18next.t('edit.error')); }
-            } else if(parametre_hacklol_pl != "Non") {
+            if(parametre_hacklol_pl == "Non" || hacklol.disablePageLoaderByDefault == true && parametre_hacklol_pl !== "Oui") {
+                if(confirm(i18next.t('edit.confirm') + " " + hacklol.hacklolPageLoaderName + " " + i18next.t('edit.confirm2'))) {
+                    try {
+                        document.body.contentEditable = true;
+                        $("#arret_modif_page").show();
+                        $("#modif_page").hide();
+                        hacklol.ui.closeToolbar();
+                        hacklol.tools.paint("stop");
+                    } catch(e) { alert(i18next.t('edit.error')); }
+                }
+            } else if(parametre_hacklol_pl != "Non" || hacklol.disablePageLoaderByDefault != true && parametre_hacklol_pl !== "Non") {
                 try {
                     document.getElementById("hacklol-iframe").contentEditable = true;
                     document.getElementById('hacklol-iframe').contentWindow.document.body.contentEditable = true;
@@ -390,7 +392,7 @@ hacklol.tools = {
                 } catch(e) { alert(i18next.t('edit.error')); }
             }
         } else if (type == "stop") {
-            if(parametre_hacklol_pl == "Non") {
+            if(parametre_hacklol_pl == "Non" || hacklol.disablePageLoaderByDefault == true && parametre_hacklol_pl !== "Oui") {
                 try {
                     document.body.contentEditable = false;
                     $("#arret_modif_page").hide();
