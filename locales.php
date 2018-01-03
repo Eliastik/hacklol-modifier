@@ -132,6 +132,7 @@
     }
     
     $filename = 'default';
+    $lang = $lang . ".utf-8";
     putenv("LANGUAGE=$lang");
     putenv("LC_ALL=$lang");
     setlocale(LC_ALL, $lang);
