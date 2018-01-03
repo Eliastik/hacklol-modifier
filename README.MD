@@ -13,7 +13,7 @@ L'application est disponible en français et en anglais.
 
 * By Eliastik ( http://www.eliastiksofts.com )
 * Langages : HTML, CSS, Javascript, PHP
-* Version actuelle : 1.4.1 (23/10/2017)
+* Version actuelle : 1.4.1 REV1 (03/01/2018)
 * Dépôt Github : https://github.com/Eliastik/hacklol-modifier
 * Licence : GNU GPL 3.0
 
@@ -73,6 +73,9 @@ PHP-Proxy est installé à l'aide de composer dans hacklol-modifier/page_loader.
 Le nom de l'application est modifiable en éditant le fichier config.php et hacklol-modifier/assets/src/js/main.js.
 
 ### Journal des mises à jour
+
+* Version 1.4.1 REV1 (03/01/2018) :
+    - Correction de bugs mineurs (pas de montée de version).
 
 * Version 1.4.1 (23/10/2017) :
     - Ajout de deux nouveaux Easter Eggs, à vous de les trouver !
@@ -143,7 +146,7 @@ Choses qui sont planifiées pour être ajoutées à l'application (peut-être) :
 
 ### Licence
 
-Copyright (C) 2014-2017 Eliastik (eliastiksofts.com)
+Copyright (C) 2014-2018 Eliastik (eliastiksofts.com)
 
 Ce programme est un logiciel libre ; vous pouvez le redistribuer ou le modifier suivant les termes de la GNU General Public License telle que publiée par la Free Software Foundation ; soit la version 3 de la licence, soit (à votre gré) toute version ultérieure.
 
@@ -163,7 +166,7 @@ The app is available in english and in french.
 
 * By Eliastik ( http://www.eliastiksofts.com )
 * Languages : HTML, CSS, Javascript, PHP
-* Current version: 1.4.1 (23/10/2017)
+* Current version: 1.4.1 REV1 (03/01/2018)
 * Github repository: https://github.com/Eliastik/hacklol-modifier
 * License: GNU GPL 3.0
 
@@ -223,6 +226,10 @@ PHP-Proxy is installed via composer in the folder hacklol-modifier/page_loader. 
 The app name is editable by modifying the files config.php and hacklol-modifier/assets/src/js/main.js.
 
 ### Changelog
+
+* Version 1.4.1 REV1 (03/01/2018) :
+    - Minor bug fixes (no version upgrade).
+    
 * Version 1.4.1 (23/10/2017) :
     - Added two new Easter Eggs, it's up to you to find them!
     - Bugs fixes and adjustments (Hacklol Modifier) :
@@ -292,7 +299,7 @@ Things that are planned to be added to the application (maybe):
 
 ### License
 
-Copyright (C) 2014-2017 Eliastik (eliastiksofts.com)
+Copyright (C) 2014-2018 Eliastik (eliastiksofts.com)
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
