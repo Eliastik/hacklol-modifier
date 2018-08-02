@@ -13,7 +13,7 @@ L'application est disponible en français et en anglais.
 
 * By Eliastik ( http://www.eliastiksofts.com )
 * Langages : HTML, CSS, Javascript, PHP
-* Version actuelle : 1.4.1 REV1 (03/01/2018)
+* Version actuelle : 1.4.1 REV2 (2/08/2018)
 * Dépôt Github : https://github.com/Eliastik/hacklol-modifier
 * Licence : GNU GPL 3.0
 
@@ -73,6 +73,9 @@ PHP-Proxy est installé à l'aide de composer dans hacklol-modifier/page_loader.
 Le nom de l'application est modifiable en éditant le fichier config.php et hacklol-modifier/assets/src/js/main.js.
 
 ### Journal des mises à jour
+
+* Version 1.4.1 REV2 (2/08/2018) :
+    - Mise à jour de PHP-Proxy (Hacklol Page Loader) et autres corrections mineures (pas de montée de version).
 
 * Version 1.4.1 REV1 (03/01/2018) :
     - Correction de bugs mineurs (pas de montée de version).
@@ -166,7 +169,7 @@ The app is available in english and in french.
 
 * By Eliastik ( http://www.eliastiksofts.com )
 * Languages : HTML, CSS, Javascript, PHP
-* Current version: 1.4.1 REV1 (03/01/2018)
+* Current version: 1.4.1 REV2 (2/08/2018)
 * Github repository: https://github.com/Eliastik/hacklol-modifier
 * License: GNU GPL 3.0
 
@@ -226,6 +229,9 @@ PHP-Proxy is installed via composer in the folder hacklol-modifier/page_loader. 
 The app name is editable by modifying the files config.php and hacklol-modifier/assets/src/js/main.js.
 
 ### Changelog
+
+* Version 1.4.1 REV2 (2/08/2018) :
+    - Update of PHP-Proxy (Hacklol Page Loader) and others minor fixes (no version upgrade).
 
 * Version 1.4.1 REV1 (03/01/2018) :
     - Minor bug fixes (no version upgrade).
