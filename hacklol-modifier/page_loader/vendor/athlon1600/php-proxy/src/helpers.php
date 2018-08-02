@@ -7,6 +7,21 @@ function clean_content_type($content_type){
 	return trim(preg_replace('@;.*@', '', $content_type));
 }
 
+function starts_with($haystack, $needles){
+	foreach( (array)$needles as $n){
+		if($n !== '' && stripos($haystack, $n) === 0){
+			return true;
+		}
+	}
+	
+	return false;
+}
+
+function str_before($subject, $search){
+	return $search === '' ? $subject : explode($search, $subject)[0];
+}
+
+
 function is_html($content_type){
 	return clean_content_type($content_type) == 'text/html';
 }
@@ -68,15 +83,11 @@ function app_url(){
 }
 
 function render_string($str, $vars = array()){
-
 	preg_match_all('@{([a-z0-9_]+)}@s', $str, $matches, PREG_SET_ORDER);
 	
 	foreach($matches as $match){
-	
 		extract($vars, EXTR_PREFIX_ALL, "_var");
-		
 		$var_val = ${"_var_".$match[1]};
-		
 		$str = str_replace($match[0], $var_val, $str);
 	}
 	
