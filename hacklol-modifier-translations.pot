@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-23 18:00+0200\n"
+"POT-Creation-Date: 2018-08-02 23:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,11 +45,11 @@ msgstr ""
 msgid "hacklol-official"
 msgstr ""
 
-#: index.php:74
+#: index.php:75
 msgid "new-version-available"
 msgstr ""
 
-#: index.php:75
+#: index.php:76
 msgid "download-new-version"
 msgstr ""
 
