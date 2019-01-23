@@ -21,20 +21,22 @@ $config['url_mode'] = 3;
 
 // plugins to load - plugins will be loaded in this exact order as in array
 $config['plugins'] = array(
-	'HeaderRewrite',
-	'Stream',
-	// ^^ do not disable any of the plugins above
-	'Cookie',
-	'Proxify',
-	'UrlForm',
+    'HeaderRewrite',
+    'Stream',
+    // ^^ do not disable any of the plugins above
+    'Cookie',
+    'Proxify',
+    'UrlForm',
     'Protect', // Enable Protect plugin for Hacklol Modifier, located in ./plugins
     'Log' // Enable Log plugin, logs located in ./storage
 );
 
 // additional curl options to go with each request
 $config['curl'] = array(
-	// CURLOPT_PROXY => '',
-	// CURLOPT_CONNECTTIMEOUT => 5
+    // CURLOPT_PROXY => '',
+    // CURLOPT_CONNECTTIMEOUT => 5
+    CURLOPT_PROTOCOLS => CURLPROTO_HTTP | CURLPROTO_HTTPS,
+    CURLOPT_REDIR_PROTOCOLS => CURLPROTO_HTTP | CURLPROTO_HTTPS
 );
 
 //$config['replace_title'] = 'Google Search';
