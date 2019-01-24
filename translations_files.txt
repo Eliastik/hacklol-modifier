@@ -1,11 +1,12 @@
+./blacklistedWebsites.php
 ./locales.php
 ./index.php
 ./hacklol-modifier/page_loader/index.php
 ./hacklol-modifier/page_loader/config.php
 ./hacklol-modifier/page_loader/plugins/ProtectPlugin.php
+./hacklol-modifier/page_loader/plugins/blacklistedWebsites.php
 ./hacklol-modifier/page_loader/plugins/TestPlugin.php
 ./hacklol-modifier/page_loader/plugins/UrlFormPlugin.php
-./hacklol-modifier/page_loader/plugins/ban_ip.php
 ./hacklol-modifier/page_loader/vendor/athlon1600/php-proxy-plugin-bundle/src/XHamsterPlugin.php
 ./hacklol-modifier/page_loader/vendor/athlon1600/php-proxy-plugin-bundle/src/XVideosPlugin.php
 ./hacklol-modifier/page_loader/vendor/athlon1600/php-proxy-plugin-bundle/src/PornhubPlugin.php
@@ -47,3 +48,4 @@
 ./hacklol-modifier/hacklol-204.php
 ./hacklol-modifier/hacklol-modifier.php
 ./config.php
+./ban_ip.php

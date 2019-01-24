@@ -1,7 +1,7 @@
 <?php
-/* Hacklol Modifier 1.4
+/* Hacklol Modifier 1.4.1
  *
- * Copyright (C) 2014-2018 Eliastik (eliastiksofts.com)
+ * Copyright (C) 2014-2019 Eliastik (eliastiksofts.com)
  *
  * This file is part of Hacklol Modifier.
  *
@@ -24,6 +24,8 @@ require("../config.php");
 $path = "../locale";
 require("../locales.php");
 
+$fileBlacklist = "../blacklistedWebsites.php";
+$fileBanIP = "../ban_ip.php";
 $url = null;
 $valid = null;
 $recaptchaVerifReponse = false;
@@ -32,6 +34,7 @@ if(isset($_POST['siteurl']) && isset($_POST['valider'])) {
     if(isset($_POST['siteurl'])) $url = $_POST['siteurl']; // Obtiens l'URL (sans filtrage !)
     if(isset($_POST['valider'])) $valid = $_POST['valider']; // Permet de savoir si le bouton de validation a été sélectionné
     if(isset($_POST['g-recaptcha-response'])) $recaptchaVerifReponse = isValid($_POST['g-recaptcha-response']); // Vérifie la réponse au ReCapatcha
+    $verifInBl = in_blacklist($url, $fileBlacklist);
 }
 // $maintenance vaut 1 si Hacklol Modifier est en maintenance
 $maintenance = 0;
@@ -39,7 +42,11 @@ $ipSansMaintenance = ''; // Mettre l'ip qui pourra passer la maintenance (idéal
 // Vérification des erreurs du formulaire (11 possibles) - on set les variables des erreurs à false
 $nbErreursForm = 0;
 $erreurMaintenance = false; $erreurIsBan = false; $erreurButtonError = false; $erreurFlood = false; $erreurFormIncomplete = false; $erreurUrlIncorrect = false; $erreurUrlIP = false; $erreurUrlHacklol = false; $erreurUrlInBlacklist = false; $erreurRecaptchaIsNull = false; $erreurRecaptchaIsFalse = false;
-if($maintenance == 1 && get_ip() != $ipSansMaintenance) {
+if(is_ban(get_ip(), $fileBanIP) == true) {
+    $erreurIsBan = true;
+    $nbErreursForm++;
+}
+else if($maintenance == 1 && get_ip() != $ipSansMaintenance) {
     $erreurMaintenance = true;
     $nbErreursForm++;
 }
@@ -60,7 +67,10 @@ else {
             if(is_url_ip($url) === true) {
                 $erreurUrlIP = true;
                 $nbErreursForm++;
-            } else {
+            } else if(filter_var("http://" . $url, FILTER_VALIDATE_URL) !== false) {
+                $url = "http://" . $url;
+                $verifInBl = in_blacklist($url, $fileBlacklist);
+            }  else {
                 $erreurUrlIncorrect = true;
                 $nbErreursForm++;
             }
@@ -72,6 +82,11 @@ else {
         // Vérifie que l'URL est une URL d'Hacklol (Interdit)
         if(strpos($url, "http://hacklol.cwebh.org") !== false || strpos($url, "http://www.hacklol.cwebh.org") !== false || strpos($url, "http://hacklol.c-wh.org") !== false || strpos($url, "http://www.hacklol.c-wh.org") !== false || strpos($url, "http://hacklol.olympe.in") !== false || strpos($url, "http://hacklol.eliastiksofts.com") !== false || strpos($url, "https://hacklol.eliastiksofts.com") !== false) {
             $erreurUrlHacklol = true;
+            $nbErreursForm++;
+        }
+        // Vérifie que le site est en Blacklist (Interdit)
+        else if($verifInBl[0] == true) {
+            $erreurUrlInBlacklist = true;
             $nbErreursForm++;
         }
     }
@@ -126,37 +141,41 @@ if($nbErreursForm > 0) {
 
                 echo"<ul>";
 
-                if($erreurMaintenance == true) {
-                    echo "<li>". $hacklolConfig['appName'] . " " . _("error-maintenance") . "</li>";
-                }
+                if($erreurIsBan) {
+                    echo "<li>". _("error-banned") . "</li>";
+                } else {
+                    if($erreurMaintenance == true) {
+                        echo "<li>". $hacklolConfig['appName'] . " " . _("error-maintenance") . "</li>";
+                    }
 
-                if($erreurFlood == true) {
-                    echo "<li>" . _("anti-flood")  . " " . $hacklolConfig['appName'] .".</li>";
-                }
+                    if($erreurFlood) {
+                        echo "<li>" . _("anti-flood")  . " " . $hacklolConfig['appName'] .".</li>";
+                    }
 
-                if($erreurButtonError == true) {
-                    echo "<li>" . _("error-form-not-submited") . "</li>";
-                }
-                if($erreurFormIncomplete == true) {
-                    echo "<li>" . _("error-form-field-empty") . "</li>";
-                }
-                if($erreurUrlIncorrect == true) {
-                    echo "<li>" . _("error-url-incorrect") . "</li>";
-                }
-                if($erreurUrlIP == true) {
-                    echo "<li>" . _("error-url-ip") . "</li>";
-                }
-                if($erreurUrlHacklol == true) {
-                    echo "<li>" . _("error-hacklol") . " " . $hacklolConfig['appName'] ."…</li>";
-                }
-                if($erreurUrlInBlacklist == true) {
-                    echo '<li>' . _("error-access") . ' '. $hacklolConfig['appName'] .' ' . _("error-access-forbidden") . '<br /><strong>' . _("error-detected-keyword") . '</strong> '. htmlspecialchars($verifInBl[1]) .'.</li>';
-                }
-                if($erreurRecaptchaIsNull == true) {
-                    echo "<li>" . _("error-recaptcha-timeout") . "</li>";
-                }
-                if($erreurRecaptchaIsFalse == true) {
-                    echo "<li>" . _("error-false-recaptcha") . "</li>";
+                    if($erreurButtonError) {
+                        echo "<li>" . _("error-form-not-submited") . "</li>";
+                    }
+                    if($erreurFormIncomplete) {
+                        echo "<li>" . _("error-form-field-empty") . "</li>";
+                    }
+                    if($erreurUrlIncorrect) {
+                        echo "<li>" . _("error-url-incorrect") . "</li>";
+                    }
+                    if($erreurUrlIP) {
+                        echo "<li>" . _("error-url-ip") . "</li>";
+                    }
+                    if($erreurUrlHacklol) {
+                        echo "<li>" . _("error-hacklol") . " " . $hacklolConfig['appName'] ."…</li>";
+                    }
+                    if($erreurUrlInBlacklist) {
+                        echo '<li>' . _("error-access") . ' '. $hacklolConfig['appName'] .' ' . _("error-access-forbidden") . '<br /><strong>' . _("error-detected-keyword") . '</strong> '. htmlspecialchars($verifInBl[1]) .'.</li>';
+                    }
+                    if($erreurRecaptchaIsNull) {
+                        echo "<li>" . _("error-recaptcha-timeout") . "</li>";
+                    }
+                    if($erreurRecaptchaIsFalse) {
+                        echo "<li>" . _("error-false-recaptcha") . "</li>";
+                    }
                 }
             ?>
             </ul>
@@ -173,7 +192,7 @@ else {
 
     require('hacklol-modifier.php');
 }
-// Fonction qui permet de vérifier la réponse du captcha - source : http://www.grafikart.fr/tutoriels/php/recaptcha-anti-spam-346
+// http://www.grafikart.fr/tutoriels/php/recaptcha-anti-spam-346
 function isValid($code, $ip = null)
 {
     if (empty($code)) {
@@ -245,7 +264,46 @@ function validate_ip($ip) {
     $ip = $ip;
     return true;
 }
-// Pour savoir si l'URL est une adresse IP
+// Function to know if the site is in blacklist
+// Warning: returns an array with the first value of $inBlacklist and second the value of the detected keyword
+function in_blacklist($urlSite, $file) {
+    require("" . $file);
+
+    $inBlacklist = false;
+
+    if(filter_var($urlSite, FILTER_VALIDATE_URL) === false) {
+        if(filter_var("http://" . $urlSite, FILTER_VALIDATE_URL) !== false) {
+            $domain = parse_url("http://" . $urlSite, PHP_URL_HOST);
+        } else {
+            return array(true, "");
+        }
+    } else {
+        $domain = parse_url($urlSite, PHP_URL_HOST);
+    }
+
+    foreach($sites_interdits as $site) {
+        if(stripos($domain, $site) !== false) {
+            $inBlacklist = true;
+            return array($inBlacklist, $site);
+        }
+    }
+
+    return $inBlacklist;
+}
+function is_ban($ip_visiteur, $file) {
+    require("" . $file);
+
+    $ban = false;
+
+    foreach($ip_ban_hacklol_modifier as $ip_interdite) {
+        if($ip_interdite == $ip_visiteur) {
+            $ban = true;
+            return $ban;
+        }
+    }
+
+    return $ban;
+}
 function is_url_ip($url) {
     $hostname = parse_url($url, PHP_URL_HOST);
     $long = ip2long($hostname);

@@ -13,7 +13,7 @@ L'application est disponible en français et en anglais.
 
 * By Eliastik ( http://www.eliastiksofts.com )
 * Langages : HTML, CSS, Javascript, PHP
-* Version actuelle : 1.4.1 REV2 (2/08/2018)
+* Version actuelle : 1.4.1 REV3 (24/01/2019)
 * Dépôt Github : https://github.com/Eliastik/hacklol-modifier
 * Licence : GNU GPL 3.0
 
@@ -169,7 +169,7 @@ The app is available in english and in french.
 
 * By Eliastik ( http://www.eliastiksofts.com )
 * Languages : HTML, CSS, Javascript, PHP
-* Current version: 1.4.1 REV2 (2/08/2018)
+* Current version: 1.4.1 REV3 (24/01/2019)
 * Github repository: https://github.com/Eliastik/hacklol-modifier
 * License: GNU GPL 3.0
 

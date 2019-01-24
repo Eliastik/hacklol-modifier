@@ -1,19 +1,27 @@
 <?php
 /* ProtectPlugin for Hacklol Modifier, by Eliastik
-   Latest modification: 03/01/2018 - Version 1.2.1 */
+   Latest modification: 24/01/2019 - Version 1.3
+   Some parts are from: https://github.com/Athlon1600/php-proxy-plugin-bundle/pull/2/files
+*/
 
 use Proxy\Plugin\AbstractPlugin;
 use Proxy\Event\ProxyEvent;
+
+$_SERVER["REMOTE_ADDR"] = get_ip();
 
 class ProtectPlugin extends AbstractPlugin {
 
     protected $url_pattern;
 
     public function onBeforeRequest(ProxyEvent $event){
+        $fileBlacklist = "../../blacklistedWebsites.php";
+        $fileBanIP = "../../ban_ip.php";
+
         // start the session
         session_start();
         // appName
         include("../../config.php");
+
         if(isset($hacklolConfig)) {
             $appName = $hacklolConfig['pageLoaderName'];
             $hacklolModifierName = $hacklolConfig['appName'];
@@ -21,29 +29,30 @@ class ProtectPlugin extends AbstractPlugin {
             $appName = "Hacklol Page Loader";
             $hacklolModifierName = "Hacklol Modifier";
         }
+
         if(isset($_SESSION['urlPageHacklol'])) {
-            // on verifie si l'utilisateur n'est pas banni au niveau de l'ip
-            require('ban_ip.php');
-            foreach($ip_ban_page_loader as $ip_interdite) {
-                if($ip_interdite == get_ip()) {
-                    die("Votre adresse IP est bannie. Vous ne pouvez pas utiliser ". $appName);
-                }
+            if(is_ban(get_ip(), $fileBanIP)) {
+                die("Votre adresse IP est bannie. Vous ne pouvez pas utiliser ". $appName);
             }
 
-            $url = $event['request']->getUri();
+            $url = trim($event['request']->getUri());
+            $blacklisted = in_blacklist($url, $fileBlacklist);
 
-            /* on vérifie la validité de l'URL (vérifie si le site est appelé à partir de son IP)
-            if(filter_var($url, FILTER_VALIDATE_URL) === false) {
+            if(is_url_ip($url) === true) {
                 echo render_template("./templates/main.php", array('version' => 0,
-                        'error_protect_plugin' => 'URL invalide. <a href="#" onclick="javascript:history.back();">Retourner &agrave; la page pr&eacute;c&eacute;dente</a><br />Invalid URL. <a href="#" onclick="javascript:history.back();">Back to the previous page</a>'
-                        ));
-                        die();
-            }
-            else*/ if(is_url_ip($url) === true) {
+                    'error_protect_plugin' => 'Impossible d\'accéder à une URL de type adresse IP. <a href="#" onclick="javascript:history.back();">Retourner &agrave; la page pr&eacute;c&eacute;dente</a><br />It\'s not possible to access to an IP address URL. <a href="#" onclick="javascript:history.back();">Back to the previous page</a>'
+                ));
+                die();
+            } else if(is_invalid_url($url)) {
                 echo render_template("./templates/main.php", array('version' => 0,
-                        'error_protect_plugin' => 'Impossible d\'accéder à une URL de type adresse IP. <a href="#" onclick="javascript:history.back();">Retourner &agrave; la page pr&eacute;c&eacute;dente</a><br />It\'s impossible to access a website with its IP adress. <a href="#" onclick="javascript:history.back();">Back to the previous page</a>'
-                        ));
-                        die();
+                    'error_protect_plugin' => 'Adresse URL invalide. <a href="#" onclick="javascript:history.back();">Retourner &agrave; la page pr&eacute;c&eacute;dente</a><br />Invalid URL address. <a href="#" onclick="javascript:history.back();">Back to the previous page</a>'
+                ));
+                die();
+            } else if($blacklisted[0] === true) {
+                echo render_template("./templates/main.php", array('version' => 0,
+                    'error_protect_plugin' => 'L\'accès à ce site avec ' . $appName .' a été interdit pour des raisons de sécurité. <strong>Mot clef détecté :</strong> ' . htmlentities($blacklisted[1]) . '. <a href="#" onclick="javascript:history.back();">Retourner &agrave; la page pr&eacute;c&eacute;dente</a>.<br />The access to this website with ' . $appName .' is banned for security reasons. <strong>Detected keyword:</strong> ' . htmlentities($blacklisted[1]) . '. <a href="#" onclick="javascript:history.back();">Back to the previous page</a>.'
+                ));
+                die();
             }
         } else {
             echo render_template("./templates/main.php", array('version' => 0,
@@ -51,12 +60,6 @@ class ProtectPlugin extends AbstractPlugin {
             ));
             die();
         }
-    }
-
-    public function onHeadersReceived(ProxyEvent $event){
-    }
-
-    public function onCurlWrite(ProxyEvent $event){
     }
 
     public function onCompleted(ProxyEvent $event){
@@ -81,13 +84,113 @@ class ProtectPlugin extends AbstractPlugin {
     }
 }
 function is_url_ip($url) {
-    $hostname = parse_url($url, PHP_URL_HOST);
+    if(filter_var($url, FILTER_VALIDATE_URL) === false) {
+        if(filter_var("http://" . $url, FILTER_VALIDATE_URL) !== false) {
+            $hostname = parse_url("http://" . $url, PHP_URL_HOST);
+        } else {
+            return true;
+        }
+    } else {
+        $hostname = parse_url($url, PHP_URL_HOST);
+    }
+
     $long = ip2long($hostname);
-    if (filter_var($hostname, FILTER_VALIDATE_IP) === FALSE || $long == -1 || $long === FALSE) {
+    if(filter_var($hostname, FILTER_VALIDATE_IP) === FALSE || $long == -1 || $long === FALSE) {
         return false;
     } else {
         return true;
     }
+}
+/* Parts from: https://github.com/Athlon1600/php-proxy-plugin-bundle/pull/2/files */
+function is_invalid_url($url) {
+    $url_host = preg_replace('/^www\./is', '', trim(parse_url($url, PHP_URL_HOST)));
+    $app_host = preg_replace('/^www\./is', '', trim(parse_url(app_url(), PHP_URL_HOST)));
+
+    // Do not proxify invalid URLs
+    if(!filter_var($url, FILTER_VALIDATE_URL)){
+        return true;
+    }
+
+    // Do not proxify URLs with "/.htpasswd" or "/../" (hidden folders or files)
+    if(preg_match('/(\/\.|\.\.)/is', $url)){
+        return true;
+    }
+
+    // Do not proxify URLs with invalid or unsupported scheme
+    if(!in_array(strtolower(parse_url($url, PHP_URL_SCHEME)), array("http","https"))){
+        return true;
+    }
+
+    // Do not proxify localhost
+    if(preg_match('/^localhost/is', $url_host)){
+        return true;
+    }
+
+    // Do not proxify internal IP addresses
+    if(filter_var($url_host, FILTER_VALIDATE_IP)){
+        if(filter_var($url_host, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) === false){
+            return true;
+        }
+    }
+
+    // Do not proxify the server's IP address
+    if(filter_var($_SERVER['SERVER_ADDR'], FILTER_VALIDATE_IP)){
+        if($url_host == $_SERVER['SERVER_ADDR']){
+            return true;
+        }
+    }
+
+    // Do not proxify our own proxy host ($_SERVER['HTTP_HOST'])
+    if(stripos($url_host, $_SERVER['HTTP_HOST']) === 0){
+        return true;
+    }
+
+    // Do not proxify our own proxy host (app_url())
+    if(stripos($url_host, $app_host) === 0){
+        return true;
+    }
+
+    return false;
+}
+// Function to know if the site is in blacklist
+// Warning: returns an array with the first value of $inBlacklist and second the value of the detected keyword
+function in_blacklist($urlSite, $file) {
+    require("" . $file);
+
+    $inBlacklist = false;
+
+    if(filter_var($urlSite, FILTER_VALIDATE_URL) === false) {
+        if(filter_var("http://" . $urlSite, FILTER_VALIDATE_URL) !== false) {
+            $domain = parse_url("http://" . $urlSite, PHP_URL_HOST);
+        } else {
+            return array(true, "");
+        }
+    } else {
+        $domain = parse_url($urlSite, PHP_URL_HOST);
+    }
+
+    foreach($sites_interdits as $site) {
+        if(stripos($domain, $site) !== false) {
+            $inBlacklist = true;
+            return array($inBlacklist, $site);
+        }
+    }
+
+    return $inBlacklist;
+}
+function is_ban($ip_visiteur, $file) {
+    require("" . $file);
+
+    $ban = false;
+
+    foreach($ip_ban_hacklol_modifier as $ip_interdite) {
+        if($ip_interdite == $ip_visiteur) {
+            $ban = true;
+            return $ban;
+        }
+    }
+
+    return $ban;
 }
 // https://stackoverflow.com/questions/1634782/what-is-the-most-accurate-way-to-retrieve-a-users-correct-ip-address-in-php
 function get_ip() {
