@@ -4,7 +4,6 @@
 ./hacklol-modifier/page_loader/index.php
 ./hacklol-modifier/page_loader/config.php
 ./hacklol-modifier/page_loader/plugins/ProtectPlugin.php
-./hacklol-modifier/page_loader/plugins/blacklistedWebsites.php
 ./hacklol-modifier/page_loader/plugins/TestPlugin.php
 ./hacklol-modifier/page_loader/plugins/UrlFormPlugin.php
 ./hacklol-modifier/page_loader/vendor/athlon1600/php-proxy-plugin-bundle/src/XHamsterPlugin.php
@@ -43,6 +42,7 @@
 ./hacklol-modifier/page_loader/vendor/autoload.php
 ./hacklol-modifier/page_loader/templates/main.php
 ./hacklol-modifier/page_loader/templates/url_form.php
+./hacklol-modifier/ProtectForm.php
 ./hacklol-modifier/index.php
 ./hacklol-modifier/hacklol-iframe.php
 ./hacklol-modifier/hacklol-204.php

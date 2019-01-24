@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-24 01:14+0100\n"
-"PO-Revision-Date: 2019-01-24 01:15+0100\n"
+"POT-Creation-Date: 2019-01-25 00:12+0100\n"
+"PO-Revision-Date: 2019-01-25 00:14+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -54,81 +54,80 @@ msgstr "A new update is available !"
 msgid "download-new-version"
 msgstr "Get it here"
 
-#: hacklol-modifier/index.php:134
+#: hacklol-modifier/index.php:133
 msgid "errors-form"
 msgstr "Errors in the form"
 
-#: hacklol-modifier/index.php:135
+#: hacklol-modifier/index.php:134
 msgid "the"
 msgstr "The"
 
-#: hacklol-modifier/index.php:135
+#: hacklol-modifier/index.php:134
 msgid "following-errors"
 msgstr "following errors have been occurred in the form:"
 
-#: hacklol-modifier/index.php:138
+#: hacklol-modifier/index.php:137
 msgid "error-form"
 msgstr "Error in the form"
 
-#: hacklol-modifier/index.php:139
+#: hacklol-modifier/index.php:138
 msgid "following-error"
 msgstr "The following error have been occurred in the form:"
 
-#: hacklol-modifier/index.php:145
+#: hacklol-modifier/index.php:144
 msgid "error-banned"
 msgstr "Your IP address is banned."
 
-#: hacklol-modifier/index.php:148
+#: hacklol-modifier/index.php:147
 msgid "error-maintenance"
 msgstr "is currently under maintenance. Please retry later."
 
-#: hacklol-modifier/index.php:152
+#: hacklol-modifier/index.php:151
 msgid "anti-flood"
 msgstr "You have to wait 3 minutes before sending a new form to access to"
 
-#: hacklol-modifier/index.php:156
+#: hacklol-modifier/index.php:155
 msgid "error-form-not-submited"
 msgstr "It seems that you have accessed this page without sending the form"
 
-#: hacklol-modifier/index.php:159
+#: hacklol-modifier/index.php:158
 msgid "error-form-field-empty"
 msgstr "Some form field are empty"
 
-#: hacklol-modifier/index.php:162
+#: hacklol-modifier/index.php:161
 msgid "error-url-incorrect"
 msgstr "The URL you entered is incorrect."
 
-#: hacklol-modifier/index.php:165
+#: hacklol-modifier/index.php:164
 msgid "error-url-ip"
 msgstr "The website address mustn't be an IP address."
 
-#: hacklol-modifier/index.php:168
+#: hacklol-modifier/index.php:167
 msgid "error-hacklol"
 msgstr "It's impossible to edit Hacklol with"
 
-#: hacklol-modifier/index.php:171
+#: hacklol-modifier/index.php:170
 msgid "error-access"
 msgstr "The access to this website with"
 
-#: hacklol-modifier/index.php:171
+#: hacklol-modifier/index.php:170
 msgid "error-access-forbidden"
-msgstr ""
-"is banned for safety reasons and/or following a request of his webmaster."
+msgstr "is forbidden for safety reasons."
 
-#: hacklol-modifier/index.php:171
+#: hacklol-modifier/index.php:170
 msgid "error-detected-keyword"
 msgstr "Detected keyword:"
 
-#: hacklol-modifier/index.php:174
+#: hacklol-modifier/index.php:173
 msgid "error-recaptcha-timeout"
 msgstr ""
 "An error occurred when checking the ReCaptcha response with the Google "
 "server. Please retry later."
 
-#: hacklol-modifier/index.php:177
+#: hacklol-modifier/index.php:176
 msgid "error-false-recaptcha"
 msgstr "Invalid ReCaptcha."
 
-#: hacklol-modifier/index.php:182
+#: hacklol-modifier/index.php:181
 msgid "back-to-form"
 msgstr "Back to the form"

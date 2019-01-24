@@ -24,24 +24,30 @@ require("../config.php");
 $path = "../locale";
 require("../locales.php");
 
+require("ProtectForm.php");
 $fileBlacklist = "../blacklistedWebsites.php";
 $fileBanIP = "../ban_ip.php";
+
 $url = null;
 $valid = null;
 $recaptchaVerifReponse = false;
 $verifInBl = null;
+
 if(isset($_POST['siteurl']) && isset($_POST['valider'])) {
-    if(isset($_POST['siteurl'])) $url = $_POST['siteurl']; // Obtiens l'URL (sans filtrage !)
+    if(isset($_POST['siteurl'])) $url = strtolower($_POST['siteurl']); // Obtiens l'URL
     if(isset($_POST['valider'])) $valid = $_POST['valider']; // Permet de savoir si le bouton de validation a été sélectionné
     if(isset($_POST['g-recaptcha-response'])) $recaptchaVerifReponse = isValid($_POST['g-recaptcha-response']); // Vérifie la réponse au ReCapatcha
     $verifInBl = in_blacklist($url, $fileBlacklist);
 }
+
 // $maintenance vaut 1 si Hacklol Modifier est en maintenance
 $maintenance = 0;
 $ipSansMaintenance = ''; // Mettre l'ip qui pourra passer la maintenance (idéalement celle de l'admin)
+
 // Vérification des erreurs du formulaire (11 possibles) - on set les variables des erreurs à false
 $nbErreursForm = 0;
 $erreurMaintenance = false; $erreurIsBan = false; $erreurButtonError = false; $erreurFlood = false; $erreurFormIncomplete = false; $erreurUrlIncorrect = false; $erreurUrlIP = false; $erreurUrlHacklol = false; $erreurUrlInBlacklist = false; $erreurRecaptchaIsNull = false; $erreurRecaptchaIsFalse = false;
+
 if(is_ban(get_ip(), $fileBanIP) == true) {
     $erreurIsBan = true;
     $nbErreursForm++;
@@ -63,17 +69,9 @@ else {
     // Si les champs ont été remplis
     else {
         // Vérifie la validité de l'URL
-        if(filter_var($url, FILTER_VALIDATE_URL) === false) {
-            if(is_url_ip($url) === true) {
-                $erreurUrlIP = true;
-                $nbErreursForm++;
-            } else if(filter_var("http://" . $url, FILTER_VALIDATE_URL) !== false) {
-                $url = "http://" . $url;
-                $verifInBl = in_blacklist($url, $fileBlacklist);
-            }  else {
-                $erreurUrlIncorrect = true;
-                $nbErreursForm++;
-            }
+        if(is_invalid_url($url)) {
+            $erreurUrlIncorrect = true;
+            $nbErreursForm++;
         } else if(is_url_ip($url) === true) {
             $erreurUrlIP = true;
             $nbErreursForm++;
@@ -90,6 +88,7 @@ else {
             $nbErreursForm++;
         }
     }
+
     if($hacklolConfig['enableRecaptcha'] == true) {
         // Si on obtient aucune réponse de Google, la connexion a échoué
         if (is_null($recaptchaVerifReponse)) {
@@ -224,6 +223,27 @@ function isValid($code, $ip = null)
     $json = json_decode($response);
     return $json->success;
 }
+function is_invalid_url($url) {
+    $url_host = preg_replace('/^www\./is', '', trim(parse_url($url, PHP_URL_HOST)));
+
+    if(!filter_var($url, FILTER_VALIDATE_URL)){
+        return true;
+    }
+
+    if(!in_array(strtolower(parse_url($url, PHP_URL_SCHEME)), array("http", "https"))){
+        return true;
+    }
+
+    if(preg_match('/^localhost/is', $url_host)){
+        return true;
+    }
+
+    if(preg_match('/^(http:\/\/|https:\/\/)ftp$/is', $url)){
+        return true;
+    }
+
+    return false;
+}
 // https://stackoverflow.com/questions/1634782/what-is-the-most-accurate-way-to-retrieve-a-users-correct-ip-address-in-php
 function get_ip() {
     // Check for shared internet/ISP IP
@@ -263,54 +283,5 @@ function validate_ip($ip) {
     return false;
     $ip = $ip;
     return true;
-}
-// Function to know if the site is in blacklist
-// Warning: returns an array with the first value of $inBlacklist and second the value of the detected keyword
-function in_blacklist($urlSite, $file) {
-    require("" . $file);
-
-    $inBlacklist = false;
-
-    if(filter_var($urlSite, FILTER_VALIDATE_URL) === false) {
-        if(filter_var("http://" . $urlSite, FILTER_VALIDATE_URL) !== false) {
-            $domain = parse_url("http://" . $urlSite, PHP_URL_HOST);
-        } else {
-            return array(true, "");
-        }
-    } else {
-        $domain = parse_url($urlSite, PHP_URL_HOST);
-    }
-
-    foreach($sites_interdits as $site) {
-        if(stripos($domain, $site) !== false) {
-            $inBlacklist = true;
-            return array($inBlacklist, $site);
-        }
-    }
-
-    return $inBlacklist;
-}
-function is_ban($ip_visiteur, $file) {
-    require("" . $file);
-
-    $ban = false;
-
-    foreach($ip_ban_hacklol_modifier as $ip_interdite) {
-        if($ip_interdite == $ip_visiteur) {
-            $ban = true;
-            return $ban;
-        }
-    }
-
-    return $ban;
-}
-function is_url_ip($url) {
-    $hostname = parse_url($url, PHP_URL_HOST);
-    $long = ip2long($hostname);
-    if (filter_var($hostname, FILTER_VALIDATE_IP) === FALSE || $long == -1 || $long === FALSE) {
-        return false;
-    } else {
-        return true;
-    }
 }
 ?>

@@ -1,11 +1,13 @@
 <?php
 /* ProtectPlugin for Hacklol Modifier, by Eliastik
-   Latest modification: 24/01/2019 - Version 1.3
+   Latest modification: 24/01/2019 - Version 1.4
    Some parts are from: https://github.com/Athlon1600/php-proxy-plugin-bundle/pull/2/files
 */
 
 use Proxy\Plugin\AbstractPlugin;
 use Proxy\Event\ProxyEvent;
+
+require("../ProtectForm.php");
 
 $_SERVER["REMOTE_ADDR"] = get_ip();
 
@@ -83,24 +85,6 @@ class ProtectPlugin extends AbstractPlugin {
         $response->setContent($str);
     }
 }
-function is_url_ip($url) {
-    if(filter_var($url, FILTER_VALIDATE_URL) === false) {
-        if(filter_var("http://" . $url, FILTER_VALIDATE_URL) !== false) {
-            $hostname = parse_url("http://" . $url, PHP_URL_HOST);
-        } else {
-            return true;
-        }
-    } else {
-        $hostname = parse_url($url, PHP_URL_HOST);
-    }
-
-    $long = ip2long($hostname);
-    if(filter_var($hostname, FILTER_VALIDATE_IP) === FALSE || $long == -1 || $long === FALSE) {
-        return false;
-    } else {
-        return true;
-    }
-}
 /* Parts from: https://github.com/Athlon1600/php-proxy-plugin-bundle/pull/2/files */
 function is_invalid_url($url) {
     $url_host = preg_replace('/^www\./is', '', trim(parse_url($url, PHP_URL_HOST)));
@@ -123,6 +107,11 @@ function is_invalid_url($url) {
 
     // Do not proxify localhost
     if(preg_match('/^localhost/is', $url_host)){
+        return true;
+    }
+
+    // Do not proxify ftp
+    if(preg_match('/^(http:\/\/|https:\/\/)ftp$/is', $url)){
         return true;
     }
 
@@ -151,46 +140,6 @@ function is_invalid_url($url) {
     }
 
     return false;
-}
-// Function to know if the site is in blacklist
-// Warning: returns an array with the first value of $inBlacklist and second the value of the detected keyword
-function in_blacklist($urlSite, $file) {
-    require("" . $file);
-
-    $inBlacklist = false;
-
-    if(filter_var($urlSite, FILTER_VALIDATE_URL) === false) {
-        if(filter_var("http://" . $urlSite, FILTER_VALIDATE_URL) !== false) {
-            $domain = parse_url("http://" . $urlSite, PHP_URL_HOST);
-        } else {
-            return array(true, "");
-        }
-    } else {
-        $domain = parse_url($urlSite, PHP_URL_HOST);
-    }
-
-    foreach($sites_interdits as $site) {
-        if(stripos($domain, $site) !== false) {
-            $inBlacklist = true;
-            return array($inBlacklist, $site);
-        }
-    }
-
-    return $inBlacklist;
-}
-function is_ban($ip_visiteur, $file) {
-    require("" . $file);
-
-    $ban = false;
-
-    foreach($ip_ban_hacklol_modifier as $ip_interdite) {
-        if($ip_interdite == $ip_visiteur) {
-            $ban = true;
-            return $ban;
-        }
-    }
-
-    return $ban;
 }
 // https://stackoverflow.com/questions/1634782/what-is-the-most-accurate-way-to-retrieve-a-users-correct-ip-address-in-php
 function get_ip() {
