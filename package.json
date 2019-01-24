@@ -1,6 +1,6 @@
 {
   "name": "hacklol-modifier",
-  "version": "1.4.1",
+  "version": "1.4.1-3",
   "description": "",
   "main": "gulpfile.js",
   "dependencies": {

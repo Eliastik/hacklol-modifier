@@ -14,6 +14,17 @@ function is_url_ip($url) {
         return true;
     }
 }
+function is_ban_stats($ip_visiteur, $file) {
+    require("" . $file);
+
+    foreach($ip_ban_stats as $ip_interdite) {
+        if($ip_interdite == $ip_visiteur) {
+            return true;
+        }
+    }
+
+    return false;
+}
 function is_ban($ip_visiteur, $file) {
     require("" . $file);
 

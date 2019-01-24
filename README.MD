@@ -13,7 +13,7 @@ L'application est disponible en français et en anglais.
 
 * By Eliastik ( http://www.eliastiksofts.com )
 * Langages : HTML, CSS, Javascript, PHP
-* Version actuelle : 1.4.1 REV3 (24/01/2019)
+* Version actuelle : 1.4.1 REV3 (25/01/2019)
 * Dépôt Github : https://github.com/Eliastik/hacklol-modifier
 * Licence : GNU GPL 3.0
 
@@ -73,6 +73,14 @@ PHP-Proxy est installé à l'aide de composer dans hacklol-modifier/page_loader.
 Le nom de l'application est modifiable en éditant le fichier config.php et hacklol-modifier/assets/src/js/main.js.
 
 ### Journal des mises à jour
+
+* Version 1.4.1 REV3 (25/01/2019) :
+    - Correction d'un bug de sécurité (CVE-2018-19246) de PHP-Proxy 5.1.0 (sur lequel est basé Hacklol Page Loader) - Cette mise à jour est donc vivement recommandée ! ;
+    - Sécurité renforcée pour Hacklol Modifier et Hacklol Page Loader (meilleure vérification des adresses URL, autres corrections) ;
+        - Ajout de la possibilité de bloquer les utilisateurs par leurs adresses IP et de bloquer des sites web spécifiques (fichiers blacklistedWebsites.php et ban_ip.php à la racine) ;
+    - Mise à jour de l'URL de vérification de la mise à jour ;
+    - Mise à jour des dépendences de npm et bower ;
+    - Corrections des textes et autres corrections mineures.
 
 * Version 1.4.1 REV2 (2/08/2018) :
     - Mise à jour de PHP-Proxy (Hacklol Page Loader) et autres corrections mineures (pas de montée de version).
@@ -169,7 +177,7 @@ The app is available in english and in french.
 
 * By Eliastik ( http://www.eliastiksofts.com )
 * Languages : HTML, CSS, Javascript, PHP
-* Current version: 1.4.1 REV3 (24/01/2019)
+* Current version: 1.4.1 REV3 (25/01/2019)
 * Github repository: https://github.com/Eliastik/hacklol-modifier
 * License: GNU GPL 3.0
 
@@ -230,12 +238,20 @@ The app name is editable by modifying the files config.php and hacklol-modifier/
 
 ### Changelog
 
+* Version 1.4.1 REV3 (25/01/2019) :
+    - Fixed a security bug (CVE-2018-19246) of PHP-Proxy 5.1.0 (on which Hacklol Page Loader is based) - This update is therefore highly recommended! ;
+    - Enhanced security for Hacklol Modifier and Hacklol Page Loader (better checking URLs, other fixes);
+        - Added the ability to block users by their IP addresses and block specific websites (blacklistedWebsites.php and ban_ip.php files in the root directory);
+    - Updated update check URL;
+    - Update dependencies of npm and bower;
+    - Text corrections and other minor corrections.
+
 * Version 1.4.1 REV2 (2/08/2018) :
     - Update of PHP-Proxy (Hacklol Page Loader) and others minor fixes (no version upgrade).
 
 * Version 1.4.1 REV1 (03/01/2018) :
     - Minor bug fixes (no version upgrade).
-    
+
 * Version 1.4.1 (23/10/2017) :
     - Added two new Easter Eggs, it's up to you to find them!
     - Bugs fixes and adjustments (Hacklol Modifier) :
