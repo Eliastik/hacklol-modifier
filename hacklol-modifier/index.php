@@ -34,7 +34,7 @@ $recaptchaVerifReponse = false;
 $verifInBl = null;
 
 if(isset($_POST['siteurl']) && isset($_POST['valider'])) {
-    if(isset($_POST['siteurl'])) $url = strtolower($_POST['siteurl']); // Obtiens l'URL
+    if(isset($_POST['siteurl'])) $url = $_POST['siteurl']; // Obtiens l'URL
     if(isset($_POST['valider'])) $valid = $_POST['valider']; // Permet de savoir si le bouton de validation a été sélectionné
     if(isset($_POST['g-recaptcha-response'])) $recaptchaVerifReponse = isValid($_POST['g-recaptcha-response']); // Vérifie la réponse au ReCapatcha
     $verifInBl = in_blacklist($url, $fileBlacklist);
