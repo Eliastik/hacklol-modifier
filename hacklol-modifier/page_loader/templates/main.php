@@ -79,15 +79,21 @@ html body {
 
     <?php } ?>
 
-    <?php if(isset($_GET['urlPage'])) {
-    echo '<form action="index.php" method="post" style="margin-bottom:0; display: none;" name="formHPL">
-                <input name="url" type="text" style="width:400px;" autocomplete="off" placeholder="http://" value="'. $_GET['urlPage'] .'" />
-                <input type="submit" value="Go" />
-            </form>
-            <div style="text-align: center;"><img src="/hacklol-modifier/assets/img/chargement.gif" alt="Chargement/Loading" style="vertical-align: middle;" /></div>
-    <script>window.onload = document.formHPL.submit();</script>';
-    }
-    ?>
+    <?php if(isset($_GET['urlPage'])) { ?>
+
+    <form action="index.php" method="post" style="margin-bottom:0; display: none;" name="formHPL">
+        <input name="url" id="urlInput" type="text" style="width:400px;" autocomplete="off" placeholder="http://" value="" />
+        <input type="submit" value="Go" />
+    </form>
+    <div style="text-align: center;"><img src="/hacklol-modifier/assets/img/chargement.gif" alt="Chargement/Loading" style="vertical-align: middle;" /></div>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById("urlInput").value = <?php echo json_encode(urldecode($_GET['urlPage'])); ?>;
+            document.formHPL.submit();
+        };
+    </script>
+
+    <?php } ?>
 </div>
 
 <div id="footer">Bas&eacute; sur <a href="//www.php-proxy.com/" target="_blank">PHP-Proxy</a><br />Based on <a href="//www.php-proxy.com/" target="_blank">PHP-Proxy</a></div>

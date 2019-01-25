@@ -403,12 +403,11 @@
         </div>
         <!-- scripts page global -->
         <script type="text/javascript">
-            urlPage_global = "<?php echo addslashes($url); ?>";
-            <?php if(isset($lang)) { ?>
-                    $(document).ready(function() {
-                       changeLng("<?php echo substr($lang, 0, 2); ?>");
-                    });
-            <?php } ?>
+            urlPage_global = <?php echo json_encode($url); ?>;
+            <?php if(isset($lang)) { ?>$(document).ready(function() {
+                changeLng("<?php echo substr($lang, 0, 2); ?>");
+            });<?php } ?>
+
         </script>
         <script type="text/javascript" src="assets/js/main-min.js"></script>
         <script type="text/javascript" src="assets/js/keyboard-min.js"></script>
