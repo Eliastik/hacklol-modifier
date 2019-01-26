@@ -88,7 +88,7 @@ html body {
     <div style="text-align: center;"><img src="/hacklol-modifier/assets/img/chargement.gif" alt="Chargement/Loading" style="vertical-align: middle;" /></div>
     <script type="text/javascript">
         window.onload = function() {
-            document.getElementById("urlInput").value = <?php echo json_encode(urldecode($_GET['urlPage'])); ?>;
+            document.getElementById("urlInput").value = <?php echo json_encode(urldecode($_GET['urlPage']), JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS); ?>;
             document.formHPL.submit();
         };
     </script>

@@ -403,7 +403,8 @@
         </div>
         <!-- scripts page global -->
         <script type="text/javascript">
-            urlPage_global = <?php echo json_encode($url); ?>;
+            urlPage_global = <?php echo json_encode($url, JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS); ?>;
+
             <?php if(isset($lang)) { ?>$(document).ready(function() {
                 changeLng("<?php echo substr($lang, 0, 2); ?>");
             });<?php } ?>
