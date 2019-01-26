@@ -1,9 +1,5 @@
 <?php
-    preg_match("/([^q=]+)(.+)/i", parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY), $urlSite);
-
-    if(count($urlSite) > 0) {
-        $urlSite = htmlspecialchars($urlSite[0]);
-    } else {
+    if(empty($_GET['q'])) {
         die();
     }
 ?>
@@ -23,6 +19,12 @@
                     }
                 }, 1)
             </script>
-        <iframe src="<?php echo $urlSite; ?>" style="width:100%;height:100%;position:absolute;top:0px;left:0px;border:0px;" frameBorder="0" sandbox="allow-forms allow-popups allow-scripts allow-same-origin" id="hacklol-iframe-protected" name="hacklol-iframe-protected"></iframe>
+        <iframe src="" style="width:100%;height:100%;position:absolute;top:0px;left:0px;border:0px;" frameBorder="0" sandbox="allow-forms allow-popups allow-scripts allow-same-origin" id="hacklol-iframe-protected" name="hacklol-iframe-protected"></iframe>
+
+        <script type="text/javascript">
+            window.onload = function() {
+                document.getElementById("hacklol-iframe-protected").src = <?php echo json_encode(urldecode($_GET['q']), JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS); ?>;
+            };
+        </script>
     </body>
 </html>
