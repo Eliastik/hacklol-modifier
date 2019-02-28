@@ -6,6 +6,10 @@
         $path = './locale';
     }
 
+    if(empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+        $_SERVER['HTTP_ACCEPT_LANGUAGE'] = "";
+    }
+
     function set_custom_lang($lang_tmp) {
         switch($lang_tmp) {
             case 'fr':
@@ -94,7 +98,7 @@
         foreach($langs as $value) {
             $html_code_tmp = $html_code_tmp . "\t<link rel=\"alternate\" href=\"http://". htmlspecialchars($_SERVER['SERVER_NAME'] . "/" . substr($value, 0, 2) . $_SERVER['PHP_SELF']) . "\" hreflang=\"". $value ."\"/>\n";
         }
-        
+
         $html_code_tmp = $html_code_tmp . "\t<link rel=\"alternate\" href=\"http://". htmlspecialchars($_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF']) . "\" hreflang=\"x-default\"/>\n";
 
         return $html_code_tmp;
@@ -120,7 +124,7 @@
 
         return "/" . $path . "/";
     }
-    
+
     if(isset($_GET['lang'])) {
         $lang = set_custom_lang($_GET['lang']);
         setcookie("main-lang", set_custom_lang_cookie($_GET['lang']), time()+3600*24*365*5, "/", null, null, true);
@@ -130,7 +134,7 @@
         $lang_tmp = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
         $lang = set_custom_lang($lang_tmp);
     }
-    
+
     $filename = 'default';
     $lang = $lang . ".utf-8";
     putenv("LANGUAGE=$lang");
