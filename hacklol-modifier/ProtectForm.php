@@ -18,7 +18,7 @@ function is_ban_stats($ip_visiteur, $file) {
     require("" . $file);
 
     foreach($ip_ban_stats as $ip_interdite) {
-        if($ip_interdite == $ip_visiteur) {
+        if($ip_interdite == $ip_visiteur || $ip_interdite == hash('sha1', $ip_visiteur) || $ip_interdite == hash('sha256', $ip_visiteur) || $ip_interdite == hash('sha512', $ip_visiteur)) {
             return true;
         }
     }
@@ -29,7 +29,7 @@ function is_ban($ip_visiteur, $file) {
     require("" . $file);
 
     foreach($ip_ban_hacklol_modifier as $ip_interdite) {
-        if($ip_interdite == $ip_visiteur) {
+        if($ip_interdite == $ip_visiteur || $ip_interdite == hash('sha1', $ip_visiteur) || $ip_interdite == hash('sha256', $ip_visiteur) || $ip_interdite == hash('sha512', $ip_visiteur)) {
             return true;
         }
     }
