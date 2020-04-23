@@ -1,1 +1,1 @@
-var latestVersionFromGithub = "1.4.1 REV3";
+var latestVersionFromGithub = "1.4.1 REV4";

@@ -13,7 +13,7 @@ L'application est disponible en français et en anglais.
 
 * By Eliastik ( http://www.eliastiksofts.com )
 * Langages : HTML, CSS, Javascript, PHP
-* Version actuelle : 1.4.1 REV3 (25/01/2019)
+* Version actuelle : 1.4.1 REV4 (23/04/2020)
 * Dépôt Github : https://github.com/Eliastik/hacklol-modifier
 * Licence : GNU GPL 3.0
 
@@ -73,6 +73,9 @@ PHP-Proxy est installé à l'aide de composer dans hacklol-modifier/page_loader.
 Le nom de l'application est modifiable en éditant le fichier config.php et hacklol-modifier/assets/src/js/main.js.
 
 ### Journal des mises à jour
+
+* Version 1.4.1 REV4 (23/04/2020) :
+    - Mise à jour des dépendences (PHP-Proxy, etc.)
 
 * Version 1.4.1 REV3 (25/01/2019) :
     - Correction d'un bug de sécurité (CVE-2018-19246) de PHP-Proxy 5.1.0 (sur lequel est basé Hacklol Page Loader) - Cette mise à jour est donc vivement recommandée ! ;
@@ -177,7 +180,7 @@ The app is available in english and in french.
 
 * By Eliastik ( http://www.eliastiksofts.com )
 * Languages : HTML, CSS, Javascript, PHP
-* Current version: 1.4.1 REV3 (25/01/2019)
+* Current version: 1.4.1 REV4 (23/04/2020)
 * Github repository: https://github.com/Eliastik/hacklol-modifier
 * License: GNU GPL 3.0
 
@@ -237,6 +240,9 @@ PHP-Proxy is installed via composer in the folder hacklol-modifier/page_loader. 
 The app name is editable by modifying the files config.php and hacklol-modifier/assets/src/js/main.js.
 
 ### Changelog
+
+* Version 1.4.1 REV4 (23/04/2020) :
+    - Updated dependencies (PHP-Proxy, etc.)
 
 * Version 1.4.1 REV3 (25/01/2019) :
     - Fixed a security bug (CVE-2018-19246) of PHP-Proxy 5.1.0 (on which Hacklol Page Loader is based) - This update is therefore highly recommended! ;
