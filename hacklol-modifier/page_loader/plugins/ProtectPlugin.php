@@ -42,17 +42,17 @@ class ProtectPlugin extends AbstractPlugin {
 
             if(is_url_ip($url) === true) {
                 echo render_template("./templates/main.php", array('version' => 0,
-                    'error_protect_plugin' => 'Impossible d\'accéder à une URL de type adresse IP. <a href="#" onclick="javascript:history.back();">Retourner &agrave; la page pr&eacute;c&eacute;dente</a><br />It\'s not possible to access to an IP address URL. <a href="#" onclick="javascript:history.back();">Back to the previous page</a>'
+                    'error_protect_plugin' => 'Impossible d\'accéder à une URL de type adresse IP. <a href="#" onclick="javascript:history.back();">Retourner &agrave; la page pr&eacute;c&eacute;dente</a><br />It\'s not possible to access to an IP address URL. <a href="#" onclick="javascript:history.back();">Go back to the previous page</a>'
                 ));
                 die();
             } else if(is_invalid_url($url)) {
                 echo render_template("./templates/main.php", array('version' => 0,
-                    'error_protect_plugin' => 'Adresse URL invalide. <a href="#" onclick="javascript:history.back();">Retourner &agrave; la page pr&eacute;c&eacute;dente</a><br />Invalid URL address. <a href="#" onclick="javascript:history.back();">Back to the previous page</a>'
+                    'error_protect_plugin' => 'Adresse URL invalide. <a href="#" onclick="javascript:history.back();">Retourner &agrave; la page pr&eacute;c&eacute;dente</a><br />Invalid URL address. <a href="#" onclick="javascript:history.back();">Go back to the previous page</a>'
                 ));
                 die();
             } else if($blacklisted[0] === true) {
                 echo render_template("./templates/main.php", array('version' => 0,
-                    'error_protect_plugin' => 'L\'accès à ce site avec ' . $appName .' a été interdit pour des raisons de sécurité. <strong>Mot clef détecté :</strong> ' . htmlentities($blacklisted[1]) . '. <a href="#" onclick="javascript:history.back();">Retourner &agrave; la page pr&eacute;c&eacute;dente</a>.<br />The access to this website with ' . $appName .' is banned for security reasons. <strong>Detected keyword:</strong> ' . htmlentities($blacklisted[1]) . '. <a href="#" onclick="javascript:history.back();">Back to the previous page</a>.'
+                    'error_protect_plugin' => 'L\'accès à ce site avec ' . $appName .' a été interdit pour des raisons de sécurité. <strong>Mot clef détecté :</strong> ' . htmlentities($blacklisted[1]) . '. <a href="#" onclick="javascript:history.back();">Retourner &agrave; la page pr&eacute;c&eacute;dente</a>.<br />The access to this website with ' . $appName .' is banned for security reasons. <strong>Detected keyword:</strong> ' . htmlentities($blacklisted[1]) . '. <a href="#" onclick="javascript:history.back();">Go back to the previous page</a>.'
                 ));
                 die();
             }
@@ -81,6 +81,9 @@ class ProtectPlugin extends AbstractPlugin {
 
         // Remove target attribute (prevent opening links in new tab) :
         $str = preg_replace('/\s*target=("|\'|\s|)(_blank|_top|_parent)("|\'|\s)/i', '', $str);
+
+        // remove the "integrity" attribute of some elements - fix some website not rendering properly (like Github)
+        $str = preg_replace('/[^<(.*?)]integrity=(\'|")(.*?)(\'|")/is', '', $str);
 
         $response->setContent($str);
     }

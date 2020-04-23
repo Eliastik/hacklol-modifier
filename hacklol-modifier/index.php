@@ -78,7 +78,7 @@ else {
         }
 
         // Vérifie que l'URL est une URL d'Hacklol (Interdit)
-        if(strpos($url, "http://hacklol.cwebh.org") !== false || strpos($url, "http://www.hacklol.cwebh.org") !== false || strpos($url, "http://hacklol.c-wh.org") !== false || strpos($url, "http://www.hacklol.c-wh.org") !== false || strpos($url, "http://hacklol.olympe.in") !== false || strpos($url, "http://hacklol.eliastiksofts.com") !== false || strpos($url, "https://hacklol.eliastiksofts.com") !== false) {
+        if(strpos($url, "http://hacklol.eliastiksofts.com") !== false || strpos($url, "https://hacklol.eliastiksofts.com") !== false) {
             $erreurUrlHacklol = true;
             $nbErreursForm++;
         }

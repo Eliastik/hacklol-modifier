@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'YouTube\\' => array($vendorDir . '/athlon1600/youtube-downloader/src'),
     'Proxy\\Plugin\\' => array($vendorDir . '/athlon1600/php-proxy-plugin-bundle/src'),
     'Proxy\\' => array($vendorDir . '/athlon1600/php-proxy/src'),
 );
