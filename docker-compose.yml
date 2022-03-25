@@ -1,0 +1,16 @@
+version: "3.4"
+
+services:
+  hacklol-modifier:
+    image: eliastik/hacklol-modifier:latest
+    restart: unless-stopped
+    # uncomment to build the image
+    # build:
+      # context: .
+      # dockerfile: ./Dockerfile
+    volumes:
+      - ./ban_ip.php:/var/www/ban_ip.php
+      - ./blacklistedWebsites.php:/var/www/blacklistedWebsites.php
+      - ./config.php:/var/www/config.php
+    ports:
+      - "80:80"
