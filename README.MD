@@ -13,11 +13,24 @@ L'application est disponible en français et en anglais.
 
 * By Eliastik ( http://www.eliastiksofts.com )
 * Langages : HTML, CSS, Javascript, PHP
-* Version actuelle : 1.4.1 REV4 (23/04/2020)
+* Version actuelle : 1.4.1 REV5 (06/06/2026)
 * Dépôt Github : https://github.com/Eliastik/hacklol-modifier
 * Licence : GNU GPL 3.0
 
 ### Installation
+
+#### Docker
+
+Vous pouvez lancer l'image Docker d'Hacklol Modifier simplement, en vous basant sur le [docker-compose.yml](docker-compose.yml) fourni sur le dépôt.
+L'image est déjà buildée et disponible sur Docker Hub.
+
+Une fois configuré, lancez la commande suivante pour démarrer le serveur d'Hacklol Modifier :
+
+```
+docker compose up -d
+```
+
+#### Manuellement
 
 L'application nécessite un serveur PHP pour fonctionner.
 
@@ -73,6 +86,9 @@ PHP-Proxy est installé à l'aide de composer dans hacklol-modifier/page_loader.
 Le nom de l'application est modifiable en éditant le fichier config.php et hacklol-modifier/assets/src/js/main.js.
 
 ### Journal des mises à jour
+
+* Version 1.4.1 REV5 (06/06/2026) :
+    - Mise à jour de l'image Docker, passage à Alpine Linux, support du HTTPS, correction de la configuration PHP
 
 * Version 1.4.1 REV4 (23/04/2020) :
     - Mise à jour des dépendences (PHP-Proxy, etc.)
@@ -180,11 +196,24 @@ The app is available in english and in french.
 
 * By Eliastik ( http://www.eliastiksofts.com )
 * Languages : HTML, CSS, Javascript, PHP
-* Current version: 1.4.1 REV4 (23/04/2020)
+* Current version: 1.4.1 REV5 (06/06/2026)
 * Github repository: https://github.com/Eliastik/hacklol-modifier
 * License: GNU GPL 3.0
 
 ### Installation
+
+#### Docker
+
+You can run the Hacklol Modifier Docker image simply by using the [docker-compose.yml](docker-compose.yml) file provided in the repository.
+The image is already built and available on Docker Hub.
+
+Once configured, run the following command to start the Hacklol Modifier server:
+
+```
+docker compose up -d
+```
+
+#### Manually
 
 A PHP server is required for the app to work.
 
@@ -240,6 +269,9 @@ PHP-Proxy is installed via composer in the folder hacklol-modifier/page_loader. 
 The app name is editable by modifying the files config.php and hacklol-modifier/assets/src/js/main.js.
 
 ### Changelog
+
+* Version 1.4.1 REV5 (06/06/2026):
+    - Updated the Docker image, switched to Alpine Linux, added HTTPS support, and fixed the PHP configuration
 
 * Version 1.4.1 REV4 (23/04/2020) :
     - Updated dependencies (PHP-Proxy, etc.)

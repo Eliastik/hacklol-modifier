@@ -1,2 +1,15 @@
 node_modules
 npm-debug.log
+.git
+.gitignore
+Dockerfile
+.dockerignore
+build
+package-lock.json
+package.json
+translations_files.txt
+translations_update.sh
+.drone.yml
+bower.json
+gulpfile.js
+docker-compose.yml

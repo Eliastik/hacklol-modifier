@@ -3,14 +3,19 @@ version: "3.4"
 services:
   hacklol-modifier:
     image: eliastik/hacklol-modifier:latest
+    container_name: hacklol-modifier
     restart: unless-stopped
     # uncomment to build the image
     # build:
       # context: .
       # dockerfile: ./Dockerfile
     volumes:
-      - ./ban_ip.php:/var/www/ban_ip.php
-      - ./blacklistedWebsites.php:/var/www/blacklistedWebsites.php
-      - ./config.php:/var/www/config.php
+      - ./ban_ip.php:/var/www/hacklol-modifier/ban_ip.php
+      - ./blacklistedWebsites.php:/var/www/hacklol-modifier/blacklistedWebsites.php
+      - ./config.php:/var/www/hacklol-modifier/config.php
+      # Optional, to enable HTTPS support
+      # - ./certs/apache.pem:/etc/apache2/ssl/apache.pem:ro
+      # - ./certs/apache.key:/etc/apache2/ssl/apache.key:ro
     ports:
       - "80:80"
+      # - "443:443" # Uncomment to enable HTTPS support
