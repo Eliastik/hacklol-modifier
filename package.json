@@ -2,15 +2,53 @@
   "name": "hacklol-modifier",
   "version": "1.4.1-3",
   "description": "",
-  "main": "gulpfile.js",
+  "main": "main.js",
   "devDependencies": {
+    "electron": "^42.3.3",
+    "electron-builder": "^26.15.0",
+    "electron-packager": "^17.1.2",
     "gulp": "^5.0.1",
     "gulp-clean-css": "^4.3.0",
     "gulp-minify": "^3.1.0",
     "gulp-zip": "^6.1.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build",
+    "start": "electron .",
+    "package-linux": "electron-builder --linux"
+  },
+  "build": {
+    "appId": "org.eliastik.hacklol-modifier",
+    "productName": "hacklol-modifier",
+    "directories": {
+      "output": "build/electron"
+    },
+    "files": [
+      "main.js"
+    ],
+    "extraResources": [
+      {
+        "from": ".electron",
+        "to": ".electron"
+      },
+      {
+        "from": "hacklol-modifier",
+        "to": "hacklol-modifier"
+      },
+      {
+        "from": "www",
+        "to": "www"
+      }
+    ],
+    "win": {
+      "target": [
+        "portable"
+      ]
+    },
+    "portable": {
+      "artifactName": "hacklol-modifier.exe"
+    }
   },
   "repository": {
     "type": "git",
@@ -21,5 +59,8 @@
   "bugs": {
     "url": "https://github.com/Eliastik/hacklol-modifier/issues"
   },
-  "homepage": "https://github.com/Eliastik/hacklol-modifier#readme"
+  "homepage": "https://github.com/Eliastik/hacklol-modifier#readme",
+  "dependencies": {
+    "tree-kill": "^1.2.2"
+  }
 }

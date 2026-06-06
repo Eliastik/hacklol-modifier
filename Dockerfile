@@ -16,7 +16,6 @@ RUN apk add --update --no-cache \
     "$PHP_VER"-gmp \
     "$PHP_VER"-dom \
     "$PHP_VER"-zip \
-    "$PHP_VER"-mysqli \
     "$PHP_VER"-bcmath \
     "$PHP_VER"-gd \
     "$PHP_VER"-gettext \
@@ -100,7 +99,7 @@ RUN touch /var/log/apache2/error.log \
 
 # Copy app files
 RUN mkdir -p /var/www/hacklol-modifier
-COPY . /var/www/hacklol-modifier
+COPY www/ /var/www/hacklol-modifier
 RUN chown -R apache:apache /var/www/hacklol-modifier
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \

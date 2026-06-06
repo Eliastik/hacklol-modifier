@@ -1,36 +1,36 @@
 "use strict";
 
-import gulp               from "gulp";
-import zip                from "gulp-zip";
-import minify             from "gulp-minify";
-import cleanCss           from "gulp-clean-css";
+import gulp      from "gulp";
+import zip       from "gulp-zip";
+import minify    from "gulp-minify";
+import cleanCss  from "gulp-clean-css";
 
 gulp.task('compress-js', function () {
-    return gulp.src('hacklol-modifier/assets/src/js/*.js')
+    return gulp.src('www/hacklol-modifier/assets/src/js/*.js')
         .pipe(minify())
-        .pipe(gulp.dest('hacklol-modifier/assets/js/'));
+        .pipe(gulp.dest('www/hacklol-modifier/assets/js/'));
 });
 
 gulp.task('compress-css', function () {
-    return gulp.src('hacklol-modifier/assets/src/css/*.css')
+    return gulp.src('www/hacklol-modifier/assets/src/css/*.css')
         .pipe(cleanCss())
-        .pipe(gulp.dest('hacklol-modifier/assets/css/'));
+        .pipe(gulp.dest('www/hacklol-modifier/assets/css/'));
 });
 
 gulp.task('compress-locales', function () {
-    return gulp.src('hacklol-modifier/assets/src/locales/*.js')
+    return gulp.src('www/hacklol-modifier/assets/src/locales/*.js')
         .pipe(minify())
-        .pipe(gulp.dest('hacklol-modifier/assets/locales/'));
+        .pipe(gulp.dest('www/hacklol-modifier/assets/locales/'));
 });
 
 gulp.task('build-release', function () {
-    return gulp.src("hacklol-modifier/**")
+    return gulp.src("www/hacklol-modifier/**")
         .pipe(zip('hacklol-modifier-build.zip'))
         .pipe(gulp.dest('./build'));
 });
 
 gulp.task('build-pl', function () {
-    return gulp.src("hacklol-modifier/page_loader/**")
+    return gulp.src("www/hacklol-modifier/page_loader/**")
         .pipe(zip('page-loader-build.zip'))
         .pipe(gulp.dest('./build'));
 });

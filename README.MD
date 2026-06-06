@@ -44,11 +44,11 @@ git clone https://github.com/Eliastik/hacklol-modifier.git
 
 Normalement, l'application devrait fonctionner sans modifications particulières.
 
-Vous pouvez la configurer en modifiant le fichier config.php à la racine du dépôt.
+Vous pouvez la configurer en modifiant le fichier config.php dans le dossier www.
 
 ### Mettre à jour certains fichiers
 
-Vous pouvez mettre à jour les librairies utilisées pour le formulaire (Bootstrap, Jquery) en lançant cette commande (en étant dans le répertoire du projet, il faut avoir installé Bower) :
+Vous pouvez mettre à jour les librairies utilisées pour le formulaire (Bootstrap, Jquery) en lançant cette commande (en étant dans le répertoire `www` du projet, il faut avoir installé Bower) :
 
 ````
 bower update
@@ -227,11 +227,11 @@ git clone https://github.com/Eliastik/hacklol-modifier.git
 
 Normally, the application should work without special modifications.
 
-You can configure it by editing the config.php file at the root of the project.
+You can configure it by editing the config.php file at the `www` directory of the project.
 
 ### Update files
 
-You can update the libraries used by the form (Bootstrap, Jquery) by launching this command (in the project root directory, it is necessary to install Bower):
+You can update the libraries used by the form (Bootstrap, Jquery) by launching this command (in the project `www` directory, it is necessary to install Bower):
 
 ````
 bower update
