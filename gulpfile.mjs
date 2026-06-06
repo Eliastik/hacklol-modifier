@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-var gulp = require('gulp');
-var minify = require('gulp-minify');
-var cleanCss = require('gulp-clean-css');
-var zip = require('gulp-zip');
+import gulp               from "gulp";
+import zip                from "gulp-zip";
+import minify             from "gulp-minify";
+import cleanCss           from "gulp-clean-css";
 
 gulp.task('compress-js', function () {
     return gulp.src('hacklol-modifier/assets/src/js/*.js')
@@ -35,8 +35,8 @@ gulp.task('build-pl', function () {
         .pipe(gulp.dest('./build'));
 });
 
-gulp.task('default', ['compress-js', 'compress-css', 'compress-locales']);
+gulp.task('default', gulp.series('compress-js', 'compress-css', 'compress-locales'));
 
-gulp.task('build', ['compress-js', 'compress-css', 'compress-locales', 'build-release']);
+gulp.task('build', gulp.series('compress-js', 'compress-css', 'compress-locales', 'build-release'));
 
-gulp.task('build-page-loader', ['build-pl']);
+gulp.task('build-page-loader', gulp.series('build-pl'));

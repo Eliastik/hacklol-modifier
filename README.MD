@@ -176,7 +176,7 @@ Choses qui sont planifiées pour être ajoutées à l'application (peut-être) :
 
 ### Licence
 
-Copyright (C) 2014-2018 Eliastik (eliastiksofts.com)
+Copyright (C) 2014-2026 Eliastik (eliastiksofts.com)
 
 Ce programme est un logiciel libre ; vous pouvez le redistribuer ou le modifier suivant les termes de la GNU General Public License telle que publiée par la Free Software Foundation ; soit la version 3 de la licence, soit (à votre gré) toute version ultérieure.
 
@@ -359,7 +359,7 @@ Things that are planned to be added to the application (maybe):
 
 ### License
 
-Copyright (C) 2014-2018 Eliastik (eliastiksofts.com)
+Copyright (C) 2014-2026 Eliastik (eliastiksofts.com)
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 

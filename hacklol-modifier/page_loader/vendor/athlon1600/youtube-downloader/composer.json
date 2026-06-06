@@ -4,7 +4,6 @@
 	"keywords": ["youtube downloader", "download youtube", "download youtube videos"],
 	"license": "MIT",
 	"require": {
-		"php": "^5.6 || ^7.0",
 		"ext-curl": "*",
 		"ext-json": "*"
 	},
@@ -22,6 +21,6 @@
 		}
 	},
 	"scripts": {
-		"test": "phpunit tests"
+		"test": "phpunit"
 	}
 }
