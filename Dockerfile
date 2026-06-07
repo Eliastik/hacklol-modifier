@@ -8,28 +8,10 @@ RUN apk add --update --no-cache \
     apache2 apache2-proxy apache2-ssl \
     "$PHP_VER" "$PHP_VER"-apache2 "$PHP_VER"-fpm \
     gettext musl-locales musl-locales-lang icu-data-full \
-    "$PHP_VER"-phar \
-    "$PHP_VER"-json \
-    "$PHP_VER"-iconv \
     "$PHP_VER"-openssl \
-    "$PHP_VER"-mbstring \
-    "$PHP_VER"-gmp \
-    "$PHP_VER"-dom \
-    "$PHP_VER"-zip \
-    "$PHP_VER"-bcmath \
-    "$PHP_VER"-gd \
     "$PHP_VER"-gettext \
-    "$PHP_VER"-xmlreader \
-    "$PHP_VER"-xmlwriter \
-    "$PHP_VER"-tokenizer \
-    "$PHP_VER"-bz2 \
     "$PHP_VER"-curl \
-    "$PHP_VER"-ctype \
     "$PHP_VER"-session \
-    "$PHP_VER"-exif \
-    "$PHP_VER"-simplexml \
-    "$PHP_VER"-fileinfo \
-    "$PHP_VER"-pecl-imagick \
     "$PHP_VER"-intl \
     && rm -rf /tmp/* /var/cache/apk/* /var/log/apk.log
  
