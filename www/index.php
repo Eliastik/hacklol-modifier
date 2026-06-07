@@ -17,14 +17,8 @@
 
         <title><?php echo $hacklolConfig['appName']; ?></title>
 
-        <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
         <link href="/index.css" rel="stylesheet">
-
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-              <script src="/bower_components/html5shiv/dist/html5shiv.min.js"></script>
-              <script src="/bower_components/respond/dest/respond.min.js"></script>
-        <![endif]-->
         <?php
             if($hacklolConfig['enableRecaptcha'] == true) { ?>
 
@@ -45,7 +39,6 @@
                 ?></h2>
                 <p><?php echo _("enter-address") ?> <strong><?php echo _("url-http") ?></strong></p>
                 <div class="checkbox">
-                    <label for="inputEmail" class="sr-only"><?php echo _("url-site-label") ?></label>
                     <input type="url" id="siteurl" name="siteurl" class="form-control" placeholder="<?php echo _("url-site-placeholder") ?>" value="<?php echo $hacklolConfig['defaultWebsite']; ?>" required autofocus>
                 </div>
                 <?php
@@ -54,7 +47,9 @@
                  <div class="g-recaptcha" data-lang="fr" data-sitekey="<?php echo $hacklolConfig['recaptchaPublicKey']; ?>" data-theme="white" style="margin-bottom: 10px;"></div>
                 <?php } ?>
 
-                <input id="valider" name="valider" class="btn btn-lg btn-primary btn-block" value="<?php echo _("form-validate") ?>" type="submit" />
+                <div class="d-grid gap-2">
+                    <input id="valider" name="valider" class="btn btn-lg btn-primary" value="<?php echo _("form-validate") ?>" type="submit" />
+                </div>
             </form>
             <footer>
                 By <a href="http://www.eliastiksofts.com" target="_blank">Eliastik</a> – <a href="https://github.com/Eliastik/hacklol-modifier/" target="_blank"><?php echo _("source-code") ?></a> – <a href="http://hacklol.eliastiksofts.com" target="_blank"><?php echo _("hacklol-official") ?></a>

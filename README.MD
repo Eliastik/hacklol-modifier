@@ -48,16 +48,10 @@ Vous pouvez la configurer en modifiant le fichier config.php dans le dossier www
 
 ### Mettre à jour certains fichiers
 
-Vous pouvez mettre à jour les librairies utilisées pour le formulaire (Bootstrap, Jquery) en lançant cette commande (en étant dans le répertoire `www` du projet, il faut avoir installé Bower) :
-
-````
-bower update
-````
-
 Vous pouvez recompiler les fichiers d'Hacklol Modifier en lançant ces commandes (nécessite node.js et gulp) :
 ````
 npm install
-gulp
+npm run build
 ````
 
 Pour mettre à jour les paquets NPM :
@@ -231,16 +225,10 @@ You can configure it by editing the config.php file at the `www` directory of th
 
 ### Update files
 
-You can update the libraries used by the form (Bootstrap, Jquery) by launching this command (in the project `www` directory, it is necessary to install Bower):
-
-````
-bower update
-````
-
 You can recompile the Hacklol Modifier files by launching these commands (require node.js and gulp):
 ````
 npm install
-gulp
+npm run build
 ````
 
 To update the NPM packages:
