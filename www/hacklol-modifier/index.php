@@ -117,14 +117,8 @@ if($nbErreursForm > 0) {
 
         <title><?php echo $hacklolConfig['appName']; ?></title>
 
-        <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/index.css" rel="stylesheet">
-
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-              <script src="/bower_components/html5shiv/dist/html5shiv.min.js"></script>
-              <script src="/bower_components/respond/dest/respond.min.js"></script>
-        <![endif]-->
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/index.css" rel="stylesheet">
     </head>
     <body>
         <div class="container">
@@ -178,7 +172,7 @@ if($nbErreursForm > 0) {
                 }
             ?>
             </ul>
-        <a class="btn btn-lg btn-primary" href="/"><?php echo _("back-to-form") ?></a>
+        <a class="btn btn-lg btn-primary" href="../index.php"><?php echo _("back-to-form") ?></a>
         </div> <!-- /container -->
     </body>
 </html>

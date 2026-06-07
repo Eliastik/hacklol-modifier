@@ -17,8 +17,8 @@
 
         <title><?php echo $hacklolConfig['appName']; ?></title>
 
-        <link href="/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/index.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/index.css" rel="stylesheet">
         <?php
             if($hacklolConfig['enableRecaptcha'] == true) { ?>
 
