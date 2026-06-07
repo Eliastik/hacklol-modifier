@@ -10,7 +10,7 @@ package.json
 translations_files.txt
 translations_update.sh
 .drone.yml
-bower.json
+www/bower.json
 gulpfile.mjs
 docker-compose.yml
 .electron

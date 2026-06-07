@@ -10,9 +10,9 @@ services:
       # context: .
       # dockerfile: ./Dockerfile
     volumes:
-      - ./ban_ip.php:/var/www/hacklol-modifier/ban_ip.php
-      - ./blacklistedWebsites.php:/var/www/hacklol-modifier/blacklistedWebsites.php
-      - ./config.php:/var/www/hacklol-modifier/config.php
+      - ./www/ban_ip.php:/var/www/hacklol-modifier/ban_ip.php
+      - ./www/blacklistedWebsites.php:/var/www/hacklol-modifier/blacklistedWebsites.php
+      - ./www/config.php:/var/www/hacklol-modifier/config.php
       # Optional, to enable HTTPS support
       # - ./certs/apache.pem:/etc/apache2/ssl/apache.pem:ro
       # - ./certs/apache.key:/etc/apache2/ssl/apache.key:ro
