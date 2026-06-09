@@ -1,4 +1,4 @@
-FROM alpine:3.23
+FROM alpine:3.24
  
 ENV MUSL_LOCPATH="/usr/share/i18n/locales/musl"
 ENV PHP_VER="php85"

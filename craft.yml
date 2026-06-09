@@ -1,0 +1,9 @@
+php-version: 8.5
+extensions: "curl,gettext,intl,session,filter"
+sapi:
+  - cli
+download-options:
+  parallel: 10
+  retry: 5
+  ignore-cache: php-src
+  prefer-binary: true
