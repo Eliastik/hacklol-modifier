@@ -3,12 +3,20 @@ body {
   padding-bottom: 40px;
 }
 
-body[data-bs-theme="light"] {
+html[data-bs-theme="light"] body {
   background-color: #eee;
 }
 
-body[data-bs-theme="dark"] {
+html[data-bs-theme="dark"] body {
   background-color: #232323;
+}
+
+html[data-bs-theme="dark"] #logo-hacklol-light {
+  display: none !important;
+}
+
+html[data-bs-theme="light"] #logo-hacklol-dark {
+  display: none !important;
 }
 
 .form-signin {

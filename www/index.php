@@ -31,7 +31,8 @@
             <form class="form-signin" method="post" action="/hacklol-modifier/index.php">
                 <h2 class="form-signin-heading"><?php
                 if(strtoupper($hacklolConfig['appName']) == "HACKLOL MODIFIER") {
-                    echo '<img src="img/logo_hacklol_modifier.png" width="306" alt="Hacklol Modifier" class="img-auto-resize" />';
+                    echo '<img src="img/logo_hacklol_modifier.png" width="306" alt="Hacklol Modifier" class="img-auto-resize" id="logo-hacklol-light" />';
+                    echo '<img src="img/logo_hacklol_modifier_dark.png" width="306" alt="Hacklol Modifier" class="img-auto-resize" id="logo-hacklol-dark" />';
                 } else {
                     echo $hacklolConfig['appName'];
                 }
