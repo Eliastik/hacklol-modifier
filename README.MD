@@ -30,13 +30,83 @@ Une fois configuré, lancez la commande suivante pour démarrer le serveur d'Hac
 docker compose up -d
 ```
 
-#### Manuellement
+Il écoutera sur le port paramétré sur le docker-compose.yml (par défaut 80/443 si pas modifié).
 
-L'application nécessite un serveur PHP pour fonctionner.
+#### Lancer l'appli avec Electron
 
-Pour l'installer sur votre serveur, téléchargez l'archive du dépôt ici et extrayez la tout simplement sur votre serveur : https://github.com/Eliastik/hacklol-modifier/archive/master.zip
+Il est possible de lancer l'application avec un serveur PHP encapsulé dans une application Electron.
 
-Ou faites un git clone :
+Pour cela, il faut suivre les instructions suivantes qui diffèrent selon l'OS :
+
+##### Linux
+
+Vous devez avoir installé NodeJS, npm et Docker sur votre système pour que cela puisse fonctionner.
+
+Tout d'abord, installez les dépendances NPM :
+
+```
+npm install
+```
+
+Il est possible que vous ayiez à autoriser l'exécution du script :
+
+```
+chmod +x build-static-php-linux.sh
+```
+
+Si vous souhaitez simplement lancer l'application Electron sans la builder, il faut d'abord builder PHP en mode statique avec StaticPHP.
+Cela ne doit être fait qu'une seule fois.
+
+Pour cela, lancer la commande suivante :
+
+```
+npm run build-static-php-linux
+```
+
+Ensuite, lancez la commande suivante pour lancer l'appli en mode Electron :
+
+```
+npm run start
+```
+
+Cela démarrera automatiquement le serveur PHP puis lancera une fenêtre avec l'interface d'Hacklol Modifier.
+
+#### Builder l'appli avec Electron
+
+Pour builder l'application pour qu'elle puisse être distribuée, suivre ces étapes qui diffèrent selon l'OS cible.
+
+##### Linux
+
+Vous devez avoir installé NodeJS, npm et Docker sur votre système pour que cela puisse fonctionner.
+
+Tout d'abord, installez les dépendances NPM :
+
+```
+npm install
+```
+
+Il est possible que vous ayiez à autoriser l'exécution des scripts :
+
+```
+chmod +x build-electron-linux.sh
+chmod +x build-static-php-linux.sh
+```
+
+Lancez ensuite la commande suivante qui se chargera de tout (build via StaticPHP d'un binaire PHP, construction de l'AppImage) :
+
+```
+npm run build-linux
+```
+
+Une fois OK, l'application sera buildée et disponible dans le dossier `build/electron/hacklol-modifier-xxx.AppImage`.
+
+#### Bare metal
+
+L'application nécessite un serveur PHP pour fonctionner, et les extensions suivantes : curl, gettext, intl, session et filter.
+
+Pour l'installer sur votre serveur, téléchargez l'archive du dépôt ici et extrayez le dossier www tout simplement sur votre serveur : https://github.com/Eliastik/hacklol-modifier/archive/master.zip
+
+Ou faites un git clone et copiez le dossier www :
 
 ````
 git clone https://github.com/Eliastik/hacklol-modifier.git
@@ -207,13 +277,83 @@ Once configured, run the following command to start the Hacklol Modifier server:
 docker compose up -d
 ```
 
-#### Manually
+It will listen on the port specified in docker-compose.yml (by default 80/443 if not modified).
 
-A PHP server is required for the app to work.
+#### Launch the app with Electron
 
-To install it on your server, download the repository archive here and extract it on your server: https://github.com/Eliastik/hacklol-modifier/archive/master.zip
+You can launch the application using a PHP server encapsulated within an Electron application.
 
-Or clone the repository on your server:
+To do this, follow the instructions below, which vary depending on your OS:
+
+##### Linux
+
+You must have NodeJS, npm, and Docker installed on your system for this to work.
+
+First, install the NPM dependencies:
+
+```
+npm install
+```
+
+You may need to make the script executable:
+
+```
+chmod +x build-static-php-linux.sh
+```
+
+If you simply want to run the Electron app without building it, you must first build PHP in static mode using StaticPHP.
+This only needs to be done once.
+
+To do this, run the following command:
+
+```
+npm run build-static-php-linux
+```
+
+Then, run the following command to launch the app in Electron mode:
+
+```
+npm run start
+```
+
+This will automatically start the PHP server and then open a window with the Hacklol Modifier interface.
+
+#### Building the app with Electron
+
+To build the application so it can be distributed, follow these steps, which vary depending on the target OS.
+
+##### Linux
+
+You must have NodeJS, npm, and Docker installed on your system for this to work.
+
+First, install the NPM dependencies:
+
+```
+npm install
+```
+
+You may need to make the scripts executable:
+
+```
+chmod +x build-electron-linux.sh
+chmod +x build-static-php-linux.sh
+```
+
+Then run the following command, which will handle everything (building a PHP binary using StaticPHP, creating the AppImage):
+
+```
+npm run build-linux
+```
+
+Once complete, the application will be built and available in the `build/electron/hacklol-modifier-xxx.AppImage` folder.
+
+#### Bare metal
+
+The application requires a PHP server to run, as well as the following extensions: curl, gettext, intl, session, and filter.
+
+To install it on your server, download the repository archive here and extract the `www` directory it on your server: https://github.com/Eliastik/hacklol-modifier/archive/master.zip
+
+Or clone the repository and copy the `www` directory on your server:
 
 ````
 git clone https://github.com/Eliastik/hacklol-modifier.git

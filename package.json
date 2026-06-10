@@ -16,7 +16,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp build",
     "start": "electron .",
-    "build-linux": "chmod +x ./build-electron-linux.sh && ./build-electron-linux.sh",
+    "build-static-php-linux": "chmod +x ./build-static-php-linux.sh && ./build-static-php-linux.sh",
+    "build-linux": "chmod +x ./build-static-php-linux.sh && chmod +x ./build-electron-linux.sh && ./build-electron-linux.sh",
     "package-linux": "electron-builder --linux"
   },
   "build": {

@@ -1,4 +1,4 @@
-const { app, BrowserWindow, shell } = require("electron");
+const { app, BrowserWindow, shell, session } = require("electron");
 const { spawn } = require("child_process");
 const path = require("path");
 const http = require("http");
@@ -103,9 +103,14 @@ function waitForServer(url, timeout = 5000) {
 }
 
 function createWindow() {
+  const ses = session.fromPartition('persist:main');
+
   const win = new BrowserWindow({
     width: 1200,
     height: 800,
+    webPreferences: {
+      session: ses
+    }
   });
 
   win.setMenu(null);
@@ -119,6 +124,15 @@ function createWindow() {
   win.webContents.on("new-window", (event, url) => {
     event.preventDefault();
     shell.openExternal(url);
+  });
+
+  session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+    callback({
+      responseHeaders: {
+        ...details.responseHeaders,
+        'X-Frame-Options': ['']
+      }
+    });
   });
 }
 
