@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-25 00:12+0100\n"
-"PO-Revision-Date: 2026-06-07 14:29+0200\n"
+"PO-Revision-Date: 2026-06-10 22:57+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -48,7 +48,7 @@ msgstr "Official Hacklol website"
 
 #: index.php:75
 msgid "new-version-available"
-msgstr "A new update is available !"
+msgstr "A new update is available!"
 
 #: index.php:76
 msgid "download-new-version"

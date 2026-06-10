@@ -21,17 +21,11 @@ function getBasePath() {
 }
 
 function getPhpBinary() {
-  if (isWindows) {
-    return path.join(
-      getBasePath(),
-      ".electron",
-      "binary",
-      "windows",
-      "php.exe",
-    );
+  if(isWindows) {
+    return path.join(getBasePath(), ".electron", "binary", "windows", "php.exe",);
   }
 
-  if (isMac) {
+  if(isMac) {
     return path.join(getBasePath(), ".electron", "binary", "mac", "php");
   }
 
@@ -69,8 +63,8 @@ async function startPHP() {
       wwwPath,
     ],
     {
-      stdio: "inherit", // IMPORTANT pour debug MVP
-    },
+      stdio: "inherit"
+    }
   );
 
   PHP_PROCESS.on("error", (err) => {
@@ -134,6 +128,8 @@ function createWindow() {
       }
     });
   });
+
+  // TODO persist localStorage
 }
 
 function killServer() {

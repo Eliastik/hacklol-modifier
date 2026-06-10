@@ -24,8 +24,6 @@
 
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <?php } ?>
-        
-        <script src="https://cdn.jsdelivr.net/gh/Eliastik/hacklol-modifier@master/version.js"></script>
     </head>
     <body>
         <div class="container">
@@ -56,22 +54,29 @@
                 <div class="version">Version <?php echo $hacklolConfig['appVersion']; ?> <span id="newVersion" style="display: none; color: blue;">–</span> <span id="newVersionText" style="color: blue;"></span> <span id="newVersionLink" style="color: blue;"></span></span></div>
                 <div class="lang"><a href="?lang=fr">Français</a> – <a href="?lang=en">English</a></div>
             </footer>
-        </div> <!-- /container -->
-        <script type="text/javascript">
-            // Check for update
-            String.prototype.strcmp = function(str) {
-                return ((this == str) ? 0 : ((this > str) ? 1 : -1));
-            };
+            <?php
+                $ch = curl_init($hacklolConfig["updateURL"]);
 
-            if(typeof(latestVersionFromGithub) !== "undefined" && latestVersionFromGithub !== null) {
-                var currentVersion = "<?php echo $hacklolConfig['appVersion']; ?>";
-                var newVersionTest = currentVersion.strcmp(latestVersionFromGithub);
-                if(newVersionTest < 0) {
-                    document.getElementById("newVersionText").innerHTML = "<?php echo _("new-version-available") ?>";
-                    document.getElementById("newVersionLink").innerHTML = "<a href='https://github.com/Eliastik/hacklol-modifier/releases/latest/' target='_blank'><?php echo _("download-new-version") ?></a>.";
-                    document.getElementById("newVersion").style.display = "inline-block";
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_HEADER, 0);
+                curl_setopt($ch, CURLOPT_USERAGENT, $hacklolConfig["updateUserAgent"]);
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+
+                $data = json_decode(curl_exec($ch));
+
+                curl_close($ch);
+
+                if(isset($data) && isset($data->version)) {
+                    if(version_compare($hacklolConfig["appVersion"], $data->version) < 0) {
+            ?>
+                <div class="text-center text-info-emphasis">
+                    <?php echo _("new-version-available"); ?>
+                    <a href="<?php echo htmlspecialchars($data->url) ?>" target="_blank" style="inline-block"><?php echo _("download-new-version") ?></a>
+                </div>
+            <?php
                 }
             }
-        </script>
+            ?>
+        </div> <!-- /container -->
     </body>
 </html>

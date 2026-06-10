@@ -12,6 +12,9 @@
     "gulp-minify": "^3.1.0",
     "gulp-zip": "^6.1.0"
   },
+  "dependencies": {
+    "tree-kill": "^1.2.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp build",
@@ -21,7 +24,7 @@
     "package-linux": "electron-builder --linux"
   },
   "build": {
-    "appId": "org.eliastik.hacklol-modifier",
+    "appId": "org.eliastik.hacklolModifier",
     "productName": "hacklol-modifier",
     "directories": {
       "output": "build/electron"
@@ -61,8 +64,5 @@
   "bugs": {
     "url": "https://github.com/Eliastik/hacklol-modifier/issues"
   },
-  "homepage": "https://github.com/Eliastik/hacklol-modifier#readme",
-  "dependencies": {
-    "tree-kill": "^1.2.2"
-  }
+  "homepage": "https://github.com/Eliastik/hacklol-modifier#readme"
 }
