@@ -1,7 +1,14 @@
 body {
   padding-top: 40px;
   padding-bottom: 40px;
+}
+
+body[data-bs-theme="light"] {
   background-color: #eee;
+}
+
+body[data-bs-theme="dark"] {
+  background-color: #232323;
 }
 
 .form-signin {
@@ -51,8 +58,11 @@ footer {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-
 .img-auto-resize {
   max-width: 100%;
   height: auto;
+}
+.theme .btn {
+  font-size: 10pt !important;
+  padding: 0;
 }

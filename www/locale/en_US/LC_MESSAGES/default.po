@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-25 00:12+0100\n"
-"PO-Revision-Date: 2026-06-10 22:57+0200\n"
+"POT-Creation-Date: 2026-06-10 23:14+0200\n"
+"PO-Revision-Date: 2026-06-10 23:15+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -18,33 +18,41 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: index.php:46
+#: index.php:39
 msgid "enter-address"
 msgstr "Enter the address of the website you want to edit."
 
-#: index.php:46
+#: index.php:39
 msgid "url-http"
 msgstr "The address must begin with http:// or https://"
 
-#: index.php:48
-msgid "url-site-label"
-msgstr "Website address"
-
-#: index.php:49
+#: index.php:41
 msgid "url-site-placeholder"
 msgstr "Website address"
 
-#: index.php:57
+#: index.php:50
 msgid "form-validate"
 msgstr "Confirm"
 
-#: index.php:60
+#: index.php:54
 msgid "source-code"
 msgstr "Source code on Github"
 
-#: index.php:60
+#: index.php:54
 msgid "hacklol-official"
 msgstr "Official Hacklol website"
+
+#: index.php:57
+msgid "lightTheme"
+msgstr "Light theme"
+
+#: index.php:57
+msgid "darkTheme"
+msgstr "Dark theme"
+
+#: index.php:57
+msgid "autoTheme"
+msgstr "Auto theme"
 
 #: index.php:75
 msgid "new-version-available"
@@ -54,80 +62,83 @@ msgstr "A new update is available!"
 msgid "download-new-version"
 msgstr "Get it here"
 
-#: hacklol-modifier/index.php:133
+#: hacklol-modifier/index.php:127
 msgid "errors-form"
 msgstr "Errors in the form"
 
-#: hacklol-modifier/index.php:134
+#: hacklol-modifier/index.php:128
 msgid "the"
 msgstr "The"
 
-#: hacklol-modifier/index.php:134
+#: hacklol-modifier/index.php:128
 msgid "following-errors"
 msgstr "following errors have been occurred in the form:"
 
-#: hacklol-modifier/index.php:137
+#: hacklol-modifier/index.php:131
 msgid "error-form"
 msgstr "Error in the form"
 
-#: hacklol-modifier/index.php:138
+#: hacklol-modifier/index.php:132
 msgid "following-error"
 msgstr "The following error have been occurred in the form:"
 
-#: hacklol-modifier/index.php:144
+#: hacklol-modifier/index.php:138
 msgid "error-banned"
 msgstr "Your IP address is banned."
 
-#: hacklol-modifier/index.php:147
+#: hacklol-modifier/index.php:141
 msgid "error-maintenance"
 msgstr "is currently under maintenance. Please retry later."
 
-#: hacklol-modifier/index.php:151
+#: hacklol-modifier/index.php:145
 msgid "anti-flood"
 msgstr "You have to wait 3 minutes before sending a new form to access to"
 
-#: hacklol-modifier/index.php:155
+#: hacklol-modifier/index.php:149
 msgid "error-form-not-submited"
 msgstr "It seems that you have accessed this page without sending the form"
 
-#: hacklol-modifier/index.php:158
+#: hacklol-modifier/index.php:152
 msgid "error-form-field-empty"
 msgstr "Some form field are empty"
 
-#: hacklol-modifier/index.php:161
+#: hacklol-modifier/index.php:155
 msgid "error-url-incorrect"
 msgstr "The URL you entered is incorrect."
 
-#: hacklol-modifier/index.php:164
+#: hacklol-modifier/index.php:158
 msgid "error-url-ip"
 msgstr "The website address mustn't be an IP address."
 
-#: hacklol-modifier/index.php:167
+#: hacklol-modifier/index.php:161
 msgid "error-hacklol"
 msgstr "It's impossible to edit Hacklol with"
 
-#: hacklol-modifier/index.php:170
+#: hacklol-modifier/index.php:164
 msgid "error-access"
 msgstr "The access to this website with"
 
-#: hacklol-modifier/index.php:170
+#: hacklol-modifier/index.php:164
 msgid "error-access-forbidden"
 msgstr "is forbidden for safety reasons."
 
-#: hacklol-modifier/index.php:170
+#: hacklol-modifier/index.php:164
 msgid "error-detected-keyword"
 msgstr "Detected keyword:"
 
-#: hacklol-modifier/index.php:173
+#: hacklol-modifier/index.php:167
 msgid "error-recaptcha-timeout"
 msgstr ""
 "An error occurred when checking the ReCaptcha response with the Google "
 "server. Please retry later."
 
-#: hacklol-modifier/index.php:176
+#: hacklol-modifier/index.php:170
 msgid "error-false-recaptcha"
 msgstr "Invalid ReCaptcha."
 
-#: hacklol-modifier/index.php:181
+#: hacklol-modifier/index.php:175
 msgid "back-to-form"
 msgstr "Back to the form"
+
+#~ msgid "url-site-label"
+#~ msgstr "Website address"

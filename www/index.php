@@ -19,6 +19,7 @@
 
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/index.css" rel="stylesheet">
+        <script src="js/dark-mode.js"></script>
         <?php
             if($hacklolConfig['enableRecaptcha'] == true) { ?>
 
@@ -53,6 +54,7 @@
                 By <a href="http://www.eliastiksofts.com" target="_blank">Eliastik</a> – <a href="https://github.com/Eliastik/hacklol-modifier/" target="_blank"><?php echo _("source-code") ?></a> – <a href="http://hacklol.eliastiksofts.com" target="_blank"><?php echo _("hacklol-official") ?></a>
                 <div class="version">Version <?php echo $hacklolConfig['appVersion']; ?> <span id="newVersion" style="display: none; color: blue;">–</span> <span id="newVersionText" style="color: blue;"></span> <span id="newVersionLink" style="color: blue;"></span></span></div>
                 <div class="lang"><a href="?lang=fr">Français</a> – <a href="?lang=en">English</a></div>
+                <div class="theme"><button type="button" class="btn btn-link" data-bs-theme-value="light"><?php echo _("lightTheme"); ?></button> – <button type="button" class="btn btn-link" data-bs-theme-value="dark"><?php echo _("darkTheme"); ?></button> – <button type="button" class="btn btn-link" data-bs-theme-value="auto"><?php echo _("autoTheme"); ?></button></div>
             </footer>
             <?php
                 $ch = curl_init($hacklolConfig["updateURL"]);

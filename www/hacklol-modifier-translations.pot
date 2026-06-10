@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-07 14:28+0200\n"
+"POT-Creation-Date: 2026-06-10 23:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,114 +17,122 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: index.php:40
+#: index.php:39
 msgid "enter-address"
 msgstr ""
 
-#: index.php:40
+#: index.php:39
 msgid "url-http"
 msgstr ""
 
-#: index.php:42
-msgid "url-site-label"
-msgstr ""
-
-#: index.php:43
+#: index.php:41
 msgid "url-site-placeholder"
 msgstr ""
 
-#: index.php:52
+#: index.php:50
 msgid "form-validate"
 msgstr ""
 
-#: index.php:56
+#: index.php:54
 msgid "source-code"
 msgstr ""
 
-#: index.php:56
+#: index.php:54
 msgid "hacklol-official"
 msgstr ""
 
-#: index.php:71
+#: index.php:57
+msgid "lightTheme"
+msgstr ""
+
+#: index.php:57
+msgid "darkTheme"
+msgstr ""
+
+#: index.php:57
+msgid "autoTheme"
+msgstr ""
+
+#: index.php:75
 msgid "new-version-available"
 msgstr ""
 
-#: index.php:72
+#: index.php:76
 msgid "download-new-version"
 msgstr ""
 
-#: hacklol-modifier/index.php:133
+#: hacklol-modifier/index.php:127
 msgid "errors-form"
 msgstr ""
 
-#: hacklol-modifier/index.php:134
+#: hacklol-modifier/index.php:128
 msgid "the"
 msgstr ""
 
-#: hacklol-modifier/index.php:134
+#: hacklol-modifier/index.php:128
 msgid "following-errors"
 msgstr ""
 
-#: hacklol-modifier/index.php:137
+#: hacklol-modifier/index.php:131
 msgid "error-form"
 msgstr ""
 
-#: hacklol-modifier/index.php:138
+#: hacklol-modifier/index.php:132
 msgid "following-error"
 msgstr ""
 
-#: hacklol-modifier/index.php:144
+#: hacklol-modifier/index.php:138
 msgid "error-banned"
 msgstr ""
 
-#: hacklol-modifier/index.php:147
+#: hacklol-modifier/index.php:141
 msgid "error-maintenance"
 msgstr ""
 
-#: hacklol-modifier/index.php:151
+#: hacklol-modifier/index.php:145
 msgid "anti-flood"
 msgstr ""
 
-#: hacklol-modifier/index.php:155
+#: hacklol-modifier/index.php:149
 msgid "error-form-not-submited"
 msgstr ""
 
-#: hacklol-modifier/index.php:158
+#: hacklol-modifier/index.php:152
 msgid "error-form-field-empty"
 msgstr ""
 
-#: hacklol-modifier/index.php:161
+#: hacklol-modifier/index.php:155
 msgid "error-url-incorrect"
 msgstr ""
 
-#: hacklol-modifier/index.php:164
+#: hacklol-modifier/index.php:158
 msgid "error-url-ip"
 msgstr ""
 
-#: hacklol-modifier/index.php:167
+#: hacklol-modifier/index.php:161
 msgid "error-hacklol"
 msgstr ""
 
-#: hacklol-modifier/index.php:170
+#: hacklol-modifier/index.php:164
 msgid "error-access"
 msgstr ""
 
-#: hacklol-modifier/index.php:170
+#: hacklol-modifier/index.php:164
 msgid "error-access-forbidden"
 msgstr ""
 
-#: hacklol-modifier/index.php:170
+#: hacklol-modifier/index.php:164
 msgid "error-detected-keyword"
 msgstr ""
 
-#: hacklol-modifier/index.php:173
+#: hacklol-modifier/index.php:167
 msgid "error-recaptcha-timeout"
 msgstr ""
 
-#: hacklol-modifier/index.php:176
+#: hacklol-modifier/index.php:170
 msgid "error-false-recaptcha"
 msgstr ""
 
-#: hacklol-modifier/index.php:181
+#: hacklol-modifier/index.php:175
 msgid "back-to-form"
 msgstr ""
