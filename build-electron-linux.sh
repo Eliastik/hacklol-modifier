@@ -3,16 +3,28 @@ set -euo pipefail
  
 PHP_VERSION="8.5"
 DOCKER_IMAGE="alpine:3.24"
+CACHE_DIR=".cache/spc"
 OUTPUT_DIR=".electron/binary/linux"
 SPC_WORKDIR="/tmp/spc-build"
  
 echo "Compiling ${PHP_VERSION} with StaticPHP (Docker)..."
  
 mkdir -p "$OUTPUT_DIR"
+mkdir -p "$CACHE_DIR"
+mkdir -p "$CACHE_DIR/buildroot"
+mkdir -p "$CACHE_DIR/downloads"
+mkdir -p "$CACHE_DIR/pkgroot"
+mkdir -p "$CACHE_DIR/source"
+
+rm "${OUTPUT_DIR}/php" -f 2>/dev/null || true
  
 docker run --rm \
   -v "$(pwd)/craft.yml:/app/craft.yml:ro" \
   -v "$(pwd)/${OUTPUT_DIR}:/output" \
+  -v "$(pwd)/${CACHE_DIR}/buildroot:/build/buildroot" \
+  -v "$(pwd)/${CACHE_DIR}/downloads:/build/downloads" \
+  -v "$(pwd)/${CACHE_DIR}/pkgroot:/build/pkgroot" \
+  -v "$(pwd)/${CACHE_DIR}/source:/build/source" \
   "${DOCKER_IMAGE}" \
   sh -c "
     set -e
@@ -36,7 +48,6 @@ if [ ! -f "${OUTPUT_DIR}/php" ]; then
   exit 1
 fi
  
-chmod +x "${OUTPUT_DIR}/php"
 file "${OUTPUT_DIR}/php"
  
 echo "Executing Electron build (npm run package-linux)..."
