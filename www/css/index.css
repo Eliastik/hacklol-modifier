@@ -66,3 +66,7 @@ footer {
   font-size: 10pt !important;
   padding: 0;
 }
+.theme .btn.active {
+  text-decoration: none !important;
+  color: var(--bs-body-color) !important;
+}
