@@ -1,16 +1,23 @@
-const { app, BrowserWindow, shell, session } = require("electron");
+const { app, BrowserWindow, shell, session, ipcMain } = require("electron");
 const { spawn } = require("child_process");
 const path = require("path");
 const http = require("http");
 const kill = require("tree-kill");
 const net = require("net");
+const fs = require("fs");
 
 let PHP_PROCESS = null;
 let PHP_PORT = null;
+let mainWindow = null;
 
 const isWindows = process.platform === "win32";
 const isMac = process.platform === "darwin";
 const isPackaged = app.isPackaged;
+
+const LOCAL_STORAGE_PATH = path.join(
+  app.getPath("userData"),
+  "localstorage.json",
+);
 
 function getBasePath() {
   if (app.isPackaged) {
@@ -21,11 +28,17 @@ function getBasePath() {
 }
 
 function getPhpBinary() {
-  if(isWindows) {
-    return path.join(getBasePath(), ".electron", "binary", "windows", "php.exe",);
+  if (isWindows) {
+    return path.join(
+      getBasePath(),
+      ".electron",
+      "binary",
+      "windows",
+      "php.exe",
+    );
   }
 
-  if(isMac) {
+  if (isMac) {
     return path.join(getBasePath(), ".electron", "binary", "mac", "php");
   }
 
@@ -46,6 +59,14 @@ function getFreePort() {
   });
 }
 
+function getServerAddress() {
+  return `127.0.0.1:${PHP_PORT}`;
+}
+
+function getServerHTTPAddress() {
+  return `http://${getServerAddress()}`;
+}
+
 async function startPHP() {
   const phpPath = getPhpBinary();
   const wwwPath = path.join(getBasePath(), "www");
@@ -58,13 +79,13 @@ async function startPHP() {
       "-c",
       path.join(getBasePath(), ".electron", "config", "php.ini"),
       "-S",
-      `127.0.0.1:${PHP_PORT}`,
+      getServerAddress(),
       "-t",
       wwwPath,
     ],
     {
-      stdio: "inherit"
-    }
+      stdio: "inherit",
+    },
   );
 
   PHP_PROCESS.on("error", (err) => {
@@ -97,25 +118,31 @@ function waitForServer(url, timeout = 5000) {
 }
 
 function createWindow() {
-  const ses = session.fromPartition('persist:main');
+  const ses = session.fromPartition("persist:main");
 
-  const win = new BrowserWindow({
+  const mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
     webPreferences: {
-      session: ses
-    }
+      session: ses,
+      nodeIntegration: false,
+      nodeIntegrationInWorker: false,
+      contextIsolation: true,
+      preload: path.join(__dirname, "preload.js"),
+    },
   });
 
-  win.setMenu(null);
-  win.loadURL(`http://127.0.0.1:${PHP_PORT}`);
+  mainWindow.webContents.openDevTools();
 
-  win.webContents.setWindowOpenHandler(({ url }) => {
+  mainWindow.setMenu(null);
+  mainWindow.loadURL(getServerHTTPAddress());
+
+  mainWindow.webContents.setWindowOpenHandler(({ url }) => {
     shell.openExternal(url);
     return { action: "deny" };
   });
 
-  win.webContents.on("new-window", (event, url) => {
+  mainWindow.webContents.on("new-window", (event, url) => {
     event.preventDefault();
     shell.openExternal(url);
   });
@@ -124,13 +151,68 @@ function createWindow() {
     callback({
       responseHeaders: {
         ...details.responseHeaders,
-        'X-Frame-Options': ['']
-      }
+        "X-Frame-Options": [""],
+      },
     });
   });
 
-  // TODO persist localStorage
+  mainWindow.webContents.on("will-navigate", async () => {
+    const url = mainWindow.webContents.getURL();
+
+    if (
+      url.startsWith(`${getServerHTTPAddress()}/hacklol-modifier/index.php`)
+    ) {
+      await saveLocalStorage(mainWindow);
+    }
+  });
 }
+
+function readLocalStorage() {
+  try {
+    if (fs.existsSync(LOCAL_STORAGE_PATH)) {
+      const raw = fs.readFileSync(LOCAL_STORAGE_PATH, "utf-8");
+      return JSON.parse(raw);
+    }
+  } catch (e) {
+    console.error("Failed to read localStorage file:", e);
+  }
+  
+  return {};
+}
+
+function writeLocalStorage(data) {
+  try {
+    fs.writeFileSync(
+      LOCAL_STORAGE_PATH,
+      JSON.stringify(data, null, 2),
+      "utf-8",
+    );
+  } catch (e) {
+    console.error("Failed to write localStorage file:", e);
+  }
+}
+
+async function saveLocalStorage(mainWindow) {
+  try {
+    const data = await mainWindow.webContents.executeJavaScript(`
+      (function() {
+        const out = {};
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          out[key] = localStorage.getItem(key);
+        }
+        return out;
+      })()
+    `);
+    writeLocalStorage(data);
+  } catch (e) {
+    console.error("Failed to save localStorage:", e);
+  }
+}
+
+ipcMain.on("get-localstorage", (event) => {
+  event.returnValue = readLocalStorage();
+});
 
 function killServer() {
   return new Promise((resolve, reject) => {
@@ -151,7 +233,12 @@ function killServer() {
 }
 
 async function exitGracefully() {
+  if (mainWindow && !mainWindow.isDestroyed()) {
+    await saveLocalStorage(mainWindow);
+  }
+
   if (PHP_PROCESS) {
+    await session.fromPartition("persist:main").flushStorageData();
     await killServer();
     app.quit();
   }
@@ -161,7 +248,7 @@ app.whenReady().then(async () => {
   await startPHP();
 
   try {
-    await waitForServer(`http://127.0.0.1:${PHP_PORT}`);
+    await waitForServer(getServerHTTPAddress());
     createWindow();
   } catch (e) {
     console.error(e);
