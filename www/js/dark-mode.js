@@ -12,6 +12,7 @@
 
   const getPreferredTheme = () => {
     const storedTheme = getStoredTheme()
+
     if (storedTheme) {
       return storedTheme
     }
@@ -26,8 +27,6 @@
       document.documentElement.setAttribute('data-bs-theme', theme)
     }
   }
-
-  setTheme(getPreferredTheme())
 
   const showActiveTheme = (theme, focus = false) => {
     const themeSwitcher = document.querySelector('#bd-theme')
@@ -60,7 +59,10 @@
   })
 
   window.addEventListener('DOMContentLoaded', () => {
-    showActiveTheme(getPreferredTheme())
+    const theme = getPreferredTheme()
+
+    setTheme(theme)
+    showActiveTheme(theme)
 
     document.querySelectorAll('[data-bs-theme-value]')
       .forEach(toggle => {

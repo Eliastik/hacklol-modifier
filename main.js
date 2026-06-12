@@ -14,10 +14,7 @@ const isWindows = process.platform === "win32";
 const isMac = process.platform === "darwin";
 const isPackaged = app.isPackaged;
 
-const LOCAL_STORAGE_PATH = path.join(
-  app.getPath("userData"),
-  "localstorage.json",
-);
+const LOCAL_STORAGE_PATH = path.join(app.getPath("userData"), "localstorage.json");
 
 function getBasePath() {
   if (app.isPackaged) {
@@ -29,13 +26,7 @@ function getBasePath() {
 
 function getPhpBinary() {
   if (isWindows) {
-    return path.join(
-      getBasePath(),
-      ".electron",
-      "binary",
-      "windows",
-      "php.exe",
-    );
+    return path.join(getBasePath(), ".electron", "binary", "windows", "php.exe");
   }
 
   if (isMac) {
@@ -105,7 +96,7 @@ function waitForServer(url, timeout = 5000) {
       http
         .get(url, () => resolve())
         .on("error", () => {
-          if (Date.now() - start > timeout) {
+          if(Date.now() - start > timeout) {
             reject(new Error("PHP server not ready"));
           } else {
             setTimeout(check, 100);
@@ -132,8 +123,6 @@ function createWindow() {
     },
   });
 
-  mainWindow.webContents.openDevTools();
-
   mainWindow.setMenu(null);
   mainWindow.loadURL(getServerHTTPAddress());
 
@@ -155,21 +144,11 @@ function createWindow() {
       },
     });
   });
-
-  mainWindow.webContents.on("will-navigate", async () => {
-    const url = mainWindow.webContents.getURL();
-
-    if (
-      url.startsWith(`${getServerHTTPAddress()}/hacklol-modifier/index.php`)
-    ) {
-      await saveLocalStorage(mainWindow);
-    }
-  });
 }
 
 function readLocalStorage() {
   try {
-    if (fs.existsSync(LOCAL_STORAGE_PATH)) {
+    if(fs.existsSync(LOCAL_STORAGE_PATH)) {
       const raw = fs.readFileSync(LOCAL_STORAGE_PATH, "utf-8");
       return JSON.parse(raw);
     }
@@ -182,33 +161,15 @@ function readLocalStorage() {
 
 function writeLocalStorage(data) {
   try {
-    fs.writeFileSync(
-      LOCAL_STORAGE_PATH,
-      JSON.stringify(data, null, 2),
-      "utf-8",
-    );
+    fs.writeFileSync(LOCAL_STORAGE_PATH, JSON.stringify(data, null, 2), "utf-8");
   } catch (e) {
     console.error("Failed to write localStorage file:", e);
   }
 }
 
-async function saveLocalStorage(mainWindow) {
-  try {
-    const data = await mainWindow.webContents.executeJavaScript(`
-      (function() {
-        const out = {};
-        for (let i = 0; i < localStorage.length; i++) {
-          const key = localStorage.key(i);
-          out[key] = localStorage.getItem(key);
-        }
-        return out;
-      })()
-    `);
-    writeLocalStorage(data);
-  } catch (e) {
-    console.error("Failed to save localStorage:", e);
-  }
-}
+ipcMain.on('save-localstorage', (event, data) => {
+  writeLocalStorage(data);
+});
 
 ipcMain.on("get-localstorage", (event) => {
   event.returnValue = readLocalStorage();
@@ -233,10 +194,6 @@ function killServer() {
 }
 
 async function exitGracefully() {
-  if (mainWindow && !mainWindow.isDestroyed()) {
-    await saveLocalStorage(mainWindow);
-  }
-
   if (PHP_PROCESS) {
     await session.fromPartition("persist:main").flushStorageData();
     await killServer();
