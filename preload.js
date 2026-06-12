@@ -2,6 +2,14 @@ const { ipcRenderer } = require("electron");
 
 let lastSnapshot = null;
 
+function shouldProcessLocalStorage() {
+    const location = window.location.pathname;
+
+    return window.location.pathname.startsWith("/hacklol-modifier/index.php")
+        || window.location.pathname.startsWith("/index.php")
+        || window.location.pathname === "/";
+}
+
 function getSnapshot() {
     const current = {};
 
@@ -14,7 +22,7 @@ function getSnapshot() {
 }
 
 setInterval(() => {
-    if(!window.location.pathname.startsWith("/hacklol-modifier/index.php") && window.location.pathname !== "/") {
+    if(!shouldProcessLocalStorage()) {
         return;
     }
 
@@ -28,12 +36,12 @@ setInterval(() => {
         lastSnapshot = snapshot;
         ipcRenderer.send("save-localstorage", JSON.parse(snapshot));
     }
-}, 500);
+}, 250);
 
 const data = ipcRenderer.sendSync("get-localstorage");
 
 window.addEventListener("DOMContentLoaded", () => {
-    if(!window.location.pathname.startsWith("/hacklol-modifier/index.php") && window.location.pathname !== "/") {
+    if(!shouldProcessLocalStorage()) {
         return;
     }
 
