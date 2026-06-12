@@ -136,13 +136,33 @@ function createWindow() {
     shell.openExternal(url);
   });
 
-  session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
-    callback({
-      responseHeaders: {
-        ...details.responseHeaders,
-        "X-Frame-Options": [""],
-      },
-    });
+  ses.webRequest.onHeadersReceived((details, callback) => {
+    if(details.url.startsWith(getServerHTTPAddress())) {
+      return callback({ responseHeaders: details.responseHeaders });
+    }
+
+    const headers = { ...details.responseHeaders };
+    const xFrameOptionsKey = Object.keys(headers).find(header => header.toLowerCase() === "x-frame-options");
+
+    if(xFrameOptionsKey) {
+      delete headers[xFrameOptionsKey];
+    }
+
+    const contentSecurityPolicyKey = Object.keys(headers).find(header => header.toLowerCase() === "content-security-policy");
+
+    if(contentSecurityPolicyKey) {
+      headers[contentSecurityPolicyKey] = headers[contentSecurityPolicyKey].map(headerValue => {
+        if(!headerValue) {
+          return headerValue;
+        }
+
+        return headerValue.split(";")
+          .filter(part => !part.trim().toLowerCase().startsWith("frame-ancestors"))
+          .join(";");
+      });
+    }
+
+    callback({ responseHeaders: headers });
   });
 }
 
