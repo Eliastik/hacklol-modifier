@@ -1,0 +1,138 @@
+name: Build
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  php-linux:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download spc
+        run: |
+          curl -#fSL https://dl.static-php.dev/v3/spc-bin/nightly/spc-linux-x86_64 -o spc
+          chmod +x spc
+
+      - name: Cache downloads
+        uses: actions/cache@v4
+        with:
+          path: spc-build/downloads
+          key: spc-linux-${{ hashFiles('craft.yml') }}
+
+      - name: Build PHP (StaticPHP natif)
+        run: |
+          mkdir -p spc-build
+          mkdir -p .electron/binary/linux
+          cp craft.yml spc-build/craft.yml
+          cd spc-build
+          ../spc doctor --auto-fix
+          ../spc craft -v
+          cp buildroot/bin/php ../.electron/binary/linux/php
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: php-linux
+          path: .electron/binary/linux/php
+
+  php-windows:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download spc
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path .electron\binary\windows | Out-Null
+          Invoke-WebRequest `
+            -Uri "https://dl.static-php.dev/v3/spc-bin/nightly/spc-windows-x64.exe" `
+            -OutFile "spc.exe"
+
+      - name: Cache downloads
+        uses: actions/cache@v4
+        with:
+          path: spc-build\downloads
+          key: spc-windows-${{ hashFiles('craft.yml') }}
+
+      - name: Build PHP (StaticPHP native)
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path spc-build | Out-Null
+          Copy-Item craft.yml spc-build\craft.yml
+          cd spc-build
+          ..\spc.exe doctor --auto-fix
+          ..\spc.exe install-pkg upx
+          ..\spc.exe build --build-cli "curl,gettext,intl,session,filter" --with-upx-pack --dl-parallel=1 --dl-with-php=8.5
+          Copy-Item buildroot\bin\php.exe ..\\.electron\binary\windows\php.exe
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: php-windows
+          path: .electron\binary\windows\php.exe
+
+  electron-linux:
+    runs-on: ubuntu-latest
+    needs: php-linux
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download PHP binary
+        uses: actions/download-artifact@v4
+        with:
+          name: php-linux
+          path: .electron/binary/linux/
+
+      - run: chmod +x .electron/binary/linux/php
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run package-linux
+
+      - name: Upload AppImage
+        uses: actions/upload-artifact@v4
+        with:
+          name: electron-linux
+          path: build/electron/*.AppImage
+
+  electron-windows:
+    runs-on: windows-latest
+    needs: php-windows
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download PHP binary
+        uses: actions/download-artifact@v4
+        with:
+          name: php-windows
+          path: .electron\binary\windows\
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run package-windows
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: false
+
+      - name: Upload portable
+        uses: actions/upload-artifact@v4
+        with:
+          name: electron-windows
+          path: build\electron\*.exe

@@ -5,7 +5,7 @@
   "main": "main.js",
   "devDependencies": {
     "electron": "^42.4.0",
-    "electron-builder": "^26.15.2",
+    "electron-builder": "^26.15.3",
     "electron-packager": "^17.1.2",
     "gulp": "^5.0.1",
     "gulp-clean-css": "^4.3.0",
@@ -26,13 +26,15 @@
     "start": "electron .",
     "build-static-php-linux": "chmod +x ./build-static-php-linux.sh && ./build-static-php-linux.sh",
     "build-linux": "chmod +x ./build-static-php-linux.sh && chmod +x ./build-electron-linux.sh && ./build-electron-linux.sh",
-    "package-linux": "electron-builder --linux"
+    "package-linux": "electron-builder --linux",
+    "package-windows": "electron-builder --windows"
   },
   "build": {
     "appId": "org.eliastik.hacklolModifier",
     "productName": "hacklol-modifier",
     "directories": {
-      "output": "build/electron"
+      "output": "build/electron",
+      "buildResources": "resources"
     },
     "files": [
       "main.js"
