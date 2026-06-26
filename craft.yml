@@ -2,6 +2,8 @@ php-version: 8.5
 extensions: "curl,gettext,intl,session,filter"
 sapi:
   - cli
+build-options:
+  with-upx-pack: true
 download-options:
   parallel: 1
   retry: 5

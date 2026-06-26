@@ -36,6 +36,7 @@ jobs:
           cp craft.yml spc-build/craft.yml
           cd spc-build
           ../spc doctor --auto-fix
+          ../spc install-pkg upx
           ../spc craft -v
           cp buildroot/bin/php ../.electron/binary/linux/php
 
@@ -72,7 +73,7 @@ jobs:
           cd spc-build
           ..\spc.exe doctor --auto-fix
           ..\spc.exe install-pkg upx
-          ..\spc.exe build --build-cli "curl,gettext,intl,session,filter" --with-upx-pack --dl-parallel=1 --dl-with-php=8.5
+          ..\spc.exe craft -v
           Copy-Item buildroot\bin\php.exe ..\\.electron\binary\windows\php.exe
 
       - name: Upload artifact

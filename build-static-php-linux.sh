@@ -36,6 +36,7 @@ docker run --rm \
     mkdir -p /build && cd /build
     cp /app/craft.yml .
     spc doctor --auto-fix
+    spc install-pkg upx
     spc craft -v
     cp buildroot/bin/php /output/php
     echo 'PHP binary built successfully and copied to output directory.'
