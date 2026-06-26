@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "devDependencies": {
-    "electron": "^42.4.0",
+    "electron": "^42.5.0",
     "electron-builder": "^26.15.3",
     "electron-packager": "^17.1.2",
     "gulp": "^5.0.1",
