@@ -76,6 +76,7 @@ async function startPHP() {
     ],
     {
       stdio: "inherit",
+      windowsHide: true
     },
   );
 
