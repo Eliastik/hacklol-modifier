@@ -126,6 +126,7 @@ jobs:
         shell: pwsh
         run: |
           cd www\hacklol-modifier\page_loader
+          Remove-Item -Recurse -Force vendor
           composer install --no-dev --optimize-autoloader --classmap-authoritative
 
       - uses: actions/setup-node@v4
