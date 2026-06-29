@@ -7,7 +7,7 @@
 use Proxy\Plugin\AbstractPlugin;
 use Proxy\Event\ProxyEvent;
 
-require("../ProtectForm.php");
+require(".." . DIRECTORY_SEPARATOR . "ProtectForm.php");
 
 $_SERVER["REMOTE_ADDR"] = get_ip();
 
@@ -16,13 +16,13 @@ class ProtectPlugin extends AbstractPlugin {
     protected $url_pattern;
 
     public function onBeforeRequest(ProxyEvent $event){
-        $fileBlacklist = "../../blacklistedWebsites.php";
-        $fileBanIP = "../../ban_ip.php";
+        $fileBlacklist = ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "blacklistedWebsites.php";
+        $fileBanIP = ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "/ban_ip.php";
 
         // start the session
         session_start();
         // appName
-        include("../../config.php");
+        include(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php");
 
         if(isset($hacklolConfig)) {
             $appName = $hacklolConfig['pageLoaderName'];

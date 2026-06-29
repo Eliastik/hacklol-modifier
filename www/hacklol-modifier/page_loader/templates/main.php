@@ -1,5 +1,5 @@
 <?php
-    include("../../config.php");
+    include(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php");
     if(isset($hacklolConfig)) {
         $appName = $hacklolConfig['pageLoaderName'];
     } else {

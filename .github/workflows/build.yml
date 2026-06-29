@@ -122,6 +122,12 @@ jobs:
           name: php-windows
           path: .electron\binary\windows\
 
+      - name: Regenerate Composer autoload for Windows
+        shell: pwsh
+        run: |
+          cd www\hacklol-modifier\page_loader
+          composer install --no-dev --optimize-autoloader --classmap-authoritative
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22

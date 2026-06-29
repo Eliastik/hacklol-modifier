@@ -20,13 +20,13 @@
  *  */
 session_start(); // on démarre une session
 
-require("../config.php");
-$path = "../locale";
-require("../locales.php");
+require(".." . DIRECTORY_SEPARATOR . "config.php");
+$path = ".." . DIRECTORY_SEPARATOR . "locale";
+require(".." . DIRECTORY_SEPARATOR . "locales.php");
 
 require("ProtectForm.php");
-$fileBlacklist = "../blacklistedWebsites.php";
-$fileBanIP = "../ban_ip.php";
+$fileBlacklist = ".." . DIRECTORY_SEPARATOR . "blacklistedWebsites.php";
+$fileBanIP = ".." . DIRECTORY_SEPARATOR . "ban_ip.php";
 
 $url = null;
 $valid = null;
