@@ -40,6 +40,31 @@ class ComposerStaticInitfb350a3e06b64e272c413172eff4d291
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Proxy\\Config' => __DIR__ . '/..' . '/athlon1600/php-proxy/src/Config.php',
+        'Proxy\\Event\\ProxyEvent' => __DIR__ . '/..' . '/athlon1600/php-proxy/src/Event/ProxyEvent.php',
+        'Proxy\\Html' => __DIR__ . '/..' . '/athlon1600/php-proxy/src/Html.php',
+        'Proxy\\Http\\ParamStore' => __DIR__ . '/..' . '/athlon1600/php-proxy/src/Http/ParamStore.php',
+        'Proxy\\Http\\Request' => __DIR__ . '/..' . '/athlon1600/php-proxy/src/Http/Request.php',
+        'Proxy\\Http\\Response' => __DIR__ . '/..' . '/athlon1600/php-proxy/src/Http/Response.php',
+        'Proxy\\Plugin\\AbstractPlugin' => __DIR__ . '/..' . '/athlon1600/php-proxy/src/Plugin/AbstractPlugin.php',
+        'Proxy\\Plugin\\CookiePlugin' => __DIR__ . '/..' . '/athlon1600/php-proxy/src/Plugin/CookiePlugin.php',
+        'Proxy\\Plugin\\DailyMotionPlugin' => __DIR__ . '/..' . '/athlon1600/php-proxy-plugin-bundle/src/DailyMotionPlugin.php',
+        'Proxy\\Plugin\\HeaderRewritePlugin' => __DIR__ . '/..' . '/athlon1600/php-proxy/src/Plugin/HeaderRewritePlugin.php',
+        'Proxy\\Plugin\\PornhubPlugin' => __DIR__ . '/..' . '/athlon1600/php-proxy-plugin-bundle/src/PornhubPlugin.php',
+        'Proxy\\Plugin\\ProxifyPlugin' => __DIR__ . '/..' . '/athlon1600/php-proxy/src/Plugin/ProxifyPlugin.php',
+        'Proxy\\Plugin\\RedTubePlugin' => __DIR__ . '/..' . '/athlon1600/php-proxy-plugin-bundle/src/RedTubePlugin.php',
+        'Proxy\\Plugin\\StreamPlugin' => __DIR__ . '/..' . '/athlon1600/php-proxy/src/Plugin/StreamPlugin.php',
+        'Proxy\\Plugin\\TwitterPlugin' => __DIR__ . '/..' . '/athlon1600/php-proxy-plugin-bundle/src/TwitterPlugin.php',
+        'Proxy\\Plugin\\XHamsterPlugin' => __DIR__ . '/..' . '/athlon1600/php-proxy-plugin-bundle/src/XHamsterPlugin.php',
+        'Proxy\\Plugin\\XVideosPlugin' => __DIR__ . '/..' . '/athlon1600/php-proxy-plugin-bundle/src/XVideosPlugin.php',
+        'Proxy\\Plugin\\XnxxPlugin' => __DIR__ . '/..' . '/athlon1600/php-proxy-plugin-bundle/src/XnxxPlugin.php',
+        'Proxy\\Plugin\\YoutubePlugin' => __DIR__ . '/..' . '/athlon1600/php-proxy-plugin-bundle/src/YoutubePlugin.php',
+        'Proxy\\Proxy' => __DIR__ . '/..' . '/athlon1600/php-proxy/src/Proxy.php',
+        'Proxy\\Redis' => __DIR__ . '/..' . '/athlon1600/php-proxy/src/Redis.php',
+        'YouTube\\Browser' => __DIR__ . '/..' . '/athlon1600/youtube-downloader/src/Browser.php',
+        'YouTube\\Parser' => __DIR__ . '/..' . '/athlon1600/youtube-downloader/src/Parser.php',
+        'YouTube\\SignatureDecoder' => __DIR__ . '/..' . '/athlon1600/youtube-downloader/src/SignatureDecoder.php',
+        'YouTube\\YouTubeDownloader' => __DIR__ . '/..' . '/athlon1600/youtube-downloader/src/YouTubeDownloader.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

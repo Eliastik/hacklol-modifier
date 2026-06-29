@@ -3,11 +3,11 @@
         'name' => 'athlon1600/php-proxy-app',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '43e4dd23c5adef1eae8808a6bbe6bdd203ca0734',
+        'reference' => '79dedbeef1d13acc7f01d961cb793a626e236e9f',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'dev' => true,
+        'dev' => false,
     ),
     'versions' => array(
         'athlon1600/php-proxy' => array(
@@ -22,7 +22,7 @@
         'athlon1600/php-proxy-app' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '43e4dd23c5adef1eae8808a6bbe6bdd203ca0734',
+            'reference' => '79dedbeef1d13acc7f01d961cb793a626e236e9f',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

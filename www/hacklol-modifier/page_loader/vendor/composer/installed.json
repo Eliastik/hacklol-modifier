@@ -133,6 +133,6 @@
                         "install-path": "../athlon1600/youtube-downloader"
                 }
         ],
-        "dev": true,
+        "dev": false,
         "dev-package-names": []
 }
