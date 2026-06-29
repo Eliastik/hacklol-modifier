@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitfb350a3e06b64e272c413172eff4d291
+class ComposerStaticInit31d3d48f9e400d4765b53e776dac43d1
 {
     public static $files = array (
         'fe17454461a24db888b8da8720edd309' => __DIR__ . '/..' . '/athlon1600/php-proxy/src/helpers.php',
@@ -70,9 +70,9 @@ class ComposerStaticInitfb350a3e06b64e272c413172eff4d291
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitfb350a3e06b64e272c413172eff4d291::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitfb350a3e06b64e272c413172eff4d291::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitfb350a3e06b64e272c413172eff4d291::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit31d3d48f9e400d4765b53e776dac43d1::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit31d3d48f9e400d4765b53e776dac43d1::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit31d3d48f9e400d4765b53e776dac43d1::$classMap;
 
         }, null, ClassLoader::class);
     }

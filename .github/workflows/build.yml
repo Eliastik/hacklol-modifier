@@ -127,7 +127,7 @@ jobs:
         run: |
           cd www\hacklol-modifier\page_loader
           Remove-Item -Recurse -Force vendor
-          composer install --no-dev --optimize-autoloader --classmap-authoritative
+          composer install --no-dev --optimize-autoloader
 
       - uses: actions/setup-node@v4
         with:
