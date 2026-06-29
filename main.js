@@ -6,6 +6,8 @@ const kill = require("tree-kill");
 const net = require("net");
 const fs = require("fs");
 
+const BIND_ADDRESS = "127.0.0.1";
+
 let PHP_PROCESS = null;
 let PHP_PORT = null;
 let mainWindow = null;
@@ -41,7 +43,7 @@ function getFreePort() {
   return new Promise((resolve, reject) => {
     const server = net.createServer();
 
-    server.listen(0, () => {
+    server.listen(0, BIND_ADDRESS, () => {
       const port = server.address().port;
       server.close(() => resolve(port));
     });
@@ -51,7 +53,7 @@ function getFreePort() {
 }
 
 function getServerAddress() {
-  return `127.0.0.1:${PHP_PORT}`;
+  return `${BIND_ADDRESS}:${PHP_PORT}`;
 }
 
 function getServerHTTPAddress() {
