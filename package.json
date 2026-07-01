@@ -37,7 +37,8 @@
       "buildResources": "resources"
     },
     "files": [
-      "main.js"
+      "main.js",
+      "preload.js"
     ],
     "extraResources": [
       {
