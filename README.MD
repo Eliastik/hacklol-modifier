@@ -1,5 +1,5 @@
-<img src="https://raw.githubusercontent.com/Eliastik/hacklol-modifier/master/img/logo_hacklol_modifier.png" width="306" alt="Hacklol Modifier" />
-<img src="https://raw.githubusercontent.com/Eliastik/hacklol-modifier/master/img/screenshot.png" width="640" alt="Screenshot" />
+<img src="https://raw.githubusercontent.com/Eliastik/hacklol-modifier/master/www/img/logo_hacklol_modifier.png" width="306" alt="Hacklol Modifier" />
+<img src="https://raw.githubusercontent.com/Eliastik/hacklol-modifier/master/www/img/screenshot.png" width="640" alt="Screenshot" />
 
 ## Français :
 
