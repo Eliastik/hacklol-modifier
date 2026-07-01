@@ -132,7 +132,7 @@ npm update
 Pour mettre à jour PHP-Proxy (nécessite composer) :
 
 ````
-cd hacklol-modifier/page_loader
+cd www/hacklol-modifier/page_loader
 composer update
 ````
 
@@ -145,9 +145,9 @@ Pour mettre à jour le template de traduction (uniquement sur Linux, rendre le f
 
 L'application inclus un formulaire basique pour lancer Hacklol Modifier. Pour lancer l'application, il suffit d'entrer l'adresse du site que l'on souhaite modifier. Google ReCaptcha v2 est également inclus dans le formulaire (activable en modifiant le fichier config.php). Le site est chargé sur le serveur via un proxy, PHP-Proxy ( https://github.com/Athlon1600/php-proxy-app ), et envoyé à l'utilisateur via une iframe. Cette fonction est désactivable dans les options.
 
-PHP-Proxy est installé à l'aide de composer dans hacklol-modifier/page_loader. Les seuls fichiers modifiés/ajoutés sont /plugins/ProtectPlugin.php, /plugins/ban_ip.php, /templates/main.php et /templates/url_form.php.
+PHP-Proxy est installé à l'aide de composer dans www/hacklol-modifier/page_loader. Les seuls fichiers modifiés/ajoutés sont /plugins/ProtectPlugin.php, /plugins/ban_ip.php, /templates/main.php et /templates/url_form.php.
 
-Le nom de l'application est modifiable en éditant le fichier config.php et hacklol-modifier/assets/src/js/main.js.
+Le nom de l'application est modifiable en éditant le fichier www/config.php et www/hacklol-modifier/assets/src/js/main.js.
 
 ### Journal des mises à jour
 
@@ -379,7 +379,7 @@ npm update
 To update PHP-Proxy (require composer):
 
 ````
-cd hacklol-modifier/page_loader
+cd www/hacklol-modifier/page_loader
 composer update
 ````
 
@@ -392,9 +392,9 @@ To update the translation template (only on Linux, don't forget to render the fi
 
 The application includes a basic form to launch Hacklol Modifier. To launch the app, it is required to enter a website address. Google ReCaptcha v2 is also included (can be activated by modifying the config.php file). The website is loaded via a proxy, PHP-Proxy ( https://github.com/Athlon1600/php-proxy-app ), and returned to the user via an iframe. This function can be disabled via the Hacklol Modifier settings.
 
-PHP-Proxy is installed via composer in the folder hacklol-modifier/page_loader. The only files edited/added are /plugins/ProtectPlugin.php, /plugins/ban_ip.php, /templates/main.php and /templates/url_form.php.
+PHP-Proxy is installed via composer in the folder www/hacklol-modifier/page_loader. The only files edited/added are /plugins/ProtectPlugin.php, /plugins/ban_ip.php, /templates/main.php and /templates/url_form.php.
 
-The app name is editable by modifying the files config.php and hacklol-modifier/assets/src/js/main.js.
+The app name is editable by modifying the files www/config.php and www/hacklol-modifier/assets/src/js/main.js.
 
 ### Changelog
 
