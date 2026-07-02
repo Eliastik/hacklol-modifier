@@ -56,11 +56,18 @@
     ],
     "win": {
       "target": [
-        "portable"
+        "portable",
+        "nsis"
       ]
     },
     "portable": {
       "artifactName": "hacklol-modifier.exe"
+    },
+    "nsis": {
+      "artifactName": "hacklol-modifier-setup.exe",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "licenseFile": "LICENSE.txt"
     }
   },
   "repository": {
