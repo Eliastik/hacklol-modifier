@@ -67,7 +67,7 @@
       "artifactName": "hacklol-modifier-setup.exe",
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
-      "licenseFile": "LICENSE.txt"
+      "license": "LICENSE.txt"
     }
   },
   "repository": {
