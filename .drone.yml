@@ -12,4 +12,4 @@ steps:
       from_secret: REGISTRY_PASSWORD
     tags:
       - latest
-      - 1.41-REV5
+      - 1.41-REV6

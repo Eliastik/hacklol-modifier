@@ -21,7 +21,7 @@ class ProtectPlugin extends AbstractPlugin {
 
         // start the session
         session_start();
-        // appName
+
         include(".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "config.php");
 
         if(isset($hacklolConfig)) {
@@ -32,33 +32,37 @@ class ProtectPlugin extends AbstractPlugin {
             $hacklolModifierName = "Hacklol Modifier";
         }
 
-        if(isset($_SESSION['urlPageHacklol'])) {
-            if(is_ban(get_ip(), $fileBanIP)) {
-                die("Votre adresse IP est bannie. Vous ne pouvez pas utiliser ". $appName);
-            }
+        if(!isset($_SESSION['urlPageHacklol'])) {
+            $disableSessionCheckForLocalhost = isset($hacklolConfig) && isset($hacklolConfig['disableSessionCheckForLocalhost']) ? $hacklolConfig['disableSessionCheckForLocalhost'] : false;
 
-            $url = trim($event['request']->getUri());
-            $blacklisted = in_blacklist($url, $fileBlacklist);
-
-            if(is_url_ip($url) === true) {
+            if(!($disableSessionCheckForLocalhost && $_SERVER['REMOTE_ADDR'] === "127.0.0.1")) {
                 echo render_template("./templates/main.php", array('version' => 0,
-                    'error_protect_plugin' => 'Impossible d\'accéder à une URL de type adresse IP. <a href="#" onclick="javascript:history.back();">Retourner &agrave; la page pr&eacute;c&eacute;dente</a><br />It\'s not possible to access to an IP address URL. <a href="#" onclick="javascript:history.back();">Go back to the previous page</a>'
-                ));
-                die();
-            } else if(is_invalid_url($url)) {
-                echo render_template("./templates/main.php", array('version' => 0,
-                    'error_protect_plugin' => 'Adresse URL invalide. <a href="#" onclick="javascript:history.back();">Retourner &agrave; la page pr&eacute;c&eacute;dente</a><br />Invalid URL address. <a href="#" onclick="javascript:history.back();">Go back to the previous page</a>'
-                ));
-                die();
-            } else if($blacklisted[0] === true) {
-                echo render_template("./templates/main.php", array('version' => 0,
-                    'error_protect_plugin' => 'L\'accès à ce site avec ' . $appName .' a été interdit pour des raisons de sécurité. <strong>Mot clef détecté :</strong> ' . htmlentities($blacklisted[1]) . '. <a href="#" onclick="javascript:history.back();">Retourner &agrave; la page pr&eacute;c&eacute;dente</a>.<br />The access to this website with ' . $appName .' is banned for security reasons. <strong>Detected keyword:</strong> ' . htmlentities($blacklisted[1]) . '. <a href="#" onclick="javascript:history.back();">Go back to the previous page</a>.'
+                    'error_protect_plugin' => 'Votre session a expir&eacute;. Vous ne pouvez plus utiliser '. $appName .'. Si ce message s\'est affich&eacute; imm&eacute;diatement apr&egrave;s l\'acc&egrave;s &agrave; '. $hacklolModifierName .', v&eacute;rifiez que votre navigateur accepte bien les cookies (<a href="http://www.commentcamarche.net/faq/7543-activer-les-cookies" target="_blank">comment les activer</a>) et r&eacute;essayez. Sinon, si vous voulez continuer &agrave; utiliser '. $hacklolModifierName .', d&eacute;cochez &laquo; Activer '. $appName .' &raquo; dans les param&egrave;tres de '. $hacklolModifierName .', ou quittez '. $hacklolModifierName .' et choisissez un autre site &agrave; modifier.<br /><br />Your session has expired. You can\'t use '. $appName .' anymore. If this message have been displayed immediately after you have accessed to '. $hacklolModifierName .', make sure your browser accepts cookies (<a href="http://ccm.net/faq/40614-how-to-enable-cookies" target="_blank">how to enable</a>) and try again. Otherwise, if you want to continue to use '. $hacklolModifierName .', uncheck "Enable '. $appName .'" in the settings of '. $hacklolModifierName .', or exit '. $hacklolModifierName .' and choose another site to edit.'
                 ));
                 die();
             }
-        } else {
+        }
+
+        if(is_ban(get_ip(), $fileBanIP)) {
+            die("Votre adresse IP est bannie. Vous ne pouvez pas utiliser ". $appName . " / Your IP address is banned. You can't use ". $appName .".");
+        }
+
+        $url = trim($event['request']->getUri());
+        $blacklisted = in_blacklist($url, $fileBlacklist);
+
+        if(is_url_ip($url) === true) {
             echo render_template("./templates/main.php", array('version' => 0,
-            'error_protect_plugin' => 'Votre session a expir&eacute;. Vous ne pouvez plus utiliser '. $appName .'. Si ce message s\'est affich&eacute; imm&eacute;diatement apr&egrave;s l\'acc&egrave;s &agrave; '. $hacklolModifierName .', v&eacute;rifiez que votre navigateur accepte bien les cookies (<a href="http://www.commentcamarche.net/faq/7543-activer-les-cookies" target="_blank">comment les activer</a>) et r&eacute;essayez. Sinon, si vous voulez continuer &agrave; utiliser '. $hacklolModifierName .', d&eacute;cochez &laquo; Activer '. $appName .' &raquo; dans les param&egrave;tres de '. $hacklolModifierName .', ou quittez '. $hacklolModifierName .' et choisissez un autre site &agrave; modifier.<br /><br />Your session has expired. You can\'t use '. $appName .' anymore. If this message have been displayed immediately after you have accessed to '. $hacklolModifierName .', make sure your browser accepts cookies (<a href="http://ccm.net/faq/40614-how-to-enable-cookies" target="_blank">how to enable</a>) and try again. Otherwise, if you want to continue to use '. $hacklolModifierName .', uncheck "Enable '. $appName .'" in the settings of '. $hacklolModifierName .', or exit '. $hacklolModifierName .' and choose another site to edit.'
+                'error_protect_plugin' => 'Impossible d\'accéder à une URL de type adresse IP. <a href="#" onclick="javascript:history.back();">Retourner &agrave; la page pr&eacute;c&eacute;dente</a><br />It\'s not possible to access to an IP address URL. <a href="#" onclick="javascript:history.back();">Go back to the previous page</a>'
+            ));
+            die();
+        } else if(is_invalid_url($url)) {
+            echo render_template("./templates/main.php", array('version' => 0,
+                'error_protect_plugin' => 'Adresse URL invalide. <a href="#" onclick="javascript:history.back();">Retourner &agrave; la page pr&eacute;c&eacute;dente</a><br />Invalid URL address. <a href="#" onclick="javascript:history.back();">Go back to the previous page</a>'
+            ));
+            die();
+        } else if($blacklisted[0] === true) {
+            echo render_template("./templates/main.php", array('version' => 0,
+                'error_protect_plugin' => 'L\'accès à ce site avec ' . $appName .' a été interdit pour des raisons de sécurité. <strong>Mot clef détecté :</strong> ' . htmlentities($blacklisted[1]) . '. <a href="#" onclick="javascript:history.back();">Retourner &agrave; la page pr&eacute;c&eacute;dente</a>.<br />The access to this website with ' . $appName .' is banned for security reasons. <strong>Detected keyword:</strong> ' . htmlentities($blacklisted[1]) . '. <a href="#" onclick="javascript:history.back();">Go back to the previous page</a>.'
             ));
             die();
         }
@@ -68,13 +72,6 @@ class ProtectPlugin extends AbstractPlugin {
         // Remove anti-iframes scripts
         $response = $event['response'];
         $str = $response->getContent();
-
-        /* $str = preg_replace('/if\(.*?window.*?parent.*?length.*\).*?\{.*?\}/i', '', $str);
-        $str = preg_replace('/if\(*?top.*\).*?\{.*?\}/i', '', $str);
-        $str = preg_replace('/.*?top.*?location.*?[\s.*?].*?;/i', '', $str);
-        $str = preg_replace('/.*?window.*?self.*?;?/i', '', $str);
-        $str = preg_replace('/.*?top.*?self.[\t\r\n\s]*?.*;?/i', '', $str);
-        $str = preg_replace('/.*?window.*?open.\(.*?,[\t\r\n\s]*?.*_top.*\)/i', '', $str); */
 
         // Fix for Facebook (and maybe other websites) :
         $str = preg_replace('/<script.*?if\s*\(\s*top.*?self.*?\).*?script>|<script.*?if\s*\(\s*self.*?top.*?\).*?script>/i', '', $str);

@@ -81,5 +81,26 @@
             }
             ?>
         </div> <!-- /container -->
+        <div id="loader" style="display: none;">
+            <div class="spinner-border text-primary" style="width: 8rem; height: 8rem;" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <script>
+            const form = document.querySelector("form");
+            const loader = document.getElementById("loader");
+
+            form.addEventListener("submit", function() {
+                loader.style.display = "flex";
+            });
+
+            const links = document.querySelectorAll('a:not([target="_blank"])');
+
+            links.forEach(link => {
+                link.addEventListener("click", function(event) {
+                    loader.style.display = "flex";
+                });
+            });
+        </script>
     </body>
 </html>
