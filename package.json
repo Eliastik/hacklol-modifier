@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "devDependencies": {
-    "electron": "^43.0.0",
+    "electron": "^43.1.1",
     "electron-builder": "^26.15.3",
     "electron-packager": "^17.1.2",
     "gulp": "^5.0.1",
@@ -30,8 +30,8 @@
     "package-windows": "electron-builder --windows"
   },
   "build": {
-    "appId": "org.eliastik.hacklolModifier",
-    "productName": "hacklol-modifier",
+    "appId": "org.eliastik.hacklol-modifier",
+    "productName": "Hacklol Modifier",
     "directories": {
       "output": "build/electron",
       "buildResources": "resources"
