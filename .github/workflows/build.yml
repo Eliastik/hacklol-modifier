@@ -96,6 +96,13 @@ jobs:
 
       - run: chmod +x .electron/binary/linux/php
 
+      - name: Regenerate Composer autoload for Linux
+        shell: pwsh
+        run: |
+          cd www/hacklol-modifier/page_loader
+          rm -rf vendor
+          composer install --no-dev --optimize-autoloader
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22

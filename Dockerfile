@@ -7,7 +7,7 @@ RUN apk add --update --no-cache \
     bash curl ca-certificates openssl tzdata openntpd supervisor \
     apache2 apache2-proxy apache2-ssl \
     "$PHP_VER" "$PHP_VER"-apache2 "$PHP_VER"-fpm \
-    gettext musl-locales musl-locales-lang icu-data-full \
+    gettext musl-locales musl-locales-lang icu-data-full composer \
     "$PHP_VER"-openssl \
     "$PHP_VER"-gettext \
     "$PHP_VER"-curl \
@@ -62,7 +62,6 @@ RUN sed -i "s/#LoadModule\ rewrite_module/LoadModule\ rewrite_module/" /etc/apac
  && echo '</FilesMatch>' >> /etc/apache2/httpd.conf \
  # Custom log format
  && echo 'LogFormat "%v:%p %h %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" vhost_combined' >> /etc/apache2/httpd.conf \
- # Supprimer le module PHP natif Apache (on utilise FPM)
  && rm -f /etc/apache2/conf.d/"$PHP_VER"-module.conf
  
 # Setup permissions in one layer
@@ -83,6 +82,11 @@ RUN touch /var/log/apache2/error.log \
 RUN mkdir -p /var/www/hacklol-modifier
 COPY www/ /var/www/hacklol-modifier
 RUN chown -R apache:apache /var/www/hacklol-modifier
+
+# Regenerate Composer autoload
+RUN cd /var/www/hacklol-modifier/hacklol-modifier/page_loader \
+    && rm -rf vendor \
+    && composer install --no-dev --optimize-autoloader
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
     CMD wget -q --no-cache --spider http://localhost/ || exit 1
