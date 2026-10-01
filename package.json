@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "devDependencies": {
-    "electron": "^43.4.0",
+    "electron": "^44.5.1",
     "electron-builder": "^26.15.3",
     "electron-packager": "^17.1.2",
     "gulp": "^5.0.1",
@@ -79,5 +79,8 @@
   "bugs": {
     "url": "https://github.com/Eliastik/hacklol-modifier/issues"
   },
-  "homepage": "https://github.com/Eliastik/hacklol-modifier#readme"
+  "homepage": "https://github.com/Eliastik/hacklol-modifier#readme",
+  "allowScripts": {
+    "electron-winstaller@5.4.0": true
+  }
 }
