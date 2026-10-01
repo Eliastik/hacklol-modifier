@@ -13,7 +13,7 @@ L'application est disponible en français et en anglais.
 
 * By Eliastik ( http://www.eliastiksofts.com )
 * Langages : HTML, CSS, Javascript, PHP
-* Version actuelle : 1.4.1 REV6 (19/07/2026)
+* Version actuelle : 1.4.1 REV7 (01/10/2026)
 * Dépôt Github : https://github.com/Eliastik/hacklol-modifier
 * Licence : GNU GPL 3.0
 
@@ -151,6 +151,9 @@ Le nom de l'application est modifiable en éditant le fichier www/config.php et 
 
 ### Journal des mises à jour
 
+* Version 1.4.1 REV7 (01/10/2026) :
+    - Mise à jour des dépendances (dont Electron pour la version application Windows/Linux)
+
 * Version 1.4.1 REV6 (19/07/2026) :
     - Mise en place du packaging sous forme d'une application hybride Electron-PHP (via StaticPHP), pour permettre de lancer Hacklol Modifier avec juste un seul exécutable selon la plateforme (installateur/exécutable portable sur Windows, exécutable appimage sous Linux)
         - Pas encore disponible pour MacOS
@@ -269,7 +272,7 @@ The app is available in english and in french.
 
 * By Eliastik ( http://www.eliastiksofts.com )
 * Languages : HTML, CSS, Javascript, PHP
-* Current version: 1.4.1 REV6 (7/19/2026)
+* Current version: 1.4.1 REV7 (10/1/2026)
 * Github repository: https://github.com/Eliastik/hacklol-modifier
 * License: GNU GPL 3.0
 
@@ -406,6 +409,9 @@ PHP-Proxy is installed via composer in the folder www/hacklol-modifier/page_load
 The app name is editable by modifying the files www/config.php and www/hacklol-modifier/assets/src/js/main.js.
 
 ### Changelog
+
+* Version 1.4.1 REV7 (10/1/2026) :
+    - Updated dependencies (including Electron for the Windows/Linux version)
 
 * Version 1.4.1 REV6 (07/19/2026):
     - Implemented packaging as a hybrid Electron-PHP application (via StaticPHP), allowing Hacklol Modifier to be launched with a single executable depending on the platform (installer/portable executable on Windows, AppImage executable on Linux)
